@@ -2,7 +2,7 @@
 layout: page
 title: A reproducible workflow for Füssel et al. 2025
 modified: 2025-07-03
-excerpt: "A bioinformatics workflow for genomically guided compound prediction in Roseobacter co-culture experiments"
+excerpt: "A bioinformatics workflow for genomically guided compound prediction in cultures and co-cultures"
 comments: true
 authors: [sam]
 redirect_from:
@@ -32,9 +32,9 @@ Microorganisms in the surface ocean remineralize the majority (~84%) of photosyn
 
 ### Cultures
 
-We cultured the four isolate strains belonging to the Roseobacter clade individually and in co-cultures of two, three, and all four strains. We set up each treatment in triplicates. The artificial seawater minimal medium used in the experiment contained 1 g/L of glucose, trace elements, vitamins, and a bicarbonate buffer.
+We cultured four isolates that belonged to three genera (*Pelagimonas*, *Sulfitobacter*, *Phaeobacter*) within the family *Roseobacteraceae*, a diverse clade of heterotrophic bacteria in a combinatorial fashion (i.e., as individuals as well as co-cultures two, three, and all four strains) as triplicates using an artificial seawater minimal medium, which contained 1 g/L of glucose, trace elements, vitamins, and a bicarbonate buffer.
 
-The four strains were found to have divergent metabolic capabilities from their genomes and substrate utilization preferences in culture. *Pelagimonas varians* SH4-1 (**SH4**) has a more extensive set of sugar metabolism genes than the other three strains, and grew on a variety of organic acids and monosaccharides, as well as a few polysaccharides. In the glucose minimal medium, SH4 had a negligible lag phase and grew to a higher optical density compared to the other strains. *Phaeobacter* sp. **SH40** and *Sulfitobacter* sp. SH22-1 (**SH22**) grew well on organic acids and relatively poorly on sugars, and *Sulfitobacter* sp. SH24-1b (**SH24**) exhibited limited growth on all tested substrates. After a longer lag phase compared to SH4, the three other strains also grew more slowly to stationary phase.
+The four strains had divergent metabolic capabilities from their genomes and substrate utilization preferences in culture. *Pelagimonas varians* SH4-1 (**SH4**) has a more extensive set of sugar metabolism genes than the other three strains, and grew on a variety of organic acids and monosaccharides, as well as a few polysaccharides. In the glucose minimal medium, SH4 had a negligible lag phase and grew to a higher optical density compared to the other strains. *Phaeobacter* sp. **SH40** and *Sulfitobacter* sp. SH22-1 (**SH22**) grew well on organic acids and relatively poorly on sugars, and *Sulfitobacter* sp. SH24-1b (**SH24**) exhibited limited growth on all tested substrates. After a longer lag phase compared to SH4, the three other strains also grew more slowly to stationary phase.
 
 Growth in co-culture contrasted with growth in monoculture. The observed growth exceeded modeled growth based on competitive glucose consumption, especially in co-cultures with SH4. The discrepancy between co-culture growth curves and models generally increased with the addition of strains, suggesting metabolic cross-feeding across strains.
 
@@ -88,7 +88,7 @@ The computational demands of reproducing the workflow are minimal. All commands 
 
 ### The data pack
 
-Below you will find brief descriptions of individual files used in our downstream analyses. If you would like to follow this workflow, you can download the following data pack that includes the four Roseobacter genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (or replace directory names manually):
+Below you will find brief descriptions of individual files used in our downstream analyses. If you would like to follow this workflow, you can download the following data pack that includes the four genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (or replace directory names manually):
 
 ``` bash
 # make sure there is a Downloads directory at your home
@@ -98,13 +98,13 @@ mkdir -p ~/Downloads
 cd ~/Downloads
 
 # download the data pack
-curl -o roseobacter-metabolomics.tar.gz https://merenlab.org/data/roseobacter-metabolomics/files/roseobacter-metabolomics.tar.gz
+curl -o roseobacteraceae-dom-datapack.tar.gz https://merenlab.org/data/roseobacteraceae-dom-datapack/files/roseobacteraceae-dom-datapack.tar.gz
 
 # unpack the data pack
-tar -zxvf roseobacter-metabolomics.tar.gz
+tar -zxvf roseobacteraceae-dom-datapack.tar.gz
 
 # go into the resulting data directory:
-cd roseobacter-metabolomics
+cd roseobacteraceae-dom-datapack
 ```
 
 If you are here, you should be looking at a directory structure like this:
@@ -115,7 +115,7 @@ If you are here, you should be looking at a directory structure like this:
 ├── SH40-CONTIGS.db
 ├── SH24-CONTIGS.db
 ├── SH22-CONTIGS.db
-├── roseobacter-metabolomics-data.tsv
+├── roseobacteraceae-dom-datapack-data.tsv
 ```
 
 ### Genomes
@@ -210,7 +210,7 @@ anvi-export-contigs -c SH22-CONTIGS.db -o SH22.fa
 
 ### Metabolomics table
 
-The other file in this data pack, `roseobacter-metabolomics-data.tsv`, contains the processed spectral data, including monoisotopic molecular formulas and sample abundances. This is the same file that appears in our Füssel et al. publication as SI Table 2b.
+The other file in this data pack, `roseobacteraceae-dom-datapack-data.tsv`, contains the processed spectral data, including monoisotopic molecular formulas and sample abundances. This is the same file that appears in our Füssel et al. publication as SI Table 2b.
 
 Here are the first few lines of this table, so you can browse the individual columns that are included:
 
@@ -438,13 +438,13 @@ On average 40.8% of compounds in the default "EC+KEGG" network are removed ignor
 Load the metabolomics data table, SI Table 2b from the paper. Each row represents a monoisotopic molecular feature.
 
 ```python
-roseobacter_metabolomics_df = pd.read_csv('roseobacter-metabolomics-data.tsv', sep='\t', header=0)
+roseobacteraceae_dom_df = pd.read_csv('roseobacteraceae-dom-datapack-data.tsv', sep='\t', header=0)
 ```
 
 Confirm that a unique molecular formula was assigned to each feature.
 
 ```python
-len(roseobacter_metabolomics_df) == roseobacter_metabolomics_df['formula_isotopefree'].nunique()
+len(roseobacteraceae_dom_df) == roseobacteraceae_dom_df['formula_isotopefree'].nunique()
 ```
 
 ### Add deprotonated formulas
@@ -452,7 +452,7 @@ len(roseobacter_metabolomics_df) == roseobacter_metabolomics_df['formula_isotope
 Add formulas for deprotonated versions of compounds as they may exist in the aqueous solution of cultures and the ModelSEED database used to populate compounds in reaction networks. Allow up to 2 hydrogens, 1 per oxygen, to be removed from each neutral formula. It does not make sense to remove 3 hydrogens in searching for common metabolites, since there are few with a -3 charge -- primarily the tricarboxylic acids citrate, isocitrate, and aconitate in the TCA cycle.
 
 ```python
-formula_data = roseobacter_metabolomics_df[['formula', 'formula_isotopefree', 'O', 'H']]
+formula_data = roseobacteraceae_dom_df[['formula', 'formula_isotopefree', 'O', 'H']]
 
 deprot_rows = []
 for _, row in formula_data.iterrows():
@@ -482,10 +482,10 @@ for _, row in formula_data.iterrows():
 header = [f'formula_isotopefree_minus_{num_protons_subtracted}_H' for num_protons_subtracted in range(1, 3)]
 deprot_table = pd.DataFrame(deprot_rows, columns=header)
 
-cols = roseobacter_metabolomics_df.columns.tolist()
+cols = roseobacteraceae_dom_df.columns.tolist()
 col_idx = cols.index('formula_isotopefree')
-before = roseobacter_metabolomics_df[cols[: col_idx + 1]]
-after = roseobacter_metabolomics_df[cols[col_idx + 1: ]]
+before = roseobacteraceae_dom_df[cols[: col_idx + 1]]
+after = roseobacteraceae_dom_df[cols[col_idx + 1: ]]
 feature_table = pd.concat([before, deprot_table, after], axis=1)
 ```
 
