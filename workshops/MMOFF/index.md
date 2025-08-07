@@ -223,13 +223,13 @@ Julie Robidart is the Head of Ocean Technology and Engineering at NOC in the UK.
 
 🇺🇸 _Monterey Bay Aquarium Research Institute (MBARI)_ \| [learn more](https://www.mbari.org/person/kathleen-pitz/)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/katie.jpeg" alt="Kathleen Pitz"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Kathleen (Katie) Pitz is a Senior Research Technician at MBARI in the US. Katie is interested in combining molecular and acoustic techniques to study marine ecosystems, with a focus on characterizing microbial and biological diversity in relation to oceanographic processes. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Kathleen-Pitz-2166886137) that spans biological oceanography and environmental genomics, you may know Katie from her leadership of the Better Biomolecular Ocean Practices ([BeBOP](https://bebop-obon.github.io)) project and her involvement in [OBON](https://obon-ocean.org). We invited Katie because of her expertise in molecular ecology, her leadership in the BeBOP project, and her contributions to coordinating molecular approaches within the broader ocean observing community.
 
@@ -353,17 +353,17 @@ Tobias Guldberg Frøslev is a Scientific Officer at the Global Biodiversity Info
 
 ### Yosmina Tapilatu
 
-🇮🇩 _Indonesian Institute of Sciences_ \| [learn more](https://www.researchgate.net/profile/Yosmina-Tapilatu)
+🇮🇩 _The National Research and Innovation Agency" (PRLD BRIN)_ \| [learn more](https://www.researchgate.net/profile/Yosmina-Tapilatu)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/yosmina.jpeg" alt="Yosmina Tapilatu"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
 
-Yosmina Tapilatu is a Senior Research Scientist at the National Research and Innovation Agency in Indonesia. Yosmina is interested in marine biodiversity of Maluku Archipelago, ranging from bacteria to invertebrates. Besides her [extensive body of work](https://scholar.google.com/citations?user=ixjeJVIAAAAJ&hl=de&oi=ao) that spans deep-sea ecology and hydrocarbonoclastic prokaryotes, you may know Yosmina from her involvement in regional coordination efforts and in the [Association of Tropical Biology and Conservation](https://tropicalbiology.org). We invited Yosmina because of her expertise in deep-sea microbial ecology, her involvement in Indonesian observing efforts, and the regional perspective she brings for marine microbial observing in Indonesia.
+
+Yosmina Tapilatu is a Senior Research Scientist at the National Research and Innovation Agency in Indonesia. Yosmina is interested in marine biodiversity of Maluku Archipelago, ranging from bacteria to invertebrates. Besides her [extensive body of work](https://scholar.google.com/citations?user=ixjeJVIAAAAJ&hl=de&oi=ao) that spans deep-sea ecology and hydrocarbonoclastic prokaryotes, you may know Yosmina from her involvement in regional coordination efforts and in the [Association of Tropical Biology and Conservation](https://tropicalbiology.org), as well as from her role as Deep-Ocean Strategy Ambassadors. We invited Yosmina because of her expertise in deep-sea microbial ecology, her involvement in Indonesian observing efforts, and the regional perspective she brings for marine microbial observing in Indonesia.
 
 
 
