@@ -2173,6 +2173,9 @@ anvi-estimate-metabolism --matrix-format -e external-genomes.txt --include-metad
 # extract the matrix
 cut -f1,6- metabolism-module_pathwise_presence-MATRIX.txt > matrix.txt
 
+# newick tree for modules
+anvi-matrix-to-newick -o module.tree matrix.txt
+
 # extract the module data
 cut -f-5 metabolism-module_pathwise_presence-MATRIX.txt | awk '{print $1 "\t" $0}' > module_metadata.txt
 ```
@@ -2206,7 +2209,7 @@ anvi-import-misc-data -t layer_orders -p PROFILE.db genomes_order.txt
 Now if you run {% include PROGRAM name='anvi-interactive' %} again, you will see the heatmap showing the presence/absence of KEGG metabolic module across all 39 genomes:
 
 ```bash
-anvi-interactive --manual -t module.tree -d matrix.txt -p PROFILE.d
+anvi-interactive --manual -t module.tree -d matrix.txt -p PROFILE.db
 ```
 
 You will be able to easily notice the absence of notable metabolic module in the prematurely circularized _Methanothrix_ contig, like most metabolic module associated with methanogenesis. Modules associated with nucleotide metabolism, cofactor and vitamin metabolism and amino acid metabolism were also absent from the hifiasm-meta contig, despite begin present in every single other _Methanothrix_ genome.
