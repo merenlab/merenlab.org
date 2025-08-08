@@ -11,9 +11,9 @@ authors: [florian]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to our bioinfromatics workflow that generated the results for our study titled "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al.
+**The purpose of this page** is to provide access to our bioinformatics workflow that generated the results for our study titled "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al.
 
-In addition to providing a level of transparency to clarify our findings, we are hoping that the workflow implemented on this page can be used to include additional assemblers or datasets to advance these benchmkarks.
+In addition to providing a level of transparency to clarify our findings, we are hoping that the workflow implemented on this page can be used to include additional assemblers or datasets to advance these benchmarks.
 
 We will soon update this page with DOIs to reproducible and intermediate data products, and a link to the pre-print of the study.
 
@@ -38,7 +38,7 @@ As we progressed in our investigation of assembly errors, we also notice a high 
 
 ## Downloading the data for this reproducible workflow
 
-This reproducible workflow describes all steps that start from raw seqeuncing data to intermediate data products we have generated, which supported all our analyses:
+This reproducible workflow describes all steps that start from raw sequencing data to intermediate data products we have generated, which supported all our analyses:
 
  - Assembled contigs in the form of anvi'o {% include ARTIFACT name='contigs-db' %} files.
  - Read recruitment results as BAM files along with the anvi'o {% include ARTIFACT name='profile-db' %} files.
@@ -71,7 +71,7 @@ SRR31805817
 SRR31805816
 ```
 
-You can use the program {% include PROGRAM name="anvi-run-workflow" %} with the anvi'o workflow [sra-download](https://anvio.org/help/main/workflows/sra-download/) to download all of these metagenomes by simply including a path for the `SRA_accession_list` variable in the workflow config file to point to a text file (i.e., `SRA_accession_list.txt`) with accession IDs above after generating a default worklfow contig:
+You can use the program {% include PROGRAM name="anvi-run-workflow" %} with the anvi'o workflow [sra-download](https://anvio.org/help/main/workflows/sra-download/) to download all of these metagenomes by simply including a path for the `SRA_accession_list` variable in the workflow config file to point to a text file (i.e., `SRA_accession_list.txt`) with accession IDs above after generating a default workflow contig:
 
 ```bash
 anvi-run-workflow -w sra_download -c config.json
@@ -80,7 +80,7 @@ anvi-run-workflow -w sra_download -c config.json
 {:.notice}
 These metagenomes take a total disk space of 417.1 Gb
 
-After downloading all 21 metagenomes, you will need a {% include ARTIFACT name='samples-txt' %} file that contains the name and path for each metagenome. It is a two-column TAB delmited file that should look like this (where `/path/to/` is replaced with the appropriate path for these metagenomes on your system):
+After downloading all 21 metagenomes, you will need a {% include ARTIFACT name='samples-txt' %} file that contains the name and path for each metagenome. It is a two-column TAB delimited file that should look like this (where `/path/to/` is replaced with the appropriate path for these metagenomes on your system):
 
 ```
 sample    path
@@ -107,7 +107,7 @@ HADS_013    /path/to/HADS_013.fq.gz
 HADS_014    /path/to/HADS_014.fq.gz
 ```
 
-## Details fo the computational environment
+## Details of the computational environment
 
 We used the anvi'o version `8-dev`, which is the development version following the `v8` stable release. We introduced the program {% include PROGRAM name='anvi-script-find-misassemblies' %} between `v8` and the next stable release `v9`. This reproducible workflow should work without a problem with more recent version of anvi'o. If that is not the case, please reach out to any of us.
 
@@ -1348,7 +1348,7 @@ sort -k3,2 summary-unsorted.txt >> summary.txt
 
 You can find the result of this summary in Supplementary Table 2.
 
-### Visalizing various statistics
+### Visualizing various statistics
 
 From the output above, one can generate multiple summary plots just like we did in Figure 1, where we summarized and compared a few metrics per assembler. For that, we will need R.
 
@@ -1468,7 +1468,7 @@ df_group_summary <- df_long %>%
 # Plot by group
 Group_barplot <- function(df, metric='', has_legend = F){
   p <- ggplot(df[df$Metric %in% metric,], aes(x = Assembler, y = mean_value, fill = Assembler))
-  p <- p + geom_errorbar(aes(ymin = ci_low, ymax = ci_high), 
+  p <- p + geom_errorbar(aes(ymin = ci_low, ymax = ci_high),
                 position = position_dodge(width = 0.8),
                 width = 0.2)
   p <- p + geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7)
@@ -1914,7 +1914,7 @@ hifiasm_meta_AD_sludge_linear_s64_ctg000087l\t01_HIFIASM_CONTIGS/hifiasm_meta_AD
 hifiasm_meta_AD_sludge_Methanothrix_MAG\t01_HIFIASM_CONTIGS/hifiasm_meta_AD_sludge_Methanothrix_MAG.fasta" >> fasta.txt
 ```
 
-### Runing the anvi'o pangenomics workflow
+### Running the anvi'o pangenomics workflow
 
 To generate a pangenome, we can use the build-in pangenomics workflow in {% include PROGRAM name='anvi-run-workflow' %}. Just like for [the contigs workflow](#contigs_database), we need to provide a {% include ARTIFACT name='workflow-config' %} file which specifies which rules and parameters we want to run. Here is my config file for this workflow:
 
