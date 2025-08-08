@@ -1471,7 +1471,7 @@ def main():
     num_circular = count_circular(assembly_info_file, [10000, 50000])
 
     # Extract repeat statistics
-    repeats_summary_file = f"{assembler}/11_REPEATS/{sample}/ALL/repeats-summary.txt"
+    repeats_summary_file = f"{assembler}/11_REPEATS/{sample}/repeats-summary.txt"
     num_repeats = extract_column_from_file(repeats_summary_file, 2)
     max_repeat_copy = extract_column_from_file(repeats_summary_file, 3)
     average_repeat_length = extract_column_from_file(repeats_summary_file, 6, skip_carriage_return=True)
@@ -1491,7 +1491,7 @@ def main():
     clippings_result = analyze_clippings(assembler, sample, total_size, num_circular)
 
     # Analyze repeats for contigs < 50000bp
-    coverage_file = f"{assembler}/11_REPEATS/{sample}/ALL/coverage_out.txt"
+    coverage_file = f"{assembler}/11_REPEATS/{sample}/coverage_out.txt"
     repeats_all = analyze_repeats(coverage_file)
     repeats_under_50k = analyze_repeats(coverage_file, max_threshold=50000)
     repeats_over_50k = analyze_repeats(coverage_file, min_threshold=50000)
