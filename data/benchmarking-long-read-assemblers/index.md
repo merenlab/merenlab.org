@@ -1152,179 +1152,361 @@ P(df)
 
 ## Summarizing key statistics
 
-To summarize all the assembly information in a single table, I have create the following monster bash script. In order, it extract information from the output of {% include PROGRAM name='anvi-display-contigs-stats' %} (number of contigs, total length, N50, shortest and longest contig, estimated number of genome, total number of genes) which was generate [here](summarize-the-contigs-databases), the number of circular contigs (from [here](#reformat-the-contigs)). It reports the number of repeats, their average length, average percent identity, maximum size and maximum number of copies generated in [the section above](#find_repeats). It also extract the number of prematurely circular contigs based on metrics discussed in [here](#prematurely-circular-contigs). Then, two `awk` commands extract the number of SNVs and INDELs either supported by a minority of long reads, or not supported at all by any long reads, as well as the number of unique genes impacted by these unexpected SNVs and INDELs. These `awk` command uses the outputs generated [here](#snvs-and-indels). The third `awk` command goes through the output of {% include PROGRAM name='anvi-script-find-misassemblies' %}, generated [here](#running-anvi-script-find-misassemblies), and reports many metrics related to clipping events and regions without coverage. Last but not least is an `awk` command that summarize the amount of contigs covered by at least 70% of repeats
+To summarize all the assembly information in a single table, I have the following script. It extract information from the output of {% include PROGRAM name='anvi-display-contigs-stats' %} (number of contigs, total length, N50, shortest and longest contig, estimated number of genome, total number of genes) which was generate [here](summarize-the-contigs-databases), the number of circular contigs (from [here](#reformat-the-contigs)). It reports the number of repeats, their average length, average percent identity, maximum size and maximum number of copies generated in [the section above](#find_repeats). It also extract the number of prematurely circular contigs based on metrics discussed in [here](#prematurely-circular-contigs). Then, it extracts the number of SNVs and INDELs either supported by a minority of long reads, or not supported at all by any long reads, as well as the number of unique genes impacted by these unexpected SNVs and INDELs. It uses the outputs generated [here](#snvs-and-indels). The scripts also goes through the output of {% include PROGRAM name='anvi-script-find-misassemblies' %}, generated [here](#running-anvi-script-find-misassemblies), and reports many metrics related to clipping events and regions without coverage. Last but not least, the scripts summarizes the amount of contigs covered by at least 70% of repeats, and report the values for all contigs + circular contigs only for three ranges of contig's length: all length, under 50kbp, over 50kbp.
 
 The following script is then run in a loop over each assembly:
 
-```bash
-#!/bin/bash
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-assembler=$1
-sample=$2
+import sys
+import re
 
-total_num_seq=`grep "Num Contigs" ${assembler}/05_CONTIGS_STATS/${sample}.txt | head -n 1 | cut -f2`
-total_size=`grep "Total Length" ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2`
-n50=`grep "N50" ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2`
-shortest_contig=`grep "Shortest Contig" ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2`
-longest_contig=`grep "Longest Contig" ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2`
-estimated_num_genomes=`tail -n 3 ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2 | awk '{i+=$0}END{print i}'`
-total_num_genes=`grep "Num Genes (prodigal)" ${assembler}/05_CONTIGS_STATS/${sample}.txt | cut -f2`
 
-num_circular=`awk 'NR>1 && $1 ~ /circular/{i+=1}END{print i}' ${assembler}/01_ASSEMBLIES/${sample}/assembly_renamed_info.txt`
+def extract_value_from_file(filepath, pattern, field_index=1):
+    """Extract a value from a file based on a pattern match."""
+    with open(filepath, 'r') as f:
+        for line_num, line in enumerate(f, 1):
+            if pattern in line:
+                parts = line.strip().split('\t')
+                if len(parts) > field_index:
+                    value = parts[field_index]
+                    return value
 
-num_repeats=`cut -f3 ${assembler}/11_REPEATS/${sample}/repeats-summary.txt`
-max_repeat_copy=`cut -f4 ${assembler}/11_REPEATS/${sample}/repeats-summary.txt`
-average_repeat_length=`cut -f7 ${assembler}/11_REPEATS/${sample}/repeats-summary.txt | tr -d '\r'`
-average_repeat_identity=`cut -f6 ${assembler}/11_REPEATS/${sample}/repeats-summary.txt`
-longest_repeat=`cut -f5 ${assembler}/11_REPEATS/${sample}/repeats-summary.txt`
 
-premature_circular_contigs=`grep -E "$assembler($|\s)" circ_contigs_with_min_RPs.txt | grep ${sample} | cut -f3`
+def count_circular(filepath, thresholds):
+    """
+    Count circular contigs in a file and categorize by length.
 
-INDELs=`awk -F "\t" \
-        -v total_size="$total_size" \
-        'NR > 1 {
-        if ($16 == $17) {
-            full_indel +=1
-            if ($5 != -1) {
-                gene_full[$5] +=1
-            }
-        } else {
-            if ($16 / $17 > 0.5) {
-                partial_indel += 1
-                if ($5 != -1) {
-                    gene_partial[$5] += 1
-                }
-            }
-        }
-    }
-    END {
-        OFS = "\t"
-        print partial_indel, partial_indel / (total_size / 1000000), length(gene_partial), full_indel, full_indel / (total_size / 1000000), length(gene_full)
-    }' ${assembler}/09_SNV_INDELS/indels-${sample}.txt`
+    Parameters:
+        filepath (str): Path to the input file.
+        threshold (int): Length threshold to split circular contigs.
 
-SNVs=`awk -F "\t" \
-        -v total_size="$total_size" \
-        'NR > 1 {
-        a["A"]=$16
-        a["C"]=$17
-        a["G"]=$18
-        a["T"]=$19
-        if (a[$15] == 0) {
-            full_SNV += 1
-            gene_full[$5] += 1
-        } else {
-            for (i in a) {
-                if (a[$15] < a[i]) {
-                    partial_SNV += 1
-                    gene_partial[$5] += 1
-                }
-            }
-        }
-    }
-    END {
-    OFS = "\t"
-    print partial_SNV, partial_SNV / (total_size / 1000000), length(gene_partial), full_SNV, full_SNV / (total_size / 1000000), length(gene_full)
-    }' ${assembler}/09_SNV_INDELS/SNVs-${sample}.txt`
+    Returns:
+        dict: Counts of total, <= threshold, and > threshold circular contigs.
+    """
+    total_circular = {'count': 0, 'length': 0}
+    for threshold in thresholds:
+        total_circular[f"under_{threshold}"] = {'count': 0, 'length': 0}
+        total_circular[f"over_{threshold}"] = {'count': 0, 'length': 0}
 
-# now compute the clipping events
-clippings=`awk -F "\t" \
-        -v total_size="$total_size" \
-        -v num_circular="$num_circular" \
-        'BEGIN {
-            clip = 0
-            clip_10x = 0
-            zero = 0
-            zero_1000 = 0
-            circ_clip = 0
-            circ_zero = 0
-        }
+    with open(filepath, 'r') as f:
+        for i, line in enumerate(f):
+            if i == 0:
+                continue  # Skip header
+            parts = line.strip().split('\t')
+            contig_length = int(parts[1])
+            circularity = parts[2].strip()
+            if re.search(r'circular', circularity):
+                total_circular['count'] += 1
+                total_circular['length'] += contig_length
+                for threshold in thresholds:
+                    if contig_length <= threshold:
+                        total_circular[f"under_{threshold}"]['count'] += 1
+                        total_circular[f"under_{threshold}"]['length'] += contig_length
+                    else:
+                        total_circular[f"over_{threshold}"]['count'] += 1
+                        total_circular[f"over_{threshold}"]['length'] += contig_length
+    return total_circular
 
-        NR == FNR && FNR > 1 {
-            if ($7 == 1) {
+
+def extract_column_from_file(filepath, column_index, skip_carriage_return=False):
+    """Extract a specific column from a file."""
+    with open(filepath, 'r') as f:
+        line = f.readline().strip()
+        value = line.split('\t')[column_index]
+        if skip_carriage_return:
+            value = value.replace('\r', '')
+        return value
+
+
+def calculate_estimated_genomes(filepath):
+    """Calculate estimated number of genomes from last 3 lines."""
+    with open(filepath, 'r') as f:
+        lines = f.readlines()
+        if len(lines) < 3:
+            return "0"
+        last_three = lines[-3:]
+        total = 0
+        for line in last_three:
+            parts = line.split('\t')
+            if len(parts) > 1:
+                total += int(parts[1])
+        return str(total)
+
+
+def extract_premature_circular_contigs(assembler, sample):
+    """Extract premature circular contigs count."""
+    with open('circ_contigs_with_min_RPs.txt', 'r') as f:
+        for line in f:
+            if sample in line and assembler in line:
+                parts = line.strip().split('\t')
+                return parts[2] if len(parts) > 2 else "0"
+
+
+def analyze_indels(filepath, total_size):
+    """Analyze INDELs from the indels file."""
+    partial_indel = 0
+    full_indel = 0
+    gene_partial = set()
+    gene_full = set()
+
+    with open(filepath, 'r') as f:
+        for i, line in enumerate(f):
+            if i == 0:  # Skip header
+                continue
+
+            parts = line.strip().split('\t')
+
+            col16 = float(parts[15])  # 0-indexed, so col 16 is index 15
+            col17 = float(parts[16])
+            col5 = parts[4]
+
+            if col16 == col17:
+                full_indel += 1
+                if col5 != "-1":
+                    gene_full.add(col5)
+            else:
+                if col17 > 0 and col16 / col17 > 0.5:
+                    partial_indel += 1
+                    if col5 != "-1":
+                        gene_partial.add(col5)
+
+    total_size_val = int(total_size)
+    total_size_mb = total_size_val / 1000000 if total_size_val > 0 else 1
+    partial_rate = partial_indel / total_size_mb if total_size_mb > 0 else 0
+    full_rate = full_indel / total_size_mb if total_size_mb > 0 else 0
+    return f"{partial_indel}\t{partial_rate:.6f}\t{len(gene_partial)}\t{full_indel}\t{full_rate:.6f}\t{len(gene_full)}"
+
+
+def analyze_snvs(filepath, total_size):
+    """Analyze SNVs from the SNVs file."""
+    partial_snv = 0
+    full_snv = 0
+    gene_partial = set()
+    gene_full = set()
+
+    with open(filepath, 'r') as f:
+        for i, line in enumerate(f):
+            if i == 0:  # Skip header
+                continue
+
+            parts = line.strip().split('\t')
+
+            col15 = parts[14]  # 0-indexed
+            col5 = parts[4]
+            a_count = int(parts[15])
+            c_count = int(parts[16])
+            g_count = int(parts[17])
+            t_count = int(parts[18])
+
+            counts = {'A': a_count, 'C': c_count, 'G': g_count, 'T': t_count}
+
+            if counts[col15] == 0:
+                full_snv += 1
+                gene_full.add(col5)
+            else:
+                for base, count in counts.items():
+                    if counts[col15] <= count:
+                        partial_snv += 1
+                        gene_partial.add(col5)
+                        break
+
+        total_size_val = int(total_size)
+        total_size_mb = total_size_val / 1000000 if total_size_val > 0 else 1
+        partial_rate = partial_snv / total_size_mb if total_size_mb > 0 else 0
+        full_rate = full_snv / total_size_mb if total_size_mb > 0 else 0
+        return f"{partial_snv}\t{partial_rate:.6f}\t{len(gene_partial)}\t{full_snv}\t{full_rate:.6f}\t{len(gene_full)}"
+
+
+def analyze_clippings(assembler, sample, total_size, num_circular):
+    """Analyze clipping events from clipping and zero coverage files."""
+    clip = 0
+    clip_10x = 0
+    zero = 0
+    zero_1000 = 0
+    circ_clip = 0
+    circ_zero = 0
+    clip_10kbp = set()
+    clip_10x_10kbp = set()
+    zero_10kbp = set()
+    zero_1000_10kbp = set()
+    num_circ_clip = set()
+
+    small_circular = num_circular['under_10000']
+    large_circular = num_circular['over_10000']
+    num_small_circ = set()
+    num_large_circ = set()
+    num_small_circ_clip = 0
+    num_large_circ_clip = 0
+
+    # Process clipping file
+    clipping_file = f"{assembler}/03_MISASSEMBLIES/{sample}-clipping.txt"
+    with open(clipping_file, 'r') as f:
+        for i, line in enumerate(f):
+            if i == 0:  # Skip header
+                continue
+            parts = line.strip().split('\t')
+            contig_name = parts[0]
+
+            length = int(parts[1])
+            col5 = float(parts[4])
+            col7 = float(parts[6])
+
+            if col7 == 1:
                 clip += 1
-                if ($2 > 10000) {
-                    clip_10kbp[$1] +=1
-                }
-                if ($5 > 10) {
+                if length > 10000:
+                    clip_10kbp.add(contig_name)
+                if col5 > 10:
                     clip_10x += 1
-                    if ($2 > 10000) {
-                        clip_10x_10kbp[$1] +=1
-                    }
-                }
-                if ($1 ~ /circular/) {
+                    if length > 10000:
+                        clip_10x_10kbp.add(contig_name)
+                if 'circular' in contig_name:
                     circ_clip += 1
-                    if (num_circ_clip[$1] == "") {
-                        num_circ_clip[$1] = "X"
-                    }
-                }
-            }
-        }
+                    num_circ_clip.add(contig_name)
+                    if length <= 10000:
+                        num_small_circ_clip += 1
+                        num_small_circ.add(contig_name)
+                    else:
+                        num_large_circ_clip += 1
+                        num_large_circ.add(contig_name)
 
-        NR != FNR && FNR > 1 {
+    # Process zero coverage file
+    zero_file = f"{assembler}/03_MISASSEMBLIES/{sample}-zero_cov.txt"
+    with open(zero_file, 'r') as f:
+        for i, line in enumerate(f):
+            if i == 0:  # Skip header
+                continue
+            parts = line.strip().split('\t')
+
+            contig_name = parts[0]
+            length = int(parts[1])
+            col4 = int(parts[3])
+
             zero += 1
-            if ($2 > 10000) {
-                zero_10kbp[$1] +=1
-            }
-            if ($4 > 1000) {
+            if length > 10000:
+                zero_10kbp.add(contig_name)
+            if col4 > 1000:
                 zero_1000 += 1
-                if ($2 > 10000) {
-                    zero_1000_10kbp[$1] +=1
-                }
-                if ($1 ~ /circular/) {
+                if length > 10000:
+                    zero_1000_10kbp.add(contig_name)
+                if 'circular' in contig_name:
                     circ_zero += 1
-                }
-            }
-        }
 
-        END {
-            OFS = "\t"
-            print clip, clip / (total_size / 10000000), length(clip_10kbp),
-            clip_10x, clip_10x / (total_size / 100000000), length(clip_10x_10kbp),
-            zero, zero / (total_size / 1000000), length(zero_10kbp), zero_1000, zero_1000 / (total_size / 100000000),
-            length(zero_1000_10kbp), num_circular, circ_clip,
-            length(num_circ_clip), length(num_circ_clip) / num_circular * 100, circ_zero
-        }' \
-        ${assembler}/03_MISASSEMBLIES/${sample}*-clipping.txt ${assembler}/03_MISASSEMBLIES/${sample}*-zero_cov.txt`
+    total_size_val = int(total_size) if total_size and total_size != "0" else 1
+    num_circular_count = int(num_circular['count'])
 
-# the number of contigs <50kwith repeats
-repeats_50000=`awk -F "\t" \
-    -v size="50000" \
-   'BEGIN {
-       num_contig = 0
-       num_bad = 0
-       num_circ_contig = 0
-       num_circ_bad = 0
-   }
-   {if ($6 < size) {
-       num_contig += 1
-       if ($7 > 0.7) {
-           num_bad +=1
-       }
-   }
-   if ($1 ~ /circular/ && $6 < size) {
-       num_circ_contig += 1
-       if ($7 > 0.7) {
-       num_circ_bad +=1
-       }
-   }}
-   END {
-       OFS = "\t"
-       if (num_contig !=0) {
-           ratio = num_bad/num_contig
-       } else {
-           ratio = 0
-       }
-       if (num_circ_contig !=0) {
-           ratio_circ = num_circ_bad/num_circ_contig
-       } else {
-           ratio_circ = 0
-       }
-       print num_contig, num_bad, ratio, num_circ_contig, num_circ_bad, ratio_circ
-   }' \
-   ${assembler}/11_REPEATS/${sample}/coverage_out.txt`
+    # Calculate rates with safe division
+    clip_rate1 = clip / (total_size_val / 10000000) if total_size_val > 0 else 0
+    clip_10x_rate = clip_10x / (total_size_val / 100000000) if total_size_val > 0 else 0
+    zero_rate = zero / (total_size_val / 1000000) if total_size_val > 0 else 0
+    zero_1000_rate = zero_1000 / (total_size_val / 100000000) if total_size_val > 0 else 0
+    circ_clip_ratio = (len(num_circ_clip) / num_circular_count * 100) if num_circular_count > 0 else 0
+    small_circ_clip_ratio = (len(num_small_circ) / small_circular['count'] * 100) if small_circular['count'] > 0 else 0
+    small_circ_clip_rate = num_small_circ_clip / (small_circular['length'] / 10000) if small_circular['length'] > 0 else 0
+    large_circ_clip_ratio = (len(num_large_circ) / large_circular['count'] * 100) if large_circular['count'] > 0 else 0
+    large_circ_clip_rate = num_large_circ_clip / (large_circular['length'] / 10000) if large_circular['length'] > 0 else 0
 
-# print it all
-echo -e "$sample\t$assembler\t$total_size\t$total_num_seq\t$n50\t$shortest_contig\t$longest_contig\t$estimated_num_genomes\t$total_num_genes\t$clippings\t$premature_circular_contigs\t$SNVs\t$INDELs\t$repeats_50000\t$num_repeats\t$max_repeat_copy\t$average_repeat_length\t$average_repeat_identity\t$longest_repeat"
+    return (f"{clip}\t{clip_rate1:.6f}\t{len(clip_10kbp)}\t"
+            f"{clip_10x}\t{clip_10x_rate:.6f}\t{len(clip_10x_10kbp)}\t"
+            f"{zero}\t{zero_rate:.6f}\t{len(zero_10kbp)}\t{zero_1000}\t{zero_1000_rate:.6f}\t"
+            f"{len(zero_1000_10kbp)}\t{num_circular_count}\t{circ_clip}\t"
+            f"{len(num_circ_clip)}\t{circ_clip_ratio:.6f}\t{circ_zero}\t"
+            f"{small_circular['count']}\t{num_small_circ_clip}\t{len(num_small_circ)}\t{small_circ_clip_ratio}\t{small_circ_clip_rate}\t"
+            f"{large_circular['count']}\t{num_large_circ_clip}\t{len(num_large_circ)}\t{large_circ_clip_ratio}\t{large_circ_clip_rate}")
+
+
+def analyze_repeats(filepath, min_threshold=None, max_threshold=None):
+    """Analyze repeats for contigs"""
+    num_contig = 0
+    num_bad = 0
+    num_circ_contig = 0
+    num_circ_bad = 0
+
+    with open(filepath, 'r') as f:
+        for line in f:
+            parts = line.strip().split('\t')
+
+            contig_name = parts[0]
+            col6 = int(parts[5])
+            col7 = float(parts[6])
+
+            if (max_threshold is None or col6 < max_threshold) and (min_threshold is None or col6 > min_threshold):
+                num_contig += 1
+                if col7 > 0.7:
+                    num_bad += 1
+
+                if 'circular' in contig_name:
+                    num_circ_contig += 1
+                    if col7 > 0.7:
+                        num_circ_bad += 1
+
+    ratio = num_bad / num_contig if num_contig != 0 else 0
+    ratio_circ = num_circ_bad / num_circ_contig if num_circ_contig != 0 else 0
+
+    return f"{num_contig}\t{num_bad}\t{ratio:.6f}\t{num_circ_contig}\t{num_circ_bad}\t{ratio_circ:.6f}"
+
+
+def main():
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <assembler> <sample>")
+        sys.exit(1)
+
+    assembler = sys.argv[1]
+    sample = sys.argv[2]
+
+    # Extract basic assembly statistics
+    stats_file = f"{assembler}/05_CONTIGS_STATS/{sample}.txt"
+    total_num_seq = extract_value_from_file(stats_file, "Num Contigs")
+    total_size = extract_value_from_file(stats_file, "Total Length")
+    n50 = extract_value_from_file(stats_file, "N50")
+    shortest_contig = extract_value_from_file(stats_file, "Shortest Contig")
+    longest_contig = extract_value_from_file(stats_file, "Longest Contig")
+    estimated_num_genomes = calculate_estimated_genomes(stats_file)
+    total_num_genes = extract_value_from_file(stats_file, "Num Genes (prodigal)")
+
+    # Count circular contigs
+    assembly_info_file = f"{assembler}/01_ASSEMBLIES/{sample}/assembly_renamed_info.txt"
+    num_circular = count_circular(assembly_info_file, [10000, 50000])
+
+    # Extract repeat statistics
+    repeats_summary_file = f"{assembler}/11_REPEATS/{sample}/ALL/repeats-summary.txt"
+    num_repeats = extract_column_from_file(repeats_summary_file, 2)
+    max_repeat_copy = extract_column_from_file(repeats_summary_file, 3)
+    average_repeat_length = extract_column_from_file(repeats_summary_file, 6, skip_carriage_return=True)
+    average_repeat_identity = extract_column_from_file(repeats_summary_file, 5)
+    longest_repeat = extract_column_from_file(repeats_summary_file, 4)
+
+    # Extract premature circular contigs
+    premature_circular_contigs = extract_premature_circular_contigs(assembler, sample)
+
+    # Analyze INDELs and SNVs
+    indels_file = f"{assembler}/09_SNV_INDELS/indels-{sample}.txt"
+    snvs_file = f"{assembler}/09_SNV_INDELS/SNVs-{sample}.txt"
+    indels_result = analyze_indels(indels_file, total_size)
+    snvs_result = analyze_snvs(snvs_file, total_size)
+
+    # Analyze clippings
+    clippings_result = analyze_clippings(assembler, sample, total_size, num_circular)
+
+    # Analyze repeats for contigs < 50000bp
+    coverage_file = f"{assembler}/11_REPEATS/{sample}/ALL/coverage_out.txt"
+    repeats_all = analyze_repeats(coverage_file)
+    repeats_under_50k = analyze_repeats(coverage_file, max_threshold=50000)
+    repeats_over_50k = analyze_repeats(coverage_file, min_threshold=50000)
+
+    # Print all results
+    print(f"{sample}\t{assembler}\t{total_size}\t{total_num_seq}\t{n50}\t"
+          f"{shortest_contig}\t{longest_contig}\t{estimated_num_genomes}\t"
+          f"{total_num_genes}\t{clippings_result}\t{premature_circular_contigs}\t"
+          f"{snvs_result}\t{indels_result}\t{repeats_all}\t"
+          f"{repeats_under_50k}\t{repeats_over_50k}\t{num_repeats}\t{max_repeat_copy}\t"
+          f"{average_repeat_length}\t{average_repeat_identity}\t{longest_repeat}")
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 Now the loop to run that script for each assembly:
@@ -1334,13 +1516,12 @@ for assembler in HiCanu hifiasm-meta metaFlye metaMDBG-0.3 metaMDBG-1 metaMDBG-1
 do
     for sample in `sed 1d samples.txt | cut -f1`
     do
-        ./summarize.sh ${assembler} ${sample} >> summary-unsorted.txt
+        ./summarize.py ${assembler} ${sample} >> summary-unsorted.txt
     done
 done
 
 # header for the final summary table
-echo -e "Sample\tAssembler\tTotal_size\tNumber_contigs\tN50\tMin\tMax\tNum_expected_populations\tNum_genes\tClipping\tClipping_per_10Mbp\tNum_contigs10kbp_clipping\tClipping_10x\tClipping_10x_per_100Mbp\tNum_contigs10kbp_clipping_10x\tZero\tZero_per_Mbp\tNum_contigs10k_zero\tZero_1000bp\tZero_1000bp_per_100Mbp\tNum_contigs10kbp_zero_1000\tNum_circular\tClipping_circular\tNum_cir_contigs_impacted\tPercent_circular_contigs_impacted\tCirc_Zero_1000bp\tPremature_circular_contigs_max500kbp\tPartial_SNVs\tPartial_SNVs_per_1Mbp\tNum_gene_partial_SNVs\tfull_SNVs\tfull_SNVs_per_1Mbp\tNum_gene_full_SNVs\tPartial_INDELs\tPartial_INDELs_per_1Mbp\tNum_gene_partial_INDELs\tfull_INDELs\tfull_INDELs_per_1Mbp\tNum_gene_full_INDELs\tNum_contigs_50k\tNum_contigs_with_repeats_50k\tRatio_50k\tNum_circ_contigs_50k\tNum_circ_contigs_with_repeats_50k\tRatio_circ_50k\tNum_repeats\tMax_repeat_copies\tAverage_repeat_length\tAverage_repeat_identity\tLongest_repeat" > summary-v2.txt
-
+echo -e "Sample\tAssembler\tTotal_size\tNumber_contigs\tN50\tMin\tMax\tNum_expected_populations\tNum_genes\tClipping\tClipping_per_10Mbp\tNum_contigs10kbp_clipping\tClipping_10x\tClipping_10x_per_100Mbp\tNum_contigs10kbp_clipping_10x\tZero\tZero_per_Mbp\tNum_contigs10k_zero\tZero_1000bp\tZero_1000bp_per_100Mbp\tNum_contigs10kbp_zero_1000\tNum_circular\tClipping_circular\tNum_cir_contigs_impacted\tPercent_circular_contigs_impacted\tCirc_Zero_1000bp\tNum_cir_contig_under_10k\tClipping\tNum_contigs_with_clipping\tRatio_contig_with_clipping\tClipping_rate\tNum_cir_contig_over_10k\tClipping\tNum_contigs_with_clipping\tRatio_contig_with_clipping\tClipping_rate\tPremature_circular_contigs_max500kbp\tPartial_SNVs\tPartial_SNVs_per_1Mbp\tNum_gene_partial_SNVs\tfull_SNVs\tfull_SNVs_per_1Mbp\tNum_gene_full_SNVs\tPartial_INDELs\tPartial_INDELs_per_1Mbp\tNum_gene_partial_INDELs\tfull_INDELs\tfull_INDELs_per_1Mbp\tNum_gene_full_INDELs\tNum_contigs\tNum_contigs_with_repeats\tRatio\tNum_circ_contigs\tNum_circ_contigs_with_repeats\tRatio_circ\tNum_contigs_under_50k\tNum_contigs_with_repeats_under_50k\tRatio_under_50k\tNum_circ_contigs_under_50k\tNum_circ_contigs_with_repeats_under_50k\tRatio_circ_under_50k\tNum_contigs_over_50k\tNum_contigs_with_repeats_over_50k\tRatio_over_50k\tNum_circ_contigs_over_50k\tNum_circ_contigs_with_repeats_over_50k\tRatio_circ_over_50k\tNum_repeats\tMax_repeat_copies\tAverage_repeat_length\tAverage_repeat_identity\tLongest_repeat" > summary.txt
 
 # sort the final table by sample and assembler
 sort -k3,2 summary-unsorted.txt >> summary.txt
