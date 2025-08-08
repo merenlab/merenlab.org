@@ -11,11 +11,17 @@ authors: [florian]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to our bioinformatics workflow that generated the results for our study titled "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al.
+**The purpose of this page** is to provide access to our bioinformatics workflow that generated the results for our study titled "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by [Trigodet et al.](https://doi.org/10.1101/2025.04.22.649783).
 
 In addition to providing a level of transparency to clarify our findings, we are hoping that the workflow implemented on this page can be used to include additional assemblers or datasets to advance these benchmarks.
 
-We will soon update this page with DOIs to reproducible and intermediate data products, and a link to the pre-print of the study.
+Here are the DOIs for the intermediate data products:
+- The assemblies: [10.6084/m9.figshare.29107748.v3](https://doi.org/10.6084/m9.figshare.29107748.v3)
+- The anvi'o contigs and profile databases: [10.6084/m9.figshare.29246210](https://doi.org/10.6084/m9.figshare.29246210)
+- The outputs of `anvi-script-find-misassemblies`: [10.6084/m9.figshare.29279228](https://doi.org/10.6084/m9.figshare.29279228)
+- The two pangenomes of *Methanothrix* and *E. coli*: [10.6084/m9.figshare.29864903](https://doi.org/10.6084/m9.figshare.29864903)
+
+Unfortunately, the alignment files are way to large to be shared (over 2Tb in total). But the following workflow will help you reproduce them.
 
 ---
 
