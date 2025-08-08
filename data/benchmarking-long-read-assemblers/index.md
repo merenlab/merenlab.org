@@ -748,19 +748,94 @@ do
 done
 ```
 
-Now I want to find the query with no hits. If you paid attention to the previous command, you probably noticed that I use the blast output format 7 which is 'Tabular with comment lines'. It is very similar to the classic format 6 (tab-delimited table) but it contains additional commented lines, including one that say how many hits were found. I will use that line to search for query sequence with no hit.
+Now I want to find the query with no hits. If you paid attention to the previous command, you probably noticed that I use the blast output format 7 which is 'Tabular with comment lines'. It is very similar to the classic format 6 (tab-delimited table) but it contains additional commented lines, including one that say how many hits were found. I will use that line to search for query sequence with no hit. The final report contains the name of the contigs, start and stop positions, length, GC content and the nucleotide sequence.
 
 ```bash
 for assembler in HiCanu hifiasm-meta metaFlye metaMDBG-0.3 metaMDBG-1 metaMDBG-1-1
 do
-    grep -h -B2 "# 0 hits" ${assembler}/10_BLAST_ZERO_COVERAGE/*/zero_cov_regions_ouput.txt |\
+    grep -h -B2 "# 0 hits" ${assembler}/*BLAST*/*/zero_cov_regions_ouput.txt |\
         grep Query |\
-        cut -d ' ' -f3 |\
-        awk -F ":" '{OFS="\t"; split($2, a, "-"); print $0, a[2]-a[1]}' >> non_existing_sequence.txt
+        cut -d ' ' -f3 > ${assembler}/list_problematic_contigs.txt
+    grep -A1 --no-group-separator -h -f ${assembler}/list_problematic_contigs.txt ${assembler}/10_BLAST_ZERO_COVERAGE/*/zero_cov_regions.fa |\
+        awk -F "[>:]" 'NR%2==1{OFS="\t"; contig_name=$2; split($3, a, "-"); getline; gc=gensub(/[AT]/,"", "g", $0); print contig_name, a[1], a[2], a[2]-a[1], length(gc)/length($0), $0}' >> non_existing_sequences.txt
 done
 ```
 
-The output of this command can be found in the Supplementary Table 3.
+The output of this command can be found in the Supplementary Table 3A.
+
+### Kmer composition of sequences that lack coverage and BLAST hits
+
+To further confirm that these sequences were truly unsupported by the long-read themselves, we used [Meryl](https://github.com/marbl/meryl) to compute the kmer composition of these regions with no coverage and no BLAST results and we compare it to the kmer composition of the long-read and report the ratio of kmers not existing in the long-reads.
+
+So first we compute the kmer composition (k=21) for the long-read metagenomes:
+
+```bash
+mkdir -p MERYL_DB
+
+while read sample path
+do
+    if [ "$sample" = "sample" ]; then continue; fi
+    meryl count k=21 $path output MERYL_DB/$sample.meryl
+done < samples_concat.txt
+```
+
+From the previous analysis, we found out that only sequences from the assemblies of metaMDBG and metaFlye had sequences with no coverage AND not BLAST hits to long-reads. We can use the output `non_existing_sequences.txt` to make fasta files. The following code exclude two version of metaMDBG for clarity, but we used the same commands to generate the output in Supplementary Table 3B.
+
+```bash
+while read contig start stop length gc seq
+do
+    sample=`echo $contig | sed 's/^metaFlye_\(.*\)_\(linear\|circular\).*$/\1/'`
+    mkdir -p  MERYL_DB/metaFlye/$sample
+    echo -e ">$contig\n$seq" >> MERYL_DB/metaFlye/$sample/fasta.fa
+done < <(grep metaFlye non_existing_sequences.txt)
+
+while read contig start stop length gc seq
+do
+    sample=`echo $contig | sed 's/^metaMDBG_v1_\(.*\)_\(linear\|circular\).*$/\1/'`
+    mkdir -p  MERYL_DB/metaMDBG_v1/$sample
+    echo -e ">$contig\n$seq" >> MERYL_DB/metaMDBG_v1/$sample/fasta.fa
+done < <(grep metaMDBG_v1 non_existing_sequences.txt | grep -v metaMDBG_v1_1)
+```
+
+Then we can make Meryl databases:
+
+```bash
+for assembler in metaFlye metaMDBG_v1
+do
+    for sample in `ls MERYL_DB/$assembler/`
+    do
+        meryl count k=21 MERYL_DB/$assembler/$sample/fasta.fa output MERYL_DB/$assembler/$sample/$sample.meryl
+    done
+done
+```
+
+Finally, we can compare the kmer content using the following script named `meryl_diff.sh`:
+
+```bash
+assembler=$1
+sample=$2
+
+meryl difference MERYL_DB/$assembler/$sample/$sample.meryl MERYL_DB/$sample.meryl output MERYL_DB/$assembler/$sample/$sample-difference.meryl
+TOTAL=`meryl statistics MERYL_DB/$assembler/$sample/$sample.meryl | awk 'NR==3{print $2}'`
+UNIQUE=`meryl statistics MERYL_DB/$assembler/$sample/$sample-difference.meryl | awk 'NR==3{print $2}'`
+RATIO=`echo -e "$UNIQUE\t$TOTAL" | awk '{print $1/$2}'`
+echo -e "$assembler\t$sample\t${TOTAL}\t${UNIQUE}\t${RATIO}"
+```
+
+And run a loop:
+
+```bash
+for assembler in metaFlye metaMDBG_v1
+do
+    for sample in `ls MERYL_DB/$assembler/`
+    do
+        bash meryl_diff.sh $assembler $sample >> kmer_comparison.txt"
+    done
+done
+```
+
+The output of that loop can be found in Supplementary Table 3B.
+
 
 ## Characterizing prematurely circularized contigs
 
