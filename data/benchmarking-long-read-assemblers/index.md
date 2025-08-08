@@ -1625,8 +1625,8 @@ Assembler_boxplot(df_long[!(df_long$group == "Zymo" | df_long$group == "ATCC"),]
 To reproduce the two boxplot in Figure 5:
 ```R
 Assembler_boxplot(df_long[!(df_long$group == "Zymo" | df_long$group == "ATCC"),],
-                  metric = c("Ratio_50k",
-                             "Ratio_circ_50k"))
+                  metric = c("Ratio",
+                             "Ratio_circ_under_50k"))
 ```
 
 [![03_box_plot_figure_5](images/03_box_plot_figure_5.png)](images/03_box_plot_figure_5.png){:.center-img .width-40}
