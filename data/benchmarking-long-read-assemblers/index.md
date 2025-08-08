@@ -891,7 +891,7 @@ When I talk about manual inspection of contigs for repeats, I simply mean that I
 
 ### Blast contigs against themselves
 
-The first step is to blast all contigs under 50 kbp against themselves:
+The first step is to blast all contigs against themselves:
 
 ```bash
 for assembler in HiCanu hifiasm-meta metaFlye metaMDBG-0.3 metaMDBG-1 metaMDBG-1-1
@@ -902,13 +902,9 @@ do
     do
         mkdir -p 11_REPEATS/${sample}
 
-        # extract the contigs
-        awk '$2 < 50000{print ">"$0}' 01_ASSEMBLIES/${sample}/assembly_renamed_info.txt | cut -f1 > 11_REPEATS/${sample}/list_contigs.txt
-        grep --no-group-separator -x -A1 -f 11_REPEATS/${sample}/list_contigs.txt 01_ASSEMBLIES/${sample}/assembly_renamed.fasta > 11_REPEATS/${sample}/contigs.fa
-
         # blast and filter the output for recriprocal hits only (contigs against itself)
-        makeblastdb -in 11_REPEATS/${sample}/contigs.fa -out 11_REPEATS/${sample}/db -dbtype nucl
-        blastn -query 11_REPEATS/${sample}/contigs.fa -db 11_REPEATS/${sample}/db -outfmt 6 -num_threads 50 | awk '$1==$2' > 11_REPEATS/${sample}/blast_out.txt
+        makeblastdb -in 01_ASSEMBLIES/${sample}/assembly_renamed.fasta -out 11_REPEATS/${sample}/db -dbtype nucl
+        blastn -query 01_ASSEMBLIES/${sample}/assembly_renamed.fasta -db 11_REPEATS/${sample}/db -outfmt 6 -num_threads 50 | awk '$1==$2' > 11_REPEATS/${sample}/blast_out.txt
     done
 done
 ```
@@ -1080,7 +1076,7 @@ From the results generated [above](#blast-contigs-against-themselves), we can cr
 ```bash
 for assembler in HiCanu hifiasm-meta metaFlye metaMDBG-0.3 metaMDBG-1 metaMDBG-1-1
 do
-    awk 'NR==FNR{if($1 ~ /circular/ && $7 > 0.7){a[$1]}}NR!=FNR{if($1 in a && $1==$2){OFS="\t"; print $1,$7,$8,$9,$10}}' <(cat ${assembler}/11_REPEATS/*/coverage_out.txt) <(cat ${assembler}/11_REPEATS/*/blast_out.txt) > ${assembler}/repeats_dotplot.txt
+    awk 'NR==FNR{if($1 ~ /circular/ && $7 > 0.7 && $6 < 50000){a[$1]}}NR!=FNR{if($1 in a && $1==$2){OFS="\t"; print $1,$7,$8,$9,$10}}' <(cat ${assembler}/11_REPEATS/*/coverage_out.txt) <(cat ${assembler}/11_REPEATS/*/blast_out.txt) > ${assembler}/repeats_dotplot.txt
 done
 
 # for convenience, we can concatenate all the outputs into a single file
