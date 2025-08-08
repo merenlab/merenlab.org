@@ -102,13 +102,13 @@ Alejandra Prieto-Davó is a Professor at the National Autonomous University of M
 
 🇫🇷 _Insitut de Biologie de l'École Normale Supérieure (IBENS)_ \|  [learn more](https://www.ibens.bio.ens.psl.eu/spip.php?rubrique36&lang=en)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/chris.jpeg" alt="Chris Bowler"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Chris Bowler is a CNRS Research Director at the Insitut de Biologie de l'École Normale Supérieure in France. Chris is interested in the evolution and ecology of phytoplankton, with a focus on phytogenomics and ancient DNA from diatoms. Besides his [extensive body of work](https://scholar.google.com/citations?user=wrQM5wkAAAAJ&hl=de&oi=ao) ranging from phytoplankton ecology over plant defense mechanisms to climate change impacts, you may know Chris from his leadership in the [Tara Oceans project](https://fondationtaraocean.org/en/expedition/tara-oceans/). We invited Chris because of his expertise in marine phytogenomics and his contributions to the global marine microbial sample and data catalogue through TARA.
 
@@ -209,15 +209,15 @@ Jodie van de Kamp is a Group Leader at CSIRO in Australia. Her research focuses 
 
 🇬🇧 _National Oceanography Centre (NOC)_ \| [learn more](https://noc.ac.uk/n/Julie%20Robidart)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/julie.jpeg" alt="Julie Robidart"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
 
-Julie Robidart is the Head of Ocean Technology and Engineering at NOC in the UK. Julie is interested in developing and applying novel molecular and sensor technologies to better observe and understand marine microbial life. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Julie-Robidart-58934160) that includes tool development, deep-sea exploration, and studies of microbial carbon cycling, you may know Julie from her leadership in autonomous sampling innovation and [OBON](https://obon-ocean.org). We invited Julie for her leadership in molecular ocean observing technologies and her role in bridging engineering and marine ecology.
+
+Julie Robidart is the Head of Ocean Technology and Engineering at NOC in the UK. Julie is interested in developing and applying novel molecular and sensor technologies to better observe and understand marine microbial life. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Julie-Robidart-58934160) that includes deployable technology development, deep-sea exploration, and studies of microbial nitrogen and carbon cycling, you may know Julie from her leadership in autonomous sampling innovation, [OBON](https://obon-ocean.org) and her role in [GOOS](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/). We invited Julie for her leadership in molecular ocean observing technologies and her role in bridging engineering and marine ecology.
 
 ### Kathleen (Katie) Pitz
 
@@ -312,13 +312,13 @@ Sarah J. Tucker is a postdoctoral scientist at the Marine Biological Laboratory 
 
 🇧🇬 _Pensoft Publishers_ \| [learn more](https://pensoft.net/teodor_georgiev)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/teodor.jpeg" alt="Teodor Georgiev"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Teodor Georgiev is the Technical Director at Pensoft Publishers in Bulgaria. Teodor is interested in developing digital infrastructure that supports the publication, sharing, and long-term accessibility of scientific research. 
 Besides his [extensive body of work](https://scholar.google.com/citations?user=sg_pMtYAAAAJ&hl=de&oi=ao) on scholarly infrastructure and open science, you may know Teodor from his role in building the [ARPHA Writing Tool](https://arpha.pensoft.net) and streamlining metadata-driven publishing workflows. We invited Teodor to bring the publisher’s perspective and to support efforts in making marine ‘omics data more visible, interoperable, and reusable.
