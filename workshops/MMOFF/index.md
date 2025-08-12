@@ -74,13 +74,13 @@ The current list of participants (in alphabetical order, with flags representing
 
 🇺🇸 _University of California, Irvine (UC Irvine)_ \| [learn more](https://faculty.sites.uci.edu/martinylab/)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/adam.jpeg" alt="Adam Martiny"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Adam C. Martiny is a Professor at the University of California Irvine in the US. Adam is interested in quantifying how global human-induced environmental changes affect highly-diverse microbial communities in the ocean and how that in turn affects ecosystem functions. Besides his [extensive body of work](https://scholar.google.com/citations?user=eMBgZswAAAAJ) that spans from microbial ecology to ocean biogeochemistry, you may know Adam from his contributions to [the Bio-GO-SHIP project](https://biogoship.org/). We invited Adam because of his experience in studying marine microbial life and his leadership in Bio-GO-SHIP effort.
 
@@ -88,13 +88,13 @@ Adam C. Martiny is a Professor at the University of California Irvine in the US.
 
 🇲🇽 _National Autonomous University of Mexico (UNAM)_ \| [learn more](https://www.researchgate.net/profile/Alejandra-Prieto-Davo)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/alejandra.jpeg" alt="Alejandra Prieto-Davó"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Alejandra Prieto-Davó is a Professor at the National Autonomous University of Mexico in Mexico. Alejandra is interested in the biotechnological and biosynthetic potential of marine microbes. Besides her [extensive body of work](https://scholar.google.com/citations?user=VDEsbr0AAAAJ&hl=de&oi=ao) that ranges from the antibiotics discovery to environmental restoration strategies, you may know Alejandra from her work with the [Global Ocean Observing System (GOOS) Biology and Ecosystems (BioEco) panel](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/) on developing the microbial biomass and diversity Essential Ocean Variable ([EOV](https://goosocean.org/document/36264)). We invited Alejandra because of her expertise in microbial bioprospecting, her involvement in global coordination through GOOS, and the regional perspective she brings to challenges and solutions for marine microbial observations in Latin America.
 
@@ -195,13 +195,13 @@ Jesse McNichol is a Professor at St. Francis Xavier University in Canada. Jesse 
 
 🇦🇺 _Commonwealth Scientific and Industrial Research Organisation (CSIRO)_ \| [learn more](https://people.csiro.au/V/J/Jodie-Vandekamp)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/jodie.jpeg" alt="Jodie van de Kamp"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Jodie van de Kamp is a Group Leader at CSIRO in Australia. Her research focuses on using metagenomics and molecular tools to study marine microbial ecology. Besides her [extensive body of work](https://scholar.google.com/citations?user=uHbGO0MAAAAJ&hl=de&oi=ao) that spans from marine microbial ecology to biogeochemistry, you may know Jodie from her contributions to the Integrated Marine Observing System ([IMOS](https://imos.org.au)), the [Australian Microbiome Initiative](https://www.australianmicrobiome.com), and international initiatives like the Ocean Biomolecular Observing Network ([OBON](https://obon-ocean.org)). We invited Jodie because of her contributions to global observing coordination and her role in representing the Australian perspective on omics-based ocean monitoring.
 
@@ -327,13 +327,13 @@ Besides his [extensive body of work](https://scholar.google.com/citations?user=s
 
 🇩🇰 _Global Biodiversity Information Facility (GBIF)_ \| [learn more](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/thomas.jpeg" alt="Thomas Stjernegaard-Jeppesen"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Thomas Stjernegaard-Jeppesen is a Fullstack JavaScript developer at the Global Biodiversity Information Facility (GBIF) in Denmark. Thomas is interested in improving the accessibility and interoperability of DNA-derived data through global biodiversity data platforms. [His work](https://scholar.google.com/citations?user=ojLBbjAAAAAJ&hl=de&oi=ao) bridges biodiversity informatics and molecular data publishing, with a focus on enabling the integration of genetic data into systems like GBIF. We invited Thomas to bring expertise from the biodiversity data publishing world and to support alignment between omics communities and global data infrastructures.
 
@@ -341,13 +341,13 @@ Thomas Stjernegaard-Jeppesen is a Fullstack JavaScript developer at the Global B
 
 🇩🇰 _Global Biodiversity Information Facility (GBIF)_ \| [learn more](https://globe.ku.dk/staff-list/?pure=en/persons/213201)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/tobias.jpeg" alt="Tobias Guldberg Frøslev"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Tobias Guldberg Frøslev is a Scientific Officer at the Global Biodiversity Information Facility (GBIF) and an Associate Professor at the University of Copenhagen in Denmark. Tobias is interested in making metabarcoding data more discoverable and FAIR through global biodiversity infrastructure. With a [background in molecular ecology and mycology](https://scholar.google.com/citations?user=3RjyxAoAAAAJ&hl=de&oi=ao), he works to connect research-driven DNA sequencing with biodiversity data standards and publication pipelines as part of GBIF’s [Metabarcoding Data Programme](https://www.gbif.org/metabarcoding). We invited Tobias for his expertise in linking molecular ecology with data infrastructure and his role in shaping how DNA-derived biodiversity data are shared at scale.
 
