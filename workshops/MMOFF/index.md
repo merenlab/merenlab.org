@@ -369,4 +369,9 @@ Yosmina Tapilatu is a Senior Research Scientist at the National Research and Inn
 
 
 ## Contact
-For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
+For questions contact Raïssa Meyer `raissa.meyer@awi.de`.
+
+
+## Acknowledgements
+We gratefully acknowledge the support of the HIFMB (Helmholtz Institute for Functional Marine Biodiversity), the AWI (Alfred Wegener Institute Helmholtz-Centre for Polar and Marine Research), and the DynaCom project at the University of Oldenburg for financially supporting this workshop.
+ 
