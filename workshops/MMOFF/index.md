@@ -116,13 +116,13 @@ Chris Bowler is a CNRS Research Director at the Insitut de Biologie de l'École 
 
 🇩🇪 _GEOMAR Helmholtz Centre for Ocean Research Kiel (GEOMAR)_ \|  [learn more](https://www.geomar.de/en/dneedham)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/david.jpeg" alt="David Needham"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 David Needham is a Junior Professor and Helmholtz Young Investigator Group Leader at GEOMAR in Kiel, Germany. David is interested in oceanography, ecology, microbiology, and genomics, as reflected by his [extensive body of work](https://scholar.google.com/citations?user=ZN1_hu4AAAAJ&hl=de&oi=ao). Colleagues from the HIFMB and AWI may know David from his involvement in Topic 6 "Marine Life", others may know him from his contributions to primer development for amplicon sequencing, or his previous involvement in [SPOT](https://dornsife.usc.edu/spot/about/) and current involvement in ocean time-series in the Northern and Baltic Sea. We invited David for his experience in ocean time-series and in studying marine microbes.
 
