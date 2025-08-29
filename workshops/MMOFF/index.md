@@ -94,22 +94,22 @@ Here is a map for you:
 
 #### Thursday, 02. Oct 2025 (Symposium)
 
-09:00		Registration & welcome coffee	
-09:30		Opening remarks and introductions
-10:00		Talk 1 \| Adam Martiny, UC Irvine 
-10:30		Coffee break
-10:45		Talk 2 | Alejandra Prieto-Davó \| National Autonomous University of Mexico
-11:15		Talk 3 | Kathleen Pitz \| MBARI
-11:45		Puffer
-12:00		Lunch break
-13:15		Talk 4 | Elisha Wood-Charlson \| DOE Systems Biology Knowledgebase, LBNL
-13:45		Talk 5 | Enrique Montes \| University Miami cooperative Institute for Marine and Atmospheric Studies (CIMAS)
-14:15		Afternoon break
-14:30		Talk 6 | Jodie van de Kamp \| CSIRO
-15:00		Talk 7 | Jed Fuhrman \| USC Dornslife
-15:30		Closing remarks
-15:45		Networking & open discussion
-16:30		Event conclusion
+09:00	|	Registration & welcome coffee	
+09:30	|	Opening remarks and introductions
+10:00	|	Talk 1 \| Adam Martiny, UC Irvine 
+10:30	|	Coffee break
+10:45	|	Talk 2 | Alejandra Prieto-Davó \| National Autonomous University of Mexico
+11:15	|	Talk 3 | Kathleen Pitz \| MBARI
+11:45	|	Puffer
+12:00	|	Lunch break
+13:15	|	Talk 4 | Elisha Wood-Charlson \| DOE Systems Biology Knowledgebase, LBNL
+13:45	|	Talk 5 | Enrique Montes \| University Miami cooperative Institute for Marine and Atmospheric Studies (CIMAS)
+14:15	|	Afternoon break
+14:30	|	Talk 6 | Jodie van de Kamp \| CSIRO
+15:00	|	Talk 7 | Jed Fuhrman \| USC Dornslife
+15:30	|	Closing remarks
+15:45	|	Networking & open discussion
+16:30	|	Event conclusion
 
 
 ## Participants
