@@ -63,8 +63,35 @@ Here is a map for you:
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2392.8755266399307!2d8.172422278515025!3d53.15406087223417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6dfcd31a139a3%3A0xe17f26e2f76ff2c8!2sHelmholtz%20Institute%20for%20Functional%20Marine%20Biodiversity%20at%20the%20University%20of%20Oldenburg!5e0!3m2!1sen!2sde!4v1734100072289!5m2!1sen!2sde" width="600" height="450" style="border:0" allowfullscreen=""></iframe>
 </center></p>
 
-## Programme
-`TBD`
+## Programme 
+#### Tuesday, 30 Sept 2025
+
+8:30 | Registration | Morning coffee
+09:00 | **Welcome and opening remarks** | Conference overview and objectives
+09:30 | **Participant introductions** | Brief introductions and expertise sharing
+10:00 | Coffee break
+10:30 | **Building sample legacy** | What do we need to do to build a legacy of samples for now and for the future? | 
+12:00 | Lunch at Bar Celona 
+13:00 | **Standardisation & reproducibility** | How can we improve standardisation and reproducibility to build trust and actionable insights?
+14:30 | Walking break
+15:00 | **Data** | What do we need to do to build a legacy of data for now and for the future?
+16:30 | **Day 1 synthesis** | Key insights and overarching considerations
+17:00 | Afternoon break
+18:30 | **Dinner discussion** | Continued conversation in the city centre 
+
+#### Wednesday, 01 Oct 2025
+
+08:45 | Welcome back | Morning coffee
+09:00 | **Identifying major challenges** | What are the most pressing obstacles faced in marine 'omics observing?
+10:30 | Coffee break
+11:00 | **Sustainable funding strategies** | How can we secure long-term financial support for marine 'omics research infrastructure?
+12:00 | Lunch 
+13:00 | **Policy** | How can we build a unified voice to effectively inform policy decisions and environmental management?
+14:00 | Walking break 
+15:00 | **Future opportunities** | Given our discussions, what promising opportunities should we pursue collectively?
+16:30 | **Closing remarks & next steps** | Conference wrap-up
+17:00 | Workshop end
+
 
 ## Participants
 
