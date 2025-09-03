@@ -49,7 +49,7 @@ Tue, 30 Sept - Wed, 01 Oct 2025
 Thu, 02 Oct 2025
 
 {:.notice}
-This workshop will be followed by a one-day symposium featuring talks by Adam C. Martiny, Alejandra Prieto-Davó, Kathleen Pitz, Elisha Wood-Charlson, Enrique Montes, Jodie van de Kamp, and Jed Fuhrman (for information on each of them and on all other workshop participants, please see below).
+This workshop will be followed by a [one-day symposium](https://hifmb.de/news/events/mmoff-symposium/) featuring talks by Adam C. Martiny, Alejandra Prieto-Davó, Kathleen Pitz, Elisha Wood-Charlson, Enrique Montes, Jodie van de Kamp, and Jed Fuhrman (for information on each of them and on all other workshop participants, please see below).
 
 
 ##### Location
@@ -92,7 +92,7 @@ Here is a map for you:
 16:30 | **Closing remarks & next steps** | Conference wrap-up
 17:00 | Workshop end
 
-#### Thursday, 02. Oct 2025 (Symposium)
+#### Thursday, 02. Oct 2025 ([Symposium](https://hifmb.de/news/events/mmoff-symposium/))
 
 09:00	|	Registration & welcome coffee	
 09:30	|	**Opening remarks and introductions**
