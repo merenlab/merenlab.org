@@ -85,7 +85,7 @@ Here is a map for you:
 09:00 | **Identifying major challenges** | What are the most pressing obstacles faced in marine 'omics observing?
 10:30 | Coffee break
 11:00 | **Sustainable funding strategies** | How can we secure long-term financial support for marine 'omics research infrastructure?
-12:00 | Lunch 
+12:00 | Lunch at Bar Celona  
 13:00 | **Policy** | How can we build a unified voice to effectively inform policy decisions and environmental management?
 14:00 | Walking break 
 15:00 | **Future opportunities** | Given our discussions, what promising opportunities should we pursue collectively?
@@ -100,8 +100,8 @@ Here is a map for you:
 10:30	|	Coffee break
 10:45	|	**Talk 2** \| **Alejandra Prieto-Davó**, National Autonomous University of Mexico
 11:15	|	**Talk 3** \| **Kathleen Pitz**, MBARI
-11:45	|	Puffer
-12:00	|	Lunch break
+11:45	|	Group picture
+12:00	|	Lunch at Bar Celona 
 13:15	|	**Talk 4** \| **Elisha Wood-Charlson**, DOE Systems Biology Knowledgebase, LBNL
 13:45	|	**Talk 5** \| **Enrique Montes**, University Miami cooperative Institute for Marine and Atmospheric Studies (CIMAS)
 14:15	|	Afternoon break
