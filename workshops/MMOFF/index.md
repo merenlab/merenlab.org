@@ -251,20 +251,6 @@ Jesse McNichol is a Professor at St. Francis Xavier University in Canada. Jesse 
 
 Jodie van de Kamp is a Group Leader at CSIRO in Australia. Her research focuses on using metagenomics and molecular tools to study marine microbial ecology. Besides her [extensive body of work](https://scholar.google.com/citations?user=uHbGO0MAAAAJ&hl=de&oi=ao) that spans from marine microbial ecology to biogeochemistry, you may know Jodie from her contributions to the Integrated Marine Observing System ([IMOS](https://imos.org.au)), the [Australian Microbiome Initiative](https://www.australianmicrobiome.com), and international initiatives like the Ocean Biomolecular Observing Network ([OBON](https://obon-ocean.org)). We invited Jodie because of her contributions to global observing coordination and her role in representing the Australian perspective on omics-based ocean monitoring.
 
-### Julie Robidart
-
-🇬🇧 _National Oceanography Centre (NOC)_ \| [learn more](https://noc.ac.uk/n/Julie%20Robidart)
-
-
-<p>
-  <img src="/images/mmoff-2025/julie.jpeg" alt="Julie Robidart"
-       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
-              border-radius: 50%; border: 6px solid #eee;">
-</p>
-
-
-Julie Robidart is the Head of Ocean Technology and Engineering at NOC in the UK. Julie is interested in developing and applying novel molecular and sensor technologies to better observe and understand marine microbial life. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Julie-Robidart-58934160) that includes deployable technology development, deep-sea exploration, and studies of microbial nitrogen and carbon cycling, you may know Julie from her leadership in autonomous sampling innovation, [OBON](https://obon-ocean.org) and her role in [GOOS](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/). We invited Julie for her leadership in molecular ocean observing technologies and her role in bridging engineering and marine ecology.
-
 ### Kathleen (Katie) Pitz
 
 🇺🇸 _Monterey Bay Aquarium Research Institute (MBARI)_ \| [learn more](https://www.mbari.org/person/kathleen-pitz/)
@@ -382,20 +368,6 @@ Besides his [extensive body of work](https://scholar.google.com/citations?user=s
 
 
 Thomas Stjernegaard-Jeppesen is a Fullstack JavaScript developer at the Global Biodiversity Information Facility (GBIF) in Denmark. Thomas is interested in improving the accessibility and interoperability of DNA-derived data through global biodiversity data platforms. [His work](https://scholar.google.com/citations?user=ojLBbjAAAAAJ&hl=de&oi=ao) bridges biodiversity informatics and molecular data publishing, with a focus on enabling the integration of genetic data into systems like GBIF. We invited Thomas to bring expertise from the biodiversity data publishing world and to support alignment between omics communities and global data infrastructures.
-
-### Tobias Guldberg Frøslev
-
-🇩🇰 _Global Biodiversity Information Facility (GBIF)_ \| [learn more](https://globe.ku.dk/staff-list/?pure=en/persons/213201)
-
-
-<p>
-  <img src="/images/mmoff-2025/tobias.jpeg" alt="Tobias Guldberg Frøslev"
-       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
-              border-radius: 50%; border: 6px solid #eee;">
-</p>
-
-
-Tobias Guldberg Frøslev is a Scientific Officer at the Global Biodiversity Information Facility (GBIF) and an Associate Professor at the University of Copenhagen in Denmark. Tobias is interested in making metabarcoding data more discoverable and FAIR through global biodiversity infrastructure. With a [background in molecular ecology and mycology](https://scholar.google.com/citations?user=3RjyxAoAAAAJ&hl=de&oi=ao), he works to connect research-driven DNA sequencing with biodiversity data standards and publication pipelines as part of GBIF’s [Metabarcoding Data Programme](https://www.gbif.org/metabarcoding). We invited Tobias for his expertise in linking molecular ecology with data infrastructure and his role in shaping how DNA-derived biodiversity data are shared at scale.
 
 ### Yosmina Tapilatu
 
