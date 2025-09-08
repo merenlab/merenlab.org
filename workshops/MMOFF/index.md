@@ -101,10 +101,10 @@ Here is a map for you:
 10:45	|	**Talk 2** \| **Alejandra Prieto-Davó**, National Autonomous University of Mexico
 11:15	|	**Talk 3** \| **Kathleen Pitz**, MBARI
 11:45	|	Group picture
-12:00	|	Lunch at Bar Celona 
+12:00	|	Lunch
 13:15	|	**Talk 4** \| **Elisha Wood-Charlson**, DOE Systems Biology Knowledgebase, LBNL
 13:45	|	**Talk 5** \| **Enrique Montes**, University Miami cooperative Institute for Marine and Atmospheric Studies (CIMAS)
-14:15	|	Afternoon break
+14:15	|	Coffee break
 14:30	|	**Talk 6** \| **Jodie van de Kamp**, CSIRO
 15:00	|	**Talk 7** \| **Jed Fuhrman**, USC Dornslife
 15:30	|	**Closing remarks**
