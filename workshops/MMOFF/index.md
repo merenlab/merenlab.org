@@ -293,7 +293,7 @@ Luke Thompson is a Research Professor at the Northern Gulf Instutite, a NOAA Coo
 🇩🇪 _Alfred Wegener Institute for Polar and Marine Research_ \| [learn more](https://www.researchgate.net/profile/Matthias-Wietz) 
 
 <p>
-  <img src="/images/mmoff-2025/bio-matthias.jpeg" alt="Matthias Wietz"
+  <img src="/images/mmoff-2025/matthias.jpeg" alt="Matthias Wietz"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
