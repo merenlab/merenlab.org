@@ -144,6 +144,18 @@ Adam C. Martiny is a Professor at the University of California Irvine in the US.
 
 Alejandra Prieto-Davó is a Professor at the National Autonomous University of Mexico in Mexico. Alejandra is interested in the biotechnological and biosynthetic potential of marine microbes. Besides her [extensive body of work](https://scholar.google.com/citations?user=VDEsbr0AAAAJ&hl=de&oi=ao) that ranges from the antibiotics discovery to environmental restoration strategies, you may know Alejandra from her work with the [Global Ocean Observing System (GOOS) Biology and Ecosystems (BioEco) panel](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/) on developing the microbial biomass and diversity Essential Ocean Variable ([EOV](https://goosocean.org/document/36264)). We invited Alejandra because of her expertise in microbial bioprospecting, her involvement in global coordination through GOOS, and the regional perspective she brings to challenges and solutions for marine microbial observations in Latin America.
 
+### A. Murat Eren (Meren)
+🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/) 
+
+<p>
+  <img src="/images/bio-meren.jpg" alt="A. Murat Eren"
+       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+              border-radius: 50%; border: 6px solid #eee;">
+</p>
+
+
+A. Murat Eren (Meren) is a Professor at the University of Oldenburg in Germany. Meren is a computer scientist and a microbial ecologist who designs algorithms and experiments to better understand the ecology and evolution of naturally occurring microbial populations. Besides Meren's [body of work](https://scholar.google.com/citations?user=GtLLuxoAAAAJ&hl=de&oi=ao) that ranges from the human microbiome to marine microbial ecology, you may know Meren from his contributions to [anvi'o](https://anvio.org), a modern analysis and visualization platform for 'omics data. Meren is a part of this workshop as he is looking forward to thinking deeply about the current challenges in continuous observations of marine microbial life with those who bring tremendous amount of experience into this gathering.
+
 ### Chris Bowler
 
 🇫🇷 _Insitut de Biologie de l'École Normale Supérieure (IBENS)_ \|  [learn more](https://www.ibens.bio.ens.psl.eu/spip.php?rubrique36&lang=en)
@@ -277,17 +289,17 @@ Kathleen (Katie) Pitz is a Senior Research Technician at MBARI in the US. Katie 
 Luke Thompson is a Research Professor at the Northern Gulf Instutite, a NOAA Cooperative Institute through Mississippi State University, and based in Miami, Florida, USA. Luke is interested in microbial ecology, eDNA and (meta)data stewardship. Besides his [extensive body of work](https://scholar.google.com/citations?user=kggNWsMAAAAJ) that spans from developing computational techniques to exploring microbial communities, you may know Luke from the Earth Microbiome Project ([EMP](https://earthmicrobiome.org)) or his contributions to the Atlantic Oceanographic & Meteorological Laboratory ([AOML](https://www.aoml.noaa.gov))'s omics program. We invited Luke because of his expertise in bimolecular observing and contributions to omics data accessibility.
 
 
-### A. Murat Eren (Meren)
-🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/) 
+### Matthias Wietz
+🇩🇪 _Alfred Wegener Institute for Polar and Marine Research_ \| [learn more](https://www.researchgate.net/profile/Matthias-Wietz) 
 
 <p>
-  <img src="/images/bio-meren.jpg" alt="A. Murat Eren"
+  <img src="/images/mmoff-2025/bio-matthias.jpeg" alt="Matthias Wietz"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
 
 
-A. Murat Eren (Meren) is a Professor at the University of Oldenburg in Germany. Meren is a computer scientist and a microbial ecologist who designs algorithms and experiments to better understand the ecology and evolution of naturally occurring microbial populations. Besides Meren's [body of work](https://scholar.google.com/citations?user=GtLLuxoAAAAJ&hl=de&oi=ao) that ranges from the human microbiome to marine microbial ecology, you may know Meren from his contributions to [anvi'o](https://anvio.org), a modern analysis and visualization platform for 'omics data. Meren is a part of this workshop as he is looking forward to thinking deeply about the current challenges in continuous observations of marine microbial life with those who bring tremendous amount of experience into this gathering.
+Matthias Wietz is a scientist at Alfred Wegener Institute for Polar and Marine Research in Germany. Matthias is interested in the ecology and interactions of microbes in polar oceans and sea ice, particularly the seasonal dynamics and drivers of the biological carbon pump. Besides his [diverse publications](https://scholar.google.de/citations?user=pDhsWwMAAAAJ&hl=en) spanning microbial ecology to biological oceanography, you may know him from his contributions to autonomous time-series in the [FRAM Observatory](https://www.awi.de/en/science/research-infrastructure/observatories/ocean-fram.html) as well as science communication, like the [first live concert on the North Pole](https://www.facebook.com/reel/3665040980438847). 
 
 
 ### Michael (Mike) S. Rappé
