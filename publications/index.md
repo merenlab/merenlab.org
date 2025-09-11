@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-08-04
+modified: 2025-09-11
 comments: false
 image:
    display: true
@@ -51,24 +51,6 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Assemblies+of+long-read+metagenomes+suffer+from+diverse+errors" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.04.22.649783" target="_blank">doi:10.1101/2025.04.22.649783</a></span>
 </div>
 
-<a id="10.1101/2025.01.15.633187">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2025.01.15.633187"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2025.01.15.633187" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2025.01.15.633187" target="_new">Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Klein ML</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Sever M</span>, Maignien L, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span>, Light SH<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/schechter_et_al_2025.png"><img src="/images/pubs/schechter_et_al_2025.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Describes the anvi'o <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo workflow</a>, a computational workflow that gives access to the phylogeography of any gene family.</span><br><span style="display: inline-block; padding-bottom: 5px;">- In which we show the application of EcoPhylo to ribosomal proteins to be able to investigate the genome recovery rates from metagenomes and demonstrate its efficacy across three biomes using genomes and metagenomes from the human gut, human oral cavity, and surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow for the study is availabe <a href="https://merenlab.org/data/ecophylo-ribosomal-proteins" target="_blank">here</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Ribosomal+protein+phylogeography+offers+quantitative+insights+into+the+efficacy+of+genome-resolved+surveys+of+microbial+communities" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.01.15.633187" target="_blank">doi:10.1101/2025.01.15.633187</a></span>
-</div>
-
 <a id="10.1093/bioadv/vbaf039">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/bioadv/vbaf039"></div>
@@ -85,6 +67,24 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Bioinformatics Advances</b>, 5(1):vbaf039 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Adaptive+adjustment+of+profile+HMM+significance+thresholds+improves+functional+and+metabolic+insights+into+microbial+genomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1093/bioadv/vbaf039" target="_blank">doi:10.1093/bioadv/vbaf039</a></span>
+</div>
+
+<a id="10.1101/2025.01.15.633187">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2025.01.15.633187"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2025.01.15.633187" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2025.01.15.633187" target="_new">Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Klein ML</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Sever M</span>, Maignien L, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span>, Light SH<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/schechter_et_al_2025.png"><img src="/images/pubs/schechter_et_al_2025.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Describes the anvi'o <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo workflow</a>, a computational workflow that gives access to the phylogeography of any gene family.</span><br><span style="display: inline-block; padding-bottom: 5px;">- In which we show the application of EcoPhylo to ribosomal proteins to be able to investigate the genome recovery rates from metagenomes and demonstrate its efficacy across three biomes using genomes and metagenomes from the human gut, human oral cavity, and surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow for the study is availabe <a href="https://merenlab.org/data/ecophylo-ribosomal-proteins" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Ribosomal+protein+phylogeography+offers+quantitative+insights+into+the+efficacy+of+genome-resolved+surveys+of+microbial+communities" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.01.15.633187" target="_blank">doi:10.1101/2025.01.15.633187</a></span>
 </div>
 
 
@@ -142,6 +142,23 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Habitat-specificity+in+SAR11+is+associated+with+a+handful+of+genes+under+high+selection" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.23.630198" target="_blank">doi:10.1101/2024.12.23.630198</a></span>
 </div>
 
+<a id="10.1038/d41586-024-02661-6">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/d41586-024-02661-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/d41586-024-02661-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://rdcu.be/dSZVz" target="_new">Bioprospecting marine microbial genomes to improve biotechnology</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/eren_and_delmont_et_al_2024.png"><img src="/images/pubs/eren_and_delmont_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".</span><br><span style="display: inline-block; padding-bottom: 5px;">- We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Bioprospecting+marine+microbial+genomes+to+improve+biotechnology" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/d41586-024-02661-6" target="_blank">doi:10.1038/d41586-024-02661-6</a></span>
+</div>
+
 <a id="10.1038/s41597-024-03778-z">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41597-024-03778-z"></div>
@@ -160,21 +177,21 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>Scientific Data</b>, 11(967) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Digital+Microbe:+A+genome-informed+data+integration+framework+for+collaborative+research+on+emerging+model+organisms" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41597-024-03778-z" target="_blank">doi:10.1038/s41597-024-03778-z</a></span>
 </div>
 
-<a id="10.1038/d41586-024-02661-6">&nbsp;</a>
+<a id="10.7554/eLife.89862">&nbsp;</a>
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/d41586-024-02661-6"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1038/d41586-024-02661-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://rdcu.be/dSZVz" target="_new">Bioprospecting marine microbial genomes to improve biotechnology</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span></span>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.89862"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.89862" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Chen YT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, Vanni C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Jabri B, Blekhman R, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Willis AD</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Fernàndez-Guerra A, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Füssel J</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="/images/pubs/eren_and_delmont_et_al_2024.png"><img src="/images/pubs/eren_and_delmont_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/veseli_et_al_ibd_metabolism.png"><img src="/images/pubs/veseli_et_al_ibd_metabolism.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".</span><br><span style="display: inline-block; padding-bottom: 5px;">- We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.</span><br><span style="display: inline-block; padding-bottom: 5px;">- <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>Nature</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Bioprospecting+marine+microbial+genomes+to+improve+biotechnology" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/d41586-024-02661-6" target="_blank">doi:10.1038/d41586-024-02661-6</a></span>
+    <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
 </div>
 
 <a id="10.1016/j.cell.2024.01.039">&nbsp;</a>
@@ -247,23 +264,6 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
-</div>
-
-<a id="10.7554/eLife.89862">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.89862"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.89862" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Chen YT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, Vanni C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Jabri B, Blekhman R, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Willis AD</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Fernàndez-Guerra A, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Füssel J</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/veseli_et_al_ibd_metabolism.png"><img src="/images/pubs/veseli_et_al_ibd_metabolism.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.</span><br><span style="display: inline-block; padding-bottom: 5px;">- <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
 </div>
 
 <a id="10.1186/s13059-023-02924-x">&nbsp;</a>

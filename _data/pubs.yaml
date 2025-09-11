@@ -118,6 +118,29 @@ publications:
       featured_image:
         /images/pubs/trigodet_et_al_2025_assembly_errors.png
 
+  - doi:
+      10.1093/bioadv/vbaf039
+    title:
+      "Adaptive adjustment of profile HMM significance thresholds improves functional and metabolic insights into microbial genomes"
+    authors:
+      Kathryn Kananen*, Iva Veseli*, Christian J Quiles Pérez, Samuel Miller, A Murat Eren, Patrick H Bradley
+    journal:
+      Bioinformatics Advances
+    year:
+      2025
+    volume:
+      5
+    number:
+      1
+    pages:
+      vbaf039
+    additional_info:
+      highlights:
+        - Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.
+        - An application of this strategy to annotate genes in genomes from a wide range of microbial clades showed 3% to 20% increase in function annotation rates without having to change or update the models themselves.
+        - Key scripts and the workflow are available on <a href="https://github.com/pbradleylab/2023-anvio-comparison" target="_blank">GitHub</a>.
+      featured_image:
+        /images/pubs/kananen_veseli_et_al_2024.png
 
   - doi:
       10.1101/2025.01.15.633187
@@ -206,29 +229,29 @@ publications:
       featured_image:
         /images/pubs/tucker_et_al_SAR11_2024.png
 
+
   - doi:
-      10.1093/bioadv/vbaf039
+      10.1038/d41586-024-02661-6
+    read_link:
+      https://rdcu.be/dSZVz
     title:
-      "Adaptive adjustment of profile HMM significance thresholds improves functional and metabolic insights into microbial genomes"
+      "Bioprospecting marine microbial genomes to improve biotechnology"
     authors:
-      Kathryn Kananen*, Iva Veseli*, Christian J Quiles Pérez, Samuel Miller, A Murat Eren, Patrick H Bradley
+      A Murat Eren, Tom O Delmont
     journal:
-      Bioinformatics Advances
+      Nature
     year:
-      2025
+      2024
     volume:
-      5
     number:
-      1
     pages:
-      vbaf039
     additional_info:
       highlights:
-        - Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.
-        - An application of this strategy to annotate genes in genomes from a wide range of microbial clades showed 3% to 20% increase in function annotation rates without having to change or update the models themselves.
-        - Key scripts and the workflow are available on <a href="https://github.com/pbradleylab/2023-anvio-comparison" target="_blank">GitHub</a>.
+        - A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".
+        - We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.
       featured_image:
-        /images/pubs/kananen_veseli_et_al_2024.png
+        /images/pubs/eren_and_delmont_et_al_2024.png
+
 
   - doi:
       10.1038/s41597-024-03778-z
@@ -255,26 +278,28 @@ publications:
         /images/pubs/veseli_cooper_demers_et_al_2024.png
 
   - doi:
-      10.1038/d41586-024-02661-6
-    read_link:
-      https://rdcu.be/dSZVz
+      10.7554/eLife.89862
     title:
-      "Bioprospecting marine microbial genomes to improve biotechnology"
+      "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
     authors:
-      A Murat Eren, Tom O Delmont
+      Iva Veseli, Yiqun T Chen, Matthew S Schechter, Chiara Vanni, Emily C Fogarty, Andrea R Watson, Bana Jabri, Ran Blekhman, Amy D Willis, Michael K Yu, Antonio Fernàndez-Guerra, Jessika Füssel, A Murat Eren
     journal:
-      Nature
+      eLife
     year:
       2024
     volume:
+      12
     number:
+      RP89862
     pages:
     additional_info:
       highlights:
-        - A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".
-        - We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.
+        - A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.
+        - Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.
+        - An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.
+        - <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.
       featured_image:
-        /images/pubs/eren_and_delmont_et_al_2024.png
+        /images/pubs/veseli_et_al_ibd_metabolism.png
 
   - doi:
       10.1016/j.cell.2024.01.039
@@ -373,30 +398,6 @@ publications:
         - Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.
       featured_image:
         /images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png
-
-  - doi:
-      10.7554/eLife.89862
-    title:
-      "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
-    authors:
-      Iva Veseli, Yiqun T Chen, Matthew S Schechter, Chiara Vanni, Emily C Fogarty, Andrea R Watson, Bana Jabri, Ran Blekhman, Amy D Willis, Michael K Yu, Antonio Fernàndez-Guerra, Jessika Füssel, A Murat Eren
-    journal:
-      eLife
-    year:
-      2023
-    volume:
-      12
-    number:
-      RP89862
-    pages:
-    additional_info:
-      highlights:
-        - A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.
-        - Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.
-        - An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.
-        - <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.
-      featured_image:
-        /images/pubs/veseli_et_al_ibd_metabolism.png
 
   - doi:
       10.1186/s13059-023-02924-x
