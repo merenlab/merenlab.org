@@ -11,7 +11,7 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: header_MMOFF.png
+  feature: header_MMOFF_small.jpeg
   display: true
   nologo: true
 ---
@@ -19,7 +19,9 @@ image:
 ## About the Workshop
 How can we maximize current and future opportunities in marine microbial observation? The microbial world, though invisible to the naked eye, is central to human sustenance and the health of our planet, underpinning critical ecosystem services and contributing to climate stability. As we look to the future, omics-powered marine microbial observatories are poised to further increase in importance for understanding the complex dynamics of ocean ecosystems, offering insights that can, inter alia, help track ocean health and biodiversity loss, detect early signals of ecosystem tipping points, support biotechnical innovation, inform sustainable environmental management, and guide marine policy and conservation. However, to fully realize this potential, key aspects of the current observing system must strategically evolve. 
 
-_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
+_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean. 
+
+**This workshop has been endorsed as an official Activity under the [UN Decade of Ocean Science for Sustainable Development (2021-2030)](https://oceandecade.org).**
 
 As part of ongoing international efforts to advance 'omics-based observing of marine biodiversity, this workshop responds to a growing need to ensure that microbial observations, samples, and data are not only scientifically robust but also sustainable, reusable, and policy-relevant over time.
 
@@ -404,4 +406,6 @@ For questions contact Raïssa Meyer `raissa.meyer@awi.de`.
 
 ## Acknowledgements
 We gratefully acknowledge the support of the HIFMB (Helmholtz Institute for Functional Marine Biodiversity), the AWI (Alfred Wegener Institute Helmholtz-Centre for Polar and Marine Research), and the DynaCom project at the University of Oldenburg for financially supporting this workshop.
+
+This workshop is endorsed by the United Nations Decade of Ocean Science for Sustainable Development as a Decade Activity. Use of the United Nations Decade of Ocean Science for Sustainable Development logo by a non-UN entity does not imply the endorsement of the United Nations of such entity, its products or services, or of its planned activities. For more information please access: https://forum.oceandecade.org/page/disclaimer
  
