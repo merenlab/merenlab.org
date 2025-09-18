@@ -100,14 +100,14 @@ Here is a map for you:
 09:30	|	**Opening remarks and introductions**
 10:00	|	**Talk 1** \| **Adam Martiny**,  UC Irvine 
 10:30	|	Coffee break
-10:45	|	**Talk 2** \| **Alejandra Prieto-Davó**, National Autonomous University of Mexico
-11:15	|	**Talk 3** \| **Kathleen Pitz**, MBARI
+10:45	|	**Talk 2** \| **Alejandra Prieto-Davó**, UNAM
+11:15	|	**Talk 3** \| **Kathleen Pitz**, MBARI | _**Detecting variability through space and time with eDNA**_
 11:45	|	Group picture
 12:00	|	Lunch
 13:15	|	**Talk 4** \| **Elisha Wood-Charlson**, DOE Systems Biology Knowledgebase, LBNL
-13:45	|	**Talk 5** \| **Enrique Montes**, University Miami cooperative Institute for Marine and Atmospheric Studies (CIMAS)
+13:45	|	**Talk 5** \| **Enrique Montes**, University Miami CIMAS | _**All hands on deck: A Marine Biodiversity Observation Network (MBON) for monitoring life in the sea**_
 14:15	|	Coffee break
-14:30	|	**Talk 6** \| **Jodie van de Kamp**, CSIRO
+14:30	|	**Talk 6** \| **Jodie van de Kamp**, CSIRO | _**Australian Microbiome: National Collaboration for Microbial Insight and Impact**_
 15:00	|	**Talk 7** \| **Jed Fuhrman**, USC Dornslife
 15:30	|	**Closing remarks**
 15:45	|	**Networking & open discussion**
