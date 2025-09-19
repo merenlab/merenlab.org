@@ -164,6 +164,31 @@ publications:
         /images/pubs/schechter_et_al_2025.png
 
   - doi:
+      10.7554/eLife.89862
+    title:
+      "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
+    authors:
+      Iva Veseli, Yiqun T Chen, Matthew S Schechter, Chiara Vanni, Emily C Fogarty, Andrea R Watson, Bana Jabri, Ran Blekhman, Amy D Willis, Michael K Yu, Antonio Fernàndez-Guerra, Jessika Füssel, A Murat Eren
+    journal:
+      eLife
+    year:
+      2025
+    volume:
+      12
+    number:
+      RP89862
+    pages:
+    additional_info:
+      highlights:
+        - A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.
+        - Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.
+        - An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.
+        - <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.
+      featured_image:
+        /images/pubs/veseli_et_al_ibd_metabolism.png
+
+
+  - doi:
       10.1016/j.cell.2024.08.028
     title:
       "Modern microbiology: Embracing complexity through integration across scales"
@@ -276,30 +301,6 @@ publications:
         - Reproducible bioinformatics workflows are available for the <a href="https://github.com/C-CoMP-STC/digital-microbe/blob/main/R_pom_reproducible_workflow.md">generation of the <i>Ruegeria pomeroyi</i> digital microbe</a> and <a href="https://github.com/C-CoMP-STC/digital-microbe/tree/main/alteromonas/pangenomeCuration">curation of the <i>Altermonas</i> pangenome</a> as examples covered in the paper.
       featured_image:
         /images/pubs/veseli_cooper_demers_et_al_2024.png
-
-  - doi:
-      10.7554/eLife.89862
-    title:
-      "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
-    authors:
-      Iva Veseli, Yiqun T Chen, Matthew S Schechter, Chiara Vanni, Emily C Fogarty, Andrea R Watson, Bana Jabri, Ran Blekhman, Amy D Willis, Michael K Yu, Antonio Fernàndez-Guerra, Jessika Füssel, A Murat Eren
-    journal:
-      eLife
-    year:
-      2024
-    volume:
-      12
-    number:
-      RP89862
-    pages:
-    additional_info:
-      highlights:
-        - A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.
-        - Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.
-        - An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.
-        - <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.
-      featured_image:
-        /images/pubs/veseli_et_al_ibd_metabolism.png
 
   - doi:
       10.1016/j.cell.2024.01.039
