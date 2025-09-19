@@ -1,7 +1,7 @@
 ---
 layout: page
-title: A reproducible workflow for Veseli et al, 2023
-modified: 2023-08-28
+title: A reproducible workflow for Veseli et al, 2025
+modified: 2025-09-19
 excerpt: "A bioinformatics workflow for our study on microbial metabolism in the IBD gut environment."
 comments: true
 authors: [iva]
@@ -11,7 +11,23 @@ authors: [iva]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Microbes with higher metabolic independence are enriched in human gut microbiomes under stress**" by Veseli et al.
+**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Microbes with higher metabolic independence are enriched in human gut microbiomes under stress**" by Veseli et al:
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.89862"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.89862" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Veseli I</span>, Chen YT, <span class="pub-member-author" title="An official member of the lab at the time of publication">Schechter MS</span>, Vanni C, <span class="pub-member-author" title="An official member of the lab at the time of publication">Fogarty EC</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Watson AR</span>, Jabri B, Blekhman R, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Willis AD</span>, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Yu MK</span>, Fernàndez-Guerra A, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Füssel J</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/veseli_et_al_ibd_metabolism.png"><img src="/images/pubs/veseli_et_al_ibd_metabolism.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
+</div>
 
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
