@@ -77,7 +77,7 @@ Here is a map for you:
 13:00 | **Standardisation & reproducibility** | How can we improve standardisation and reproducibility to build trust and actionable insights?
 14:30 | Walking break
 15:00 | **Data** | What do we need to do to build a legacy of data for now and for the future?
-16:30 | **Day 1 synthesis** | Key insights and overarching considerations
+16:30 | **Day 1 synthesis** | Key insights, emerging themes & outstanding questions for further discussion
 17:00 | Afternoon break
 18:30 | **Dinner discussion** | Continued conversation in the city centre 
 
@@ -91,24 +91,25 @@ Here is a map for you:
 13:00 | **Policy** | How can we build a unified voice to effectively inform policy decisions and environmental management?
 14:00 | Walking break 
 15:00 | **Future opportunities** | Given our discussions, what promising opportunities should we pursue collectively?
-16:30 | **Closing remarks & next steps** | Conference wrap-up
-17:00 | Workshop end
+16:30 | **Day 2 synthesis** | Key insights, emerging themes & outstanding questions for further discussion
+17:00 | **Closing remarks & next steps** | Workshop wrap-up
+17:15 | Workshop end
 
 #### Thursday, 02. Oct 2025 ([Symposium](https://hifmb.de/news/events/mmoff-symposium/))
 
 09:00	|	Registration & welcome coffee	
 09:30	|	**Opening remarks and introductions**
-10:00	|	**Talk 1** \| **Adam Martiny**,  UC Irvine \| _**Bio-GO-SHIP - observing the high seas**_
+10:00	|	**Adam Martiny**,  UC Irvine \| _**Bio-GO-SHIP - observing the high seas**_
 10:30	|	Coffee break
-10:45	|	**Talk 2** \| **Alejandra Prieto-Davó**, UNAM \| _**Towards Building a Coastal and Marine Microbial Observatory Network in México, challenges and experiences**_
-11:15	|	**Talk 3** \| **Kathleen Pitz**, MBARI \| _**Detecting variability through space and time with eDNA**_
+10:45	|	**Alejandra Prieto-Davó**, UNAM \| _**Towards Building a Coastal and Marine Microbial Observatory Network in México, challenges and experiences**_
+11:15	|	**Kathleen Pitz**, MBARI \| _**Detecting variability through space and time with eDNA**_
 11:45	|	Group picture
 12:00	|	Lunch
-13:15	|	**Talk 4** \| **Elisha Wood-Charlson**, DOE Systems Biology Knowledgebase, LBNL \| _**Changing how data becomes 'knowledge'**_
-13:45	|	**Talk 5** \| **Enrique Montes**, University Miami CIMAS \| _**All hands on deck: A Marine Biodiversity Observation Network (MBON) for monitoring life in the sea**_
+13:15	|	**Elisha Wood-Charlson**, DOE Systems Biology Knowledgebase, LBNL \| _**Changing how data becomes 'knowledge'**_
+13:45	|	**Enrique Montes**, University Miami CIMAS \| _**All hands on deck: A Marine Biodiversity Observation Network (MBON) for monitoring life in the sea**_
 14:15	|	Coffee break
-14:30	|	**Talk 6** \| **Jodie van de Kamp**, CSIRO \| _**Australian Microbiome: National Collaboration for Microbial Insight and Impact**_
-15:00	|	**Talk 7** \| **Jed Fuhrman**, USC Dornslife \| _TBD_
+14:30	|	**Jodie van de Kamp**, CSIRO \| _**Australian Microbiome: National Collaboration for Microbial Insight and Impact**_
+15:00	|	**Jed Fuhrman**, USC Dornslife \| _**New ways of looking at the roles of marine microbes**_
 15:30	|	**Closing remarks**
 15:45	|	**Networking & open discussion**
 16:30	|	Event conclusion
