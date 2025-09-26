@@ -148,7 +148,7 @@ Adam C. Martiny is a Professor at the University of California Irvine in the US.
 Alejandra Prieto-Davó is a Professor at the National Autonomous University of Mexico in Mexico. Alejandra is interested in the biotechnological and biosynthetic potential of marine microbes. Besides her [extensive body of work](https://scholar.google.com/citations?user=VDEsbr0AAAAJ&hl=de&oi=ao) that ranges from the antibiotics discovery to environmental restoration strategies, you may know Alejandra from her work with the [Global Ocean Observing System (GOOS) Biology and Ecosystems (BioEco) panel](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/) on developing the microbial biomass and diversity Essential Ocean Variable ([EOV](https://goosocean.org/document/36264)). We invited Alejandra because of her expertise in microbial bioprospecting, her involvement in global coordination through GOOS, and the regional perspective she brings to challenges and solutions for marine microbial observations in Latin America.
 
 ### Amelia Hine
-🇩 🇪  _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://hifmb.de/de/personen/amelia-hine/)
+🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://hifmb.de/de/personen/amelia-hine/)
 
 <p>
   <img src="/images/mmoff-2025/amelia.jpeg" alt="Amelia"
