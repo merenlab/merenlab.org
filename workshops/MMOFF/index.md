@@ -147,6 +147,17 @@ Adam C. Martiny is a Professor at the University of California Irvine in the US.
 
 Alejandra Prieto-Davó is a Professor at the National Autonomous University of Mexico in Mexico. Alejandra is interested in the biotechnological and biosynthetic potential of marine microbes. Besides her [extensive body of work](https://scholar.google.com/citations?user=VDEsbr0AAAAJ&hl=de&oi=ao) that ranges from the antibiotics discovery to environmental restoration strategies, you may know Alejandra from her work with the [Global Ocean Observing System (GOOS) Biology and Ecosystems (BioEco) panel](https://goosocean.org/who-we-are/expert-panels/biology-and-ecosystems-bioeco/goos-biology-ecosystems-panel/) on developing the microbial biomass and diversity Essential Ocean Variable ([EOV](https://goosocean.org/document/36264)). We invited Alejandra because of her expertise in microbial bioprospecting, her involvement in global coordination through GOOS, and the regional perspective she brings to challenges and solutions for marine microbial observations in Latin America.
 
+### Amelia Hine
+🇩 🇪  _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://hifmb.de/de/personen/amelia-hine/)
+
+<p>
+  <img src="/images/mmoff-2025/amelia.jpeg" alt="Amelia"
+       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+              border-radius: 50%; border: 6px solid #eee;">
+</p>
+
+Amelia Hine is a critical resource geographer in the Marine Governance group at the Helmholtz Institute for Functional Marine Biodiversity (HIFMB), in Oldenburg, Germany. Amelia is interested in the interplay of power and storytelling in resource and energy futures, with a focus on nonhuman and nonliving agencies and materialities, volumetric geographies, and particulate and chemical knowability. Her current project interrogates how the principle of the common heritage of mankind is practiced in relation to the seabed in international waters. We invited Amelia because of her work on the intersection of power, policy, and marine resource governance, bringing essential social science perspectives to discussions about the long-term sustainability and equitable access of marine observing efforts.
+
 ### A. Murat Eren (Meren)
 🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/) 
 
