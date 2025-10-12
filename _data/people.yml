@@ -162,6 +162,10 @@
       inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
+    - title: Associate Junior Fellow
+      inst: Hanse-Wissenschaftskolleg, Institute for Advanced Study
+      inst_link: https://hanse-ias.de/en/
+      current: true
     - title: Post-doctoral Scientist
       inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
@@ -190,6 +194,10 @@
     - title: Post-doctoral Scientist
       inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
+      current: true
+    - title: Associate Junior Fellow
+      inst: Hanse-Wissenschaftskolleg, Institute for Advanced Study
+      inst_link: https://hanse-ias.de/en/
       current: true
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
