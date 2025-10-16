@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-09-19
+modified: 2025-10-12
 comments: false
 image:
    display: true
@@ -104,6 +104,24 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
 </div>
 
+<a id="10.1093/ismejo/wraf216">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/ismejo/wraf216"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1093/ismejo/wraf216" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1093/ismejo/wraf216" target="_new">Habitat-specificity in SAR11 is associated with a few genes under high selection</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Tucker SJ</span>, Freel KC, Rappé MS<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/tucker_et_al_SAR11_2024.png"><img src="/images/pubs/tucker_et_al_SAR11_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>The ISME Journal</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Habitat-specificity+in+SAR11+is+associated+with+a+few+genes+under+high+selection" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1093/ismejo/wraf216" target="_blank">doi:10.1093/ismejo/wraf216</a></span>
+</div>
+
 
 ## 2024
 
@@ -139,24 +157,6 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=New+isolate+genomes+and+global+marine+metagenomes+resolve+ecologically+relevant+units+of+SAR11" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.24.630191" target="_blank">doi:10.1101/2024.12.24.630191</a></span>
-</div>
-
-<a id="10.1101/2024.12.23.630198">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2024.12.23.630198"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2024.12.23.630198" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2024.12.23.630198" target="_new">Habitat-specificity in SAR11 is associated with a handful of genes under high selection</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Tucker SJ</span>, Freel KC, Rappé MS<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/tucker_et_al_SAR11_2024.png"><img src="/images/pubs/tucker_et_al_SAR11_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Habitat-specificity+in+SAR11+is+associated+with+a+handful+of+genes+under+high+selection" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.23.630198" target="_blank">doi:10.1101/2024.12.23.630198</a></span>
 </div>
 
 <a id="10.1038/d41586-024-02661-6">&nbsp;</a>

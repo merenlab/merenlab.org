@@ -187,6 +187,27 @@ publications:
       featured_image:
         /images/pubs/veseli_et_al_ibd_metabolism.png
 
+  - doi:
+      10.1093/ismejo/wraf216
+    title:
+      "Habitat-specificity in SAR11 is associated with a few genes under high selection"
+    authors:
+      Sarah J Tucker, Kelle C Freel, Michael S Rappé+, A Murat Eren+
+    journal:
+      The ISME Journal
+    year:
+      2025
+    volume:
+    number:
+    pages:
+      wraf216
+    additional_info:
+      highlights:
+        - A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.
+        - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.
+      featured_image:
+        /images/pubs/tucker_et_al_SAR11_2024.png
+
 
   - doi:
       10.1016/j.cell.2024.08.028
@@ -233,27 +254,6 @@ publications:
         - You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.
       featured_image:
         /images/pubs/freel_et_al_SAR11_2024.jpg
-
-  - doi:
-      10.1101/2024.12.23.630198
-    title:
-      "Habitat-specificity in SAR11 is associated with a handful of genes under high selection"
-    authors:
-      Sarah J Tucker, Kelle C Freel, Michael S Rappé+, A Murat Eren+
-    journal:
-      bioRxiv
-    year:
-      2024
-    volume:
-    number:
-    pages:
-    additional_info:
-      highlights:
-        - A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.
-        - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.
-      featured_image:
-        /images/pubs/tucker_et_al_SAR11_2024.png
-
 
   - doi:
       10.1038/d41586-024-02661-6
