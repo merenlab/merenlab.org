@@ -4,16 +4,32 @@ title: Phylogenomics of SAR11
 modified: 2025-10-23
 excerpt: "A reproducible workflow to build SAR11 phylogenomic trees from Freel et al"
 comments: true
-authors: []
+authors: [meren]
 ---
 
+The purpose of this document, which is written by Meren together with [Kelle Freel](https://www.linkedin.com/in/kcfreel/), is to provide its readers with a reproducible workflow that can be used to regenerate or extend the SAR11 phylogenomic tree that appeared in the manuscript below:
 
-The purpose of this document is to provide its readers with a reproducible workflow that can be used to regenerate or extend the SAR11 phylogenomic tree that appeared in the manuscript below:
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2024.12.24.630191"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2024.12.24.630191" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2024.12.24.630191" target="_new">New isolate genomes and global marine metagenomes resolve ecologically relevant units of SAR11</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Freel KC</span>, Tucker SJ, Freel EB, Giovannoni SJ, Eren AM, Rappe MS</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/freel_et_al_SAR11_2024.jpg"><img src="/images/pubs/freel_et_al_SAR11_2024.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 24 genera within the family Pelagibacteraceae along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=New+isolate+genomes+and+global+marine+metagenomes+resolve+ecologically+relevant+units+of+SAR11" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.24.630191" target="_blank">doi:10.1101/2024.12.24.630191</a></span>
+</div>
 
+If you have any questions about this tutorial, please feel free to reach out to Meren or Kelle.
 
 ## A brief introduction to Freel et al.
 
-Members of SAR11, or *Pelagibacterales*, is absolutely everywhere in the global ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete Pelagibacterales ecotypes that we defined as genera.
+Members of SAR11, or *Pelagibacterales*, dominates the global surface ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete Pelagibacterales ecotypes that we defined as genera.
 
 In order to unify SAR11 nomenclature, we have provided names for the genera we identified, while this does not exhaustively account for all of the identified SAR11 diversity, we think that this is a step towards a meaningful hierarchical system for this important marine bacteria. Integrating evolution and ecology, into this hierarchical system is essential to better understand the enigmatic and incredibly abundant Pelagibacterales.
 
@@ -41,7 +57,7 @@ cd $workdir
 
 If you are here, when you type `ls` in your terminal and press ENTER, you shouldn't see an output (so that you are in a new, empty directory).
 
-And similarly, when you run `anvi-self-test -v`, you should be getting an output similar to this:
+And similarly, when you run {% include PROGRAM name="anvi-self-test" %} the following way, you should be getting an output similar to this:
 
 ```
 anvi-self-test -v
@@ -68,9 +84,9 @@ If that is the case, you are golden.
 You an follow this tutorial in two ways:
 
 * Downloading all the FASTA files for the SAR11 genomes used in Freel et al, and do everything from scratch (which will take more time, but you will feel like a hacker).
-* Downloading all the anvi'o contigs-db files generated from these genomes, and do everything after that (which will be more convenient, but you will feel like, well, happy, I guess).
+* Downloading all the anvi'o {% include ARTIFACT name="contigs-db" %} files generated from these genomes, and do everything after that (which will be more convenient, but you will feel like, well, happy, I guess).
 
-In both ways, you will have ways to extend the collection of genomes with your own, either with FASTA files or contigs-db files you may already have for your genomes. If you want to go from scratch, go with 
+In both ways, you will have ways to extend the collection of genomes with your own, either with FASTA files or {% include ARTIFACT name="contigs-db" %} files you may already have for your genomes.
 
 ## Downloading FASTA files
 
@@ -151,15 +167,18 @@ Please use simple names for your entries to extend this table (without spaces an
 
 ## Getting the contigs-db files
 
-Analyses described here require us to generate an anvi'o contigs-db for each FASTA file in the `GENOMES` directory.
+Analyses described here require us to generate an anvi'o {% include ARTIFACT name="contigs-db" %} for each FASTA file in the `GENOMES` directory.
 
-You can either (1) **generate them from scratch** (which is the appropriate way to do it if you added new FASTA files to the `GENOMES` directory), or (2) **you can skip that and download all the previously generated contigs-db files** (which will give you access to the same files if you were to go with the first option).
+You can either,
+
+1. [OPTION #1](#option-1-generate-contigs-dbs-from-scratch): **Generate {% include ARTIFACT name="contigs-db" %} files from scratch**, which is the appropriate way to do it if you added new FASTA files to the `GENOMES` directory, or,
+2. [OPTION #2](#option-2-download-pre-generated-contigs-db-files): **Download all the previously generated {% include ARTIFACT name="contigs-db" %} files**, which will give you access to the same files if you were to go with the first option.
 
 ### OPTION 1: Generate contigs-dbs from scratch
 
-So you want to generate your own contigs-db files from scracth. Good for you. Now, there are two ways to do it (this tutorial is basically a labyrinth like that).
+So you want to generate your own {% include ARTIFACT name="contigs-db" %} files from scratch. Good for you. Now, there are two ways to do it (this tutorial is basically a labyrinth like that).
 
-The first option is to do it on your own computer like a farmer from 18th century. Here is a `for` loop in BASH that will make that happen for you:
+The first option is to do it on your own computer like a farmer from 18th century. Here is a `for` loop in BASH that will make that happen for you using the program {% include PROGRAM name="anvi-gen-contigs-database" %} to turn your {% include ARTIFACT name="fasta" %} into a {% include ARTIFACT name="contigs-db" %} and then annotate it with a few anvi'o programs such as {% include PROGRAM name="anvi-run-hmms" %}, {% include PROGRAM name="anvi-run-ncbi-cogs" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %}, and {% include PROGRAM name="anvi-run-scg-taxonomy" %}:
 
 ```bash
 # generate a directory for CONTIGS-DBs
@@ -212,7 +231,7 @@ do
 done
 ```
 
-Which would generate all the contigs-db files in the `CONTIGS-DBs` directory (in about 4 minutes).
+Which would generate all the {% include ARTIFACT name="contigs-db" %} files in the `CONTIGS-DBs` directory (in about 4 minutes).
 
 I hope it is clear to you how to run this on your own HPC using this information, but if not, you have three options:
 
@@ -223,7 +242,7 @@ I hope it is clear to you how to run this on your own HPC using this information
 
 ### OPTION 2: Download pre-generated contigs-db files
 
-Well, if you are here, it means you just want to get all the contigs-db files that we have generated following the workflow described above.
+Well, if you are here, it means you just want to get all the {% include ARTIFACT name="contigs-db" %} files that we have generated following the workflow described above.
 
 Luckily you can download it from doi:[10.6084/m9.figshare.30467441](https://doi.org/10.6084/m9.figshare.30467441), and unpack that directory using the following command:
 
@@ -245,13 +264,13 @@ rm -rf CONTIGS-DBs.tar.gz
 ls CONTIGS-DBs/*db | wc -l
 ```
 
-If you are here, running the following command in your work directory,
+If you are here, running the {% include PROGRAM name="anvi-db-info" %} on any {% include ARTIFACT name="contigs-db" %} in your work directory,
 
 ```bash
 anvi-db-info CONTIGS-DBs/FZCC0015.db
 ```
 
-Should yield and output that looks like this:
+should yield and output that looks like this:
 
 ```
 DB Info (no touch)
@@ -295,16 +314,16 @@ AVAILABLE FUNCTIONAL ANNOTATION SOURCES
 |MY_GENOME_NAME_02||UNKNOWN||||NEW_GENOME|||
 
 {:.warning}
-The genome name here should match to the name of the contigs-db you have put into the `CONTIGS-DBs` directory. If the name you put in into this file is `MY_GENOME_NAME_01`, your contigs-db file should be at `CONTIGS-DBs/MY_GENOME_NAME_01.db`.
+The genome name here should match to the name of the {% include ARTIFACT name="contigs-db" %} you have put into the `CONTIGS-DBs` directory. If the name you put in into this file is `MY_GENOME_NAME_01`, your contigs-db file should be at `CONTIGS-DBs/MY_GENOME_NAME_01.db`.
 
 
 ## Annotating contigs-dbs with Alphaproteobacterial SCGs
 
-If you are here, it means you have all the contigs-db files in your work directory (with or without the contigs-db files you have for your own SAR11 genomes).
+If you are here, it means you have all the {% include ARTIFACT name="contigs-db" %} files in your work directory (with or without the {% include ARTIFACT name="contigs-db" %} files you have for your own SAR11 genomes).
 
-The next step is to prepare for phylogenomics, for which we needed to first determine which single-copy core gene (SCG) collection we should use. Previous studies, such as the one by Muñoz-Gómez et al (2019) that suggested that mitochondria are a sister clade to the Alphaproteobacteria, relied upon a curated set of 200 SCGs for *Alphaproteobacteria*. But not all those genes occurred in all SAR11 genomes, so we first evaluated the presence of the 200 SCGs alphaproteobacterial genes across our collection of genomes by using the anvi'o program anvi-script-gen-hmm-hits-matrix-across-genomes, and excluded genes that were missing in more than 90% of the SAR11 genomes we had in our collection. This resulted in a subset of 165 genes that were suitable for downstream phylogenomic analyses of this group. In our paper, we refer to this SCG collection as SAR11_165.
+The next step is to prepare for phylogenomics, for which we needed to first determine which single-copy core gene (SCG) collection we should use. Previous studies, such as the one by Muñoz-Gómez et al (2019) that suggested that mitochondria are a sister clade to the Alphaproteobacteria, relied upon a curated set of 200 SCGs for *Alphaproteobacteria*. But not all those genes occurred in all SAR11 genomes, so we first evaluated the presence of the 200 SCGs alphaproteobacterial genes across our collection of genomes by using the anvi'o program {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %}, and excluded genes that were missing in more than 90% of the SAR11 genomes we had in our collection. This resulted in a subset of 165 genes that were suitable for downstream phylogenomic analyses of this group. In our paper, we refer to this SCG collection as SAR11_165.
 
-You can download the HMMs for SAR11_165 as an anvi'o hmm-soruce artifact from here to annotate our contigs-db files:
+You can download the HMMs for SAR11_165 as an anvi'o hmm-soruce artifact from here to annotate our {% include ARTIFACT name="contigs-db" %} files:
 
 ```bash
 
@@ -319,7 +338,7 @@ tar -zxvf Alphaproteobacterial_SCGs.tar.gz
 rm -rf Alphaproteobacterial_SCGs.tar.gz
 ```
 
-We can now annotate all contigs-db files with these single-copy core genes using the following `for` loop:
+We can now annotate all {% include ARTIFACT name="contigs-db" %} files with these single-copy core genes using the following `for` loop:
 
 ```bash
 for contigs_db in CONTIGS-DBs/*.db
@@ -364,14 +383,14 @@ AVAILABLE HMM SOURCES
 
 For a phylogenomic analysis we will use the standard [anvi'o phylogenomics workflow](https://anvio.org/learn/phylogenomics/) with an external-genomes file.
 
-You can create an external-genomes-txt file for all your genomes using the program anvi-script-gen-genomes file:
+You can create an external-genomes-txt file for all your genomes using the program {% include PROGRAM name="anvi-script-gen-genomes-file" %} file:
 
 ```bash
 anvi-script-gen-genomes-file --input-dir CONTIGS-DBs/ \
                              -o external-genomes.txt
 ``` 
 
-If you included `x` number of new contigs-db files (or FASTA files) into your analysis, running the following command,
+If you included `x` number of new {% include ARTIFACT name="contigs-db" %} files (or FASTA files) into your analysis, running the following command,
 
 ```bash
 wc -l external-genomes.txt
@@ -383,39 +402,38 @@ Should give you `494 + 1 + x` (that `1` comes from the header). This is your fin
 
 OK. If you are here, all is set.
 
-Which means, we now can get the aligned and concatenated alphaproteobacteiral SCGs across our genomes using the program anvi-get-sequences-for-hmm-hits (please note that this step should take some time, so you can go get a coffee),
+Which means, we now can get the aligned and concatenated alphaproteobacteiral SCGs across our genomes using the program {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %} (please note that this step should take some time, so you can go get a coffee or a long walk that takes about 40 minutes (it is muscle aligning 480+ genes 165 times)):
 
 ```bash
 anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
-                                -o SAR11_165.fa \
+                                -o SAR11_165_concat.fa \
                                 --hmm-source Alphaproteobacterial_SCGs \
                                 --return-best-hit \
                                 --get-aa-sequences \
                                 --concatenate
 ```
 
-Then use trimAL to remove positions missing from more than 50% of the sequences,
+Then we will use [trimAL](https://trimal.cgenomics.org/) (already installed in your anvi'o environment) to trim our alignment so the positions that are gaps in more than 50% of the sequences are gone goodbye:
 
 ```
-trimal -in SAR11_165.fa \
-       -out SAR11_165_final.fa \
+trimal -in SAR11_165_concat.fa \
+       -out SAR11_165.fa \
        -gt 0.50
 ```
 
-to get your final FASTA file. If you are here, which means you are ready to run the phylogenomic analysis.
+If you are here, it means you have your final FASTA file to run the phylogenomic analysis.
 
-For this, we will use IQtree with a lot of memory. So regardless how you came all the way down here, you need to run this command on your HPC:
+For this, we will use [IQtree](https://iqtree.github.io/) (also already installed in your anvi'o environment), a robust maximum likelihood algorithm to reconstruct trees. So regardless how you came all the way down here, you need to run this command on your HPC (with 40 cores in this particular example and 30GB memory (it should only require about ):
 
 ```
-iqtree -s SAR11_165_final.fa \
+iqtree -s SAR11_165.fa \
        -m LG+F+R10 \
-       -T AUTO \
+       -T 40 \
        -ntmax 25 \
        --alrt 1000 \
-       -B 1000 \
-       --mem 60G
+       -B 1000
 ```
 
-### Visualize the phylogeny in anvi'o
+## Visualization in anvi'o
 
 *More coming*
