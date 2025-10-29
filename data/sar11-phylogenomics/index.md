@@ -434,6 +434,125 @@ iqtree -s SAR11_165.fa \
        -B 1000
 ```
 
+After what feels like eternity, you will get a consensus tree from this analysis. Here is ours, which is neatly renamed to something that makes more sense:
+
+[https://merenlab.org/data/sar11-phylogenomics/files/sar11.tree](/data/sar11-phylogenomics/files/sar11.tree)
+
+The difficult part is now done.
+
 ## Visualization in anvi'o
 
-*More coming*
+There are indeed many ways to visualize phylogenetic trees. Everybody knows that. What might be something that is not well-known by many is that, anvi'o is quite a good to visualize them, as well. According to some, it is actually the best if you can believe that. Well, our study does not take sides in this debate. However, for the sake of convenience, here this tutorial will demonstrate how we visualized our tree along with the contextual information.
+
+If you wish to start from scratch, you can simply download the final phylogenomic tree into your work directory,
+
+```bash
+curl https://merenlab.org/data/sar11-phylogenomics/files/sar11.tree \
+     -o sar11.tree
+```
+
+And immediately visualize it using the program {% include PROGRAM name="anvi-interactive" %} in what we call 'manual' mode:
+
+```bash
+anvi-interactive -t sar11.tree \
+                 -p sar11.db \
+                 --manual
+``` 
+
+This command will automatically generate a blank profile-db, and will open your browser to show you this once you click 'Draw':
+
+{% include IMAGE path="images/sar11-tree-01.png" caption="Unedited, unrooted, raw tree" width=90 %}
+
+You can click any branch on your interactive display by pressing command or control key to re-root the tree,
+
+{% include IMAGE path="images/sar11-tree-02.png" caption="Being a deity and choosing a branch to root the tree." width=90 %}
+
+And even change the display mode to 'phylogram',
+
+{% include IMAGE path="images/sar11-tree-03.png" caption="Switching from a circular view to a conventional phylogram view" width=50 %}
+
+And set some reasonable values for the display height and the width of the tree from the options panel,
+
+{% include IMAGE path="images/sar11-tree-04.png" caption="Adjusting tree display width and height" width=50 %}
+
+To get to a display like this:
+
+{% include IMAGE path="images/sar11-tree-05.png" caption="A more reasonable display" width=90 %}
+
+Finally, one can save the 'state' of the visual settings by clicking on the 'Save' button on the very bottom-left of the Settings panel, so everytime you run :
+
+{% include IMAGE path="images/sar11-tree-06.png" caption="The very nicely hidden save state button" width=50 %}
+
+---
+
+Of course we are not done here. The most important thing is to be able to visualize all the branch data and other key information for us to understand this organization, and/or display new genomes we have added to the mix together with all the others. Luckily, we have the `genome-data.txt` file in our work directory. Adding that information to this display is quite straightforward. Go back to your termianl, press `CTRL+C` to terminate the running instance of {% include PROGRAM name="anvi-interactive" %}, and re-run it *with* the genome data:
+
+```bash
+anvi-interactive -t sar11.tree \
+                 -p sar11.db \
+                 --additional-layers genome-data.txt \
+                 --manual
+``` 
+
+This time, you will be looking at this display in your interactive interface:
+
+{% include IMAGE path="images/sar11-tree-07.png" caption="Still ugly, but much more informative display" width=90 %}
+
+The reason this looks so busy is because anvi'o displays every single column in the genome-data.txt file with whatever means possible. Some of them (such as 'genome extended') are not really useful to display. Others, such as the 'genus species' layer) should be text, etc. One can adjust all those through the 'display' subsection of the settings panel:
+
+{% include IMAGE path="images/sar11-tree-08.png" caption="Unedited display properties for layers" width=50 %}
+
+Here is the lighlty edited and reordered display properties,
+
+{% include IMAGE path="images/sar11-tree-09.png" caption="Edited display properties for layers" width=50 %}
+
+And the result after re-setting clade colors and other minor adjustements:
+
+{% include IMAGE path="images/sar11-tree-10.png" caption="A much more reasonable visualization of the tree and associated data" width=90 %}
+
+Much more reasonable, indeed. It shows less, but the information from the hidden layers are not lost, and you can see all the underlying data for each genome in the 'data' panel for your interactive exploration, or bin :
+
+{% include IMAGE path="images/sar11-tree-11.png" caption="Mouse-over data display" width=90 %}
+
+If you like, you can click on branches to create bins, so there is even more information on the display before you calling it final:
+
+{% include IMAGE path="images/sar11-tree-12.png" caption="A much better and informative display" width=90 %}
+
+As you can imagine, if you have included a FASTA file or a {% include ARTIFACT name="contigs-db" %} files for your new genomes into this analysis from the beginning, this display with its search functions will help you to locate your genomes, and communicate their locations clearly to ohters.
+
+Once you are satisfied with your display, you can download the SVG file from teh very bottom-left corner of the display, and finalize it for publication using any vector graphics tool. For our figures we used [Inkscape](https://inkscape.org/).
+
+---
+
+Just for transparency and reproducibility, what you see in this screen is also avaialble as a data pack, and you can download and visualize it on your computer even if you haven't done *any* of the steps in this tutorial the following way:
+
+```bash
+
+# download the data pack for interactive visualization of the SAR11
+# phylogeny with all genomes
+curl https://merenlab.org/data/sar11-phylogenomics/files/interactive-display.tar.gz \
+     -o interactive-display.tar.gz
+
+# uncpack it
+tar -zxvf interactive-display.tar.gz
+
+# get rid of the archive file
+rm -rf interactive-display.tar.gz
+
+# go into the directory
+cd interactive-display
+
+# run the anvi'o interactive
+anvi-interactive -t sar11.tree \
+                 -p sar11.db \
+                 --additional-layers genome-data.txt \
+                 --manual
+```
+
+And voila (hopefully)!
+
+{% include IMAGE path="images/sar11-tree-12.png" caption="Reproducing the same display from the data pack" width=90 %}
+
+## Final words
+
+We hope this was useful to you. Please feel free to let us know if you need any help.
