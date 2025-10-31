@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-10-12
+modified: 2025-10-31
 comments: false
 image:
    display: true
@@ -153,7 +153,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/freel_et_al_SAR11_2024.jpg"><img src="/images/pubs/freel_et_al_SAR11_2024.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 24 genera within the family Pelagibacteraceae along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 24 genera within the family Pelagibacteraceae along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow for the phylogenomics of SAR11 along with all raw and intermediate data products is available <a href="https://merenlab.org/data/sar11-phylogenomics/" target="_blank">here</a>.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=New+isolate+genomes+and+global+marine+metagenomes+resolve+ecologically+relevant+units+of+SAR11" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.24.630191" target="_blank">doi:10.1101/2024.12.24.630191</a></span>
