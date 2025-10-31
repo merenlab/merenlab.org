@@ -25,11 +25,27 @@ The purpose of this document, which is written by Meren together with [Kelle Fre
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=New+isolate+genomes+and+global+marine+metagenomes+resolve+ecologically+relevant+units+of+SAR11" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.24.630191" target="_blank">doi:10.1101/2024.12.24.630191</a></span>
 </div>
 
-If you have any questions about this tutorial, please feel free to reach out to Meren or Kelle.
+For your technical questions about the tutorial, please feel free to reach out to Meren or Kelle. Please reach out to [Michael Rappé](https://rappelab.wordpress.com/) for things that may require input from the senior author of our work.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Data. Now!</span>
+
+For those of you who are in a rush, and more interested in the data items than the bioinformatics, here is the list:
+
+* doi:[10.6084/m9.figshare.30464900](https://doi.org/10.6084/m9.figshare.30464900): All FASTA files for each 494 SAR11 genomes.
+* doi:[10.6084/m9.figshare.30467441](https://doi.org/10.6084/m9.figshare.30467441): All anvi'o {% include ARTIFACT name="contigs-db" %} files for each 494 SAR11 genomes (annotated with all sorts of HMMs and gene functions, ready for downstream analyses).
+* [genome-data.txt.gz](https://merenlab.org/data/sar11-phylogenomics/files/genome-data.txt.gz): Genome metadata.
+* [Alphaproteobacterial_SCGs.tar.gz](https://merenlab.org/data/sar11-phylogenomics/files/Alphaproteobacterial_SCGs.tar.gz): HMMs for alphaproteobacterial single-copy core genes (SCGs) in anvi'o {% include ARTIFACT name="hmm-source" %} format (in which genes.hmm.gz contains each model).
+* [PRJNA1170004](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA1170004): NCBI SRA accession for the whole genome shotgun sequencing of cultures for new isolate genomes.
+
+</div>
+
+Thank you for your interest.
 
 ## A brief introduction to Freel et al.
 
-Members of SAR11, or *Pelagibacterales*, dominates the global surface ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete Pelagibacterales ecotypes that we defined as genera.
+Members of SAR11, or *Pelagibacterales*, dominate the global surface ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete Pelagibacterales ecotypes that we defined as genera.
 
 In order to unify SAR11 nomenclature, we have provided names for the genera we identified, while this does not exhaustively account for all of the identified SAR11 diversity, we think that this is a step towards a meaningful hierarchical system for this important marine bacteria. Integrating evolution and ecology, into this hierarchical system is essential to better understand the enigmatic and incredibly abundant Pelagibacterales.
 
@@ -81,7 +97,7 @@ If that is the case, you are golden.
 
 ---
 
-You an follow this tutorial in two ways:
+You can follow this tutorial in two ways:
 
 * Downloading all the FASTA files for the SAR11 genomes used in Freel et al, and do everything from scratch (which will take more time, but you will feel like a hacker).
 * Downloading all the anvi'o {% include ARTIFACT name="contigs-db" %} files generated from these genomes, and do everything after that (which will be more convenient, but you will feel like, well, happy, I guess).
@@ -90,7 +106,7 @@ In both ways, you will have ways to extend the collection of genomes with your o
 
 ## Downloading FASTA files
 
-We used 494 genonmes in Freel et al, and you can download them from doi:[10.6084/m9.figshare.30464900](https://doi.org/10.6084/m9.figshare.30464900) and unpack them by running the following commands:
+We used 494 genomes in Freel et al, and you can download them from doi:[10.6084/m9.figshare.30464900](https://doi.org/10.6084/m9.figshare.30464900) and unpack them by running the following commands:
 
 ```bash
 # download the FASTA files
@@ -110,7 +126,7 @@ rm -rf GENOMES.tar.gz
 ls GENOMES/*fa | wc -l
 ```
 
-If you are here, it means you have all 494 FASTA files on your computer. OF these 494,
+If you are here, it means you have all 494 FASTA files on your computer. Of these 494,
 
 * 375 are single-amplified genomes (SAGs),
 * 81 are new isolate genomes (FASTA) by Freel et al.,
@@ -145,7 +161,7 @@ Now if you take a look at the `genome-data.txt` file, you will see that it shows
 Here are what each of these columns mean:
 
 - `genome`: The name of the genome. Should match `GENOMES/NAME.fa` or `CONTIGS-DBs/NAME.db` in later stages of this tutorial.
-- `mapping_rep_accession`: indicating hwether the genome is the 95% ANI represenative for the clade it belongs.
+- `mapping_rep_accession`: indicating whether the genome is the 95% ANI representative for the clade it belongs.
 - `subclade`: which SAR11 subclade of the historical nomenclature best explains the genome.
 - `genus_species`: the genus designation, if defined in Freel et al., and the species name, if one assigned for this particular genome.
 - `accession`: accession number for the genome. This is a bit finicky. It can be ENA/NCBI accession, or IMG accession for a few that were not available in public resources.
@@ -163,7 +179,7 @@ Here are what each of these columns mean:
 |MY_GENOME_NAME_02||UNKNOWN||||NEW_GENOME|||
 
 {:.warning}
-Please use simple names for your entries to extend this table (without spaces and wierd characters except `_`), and make sure there is a FASTA file with the same name and `.fa` extension in the `GENOMES` directory. If you follow these, everything below work for you smootly, and the final tree will include your genomes, and by searching for 'UNKNOWN' subclades in the final visualization, you will be able to determine the best matching name/clade information for your genomes.
+Please use simple names for your entries to extend this table (without spaces and weird characters except `_`), and make sure there is a FASTA file with the same name and `.fa` extension in the `GENOMES` directory. If you follow these, everything below work for you smoothly, and the final tree will include your genomes, and by searching for 'UNKNOWN' subclades in the final visualization, you will be able to determine the best matching name/clade information for your genomes.
 
 ## Getting the contigs-db files
 
@@ -202,7 +218,7 @@ do
 done
 ```
 
-But of course this will take forever (more precisely, about 4 minutes per genome on a laptop, and about 33 hours for all). That's why you actually would like to to do it on your HPC like a proper modern human indivdiual. But every HPC is different, so it is difficult for me to give you copy-pasta instructions here. On our own HPC, which is using `slurm`, I would have created the following script in my work directory, which I would haved called it `gen-contigs-db.sh` because I am like that,
+But of course this will take forever (more precisely, about 4 minutes per genome on a laptop, and about 33 hours for all). That's why you actually would like to to do it on your HPC like a proper modern human indivdiual. But every HPC is different, so it is difficult for me to give you copy-pasta instructions here. On our own HPC, which is using `slurm`, I would have created a script in my work directory with the following content, and have named it `gen-contigs-db.sh`,
 
 ```bash
 num_threads=8
@@ -220,7 +236,7 @@ anvi-run-kegg-kofams -c CONTIGS-DBs/$genome.db --num-threads $num_threads
 anvi-run-scg-taxonomy -c CONTIGS-DBs/$genome.db --num-threads $num_threads
 ```
 
-and then send all the jobs to our cluster using the conveninence of our slurm wrapper, [clusterize](https://github.com/merenlab/clusterize), with the following `for` loop:
+and then I would have sent all the jobs to our cluster using the conveninence of our slurm wrapper, [clusterize](https://github.com/merenlab/clusterize), with the following `for` loop:
 
 ```bash
 mkdir -p CONTIGS-DBs
@@ -235,9 +251,9 @@ Which would generate all the {% include ARTIFACT name="contigs-db" %} files in t
 
 I hope it is clear to you how to run this on your own HPC using this information, but if not, you have three options:
 
-* Take my Programming for Life Scientsts course next year to master all these things,
+* Take my [Programming for Life Scientsts](https://merenlab.org/courses/PFLS/) course next year to master all these things,
 * Contact your local HPC help as they should be able to easily figure it out what to do from the information here,
-* Reach out to me directly and ask for help if you are desperate, but I hope it will not come to this as :)
+* Reach out to me directly and ask for help if you are really desperate, but I hope it will not come to this as it is very difficult to solve HPC releted issues remotely.
 
 
 ### OPTION 2: Download pre-generated contigs-db files
@@ -323,7 +339,7 @@ If you are here, it means you have all the {% include ARTIFACT name="contigs-db"
 
 The next step is to prepare for phylogenomics, for which we needed to first determine which single-copy core gene (SCG) collection we should use. Previous studies, such as the one by Muñoz-Gómez et al (2019) that suggested that mitochondria are a sister clade to the Alphaproteobacteria, relied upon a curated set of 200 SCGs for *Alphaproteobacteria*. But not all those genes occurred in all SAR11 genomes, so we first evaluated the presence of the 200 SCGs alphaproteobacterial genes across our collection of genomes by using the anvi'o program {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %}, and excluded genes that were missing in more than 90% of the SAR11 genomes we had in our collection. This resulted in a subset of 165 genes that were suitable for downstream phylogenomic analyses of this group. In our paper, we refer to this SCG collection as SAR11_165.
 
-You can download the HMMs for SAR11_165 as an anvi'o hmm-soruce artifact from here to annotate our {% include ARTIFACT name="contigs-db" %} files:
+You can download the HMMs for SAR11_165 as an anvi'o {% include ARTIFACT name="hmm-source" %} artifact from here to annotate our {% include ARTIFACT name="contigs-db" %} files:
 
 ```bash
 
@@ -423,7 +439,7 @@ trimal -in SAR11_165_concat.fa \
 
 If you are here, it means you have your final FASTA file to run the phylogenomic analysis.
 
-For this, we will use [IQtree](https://iqtree.github.io/) (also already installed in your anvi'o environment), a robust maximum likelihood algorithm to reconstruct trees. So regardless how you came all the way down here, you need to run this command on your HPC (with 40 cores in this particular example and 30GB memory (it should only require about ):
+For this, we will use [IQtree](https://iqtree.github.io/) (also already installed in your anvi'o environment), a robust maximum likelihood algorithm to reconstruct trees. So regardless how you came all the way down here, you need to run this command on your HPC (with 40 cores in this particular example, that will still take over 40 hours to run):
 
 ```
 iqtree -s SAR11_165.fa \
@@ -498,15 +514,15 @@ This time, you will be looking at this display in your interactive interface:
 
 {% include IMAGE path="images/sar11-tree-07.png" caption="Still ugly, but much more informative display" width=90 %}
 
-The reason this looks so busy is because anvi'o displays every single column in the genome-data.txt file with whatever means possible. Some of them (such as 'genome extended') are not really useful to display. Others, such as the 'genus species' layer) should be text, etc. One can adjust all those through the 'display' subsection of the settings panel:
+The reason this looks so busy is that because anvi'o displays every single column in the genome-data.txt file with whatever means possible. Some of them (such as 'genome extended') are not really useful to display. Others, such as the 'genus species' layer) should be text, etc. One can adjust all those through the 'display' subsection of the settings panel:
 
 {% include IMAGE path="images/sar11-tree-08.png" caption="Unedited display properties for layers" width=50 %}
 
-Here is the lighlty edited and reordered display properties,
+Here is the lightly edited and reordered display properties,
 
 {% include IMAGE path="images/sar11-tree-09.png" caption="Edited display properties for layers" width=50 %}
 
-And the result after re-setting clade colors and other minor adjustements:
+And the result after re-setting clade colors and other minor adjustments:
 
 {% include IMAGE path="images/sar11-tree-10.png" caption="A much more reasonable visualization of the tree and associated data" width=90 %}
 
@@ -514,17 +530,17 @@ Much more reasonable, indeed. It shows less, but the information from the hidden
 
 {% include IMAGE path="images/sar11-tree-11.png" caption="Mouse-over data display" width=90 %}
 
-If you like, you can click on branches to create bins, so there is even more information on the display before you calling it final:
+If you like, you can click on branches to create bins, so there is even more information on the display before calling it final:
 
 {% include IMAGE path="images/sar11-tree-12.png" caption="A much better and informative display" width=90 %}
 
-As you can imagine, if you have included a FASTA file or a {% include ARTIFACT name="contigs-db" %} files for your new genomes into this analysis from the beginning, this display with its search functions will help you to locate your genomes, and communicate their locations clearly to ohters.
+As you can imagine, if you have included FASTA or {% include ARTIFACT name="contigs-db" %} files for your new genomes into this analysis at the beginning, this display with its search functions will help you to locate your genomes, and communicate their locations in any presentation or manuscript.
 
-Once you are satisfied with your display, you can download the SVG file from teh very bottom-left corner of the display, and finalize it for publication using any vector graphics tool. For our figures we used [Inkscape](https://inkscape.org/).
+Once you are satisfied with your display, you can download the SVG file from the very bottom-left corner of the display, and finalize it for publication using any vector graphics tool. For our figures we used [Inkscape](https://inkscape.org/).
 
 ---
 
-Just for transparency and reproducibility, what you see in this screen is also avaialble as a data pack, and you can download and visualize it on your computer even if you haven't done *any* of the steps in this tutorial the following way:
+Just for transparency and reproducibility, what you see in this screen is also avaialable as a data pack, and you can download and visualize it on your computer even if you haven't done *any* of the steps in this tutorial the following way:
 
 ```bash
 
