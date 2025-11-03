@@ -36,7 +36,7 @@ This document describes the reproducible bioinformatics workflow for our study t
 All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 {:.notice}
-The URL [http://merenlab.org/data/sar11-saavs/](sar11-saavs/){:target="_blank"} serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/sar11-saavs/](/data/sar11-saavs/){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
