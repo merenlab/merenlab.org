@@ -1,15 +1,23 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+gem "jekyll", "~> 4.4"
+gem "minima", "~> 2.5"
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+end
 
-gem "jekyll", ">= 3.6.3"
-gem "kramdown", ">= 2.3.0"
-gem "kramdown-parser-gfm"
-gem "ffi", ">= 1.9.24"
+# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library.
+platforms :windows, :jruby do
+  gem "tzinfo", "~> 1.2"
+  gem "tzinfo-data"
+end
+
+gem "wdm", "~> 0.1.1", platforms: [:windows]
+
 gem "jekyll-sitemap"
-gem 'octopress', '~> 3.0.0.rc.12'
 gem 'sequel'
 gem 'unidecode'
 gem 'rouge'
 gem 'jekyll-redirect-from'
 gem 'jekyll-gist'
-gem "rexml", ">= 3.3.6"
-gem "webrick"
+gem 'webrick'
