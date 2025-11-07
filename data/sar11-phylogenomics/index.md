@@ -45,7 +45,7 @@ Thank you for your interest.
 
 ## A brief introduction to Freel et al.
 
-Members of SAR11, or *Pelagibacterales*, dominate the global surface ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete Pelagibacterales ecotypes that we defined as genera.
+Members of SAR11, or the *Pelagibacterales*, dominate the global surface ocean and is key to the marine carbon cycle. To understand the specific roles that this incredibly diverse clade of marine bacteria has, it is crucial to have high quality isolate genomes. In Freel et al., we focused on isolating hundreds of SAR11 from the coastal and offshore surface seawater of the tropical Pacific Ocean and generated 81 high-quality genomes. Exploring these genomes and their global distributions using metagenomic data, allowed us to define discrete *Pelagibacterales* ecotypes that we defined as genera.
 
 In order to unify SAR11 nomenclature, we have provided names for the genera we identified, while this does not exhaustively account for all of the identified SAR11 diversity, we think that this is a step towards a meaningful hierarchical system for this important marine bacteria. Integrating evolution and ecology, into this hierarchical system is essential to better understand the enigmatic and incredibly abundant Pelagibacterales.
 
