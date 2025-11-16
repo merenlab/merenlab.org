@@ -41,13 +41,13 @@ I can't promise you whether I will have all the answers you are looking for, but
 * Tell you **whether you are being unreasonable** to expect something from your PI,
 * Tell you **whether you should prioritize X over Y**,
 * Tell you **whether your instincts are correct**, or you are likely misreading a situation,
-* Explain to you **what it means to go from one career stage to the next**,
+* Explain **what it means to go from one career stage to the next**,
 * Discuss your desire to **stay in or leave academia** without judgement,
-* What it means **to be an international researcher**, and so on.
+* Discuss what it means **to be an international researcher**, and so on.
 
-In an ideal world, you would come to the meeting with well-defined questions. While I welcome random chat sessions, the limited number of slots may push those who may have a specific need from these meetings further d are most welcome, too).
+In an ideal world, you would come to our meeting with well-defined questions. I would certainly welcome random chat sessions, too, but the limited number of slots may push those who may have a specific need from these meetings to wait longer for a discussion, and I would like to avoid that.
 
-In the meantime, even though I am almost certain this is overkill and none of you deserve to go through this, I would still like to keep a list of things to shed light on **what these meetings are not for**:
+Even though I am almost certain this is overkill and none of you deserve to go through this, I would still like to keep a list of things to shed light on **what these meetings are <u>not</u> for**:
 
 * Our meeting is **not to answer technical questions** or get into **topics that are outside of professional life**.
 * I cannot comment on **legal matters** or **health concerns**.
@@ -65,7 +65,7 @@ If you have read everything on this page, and feel that this could be useful to 
 * [https://zeeg.me/meren/ecr-connection](https://zeeg.me/meren/ecr-connection)
 
 {:.notice}
-In case you are wondering, here is some information on **how does the scheduling work**: There is a single slot in each week on my calendar that can be scheduled for this purpose, and a meeting can be scheduled for the next 4 weeks. If there are no available slots at a given time it would either mean that I am on a break, I am traveling, or all slots are already taken up for the next month. If you are still interested in a meeting, you can take a look at the scheduling page again at the beginning of the next week.
+In case you are wondering **how the scheduling works**: I have one slot per week on my calendar specifically for this. At any given time, you can book a meeting up to 4 weeks out. If no slots are available, it would mean that I might be on a break, I might be traveling, or all slots for the next month are already taken. Please check back again a few days later if you are still interested.
 
 Thank you for your interest, and I look forward to talking to you!
 
