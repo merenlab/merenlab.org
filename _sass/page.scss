@@ -1160,6 +1160,15 @@ $button-size: 1.5rem;
     }
 }
 
+
+.post-index-entry {
+  padding-left: 10px;
+  border-left: 10px solid #c2c2c2;
+  margin-bottom: 30px;
+  padding-top: 5px;
+  background: linear-gradient(to left, #f2f2f2, white);
+}
+
 /* Default social media links in author sidebar */
 .author-social {
   display: block;
