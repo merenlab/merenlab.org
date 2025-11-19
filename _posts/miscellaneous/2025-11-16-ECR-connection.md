@@ -9,6 +9,7 @@ categories: [miscellaneous]
 comments: true
 redirect_from: /ecr-connection/
 noleftpanel: true
+thumbnail: /images/thumbnails/2025-11-16-ECR-connection.png
 ---
 
 ## TL;DR

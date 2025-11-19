@@ -11,4 +11,5 @@ redirect_from:
   - /targeted-binning-nif-mag/
 redirect_to:
   - http://anvio.org/blog/targeted-binning/
+thumbnail: /images/thumbnails/2021-10-20-targeted-binning-nif-mag.png
 ---

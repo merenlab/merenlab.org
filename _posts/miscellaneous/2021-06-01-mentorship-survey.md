@@ -11,6 +11,7 @@ redirect_from: /mentorship-survey/
 image:
   feature: https://merenlab.org/images/mentorship-survey/header.png
   display: true
+thumbnail: /images/thumbnails/2021-06-01-mentorship-survey.png
 ---
 
 
