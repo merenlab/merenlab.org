@@ -31,22 +31,34 @@
                 {% assign author = e %}
             {% endif %}
           {% endfor %}
-          <div class="post-index-entry">
-            <h1 style="margin-bottom:5px; font-size: 1.6em;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h1>
-            <p style="margin-bottom: -4px;"><i>{{ post.excerpt | strip_html}}</i></p>
-            <p>{% for category in site.data.categories %}
-                    {% if category.name == post.categories[0] %}
-                        <span class="lbl" style="background-color: {{category.color}}">{{ category.name }}</span>
-                    {% endif %}
-                {% endfor %}
+            <div class="post-index-entry">
+              <div class="post-thumbnail">
+                {% if post.thumbnail %}
+                  <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+                    <img src="{{ site.url }}{{ post.thumbnail }}" alt="{{ post.title }}" />
+                  </a>
+                {% else %}
+                  <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+                    <img src="{{ site.url }}/images/microbial-omics.png" alt="{{ post.title }}" />
+                  </a>
+                {% endif %}
+              </div>
 
-                <span class="lbl" style="background-color: #d99d9d;">{{ post.date | date: "%a, %b %d, %Y" }}</span>
-
-                {% if author %}
-                <span class="lbl" style="background-color: #2a7b7a;">by {{ author.name }}</span>
-                {% else %}{% endif %}
-            </p>
-          <div>
+              <div class="post-content">
+                <h1 style="margin-bottom:5px; font-size: 1.6em;"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h1>
+                <p style="margin-bottom: -4px;"><i>{{ post.excerpt | strip_html}}</i></p>
+                <p>{% for category in site.data.categories %}
+                        {% if category.name == post.categories[0] %}
+                            <span class="lbl" style="background-color: {{category.color}}">{{ category.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    <span class="lbl" style="background-color: #d99d9d;">{{ post.date | date: "%a, %b %d, %Y" }}</span>
+                    {% if author %}
+                    <span class="lbl" style="background-color: #2a7b7a;">by {{ author.name }}</span>
+                    {% else %}{% endif %}
+                </p>
+              </div>
+            </div>
       </article>
 {% endfor %}
 
