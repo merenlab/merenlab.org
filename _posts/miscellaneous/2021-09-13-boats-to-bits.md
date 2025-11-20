@@ -11,6 +11,7 @@ redirect_from: /boats-to-bits/
 image:
   feature: https://merenlab.org/images/miscellaneous/boats-to-bits/header.jpg
   display: true
+thumbnail: /images/thumbnails/2021-09-13-boats-to-bits.jpg
 ---
 
 Even though I consider my place in science to be within the domain of microbiology, I am trained as a computer scientist. Similar to most others in life sciences that yield expertise in computation, our group started its journey in microbiology by mostly re-analyzing publicly available data. I have maintained both a ton of respect for those who had the vision to generate datasets of profound legacy and a healthy dose of envy. But all were OK. We did our best with what was available to us. *Everything was beautiful and nothing hurt*.

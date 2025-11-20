@@ -10,6 +10,7 @@ authors: [meren]
 image:
   feature: http://merenlab.org/images/miscellaneous/2016-12-14-wavy-coverage-patterns/oh.png
   display: false
+thumbnail: /images/thumbnails/2016-12-14-coverage-variation.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-12-14-wavy-coverage-patterns{% endcapture %}

@@ -9,6 +9,7 @@ categories: [anvio,anvio-structure]
 image:
   feature: http://merenlab.org/images/anvio-structure/2018-09-04-getting-started-with-anvio-structure/hidden.png
   display: false
+thumbnail: /images/thumbnails/2018-09-04-getting-started-with-anvio-structure.png
 ---
 
 {% capture anviostructure %}{{site.url}}/software/anvio-structure{% endcapture %}

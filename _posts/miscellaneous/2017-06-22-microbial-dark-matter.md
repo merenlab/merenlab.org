@@ -10,6 +10,7 @@ authors: [meren]
 image:
   thumb: http://merenlab.org/images/miscellaneous/2017-06-22-microbial-dark-matter/dark-side-of-metagenomes.png
   display: false
+thumbnail: /images/thumbnails/2017-06-22-microbial-dark-matter.jpeg
 ---
 
 This is a short and friendly rant against the use of the term "dark matter" in microbial ecology to describe microbial populations we know little about. If you have better things to do, this is the time to go back to them.

@@ -11,6 +11,7 @@ redirect_from: /story-of-a-cover/
 image:
   feature: https://merenlab.org/images/miscellaneous/the-cover-story/Cover-art-v01.png
   display: false
+thumbnail: /images/thumbnails/2024-09-22-evoluton-of-a-cover-art.png
 ---
 
 The purpose of this post is to share the story and the evolution of the cover image of [the September 16<sup>th</sup> issue of *Cell*](https://www.cell.com/cell/issue?pii=S0092-8674(23)X0020-8), which features a review article we wrote on 'modern microbiology'.

@@ -10,6 +10,7 @@ comments: true
 redirect_from:
   - /2015/11/14/pangenomics/
   - /p/
+thumbnail: /images/thumbnails/2016-11-08-pangenomics-v2.png
 ---
 
 

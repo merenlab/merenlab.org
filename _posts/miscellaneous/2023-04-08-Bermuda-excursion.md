@@ -8,6 +8,7 @@ tags: [Bermuda, sampling]
 categories: [miscellaneous]
 comments: true
 redirect_from: /bermuda-excursion/
+thumbnail: /images/thumbnails/2023-04-08-Bermuda-excursion.jpeg
 ---
 
 

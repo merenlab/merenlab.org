@@ -9,6 +9,7 @@ categories: [miscellaneous]
 comments: true
 image:
     feature: http://merenlab.org/images/miscellaneous/2019-03-05-wolbachia-plasmid/mbl.jpg
+thumbnail: /images/thumbnails/2019-03-05-wolbachia-plasmid.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2019-03-05-wolbachia-plasmid{% endcapture %}

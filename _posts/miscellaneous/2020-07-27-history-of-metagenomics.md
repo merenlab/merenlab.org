@@ -11,6 +11,7 @@ redirect_from:
   - /history-of-metagenomics/
 image:
     feature: http://merenlab.org/images/history_metagenomics_vis.png
+thumbnail: /images/thumbnails/2020-07-27-history-of-metagenomics.png
 ---
 
 

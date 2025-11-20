@@ -6,6 +6,7 @@ modified: 2019-03-14
 categories: [anvio]
 comments: true
 authors: [alon, meren]
+thumbnail: /images/thumbnails/2019-03-14-ncbi-genome-download-magic.png
 ---
 
 

@@ -1169,6 +1169,69 @@ $button-size: 1.5rem;
   background: linear-gradient(to left, #f2f2f2, white);
 }
 
+/***************************************************************************/
+/* Post index with thumbnails */
+.post-index-entry {
+  padding-left: 10px;
+  border-left: 10px solid #c2c2c2;
+  margin-bottom: 30px;
+  padding-top: 5px;
+  background: linear-gradient(to left, #f2f2f2, white);
+
+  // flex stuff
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5em;
+  gap: 20px;
+}
+
+.post-thumbnail {
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px; /* Optional: adds rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the key - crops image to fill the square */
+  object-position: center; /* Centers the crop */
+  transition: transform 0.3s ease; /* Optional: smooth hover effect */
+}
+
+.post-thumbnail:hover img {
+  transform: scale(1.05); /* Optional: slight zoom on hover */
+}
+
+.post-content {
+  flex: 1;
+  min-width: 0; /* Prevents content from overflowing */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .post-index-entry {
+    flex-direction: column;
+  }
+
+  .post-thumbnail {
+    width: 100%;
+    height: 200px; /* Shorter on mobile */
+    margin-bottom: 15px;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .post-thumbnail {
+    height: 150px;
+  }
+}
+/***************************************************************************/
+
 /* Default social media links in author sidebar */
 .author-social {
   display: block;

@@ -9,6 +9,7 @@ categories: [miscellaneous]
 comments: true
 image:
     feature: http://merenlab.org/images/miscellaneous/2018-12-17-face-on-a-turd/fig-1.png
+thumbnail: /images/thumbnails/2018-12-17-face-on-a-turd.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2018-12-17-face-on-a-turd{% endcapture %}

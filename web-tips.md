@@ -7,6 +7,39 @@ comments: false
 
 The purpose of this page is to show some of the fancy things our web page can do. If you add new features that are specific to our web code, or discover uses of features that are not described here, please feel free to extend this list.
 
+# Show thumbnails for blog posts
+
+For a blog post to have its own thumbnail, you need to add the following to the frontmatter of the Markdown file:
+
+```
+thumbnail: /images/thumbnails/image.jpg
+```
+
+Since thumbnails will be showed for every post in the blog listing page, it is critical to make sure that they have a small file size. The best practice here is the following. Let's assume the markdown file for your blogpost is named as `2025-11-17-mmoff-2025.md`, and it contains an image you wish to use as a thumbnail located at,
+
+```
+images/miscellaneous/mmoff-2025/mmoff-2025-workshop-discussion-round.jpg
+```
+
+The best way to generate a thumbnail for this post would be to run the following command in your terminal (which will require you to install [ImageMagick](https://imagemagick.org/) if you don't have it already (`apt` or `brew` will work perfectly for this)):
+
+```
+magick images/miscellaneous/mmoff-2025/mmoff-2025-workshop-discussion-round.jpg \
+       -thumbnail 600x600^ \
+       -gravity center \
+       -extent 600x600 \
+       -quality 85 \
+       images/thumbnails/2025-11-17-mmoff-2025.jpg
+```
+
+For instance, in this particular case, this command generates a 0.1 MB thumbnail for a 2.8 MB original image. Then you can add the thumnbnail path to the frontmatter of your blog post like this (don't forget the extra `/` at the beginning of the path):
+
+```
+thumbnail: /images/thumbnails/2025-11-17-mmoff-2025.jpg
+```
+
+After this, you should see your post with a thumbnail in the blog listing page.
+
 # Show/hide content
 
 If you want to show/hide content, you can use this notation in your markdown files.

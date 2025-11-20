@@ -13,6 +13,7 @@ noleftpanel: true
 image:
   feature: https://merenlab.org/images/eel-pond.jpg
   display: true
+thumbnail: /images/thumbnails/2025-07-16-science-families.png
 ---
 
 I am working on a collaborative proposal this morning which aims to address important questions by making use of paleogenomics, a field of science that reconstructs and analyzes genetic information from past ecosystems and organisms within them, and I just ran into a sentence in it that mentions [Svante Pääbo](https://en.wikipedia.org/wiki/Svante_P%C3%A4%C3%A4bo) by name. How cute, I thought, since I like proposals that recognize people and their contributions explicitly.

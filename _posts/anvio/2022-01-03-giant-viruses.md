@@ -14,6 +14,7 @@ image:
   feature: https://merenlab.org/images/anvio/2022-01-03-giant-viruses/header.png
   display: true
   nologo: true
+thumbnail: /images/thumbnails/2022-01-03-giant-viruses.png
 ---
 
 ## Giant viruses

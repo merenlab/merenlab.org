@@ -10,6 +10,7 @@ authors: [meren]
 image:
   feature: http://merenlab.org/images/miscellaneous/2017-08-23-CPR-in-blood/Kowarsky_et_al.png
   display: false
+thumbnail: /images/thumbnails/2017-08-23-CPR-in-blood.png
 ---
 
 
