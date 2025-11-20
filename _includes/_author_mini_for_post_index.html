@@ -1,0 +1,10 @@
+{% for author in post.authors %}
+    {% for person in site.data.people %}
+        {% if author == person.alias %}
+{{  author ==  post.authors | first}}
+        <div class="page-author">
+              <div><img class="page-person-photo-img" src="{{ site_url }}/images/{{ person.avatar }}" /></div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
