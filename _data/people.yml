@@ -58,7 +58,7 @@
 - alias: sarah
   lab_member: True
   name: Sarah Tucker
-  name_as_author: Sarah J. Tucker
+  name_as_author: Sarah J Tucker
   tenure_start: 03/2024
   role: Post-doctoral Scientist
   email: stucker@mbl.edu
