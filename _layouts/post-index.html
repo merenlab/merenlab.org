@@ -23,6 +23,7 @@
 <div id="index" style="margin-top: 25px;">
 
 {% for post in site.posts %}
+      {% if post.authors and post.authors != "" and post.authors != empty %}
       <article>
             <div class="post-index-entry">
               <div class="post-thumbnail">
@@ -53,6 +54,7 @@
               </div>
             </div>
       </article>
+      {% endif %}
 {% endfor %}
 
   </div><!-- /#index -->
