@@ -9,6 +9,7 @@ comments: true
 redirect_from:
   - /2015/10/14/anvio-discussion-group/
   - /software/anvio/getting-help
+thumbnail: /images/thumbnails/2019-10-07-getting-help.png
 ---
 
 

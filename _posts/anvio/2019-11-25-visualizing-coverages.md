@@ -8,6 +8,7 @@ comments: true
 authors: [emily, ryan]
 image:
   feature: http://merenlab.org/images/anvio/2019-11-25-visualizing-coverages/ScreenShot_inspect_pLA6_12.png
+thumbnail: /images/thumbnails/2019-11-25-visualizing-coverages.png
 ---
 
 

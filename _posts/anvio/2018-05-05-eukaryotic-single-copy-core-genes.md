@@ -10,6 +10,7 @@ redirect_from: /delmont-euk-scgs
 image:
   feature: http://merenlab.org/images/anvio/2018-05-05-eukaryotic-single-copy-core-genes/correlation.png
   display: false
+thumbnail: /images/thumbnails/2018-05-05-eukaryotic-single-copy-core-genes.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-05-05-eukaryotic-single-copy-core-genes{% endcapture %}

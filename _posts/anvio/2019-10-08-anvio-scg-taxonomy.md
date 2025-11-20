@@ -9,6 +9,7 @@ categories: [anvio]
 comments: true
 redirect_from:
   - /scg-taxonomy/
+thumbnail: /images/thumbnails/2019-10-08-anvio-scg-taxonomy.png
 ---
 
 

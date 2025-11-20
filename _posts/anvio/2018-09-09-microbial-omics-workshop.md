@@ -6,6 +6,7 @@ excerpt: "A light introduction to questions of microbial ecology and microbial o
 comments: true
 authors: [alon]
 categories: [anvio]
+thumbnail: /images/thumbnails/2018-09-09-microbial-omics-workshop.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-09-09-microbial-omics-workshop{% endcapture %}

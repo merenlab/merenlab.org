@@ -8,6 +8,7 @@ authors: [alon, meren]
 categories: [anvio]
 redirect_from:
   - /anvio-workflows/
+thumbnail: /images/thumbnails/2018-07-09-anvio-snakemake-workflows.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-07-09-anvio-snakemake-workflows{% endcapture %}

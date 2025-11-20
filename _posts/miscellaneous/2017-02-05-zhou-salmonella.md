@@ -11,6 +11,7 @@ authors: [meren]
 image:
   feature: http://merenlab.org/images/miscellaneous/2017-02-05-zhou-salmonella/featured.png
   display: false
+thumbnail: /images/thumbnails/2017-02-05-zhou-salmonella.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-02-05-zhou-salmonella{% endcapture %}

@@ -9,6 +9,7 @@ categories: [miscellaneous]
 comments: true
 image:
   feature: http://merenlab.org/images/miscellaneous/2020-01-02-visualizing-metagenomic-bins/card.png
+thumbnail: /images/thumbnails/2020-01-02-visualizing-metagenomic-bins.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2020-01-02-visualizing-metagenomic-bins{% endcapture %}

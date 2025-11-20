@@ -9,6 +9,7 @@ categories: [miscellaneous]
 comments: true
 image:
   feature: http://merenlab.org/images/miscellaneous/2019-12-12-dereplicate-or-not/figure-03.png
+thumbnail: /images/thumbnails/2019-12-12-dereplicate-or-not.png
 ---
 
 The purpose of this blog post is to plant a seed in our communal mind in an attempt to encourage an open discussion. Please consider sharing your thoughts or experience with dereplication in the context of genome-resolved metagenomics. Do you dereplicate your metagenome-assembled genomes (MAGs)? Why or why not? Are you satisfied or not? What would be the ideal way to do it?

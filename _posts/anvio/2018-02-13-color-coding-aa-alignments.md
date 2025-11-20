@@ -7,6 +7,7 @@ tags: [pangenomics]
 categories: [anvio]
 comments: true
 authors: [mahmoud]
+thumbnail: /images/thumbnails/2018-02-13-color-coding-aa-alignments.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-02-13-color-coding-aa-alignments{% endcapture %}

@@ -7,6 +7,7 @@ modified: 2015-01-11
 tags: [tutorial]
 categories: [oligotyping]
 comments: true
+thumbnail: /images/thumbnails/2012-05-11-oligotyping-pipeline-explained.png
 ---
 
 

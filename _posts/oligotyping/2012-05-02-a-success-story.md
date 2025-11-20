@@ -7,6 +7,7 @@ modified: 2012-05-02
 tags: [pubs, gardnerella]
 categories: [oligotyping]
 comments: true
+thumbnail: /images/thumbnails/2012-05-02-a-success-story.png
 ---
 
 

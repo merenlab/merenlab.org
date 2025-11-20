@@ -11,6 +11,7 @@ image:
   feature: http://merenlab.org/images/anvio/2020-07-22-interacdome/feature.png
   display: true
   credit: https://interacdome.princeton.edu/
+thumbnail: /images/thumbnails/2020-07-22-interacdome.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2020-07-22-interacdome{% endcapture %}
