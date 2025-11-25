@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-10-31
+modified: 2025-11-25
 comments: false
 image:
    display: true
@@ -631,7 +631,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/delmont_et_al_HBDs.png"><img src="/images/pubs/delmont_et_al_HBDs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="https://www.mbl.edu/news/large-scale-study-indicates-novel-abundant-nitrogen-fixing-microbes-surface-ocean" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A "behind the paper" <a href="https://communities.springernature.com/posts/microbiologists-vs-shotgun-metagenomes-the-surface-ocean-edition" target="_blank">blog post</a> by Meren, a <a href="https://www.mbl.edu/news/large-scale-study-indicates-novel-abundant-nitrogen-fixing-microbes-surface-ocean" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Nature Microbiology</b>, 3(7):804-813 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Nitrogen-fixing+populations+of+Planctomycetes+and+Proteobacteria+are+abundant+in+surface+ocean+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-018-0176-9" target="_blank">doi:10.1038/s41564-018-0176-9</a></span>
