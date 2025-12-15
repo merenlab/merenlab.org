@@ -67,11 +67,6 @@ I have to mention, I was also extremely honoured to see that our work with [Jill
 
 ---
 
-As I was trying to summarize what really resonated most deeply with me and stuck in my mind from my reading of this study, I came to the conclusion that the ideal scientific practice is one that teaches us to find our peace with unresolved tension rather than trying to resolve it prematurely. An idea that is not necessarily a point of this manuscript, but one that speaks to the power of social science, and to its capacity to provoke reflection by creating space for conversation rather than closure.
+As I was trying to summarize what really resonated most deeply with me and stuck in my mind from my reading of this study, I came to the conclusion that it was the following: the ideal scientific practice is likely the one that teaches us to find our peace with unresolved tension rather than trying to resolve it prematurely. An idea that is not necessarily a point of this manuscript, but one that speaks to the power of social science, and to its capacity to provoke reflection by creating space for conversation rather than closure.
 
 Overall, I think this is a rare opportunity to reflect back on our discipline through the eyes of someone who uses the power of ethnography, story telling, and great observations as connective tissue that carries you from the beginning to the end, and think more about how we align ourselves and our science with what we think matters.
-
-
-
-
-
