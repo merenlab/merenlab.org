@@ -2,7 +2,7 @@
 layout: post
 authors: [meren]
 title: "Lost and Found in Modern Microbiology: An Ethnography of Modern Microbiologists"
-excerpt: "A writing from a sociologist of scinetific knowledge on how microbiologists navigate the tension between reductionism and complexity in their everyday practices, and my 2 cents on it."
+excerpt: "A paper on how microbiologists navigate the tension between reductionism and complexity in their everyday practices, and my 2 cents on it."
 modified: 2026-12-15
 tags: [science, sociology, ethnography]
 categories: [miscellaneous]
