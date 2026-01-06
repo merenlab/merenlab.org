@@ -75,6 +75,28 @@ people:
 
 publications:
   - doi:
+      10.1038/s41587-025-02971-8
+    title:
+      "Troubleshooting common errors in assemblies of long-read metagenomes"
+    authors:
+      Florian Trigodet, Rohan Sachdeva, Jillian F. Banfield, A. Murat Eren
+    journal:
+      Nature Biotechnology
+    year:
+      2026
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - A re-evaluation of the state-of-the-art long-read assembly algorithms, including metaMDBG, hiCanu, metaFlye, and hifiasm-meta, in which we observe and describe multi-domain chimeras, prematurely circularized sequences, haplotyping errors, excessive repeats, and phantom sequences in results 😬
+        - A reproducible bioinformatics workflow for the study that makes use of <a href="https://anvio.org/help/main/programs/anvi-script-find-misassemblies/" target="_blank">anvi-script-find-misassemblies</a> is availabe <a href="https://merenlab.org/data/benchmarking-long-read-assemblers/" target="_blank">here</a>.
+        - Also we have <a href="https://bsky.app/profile/floriantrigodet.bsky.social/post/3lnucr3jf322q" target="_blank">a BlueSky thread</a> by Florian Trigodet that includes a slightly more elaborate summary if you wish to join in the conversation.
+      featured_image:
+        /images/pubs/trigodet_et_al_2025_assembly_errors.png
+
+
+  - doi:
       10.1038/s41467-025-62138-6
     title:
       "Gifting future scientists the past through well-preserved specimens of modern microbial ecosystems"
@@ -96,27 +118,6 @@ publications:
         - But it conveniently passes the buck to the future generations to figure out (along with well-preserved samples that represent our time).
       featured_image:
         /images/pubs/eren_comment_2025.png
-
-  - doi:
-      10.1101/2025.04.22.649783
-    title:
-      "Assemblies of long-read metagenomes suffer from diverse errors"
-    authors:
-      Florian Trigodet, Rohan Sachdeva, Jillian F. Banfield, A. Murat Eren
-    journal:
-      bioRxiv
-    year:
-      2025
-    volume:
-    number:
-    pages:
-    additional_info:
-      highlights:
-        - A re-evaluation of the state-of-the-art long-read assembly algorithms, including metaMDBG, hiCanu, metaFlye, and hifiasm-meta, in which we observe and describe multi-domain chimeras, prematurely circularized sequences, haplotyping errors, excessive repeats, and phantom sequences in results 😬
-        - A reproducible bioinformatics workflow for the study is availabe <a href="https://merenlab.org/data/benchmarking-long-read-assemblers/" target="_blank">here</a>.
-        - Also we have <a href="https://bsky.app/profile/floriantrigodet.bsky.social/post/3lnucr3jf322q" target="_blank">a BlueSky thread</a> by Florian Trigodet that includes a slightly more elaborate summary if you wish to join in the conversation.
-      featured_image:
-        /images/pubs/trigodet_et_al_2025_assembly_errors.png
 
   - doi:
       10.1093/bioadv/vbaf039
