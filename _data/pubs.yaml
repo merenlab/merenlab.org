@@ -120,6 +120,28 @@ publications:
         /images/pubs/eren_comment_2025.png
 
   - doi:
+      10.1038/s41467-025-67043-6
+    title:
+      "New SAR11 isolate genomes and global marine metagenomes resolve ecologically relevant units within the Pelagibacterales"
+    authors:
+      Kelle C Freel, Sarah J Tucker, Evan B Freel, Stephen J Giovannoni, A Murat Eren, Michael S Rappé
+    journal:
+     Nature Communications
+    year:
+      2025
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.
+        - Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 29 genera within the order Pelagibacterales along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.
+        - You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.
+        - A reproducible bioinformatics workflow for the phylogenomics of SAR11 along with all raw and intermediate data products is available <a href="https://merenlab.org/data/sar11-phylogenomics/" target="_blank">here</a>.
+      featured_image:
+        /images/pubs/freel_et_al_SAR11_2024.jpg
+
+  - doi:
       10.1093/bioadv/vbaf039
     title:
       "Adaptive adjustment of profile HMM significance thresholds improves functional and metabolic insights into microbial genomes"
@@ -148,7 +170,7 @@ publications:
     title:
       "Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities"
     authors:
-       Matthew S Schechter,  Florian Trigodet,  Iva Veseli,  Samuel E Miller, Matthew L Klein,  Metehan Sever,  Lois Maignien,  Tom O Delmont,  Samuel H Light+,  A. Murat Eren+
+      Matthew S Schechter, Florian Trigodet, Iva Veseli, Samuel E Miller, Matthew L Klein, Metehan Sever, Lois Maignien, Tom O Delmont, Samuel H Light+, A. Murat Eren+
     journal:
       bioRxiv
     year:
@@ -233,29 +255,6 @@ publications:
         - This paper was also the cover of <i>Cell</i>'s <a href="https://www.cell.com/cell/issue?pii=S0092-8674(23)X0020-8" target="_blank">anniversary focus issue</a> on microbes. See this <a href="https://merenlab.org/story-of-a-cover/" target="_blank">blog post</a> by Meren to see the evolution of the cover.
       featured_image:
         /images/pubs/eren-banfield-cell-cover.jpg
-
-
-  - doi:
-      10.1101/2024.12.24.630191
-    title:
-      "New isolate genomes and global marine metagenomes resolve ecologically relevant units of SAR11"
-    authors:
-      Kelle C Freel, Sarah J Tucker, Evan B Freel, Stephen J Giovannoni, A Murat Eren, Michael S Rappe
-    journal:
-      bioRxiv
-    year:
-      2024
-    volume:
-    number:
-    pages:
-    additional_info:
-      highlights:
-        - Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.
-        - Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 24 genera within the family Pelagibacteraceae along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.
-        - You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.
-        - A reproducible bioinformatics workflow for the phylogenomics of SAR11 along with all raw and intermediate data products is available <a href="https://merenlab.org/data/sar11-phylogenomics/" target="_blank">here</a>.
-      featured_image:
-        /images/pubs/freel_et_al_SAR11_2024.jpg
 
   - doi:
       10.1038/d41586-024-02661-6
