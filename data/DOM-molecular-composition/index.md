@@ -98,7 +98,7 @@ mkdir -p ~/Downloads
 cd ~/Downloads
 
 # download the data pack
-curl -o roseobacteraceae-dom-datapack.tar.gz https://merenlab.org/data/roseobacteraceae-dom-datapack/files/roseobacteraceae-dom-datapack.tar.gz
+curl -o roseobacteraceae-dom-datapack.tar.gz https://merenlab.org/data/DOM-molecular-composition/files/roseobacteraceae-dom-datapack.tar.gz
 
 # unpack the data pack
 tar -zxvf roseobacteraceae-dom-datapack.tar.gz
