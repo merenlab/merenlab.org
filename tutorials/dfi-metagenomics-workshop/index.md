@@ -52,9 +52,8 @@ Before we begin, please confirm you can correctly copy/paste the commands in the
 Open your Terminal (if using OSX / Linux) or WSL (Ubuntu) prompt (if using Windows Subsystem for Linux) and use the `cd` command to navigate to the folder where you want to store the workshop datapack and run analyses. Use the following commands to 1) download the datapack `DFI_ANVIO_WORKSHOP.tar.gz` into your current folder, and 2) unpack the datapack and navigate into that directory:
 
 ```bash
-# 1) download the datapack from the internet (FigShare)
-curl -L https://figshare.com/ndownloader/files/35843585 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+# 1) download the datapack from the internet (specifically the University of Oldenburg cloud)
+curl -L https://cloud.uol.de/public.php/dav/files/cTGMSJ7HZ3b2PoC \
      -o DFI_ANVIO_WORKSHOP.tar.gz
 
 # 2) unpack data and move into the datapack folder

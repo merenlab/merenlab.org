@@ -46,18 +46,16 @@ Please note that the following few sections will take you through the steps of g
 If you are using `anvio-dev`, please use this command to download the pre-packaged data:
 
 ``` bash
-# download the data pack for contigs-db files
-curl -L https://figshare.com/ndownloader/files/47966644 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+# download the data pack for v8-dev contigs-db files
+curl -L https://cloud.uol.de/public.php/dav/files/XktW549BjTg5ikj \
      -o V_jascida_contigs_dbs.tar.gz
 ```
 
 If you are using the stable `v8` version of anvi'o, use this command to download the pre-packaged data:
 
 ``` bash
-# download the data pack for contigs-db files
-curl -L https://figshare.com/ndownloader/files/41600745 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+# download the data pack for v8 contigs-db files
+curl -L https://cloud.uol.de/public.php/dav/files/7xDdqqXxdtWnpMg \
      -o V_jascida_contigs_dbs.tar.gz
 ```
 
@@ -84,8 +82,7 @@ We will start by downloading the FASTA files for the Vibrio genomes:
 
 ```bash
 # download the pack
-curl -L https://ndownloader.figshare.com/files/28965090 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://cloud.uol.de/public.php/dav/files/LdgMQW6ixzzPKzS \
      -o V_jascida_genomes.tar.gz
 
 # unpack it
@@ -545,7 +542,7 @@ Perhaps this is a good moment to take a look at the summary output, and open the
 
 The {% include PROGRAM name="anvi-summarize" %} step essentially generates an output directory with an `index.html` file that can be opened on any browser, and enables you to share your pangenome as a supplementary data item in any publication. 
 
-Another option, especially if you would like to feel like the year 2021 has finally arrived, you can shre your pangenome in a fully reproducible and interactive way. For that (1) create a new directory, (2) copy into this directory the two essential files, `V_jascida/V_jascida-PAN.db` and `V_jascida-GENOMES.db`, (3) compress the directory (i.e., tar/gz it), (4) upload it to FigShare, and (5) include the DOI for this item in your data availability section of your publication.
+Another option, especially if you would like to feel like the year 2021 has finally arrived, you can shre your pangenome in a fully reproducible and interactive way. For that (1) create a new directory, (2) copy into this directory the two essential files, `V_jascida/V_jascida-PAN.db` and `V_jascida-GENOMES.db`, (3) compress the directory (i.e., tar/gz it), (4) upload it to Zenodo or FigShare, and (5) include the DOI for this item in your data availability section of your publication.
 
 ---
 

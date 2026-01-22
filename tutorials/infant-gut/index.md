@@ -47,8 +47,7 @@ To download and unpack [the infant gut data-pack](https://figshare.com/ndownload
 
 ``` bash
 curl -L -o INFANT-GUT-TUTORIAL.tar.gz \
-     -H "User-Agent: Chrome/115.0.0.0" \
-     https://figshare.com/ndownloader/files/45076909
+     https://cloud.uol.de/public.php/dav/files/WLxH3aPJymCW9Lp
 
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
@@ -1880,8 +1879,8 @@ We did the scariest of all in the name of open science by making sure anyone cou
 For instance, if you would you like to see the distribution and nucleotide-level coverage patterns of HBD-06, one of our nitrogen-fixing populations in our study across Tara Oceans metagenomes, you can simply copy-paste the following commands to your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/8248433 \
-   -O TARA_ANW_MAG_00006.tar.gz
+curl -L https://cloud.uol.de/public.php/dav/files/JtmcrZTRqRzk5xm \
+   -o TARA_ANW_MAG_00006.tar.gz
 
 tar -zxvf TARA_ANW_MAG_00006.tar.gz
 

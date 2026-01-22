@@ -39,8 +39,7 @@ Once you have anvi'o successfully installed, you will need to install additional
 First, open your terminal, go to a work directory, and download the data pack we have stored online for you:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/31313737 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L https://cloud.uol.de/public.php/dav/files/aWDr8ECXA5a7CdJ \
      -o LONG_READ_METAGENOMICS.tar.gz
 ```
 

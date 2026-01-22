@@ -182,7 +182,8 @@ This part of the tutorial **only** works with anvio-7.1 and not with the current
 You can download the [datapack](https://figshare.com/ndownloader/files/31120057) for this tutorial by running the following code:
 
 ```bash
-wget https://figshare.com/ndownloader/files/31120057 -O FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz
+curl -L https://cloud.uol.de/public.php/dav/files/WdnBPH7rZQZKmWx \
+     -o FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz
 tar -xvf FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz && cd FMT_MAGS_FOR_METABOLIC_ENRICHMENT/
 ```
 
