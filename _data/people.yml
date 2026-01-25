@@ -341,7 +341,7 @@
   nick_name: Matt
   tenure_start: 10/2019
   tenure_end: 02/2025
-  last_current_info_check: 2025
+  last_current_info_check: 2026
   current_info: "A postdoctoral researcher in <a href='http://luis-barreirolab.org/' target='_blank'>Luis Barreiro's group</a> at UChicago"
   contributions: "During his time with our group, he developed methods to leverage the growing number of environmental genomes and metagenomes to study the phylogeography of individual proteins. His work led to the creation of <a href='https://anvio.org/help/main/workflows/ecophylo/' target='_blank'>EcoPhylo</a>, an easy-to-use computational workflow that integrates ecological and evolutionary perspectives on gene families de novo"
   role: Graduate Student
@@ -374,7 +374,7 @@
   nick_name: Mete
   tenure_start: 10/2022
   tenure_end: 02/2025
-  last_current_info_check: 2025
+  last_current_info_check: 2026
   current_info: "a Software Engineer at Automation Factory GmbH"
   contributions: "Mete worked on improving anvi'o interactive interfaces by finetuning existing features or adding new ones. Some of his work, especially on how to display and work with phylogenetic trees made anvi'o much more suitable for such applications"
   role: Scientific Programmer
@@ -406,7 +406,7 @@
   github: c-y-n-t-h-i-a
   avatar: bio-cynthia.jpg
   email: cynthia.wang2@duke.edu
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   current_info: A graduate student at the Biophysical Sciences Graduate Program at the University of Chicago
   bio: "A computer scienctist exploring the association between sequence composition and metabolism."
   affiliations:
@@ -431,8 +431,8 @@
   tenure_end: 06/2023
   nick_name: Emily
   contributions: "Emily put an effort into understanding the ecology and evolution of naturally occurring plasmids of the human gut microbiome. Her work described the ecology of pBI143, a cryptic plasmid that happens to be one of the most prevalent and numerous extrachromosomal circular elements of the human gut"
-  current_info: a Clinical Affairs Associate at the <a href="https://theralink.com/">Theralink Technologies, Inc.</a>
-  last_current_info_check: 2024
+  current_info: a Medical Science Liaison at <a href="https://www.veracyte.com/">Veracyte</a>
+  last_current_info_check: 2026
   role: Graduate Student
   email: efogarty@uchicago.edu
   github: efogarty11
@@ -455,7 +455,7 @@
   nick_name: Isaac
   contributions: "Isaac worked on implementing new capabilities for anvi'o to visualize genomic contexts interactively, and contributed code to improve interactive interfaces of anvi'o"
   current_info: an Associate Software Engineer at <a href="https://www.veeva.com/" target="_blank">Veeva Systems</a>
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   role: Undergraduate Researcher
   email: iafink@uchicago.edu
   avatar: bio-isaac.png
@@ -477,7 +477,7 @@
   nick_name: Sam
   contributions: "Sam took on one of the most exciting challenges our group had to offer at that time: taking advantage of the recent advances in high-throughput sequencing of short RNA molecules to make sense of microbial tRNA transcripts in complex habitats. Towards this goal, he developed novel and advanced open-source software tools to study all aspects of chemical modification and relative abundance analysis of tRNA transcripts, and combining them with tRNA genes, codons, and metabolisms found in genomes and metagenomes"
   current_info: a Scientific Programmer for <a href="https://ccomp-stc.org/" target="_blank">the Center for Chemical Currencies of a Microbial Planet</a> at the <a href="https://mbl.edu" target="_blank">Marine Biological Laboratory</a>
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   role: Post-doctoral Scientist
   email: samuelmiller@uchicago.edu
   orcid: 0000-0002-2836-1401
@@ -503,7 +503,7 @@
   tenure_start: 11/2020
   tenure_end: 10/2022
   current_info: a Software Developer in Los Angeles
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   contributions: Matthew focused on improving the anvi'o interactive interface. He has made numerous significant contributions to anvi'o that improved the responsiveness of the interactive interface, addressed many bugs, and added most needed features
   role: Programmer
   email: mtt.l.kln@gmail.com
@@ -524,7 +524,7 @@
   tenure_start: 04/2017
   tenure_end: 06/2022
   current_info: a Protein Bioinformatician at <a href="https://www.arcadiascience.com">Arcadia Science</a>
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   contributions: Evan has made <a href="https://anvio.org/people/ekiefl/">technical</a> and <a href="https://www.youtube.com/watch?v=7_uBDyANpdk">intellectual</a> contributions that allowed us to interpret the genetic diversity within naturally occuring microbial populations in the context of their predicted protein structures
   role: Graduate Student
   twitter: evankiefl
@@ -558,7 +558,7 @@
   tenure_end: 10/2021
   role: Senior Research Technician
   current_info: a Senior Technician at the University of Chicago
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   contributions: Karen has made significant contributons to the wet-lab branch of our group at the University of Chicago by creating and benchmarking protocols for tRNA sequencing and high molecular weight DNA extraction for long-read sequencing even from most challenging samples of low-biomass and host contamination
   email: klolans@medicine.bsd.uchicago.edu
   linkedin: karen-lolans-b39ab0
@@ -578,8 +578,8 @@
   nick_name: Andrea
   tenure_start: 06/2017
   tenure_end: 09/2021
-  current_info: a Bioinformatics Scientist II at <a href="https://www.vedantabio.com/">Vedanta Biosciences</a>
-  last_current_info_check: 2024
+  current_info: a Senior Scientist of Molecular & Virus Safety at <a href="https://www.merckgroup.com/en">Merck</a>
+  last_current_info_check: 2026
   contributions: Throughout her graduate work, Andrea investigated the determinants of microbial colonization in the human gut, a critical question of the human microbiome research that has been beyond our reach outside of simplified model systems. Using genome-resolved metagenomics and fecal microbiota transplantation experiments, Andrea has found <a href="https://www.youtube.com/watch?v=4tPLu84Sjhc">some answers</a> to discuss the factors that influence microbial biodiversity in stressful gut environments
   role: Graduate Student
   email: watson.arr@gmail.com
@@ -603,7 +603,7 @@
   name: Jessica Pan
   name_as_author: Jessica N Pan
   current_info: a Computer Science Master's Student at the <a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a>
-  last_current_info_check: 2024
+  last_current_info_check: 2026
   contributions: Jessica has joined our lab as a high-school student and made significant contributions to the completely brand-new <a href="https://merenlab.org/software/anvio/help/main/" _target="blank">anvi'o help system</a>
   tenure_start: 06/2019
   tenure_end: 09/2020
@@ -629,8 +629,8 @@
   lab_member: True
   name: Abigail Schmid
   name_as_author: Abigail C Schmid
-  current_info: an Engineering Science PhD student at the <a href="https://www.colorado.edu/ceae/research/interdisciplinary-programs/engineering-science" target="_blank">University of Colorado Boulder</a>
-  last_current_info_check: 2024
+  current_info: a Research Associate at Los Alamos National Laboratory
+  last_current_info_check: 2026
   contributions: Abby joined our group as an undergraduate researcher and used pangenomics and metagenomics for high-throughput characterization on hypervariable genomic islands of some of the most prevalent members of the human microbiome. Her work left behind a treasure trove of insights into some of the most interesting parts of microbial genomes
   tenure_start: 10/2017
   tenure_end: 09/2020
@@ -672,7 +672,7 @@
   nick_name: Alon
   tenure_start: 10/2016
   tenure_end: 02/2020
-  current_info: the Computational Biology Team Lead at <a href="https://www.immunai.com/">Immunai</a>
+  current_info: Associate Director of Computational Biology at <a href="https://www.immunai.com/">Immunai</a>
   last_current_info_check: 2024
   contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
   lab_member: True
