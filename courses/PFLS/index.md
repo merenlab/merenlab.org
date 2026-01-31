@@ -4,7 +4,7 @@ noleftpanel: true
 title: "Programming for Life Scientists"
 author: Course Plan
 authors: [meren]
-date: February, 2025
+date: February, 2026
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
@@ -27,14 +27,14 @@ This document includes **everything** you will need for this course.
 
 ## Faculty and Communication
 
-The course is directed by [Prof. Dr. A. Murat Eren](https://merenlab.org), who goes by Meren, and [Prof. Dr. Sarahi Garcia](https://miint.org/), who goes by Sarahi. The lectures and exercises will be primarily delivered by Meren, but the following table lists individuals who were directly or indirectly involved in the contents of the course:
+The course is directed by [Prof. Dr. A. Murat Eren](https://merenlab.org), who goes by Meren, and [Prof. Dr. Sarahi Garcia](https://miint.org/), who goes by Sarahi. The lectures and exercises will be primarily delivered by Meren, but the following table lists everyone, including the course TAs for the current iteration of the course:
 
 |Name|Role|Expertise|Contact information|
 |:---|:---|:---|:---|
 |**Meren**|Professor|Microbial Ecology, Computer Science|meren@hifmb.de|
 |**Sarahi**|Professor|Microbiology, Microbial Ecology|sarahi.garcia@uni-oldenburg.de|
-|**Florian Trigodet**|Senior Scientist|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
-|**Iva Veseli**|Postdoc| Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
+|**Ahmed Belfaqih**|TA|Microbiology, Bioinformatics|ahmed.belfaqih@uni-oldenburg.de|
+|**Ghazaleh Sheikhi**|TA|Microbiology, Bioinformatics|ghazaleh.sheikhi.ghahi@uni-oldenburg.de|
 
 Throughout the course (and beyond) you can reach out to Meren with questions, who should be your first contact for anything related to the activities that will follow.
 
@@ -42,19 +42,23 @@ Throughout the course (and beyond) you can reach out to Meren with questions, wh
 ## Course Responsibilities and Grading
 
 {:.notice}
-This section is relevant to you only if this is as a part of your coursework at the University of Oldenburg in a degree program and you wish to be graded for it.
+This section is relevant to you *only* if this is as a part of your coursework at the University of Oldenburg in a degree program and you wish to be graded for it.
 
 Course responsibilities, such as the *class citizenship* emails and the details of grading is in [this document](grading).
 
 ## Course Facts and Logistics
 
-The design of the course assumes that you know *next to nothing* about any of the topics covered. High expectations poison everything: so please assume that you will unlikely become an expert of the tools and approaches that are covered here, but hopefully, our discussions will provide you with enough understanding of the fundamentals of programming, helping you think about how to make computers work for you, which will give you enough *foundation* to become an expert of everything the course covers. If you’re taking this course in person, we’ll spend about 60 hours together. That’s not nothing, but it’s hardly enough time to become truly skilled at anything. In his book "*[Outliers: The Story of Success](https://en.wikipedia.org/wiki/Outliers_(book))*", Malcolm Gladwell, a Canadian author and thinker, argues that a person could become an expert in nearly any field as long as they were willing to devote the requisite 10,000 hours to studying and practicing the subject or skill. Reminiscing his own journey, he says, and I'm paraphrasing here from his book, "*I was completely overwhelmed at the beginning, but by the end, I felt like an expert. It took me 10 years—exactly that long*". You may feel overwhelmed at the start, throughout, and even at the end of this course, and that's OK. My goal is to help you recognize that bending computers to your will with freedom is something you can see yourself doing well if you were to invest time. That’s why I encourage you to ask questions, participate in discussions, and see this as more than just another course to get through.
+The design of the course assumes that you know *next to nothing* about any of the topics it covers. High expectations poison everything: so please assume that you will unlikely become an expert of the tools and approaches that we will cover throughout the course, but hopefully, our discussions will provide you with enough understanding of the fundamentals of programming, helping you think about how to make computers work for you, which will give you enough *foundation* to become an expert of everything the course covers. If you are taking this course in person, we will spend about 60 hours together. That is not nothing, but it is hardly enough time to become truly skilled at anything. In his book "*[Outliers: The Story of Success](https://en.wikipedia.org/wiki/Outliers_(book))*", Malcolm Gladwell, a Canadian author and thinker, argues that a person could become an expert in nearly any field as long as they were willing to devote 10,000 hours to studying and practicing the subject or skill. Reminiscing his own journey, he says, and I am paraphrasing here from his book, "*I was completely overwhelmed at the beginning, but by the end, I felt like an expert. It took me 10 years — exactly that long*".
+
+The previous cohort of students who took this course shared in their feedback that the pace was occasionally fast, that two weeks was not enough time, and that they sometimes felt overwhelmed. I suspect you may feel the same way. But here is what I want you to recognize: every single one of them also made it through, and most of them thought that got something important out of this. In my opinion what made their experience worthwhile at the end despite the challenges they experienced throughout the course was not that they understood everything perfectly, but that they started to ask questions when they were confused, started to feel more comfortable sitting with discomfort when they felt that they were not getting something, and they trusted the process. I will do my very best to answer every question you have, no matter how basic it seems to you. I will revisit concepts multiple times if needed, and try to explain them differently until they click. What matters most is not that you memorize every command or understand every line of code by the end of our time together. What matters is that you develop a broad appreciation of what is possible. And that you learn to recognize the shape of a problem that can be solved with a general strategy. That recognition will be your foundation, and it is all I can offer here. Absolute mastery of concepts we will discuss here is also possible, and it will come later with practice if you want that. But you cannot practice what you do not know exists, and that is why we are here. To recognize what exists. So please, ask questions. Participate in discussions. Tell me when something does not make sense. The only way to fail this course is to stay silent when you are lost.
 
 While the course is designed for life scientists and especially microbiologists in mind, it should be useful for anyone to develop a sufficient understanding of the topics the course aims to communicate. But we will be using mock and real-world datasets and problems that convey typical characteristics of what researchers often encounter in the data-enabled era of microbiology.
 
-The course is designed to be delivered within about two weeks (cross your fingers), and it will feel like a sprint rather than a marathon -- but I anticipate that each one of you will learn some new things and enjoy your experience (cross remaining fingers?).
+The course is designed to be delivered within about two weeks (cross your fingers), and it will feel like a sprint rather than a marathon. But I anticipate that each one of you will learn some new things and enjoy your experience (cross remaining fingers?).
 
-The plan is that the **first week** will offer insights into the terminal environment, common UNIX tools, effective use of shell, and shell scripting in general. Throughout the **second week** to discuss version control, cloud-based solutions for collaborative coding, and AI-assisted problem solving through hands-on problem solving sessions. Throughout the course Meren will have this document open, as well as a terminal, and while following the content he will often go back to the terminal to demonstrate how things work and help you gain hands-on experience by helping you try and understand everything happening in his terminal window. In-person attendance is extremely important since those active discussions are much more important for your learning experience than this document alone.
+The plan is that the **first week** will offer insights into the terminal environment, common UNIX tools, effective use of shell, and shell scripting in general. Throughout the **second week** we will discuss version control, cloud-based solutions for collaborative coding, and AI-assisted problem solving through hands-on problem solving sessions. Throughout the course Meren will have this document open, as well as a terminal, and while following the content he will often go back to the terminal to demonstrate how things work and help you gain hands-on experience by helping you try and understand everything happening in his terminal window.
+
+In-person attendance is **extremely important** since those active discussions are what will matter most here for your learning experience, and not this document without a narrator attached to it.
 
 The following list offers a more detailed list of goals of the course:
 
@@ -67,29 +71,29 @@ The following list offers a more detailed list of goals of the course:
 * Creating repositories & pushing scripts
 * Application of shell scripting to real world, non-trivial challenges
 * Using Large Language Models such as ChatGPT or DeepSeek for programming
-* Covering Python basics: variables, data types, operators, flows, and controls
 * Helping you get hands-on experience through interactive exercises
 * Helping you put your imagination and learnings in use through assignments
 * Gaining insights into reproducible reporting
 * And getting you to participate in lots and lots of discussions
+* If we have time, we will also covering Python basics and discuss variables, data types, operators, flows, and controls
 
 It may look like this course does not have a conventional structure and it is all over the place. You are correct, though this is intentional. I hope that this *modern structure* will work for most of you since it has multiple qualities:
 
 * **Balanced Approach**. Rather than focusing on a single topic in great depth, the course structure goes in and out of fundamentals of programming, UNIX tools, BASH scripting, AWK programming language, Git, GitHub, and Large Language Models (LLMs) in a structured way.
-* **AI Tools Introduction** – Placed at an optimal time to help you learn efficient debugging and script generation with ChatGPT or DeepSeek before diving into difficult tasks.
+* **AI Tools Introduction** – Placed at an optimal time to help you learn efficient debugging and script generation with ChatGPT, Claude, or DeepSeek before diving into difficult tasks.
 * **Real-World Applications** – Exercises resemble real-world problems researchers often run into during their day-to-day workflows rather than unrelateable hypothetical programming tasks.
 * **Version Control & Reproducibility** – Introduction to version control systems and cloud solutions for collaborative work ensures that you will develop good coding habits early in your journey.
 * **Quick and Comprehensive Recall**. You will get to apply everything you have learned to solve an actual problem (that literally happened and someone had to solve it in their daily work).
 
 The last time the course was delivered to a group of students with no terminal exposure, we dynamically changed the direction of the course based on what is working and what is not working. For instance, revisiting some of the earlier concepts once the participants had a working vocabulary and familiarity with scripting proved to be extremely effective for deeper understanding of the topic, so active input from the participants regarding what they are struggling with is quite important.
 
-## Technical Recommendations
+## Technical Setup and Recommendations
 
-Here are a few recommendations that will help you throughout this course and beyond if you plan to apply what you have learned.
+Here are a few recommendations that will help you throughout this course and beyond if you plan to apply what you have learned. You may not be familiar with some of the terms below, but we will get to them one by one.
 
-### Shell Environment
+### Shell Access
 
-We will make quite a heavy use of the terminal environment (any terminal that gives access to a UNIX [shell](https://en.wikipedia.org/wiki/Unix_shell), like [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell))).
+We will make quite a heavy use of the 'terminal environment' (any *terminal* that gives access to a *UNIX* [shell](https://en.wikipedia.org/wiki/Unix_shell), like [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell))).
 
 If you are using Linux or Mac OSX, you have native access to a reasonable shell. Please take a moment to find out how to open your terminal now.
 
@@ -106,20 +110,23 @@ Throughout this course you will be writing and editing lots of code. Writing goo
 
 You can consider [Sublime Text](https://www.sublimetext.com/), which works on Mac, [Geany](https://www.geany.org/), which works on Linux, or [Notepad++](https://notepad-plus-plus.org/) which works on Windows. These are all very nice lightweight editors. Alternatively you can consider [VS Code](https://code.visualstudio.com/), which is a behemoth that works on Windows, Mac, and Linux.
 
-### Version Management System
 {:.notice}
 During our previous experience with this course, most Windows users found **VS Code** to be the most convenient way of following the course since it gives access to an editor as well as a terminal in the same window, and connects to the WSL environment which makes life very easy. Some of the remaining participants quickly learned basic commands in **vim**, and started using it with a combination of `CTRL+Z` (to go back to the terminal to test their script) and `fg` (to quickly come back to the editor to continue editing their script).
 
+### Version Management System
 
-The course will require you to use [Git](https://en.wikipedia.org/wiki/Git) version management system, and have an account on [GitHub](https://github.com), which is an online service built to store Git repositories in the cloud. We will discuss both git and GitHub in detail, but you should open an account on GitHub unless you already have one as soon as you read these sentences.
+The course will require you to use [Git](https://en.wikipedia.org/wiki/Git) version management system, and have an account on [GitHub](https://github.com), which is an online service built to store Git repositories in the cloud. We will discuss both git and GitHub in detail later, but you should open an account on GitHub unless you already have one as soon as you read these sentences.
 
 ## Course Data Package
 
-Hands-on exercises throughout the course will make use of a previously prepared data package. You need to download this data package on your computer, and uncompress it. You will do it only once, and then every time you open your terminal, you will go into the data pack directory since everything we will do in the terminal environment will assume that you are in the data pack directory.
+Hands-on exercises throughout the course will make use of a previously prepared data package. You need to download this data package on your computer, and uncompress it. You will do it only once (unless the content changes mid-course and you are asked to do it again). Every time you open your terminal you will go into the data pack directory throughout the course since everything we will do in the terminal environment will assume that you are in the data pack directory.
 
 Since at this point everyone has their terminals ready, all you need to do is to open a terminal, and paste the following commands in it to get a copy of the course data pack:
 
 ```sh
+## change your work directory to your 'home' directory
+cd ~
+
 ## download the package on your computer using 'curl'
 curl -L 'https://www.dropbox.com/scl/fi/kjmkzv35fx4vv4pqo6qhl/PFLS-DATA-PACKAGE.tar.gz?rlkey=brll5t615ubsjx2bbdvjg9gme' -o PFLS-DATA-PACKAGE.tar.gz
 
@@ -157,13 +164,13 @@ At the end of this section, you will have an understanding of the power of the c
 
 #### What is shell, exactly?
 
-This is a good place to start because the shell is one of the most powerful yet under-appreciated programs on your computer. In simplest terms, the shell is a command-line interface that sits between you and the operating system kernel —the hidden core of your system responsible for running program processes, executing their instructions on the CPU, managing memory, and handling storage and peripherals. At any given time, your computer runs a gazillion programs; from those that respond to your inputs through a keyboard and mouse to those that literally show where your cursor is on your screen or keeps track of all the windows you have opened, and all of them go through the kernel which allows your computer to run more programs than the number of available CPU cores, gives all programs the illusion of unlimited memory despite its physical limits, and takes care of priorities among them so all programs big and small can use the hardware resources on your computer in harmony to serve you. The shell is another program running on your computer. Like many others, it operates in what we call 'user space' and communicates with core processes running in 'kernel space' through system calls, ensuring that our commands and requests integrate smoothly into the operating system's workings without disrupting its stability. In many ways, the shell is your command center that gives you direct control over your system’s most powerful functions; in a way, it is the computer equivalent of an airplane cockpit or a nuclear reactor control room. On top of its abilities to run programs, modern shells come with scripting languages and control structures for us to run things even more efficiently.
+This is a good place to start because the shell is one of the most powerful yet under-appreciated programs on your computer. In simplest terms, the shell is a command-line interface that sits between you and the operating system kernel —the hidden core of your system responsible for running program processes, executing their instructions on the CPU, managing memory, and handling storage and peripherals. At any given time, your computer runs a gazillion programs; from those that respond to your inputs through a keyboard and mouse to those that literally show where your cursor is on your screen or keeps track of all the windows you have opened, and all of them go through the kernel which allows your computer to run more programs than the number of available CPU cores, gives all programs the illusion of unlimited memory despite its physical limits, and takes care of priorities among them so all programs big and small can use the hardware resources on your computer in harmony to serve you. The shell is another program running on your computer. Like many others, it operates in what we call 'user space' and communicates with core processes running in 'kernel space' through system calls, ensuring that our commands and requests integrate smoothly into the operating system's workings without disrupting its stability. In many ways, the shell is your command center that gives you direct control over your system's most powerful functions; in a way, it is the computer equivalent of an airplane cockpit or a nuclear reactor control room. On top of its abilities to run programs, modern shells come with scripting languages and control structures for us to run things even more efficiently.
 
-What happens when you type something in your terminal is a fascinating story, and has many many layers. Once you press Enter, the terminal sends your input to the shell, which parses the command, expands special characters and variables, and determines whether it is a built-in command or an external program. If it’s an external program, the shell searches the relevant directories to locate it, and if the program is found and has the right permissions, the shell creates a new process by invoking the kernel, and puts the target program into the driver seat, upon which the kernel loads the program's code into memory, registers it with the scheduler, and begins execution. Throughout its runtime the program interacts with the kernel via system calls until it either terminates normally (successful or not) or the kernel forcefully kills it due to a myriad of reasons such as unhandled fatal signals, resource exhaustion, or illegal memory access. Regardless of how it ends, the kernel cleans up the kitchen and notifies the shell, which retrieves the exit status and resumes its eternal wait for your next command, ready to start the cycle all over again.
+What happens when you type something in your terminal is a fascinating story, and has many many layers. Once you press Enter, the terminal sends your input to the shell, which parses the command, expands special characters and variables, and determines whether it is a built-in command or an external program. If it's an external program, the shell searches the relevant directories to locate it, and if the program is found and has the right permissions, the shell creates a new process by invoking the kernel, and puts the target program into the driver seat, upon which the kernel loads the program's code into memory, registers it with the scheduler, and begins execution. Throughout its runtime the program interacts with the kernel via system calls until it either terminates normally (successful or not) or the kernel forcefully kills it due to a myriad of reasons such as unhandled fatal signals, resource exhaustion, or illegal memory access. Regardless of how it ends, the kernel cleans up the kitchen and notifies the shell, which retrieves the exit status and resumes its eternal wait for your next command, ready to start the cycle all over again.
 
 Shells are complex, and you don't need to learn any of these things, obviously. But as an undergraduate student of computer science I *did* implement a shell from scratch. My shell was neither as good nor as talented as any of the modern shells. But doing that, and forcing myself to go through that suffering created many new synapses in my brain that eventually afforded me the framework I needed to understand and solve more complex problems elsewhere. Which, in a big plot twist, brings me to the use of AI.
 
-One may argue that almost none of the things we will discuss throughout this course are necessary to learn. Indeed, you can solve the vast majority of programming challenges, including those that we will cover during our exercises, using popular LLM clients such as ChatGPT or DeepSeek almost instantaneously. But there are no cheat codes to life -- without going through the pain of truly understanding something, there is no way to achieve mastery, lead with confidence, or create something original.
+One may argue that almost none of the things we will discuss throughout this course are necessary to learn. Indeed, you can solve the vast majority of programming challenges, including those that we will cover during our exercises, using popular LLM clients such as ChatGPT, Claude, Gemini, Grok, DeepSeek, or many others almost instantaneously. But there are no cheat codes to life -- without going through the pain of truly understanding something, there is no way to achieve mastery, lead with confidence, or create something original.
 
 <blockquote>
 There is a tide in the affairs of people,<br/>
@@ -338,7 +345,7 @@ echo $(date)     # Runs the date command and prints the result
 
 `#` – Comment
 
-Everything after `#` on a line is ignored by BASH. It is mostly useful when writing shell scripts.
+Everything after `#` on a line is ignored by BASH. It is mostly useful when writing shell scripts as you will see soon.
 
 ```sh
 ## This is a comment
@@ -349,7 +356,7 @@ echo "Hello World"  # Prints Hello World
 
 `*` – Wildcard (matches multiple characters)
 
-Matches all files and directories in a given location.
+Matches all files and directories in a given location. A life saver and your biggest enemy.
 
 ```sh
 ls *.txt    # Lists all files ending in .txt
@@ -680,10 +687,10 @@ Find chancellors born before 1920:
 awk '$5 < 1920 {print $1, "was born in", $5}' german_chancellors.txt
 ```
 
-Calculate each chancellor’s age today (assuming we are still in 2025 by the time you're seeing this):
+Calculate each chancellor's age today (assuming we are still in 2026 by the time you're seeing this):
 
 ```sh
-awk '{print $1, "is (or would have been)", 2025 - $5, "years old today"}' german_chancellors.txt
+awk '{print $1, "is (or would have been)", 2026 - $5, "years old today"}' german_chancellors.txt
 ```
 
 Find chancellors born after women gained voting rights in Germany:
@@ -758,7 +765,7 @@ Where you will find a FASTA file. The FASTA file was generated by an anvi'o user
 Try your best, and it is OK if you can't answer each one of them. If you try your hardest, the solutions we will go through and explain together will make much more sense even if you fail.
 
 {:.warning}
-**Please turn in your solutions the following way**: Copy-paste the questions above into your email client, under each question write your final answers along with the command line that led to that answer, and send the email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_. The subject line of your email must be `PFLS EXC-001` :)
+**Please turn in your solutions the following way**: Copy-paste the questions above into your email client, under each question write your final answers along with the command line that led to that answer, and send the email to _meren@hifmb.de_ **and** _ahmed.belfaqih@uni-oldenburg.de_. The subject line of your email must be `PFLS EXC-001` :)
 
 Once we are done, we will review the [solutions](solutions/EXC-001) together.
 
@@ -787,27 +794,16 @@ GCF_000376585.1_genomic.fna
 {:.notice}
 These genomes are also available to you in the `EXC-002` directory of your data pack. Please go into that directory now, and confirm that you can see the files in it. Being there will become handy soon when you try to test some of the steps below.
 
-You could indeed indeed use `grep` and `wc` to put together a command that gives you the number of contigs in a given genome, and run those command one by one on each one of these genomes to generate a report to make decisions later. Here how that looks like on my terminal:
+You could indeed indeed use `grep` and `wc` to put together a command that gives you the number of contigs in a given genome. Here is an example that shows how that looks like on my terminal for one of those genomes:
 
 ```sh
-meren $ grep '>' GCA_018224395.1_genomic.fna | wc -l
-1
-meren $ grep '>' GCA_019061405.1_genomic.fna | wc -l
-30
 meren $ grep '>' GCA_022836975.1_genomic.fna | wc -l
 192
-meren $ grep '>' GCA_023052945.1_genomic.fna | wc -l
-1
-meren $ grep '>' GCA_902636535.1_genomic.fna | wc -l
-108
-meren $ grep '>' GCF_000008385.1_genomic.fna | wc -l
-1
-meren $ grep '>' GCF_000306885.1_genomic.fna | wc -l
-1
-meren $ grep '>' GCF_000376585.1_genomic.fna | wc -l
-1
-(...)
 ```
+
+Let's stop here and try to actually generate a report from these FASTA files together. I want you to create a table that shows each FASTA file name and the number of sequences in it, so we can determine which genomes contain fewer than 30 contigs. Go ahead and start working on creating a table for me since you have everything you need.
+
+---
 
 This strategy requires you to write each of these command one by one, then read the number in the output, and perhaps put it in a table in an environment like EXCEL just so you can sort it based on the number of contigs to then determine the names of genomes that contain less than a certain number of contigs, then use those names to put the genomes of interest in a different directory.
 
@@ -1215,7 +1211,7 @@ You have 34 *Wolbachia* genomes downloaded from the GTDB, and a text file that s
 * But uses the `wolbachia-hosts.txt` to rename each genome file to match the host name from which the *Wolbachia* was recovered.
 
 {:.warning}
-**Please turn in your solutions the following way**: Save your script as `process-wolbachia-genomes.sh`, add it as an attachment to an email with the subject line `PFLS EXC-002` and send your email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_.
+**Please turn in your solutions the following way**: Save your script as `process-wolbachia-genomes.sh`, add it as an attachment to an email with the subject line `PFLS EXC-002` and send your email to _meren@hifmb.de_ **and** _ahmed.belfaqih@uni-oldenburg.de_.
 
 We will go through the [solution](solutions/EXC-002) together once you have given this exercise your best shot.
 
@@ -1248,7 +1244,7 @@ The same happens when we write code, where the number of changes that occur in a
 
 It is crucial for the developers of anvi'o to be able to keep track of all these changes: if a particular change introduces a bug in the code that is discovered much later, there must be a way for anvi'o developers to go back to the version that was working well. But anvi'o developers cannot resort to creating multiple copies of every file for each major change.
 
-This is precisely what version control systems do for you. They offer you means to record your changes to files over time, allowing you to keep track of everything, go back to a specific version of your file, or recall what was actually changed between two versions of it. This also enhances transparency, allowing others to track your work’s evolution and collaborate while keeping a clear record of each change.
+This is precisely what version control systems do for you. They offer you means to record your changes to files over time, allowing you to keep track of everything, go back to a specific version of your file, or recall what was actually changed between two versions of it. This also enhances transparency, allowing others to track your work's evolution and collaborate while keeping a clear record of each change.
 
 As tracking changes through version control systems is not limited to code, it is particularly useful for scientists whose work requires them to write things, whether those things are experimental protocols, code, or text, and whether their priority is to track the evolution of their work, collaborate with others, and ensure reproducibility.
 
@@ -1497,7 +1493,7 @@ If there has been changes in the remote repository since your last `git pull` yo
 
 Git is an open-source, stand-alone program that enables you to create local repositories for version control -- local repositories you store on your own computer or the University servers, and that you can connect with your terminal.
 
-GitHub, on the other hand, is a platform that enables you to store your Git repositories on the 'cloud.' It is a proprietary and for-profit developer platform that has over 1 billion dollars in revenue while itself is not open-source. Unlike Git, which is one of us, GitHub is one of *them*, if you will. But even though Linus Torvalds [hates](https://news.ycombinator.com/item?id=36123124) GitHub for various technical reasons, and I personally hate it for the gargantuan enterprise it represents, GitHub has successfully captured the attention of millions of developers worldwide as it made software development more accessible, manageable, interactive, and fun by adding key features to their cloud-based hosting service such as (1) graphical user interfaces for repository management and code reviews, (2) a service for 'pull requests' that help team members to [review and discuss code changes](https://github.com/merenlab/anvio/pull/2155) before merging them, (3) providing a platform to [report issues and discuss them](https://github.com/merenlab/anvio/issues/1248), (4) [action and workflow](https://github.com/merenlab/anvio/actions) support for continuous integration or testing, and many, many more. GitHub is free unless you wish to have private repositories, in which case you are asked to pay a fee (which is about 4 Euros as of 2025).
+GitHub, on the other hand, is a platform that enables you to store your Git repositories on the 'cloud.' It is a proprietary and for-profit developer platform that has over 1 billion dollars in revenue while itself is not open-source. Unlike Git, which is one of us, GitHub is one of *them*, if you will. But even though Linus Torvalds [hates](https://news.ycombinator.com/item?id=36123124) GitHub for various technical reasons, and I personally hate it for the gargantuan enterprise it represents, GitHub has successfully captured the attention of millions of developers worldwide as it made software development more accessible, manageable, interactive, and fun by adding key features to their cloud-based hosting service such as (1) graphical user interfaces for repository management and code reviews, (2) a service for 'pull requests' that help team members to [review and discuss code changes](https://github.com/merenlab/anvio/pull/2155) before merging them, (3) providing a platform to [report issues and discuss them](https://github.com/merenlab/anvio/issues/1248), (4) [action and workflow](https://github.com/merenlab/anvio/actions) support for continuous integration or testing, and many, many more. GitHub is free unless you wish to have private repositories, in which case you are asked to pay a fee (which is about 4 Euros as of 2026).
 
 In addition to GitHub, there are other online services built on Git, such as [GitLab](https://gitlab.com/gitlab-org/gitlab), which is very similar to GitHub, or [Bitbucket](https://bitbucket.org/lbi-usp/anvio_refine_bin/src/master/), which is primarily used for private repositories. All of them enable you to store your Git repositories in the cloud, allow multiple people to work on the same project with access control, and manage issues and bugs.
 
@@ -1785,15 +1781,15 @@ The code above includes some ideas we haven't discussed, such as the [tilde oper
 
 ## Introduction to Large Language Models (LLMs)
 
-LLMs like ChatGPT, DeepSeek, and [others](https://en.wikipedia.org/wiki/List_of_large_language_models) are AI systems trained on vast amounts of text data to understand and generate human-like text. They are based on transformer architectures, a breakthrough in deep learning that enables them to process and generate coherent and relevant text.
+LLMs like ChatGPT, Claude, Gemini, Grok, DeepSeek, and [others](https://en.wikipedia.org/wiki/List_of_large_language_models) are AI systems trained on vast amounts of text data to understand and generate human-like text. They are based on the 'transformer architecture', a breakthrough in deep learning that enables them to process and generate coherent and relevant text.
 
-LLMs are generally trained on very diverse datasets, including books, news articles, Wikipedia, open-access scientific literature, code repositories, and more. Large and diverse training data allows LLMs to generalize concepts across domains and make connections that may be elusive. For instance, you can ask a general LLM a question like "can you describe a critical phenomenon, best practice, or risk that is shared between software development and modern agricultural practices?", and you will get an answer that will mostly likely be more satisfactory than an answer you may get from a person who is only a computer scientist or only a farmer. Once a foundation model is trained on general data, it can be fine-tuned to perform specific tasks with high performance, such as generating images, videos, code, or creative writing. Then the users of these models (whether people, or other programs or models) can interact with LLMs through 'prompts', i.e., the input text that guides the model to generate relevant outputs. Even though an average person hears a lot of about OpenAI/GPT (due to its success and convenient online 'chat' interface) or DeepSeek (thanks to its surprising benchmarks and push towards open source), there are already [many many models](https://huggingface.co/models) for general or specific applications.
+LLMs are generally trained on very diverse datasets, including books, news articles, Wikipedia, open-access scientific literature, code repositories, and more. Large and diverse training data allows LLMs to generalize concepts across domains and make connections that may be elusive. For instance, you can ask a general LLM a question like "can you describe a critical phenomenon, best practice, or risk that is shared between software development and modern agricultural practices?", and you *will* get an answer that will mostly likely be more satisfactory than an answer you may get from a person who is only a computer scientist or only a farmer. Once a foundation model is trained on general data, it can be fine-tuned to perform specific tasks with high performance, such as generating images, videos, code, or creative writing. Then the users of these models (whether people, or other programs or models) can interact with LLMs through 'prompts', i.e., the input text you put in into the text box that guides the model to generate the relevant output for you. Even though an average person hears a lot of about OpenAI/GPT (due to its success and convenient online 'chat' interface) or DeepSeek (thanks to its surprising benchmarks and push towards open source), there are already [many many models](https://huggingface.co/models) for general or specific applications.
 
 ### Transformers: How do they even?
 
-Transformers are the foundation of modern LLMs. As you can imagine, it is almost impossible to fully describe how they work here since truly understanding transformers require a substantial understanding of linear algebra, probability and statistics, and concepts in machine learning for starters. But luckily we don't need to understand all the details here to have a general sense of what they do for us. You can drive a car without knowing anything about combustion engines, but knowing just a bit about the engines is the only way for one to understand why there is a nonlinear relationship between the speed of a given car and the fuel consumption, or why the fuel economy often drops significantly at very high speeds even if one ignores aerodynamic drag.The same applies to LLMs. You don’t need to grasp every technical detail, but without even a basic understanding, the behavior of LLMs will come across as a mystery rather than engineered solutions with predictable shortcomings and limitations.
+Transformers are the foundation of modern LLMs. As you can imagine, it is almost impossible to fully describe how they work here since truly understanding transformers require a substantial understanding of linear algebra, probability and statistics, and concepts in machine learning for starters. But luckily we don't need to understand all the details here to have a general sense of what they do for us. You can drive a car without knowing anything about combustion engines, but knowing just a bit about the engines is the only way for one to understand why there is a nonlinear relationship between the speed of a given car and the fuel consumption, or why the fuel economy often drops significantly at very high speeds even if one ignores aerodynamic drag. The same applies to LLMs. You don't need to grasp every technical detail, but without even a basic understanding, the behavior of LLMs will come across as a mystery rather than engineered solutions with predictable shortcomings and limitations.
 
-Transformers were first introduced in 2017 by a team of researchers affiliated with [Google Research](https://research.google/) through a seminal paper that was very aptly titled as "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Prior to this architecture, modern NLP models were struggling with key limitations, such as difficulty capturing long-range dependencies in lengthy texts -- as they processed each word one after another, pre-transformer models struggled with tasks that required understanding relationships between words that were far from one another in a sentence. The transformer architecture changed all that by introducing self-attention, which allows the model to process all tokens in a sequence in parallel, unlike RNNs that process tokens one by one. This made it possible to fully utilize GPUs, which excel at parallel matrix operations. Even though the paper was published less than a decade ago, it is already cited over 150,000 times, which is meaningful metric in this case to understand how it revolutionized natural language processing (NLP). Here's a heavily watered down explanation of the core concepts of transformers with the hope that they provide you with some abstract ideas about the inner-workings of the transformer architecture that makes modern LLMs a reality.
+Transformers were first introduced in 2017 by a team of researchers affiliated with [Google Research](https://research.google/) through a seminal paper that was very aptly titled as "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Prior to this architecture, models that were capable of 'natural language processing' were struggling with key limitations, such as difficulty capturing long-range dependencies in lengthy texts. As they processed each word one after another, pre-transformer models struggled with tasks that required understanding relationships between words that were far from one another in a sentence. The transformer architecture changed all that by introducing self-attention, which allows the model to process all tokens in a sequence in parallel, instead of processing tokens one by one. This made it possible to fully utilize GPUs, which excel at parallel matrix operations. Even though the paper was published less than a decade ago, it is already cited over 200,000 times, which is a meaningful metric in this case to understand how it revolutionized natural language processing. Here's a heavily watered down explanation of the core concepts of transformers with the hope that they provide you with some abstract ideas about the inner-workings of the transformer architecture that makes modern LLMs a reality.
 
 #### Input Representation
 
@@ -1909,13 +1905,28 @@ These disadvantages can be mitigated with a mindful approach.
 
 * Combining LLMs with old-school learning practices, and continue forcing yourself to come up with solutions or seek for answers in traditional ways (such as looking things up in help menus and tutorials) will help you maintain your control over the tasks you use LLMs for.
 
-LLMs are revolutionary, and by managing to born at the right time, you have the rare opportunity to witness this transformation firsthand. Imagine all the people who have lived and died without seeing what humans managed to create. But you have not been born in an era where it may be acceptable to let these advances make you redundant: use LLMs to support and advance your critical thinking, be thoughtful and responsible as you make them a part of your work, and turn them into your assistant, and not your guide.
+LLMs are revolutionary, and by managing to born at the right time, you have the rare opportunity to witness this transformation firsthand. Imagine all the people who have lived and died without seeing what humans managed to create. But you have not been born in an era where it may be acceptable to let these advances make you redundant.
+
+### Broader implications of the existence of LLMs
+
+I also want to say a few words about this new world order in a different way, just to create space for those of you who may wish to engage in deeper thought experiments.
+
+The transformer architecture fits on a napkin. You don't need to be a mathematician to figure that out since you can tell that it is the case by literally looking at the length of the paper that describes the core principles behind it that everyone relies upon. So you have the algorithm to create a new generalized model. Next, you need the data for training. It is right there, too: while massive, all the data you need can be scraped from the internet. That's what everyone else did. But if it is that simple, why are all the famous models produced and put in the market by such a small number of well-known profit seeking entities such as OpenAI, Google, Meta, and a handful of others? How do they keep this transformative power so consolidated? The answer is simple: the barrier to entry is pure capital.
+
+To actually train a model like GPT-4, you need, and I am not exaggerating, a dedicated power plant, a warehouse full of the most advanced chips on Earth, a cooling infrastructure that could climate control a small city, and about a billion dollars for starters. Public data show that GPT-4 takes about 230,000 petaFLOP-days to train (which is about 1 billion laptop-days, if you will). What does that really mean? Well, it means that to be able to train such a model, say in one month of 24/7 work so there aren't five other models by the time you are done, you would need a computational infrastructure that can maintain about 7.7 exaFLOPS of compute power around the clock. For comparison, the largest supercomputer in Germany, [JUPITER](https://www.fz-juelich.de/en/jsc/jupiter), can reach about 1 exaFLOP at its peak. Which means the best Germany can do, and one of the most advanced compute resources in Europe that serves a few thousand researchers, has only a fraction of the compute power needed to train a single GPT-4-class model in a reasonable timeframe even if everyone else stopped using it for other purposes. The compute resource need is no joke. To build a system that can achieve and maintain 7 exaFLOPS, you would need around 20,000 NVIDIA H100 GPUs, which would cost you about a billion Euros at today's prices, if you can actually buy them. As you know, these chips are now so sought-after that they have become a source of geopolitical tension that result in export restrictions and waiting lists for large orders spanning years.. But even if you could buy them, you would realize that it is not free to operate them. First, you would need a physical space that is equivalent to a large IKEA store to fit all your server racks filled with GPUs, and your cooling systems, cables, networking equipment, and storage, which would collectively set you back another few hundred million Euros. The network bandwidth requirements of your new IKEA warehouse to handle the constant data exchange between all GPUs during training would be so high that it would surpass the entire internet infrastructure of a small country, and your GPUs would consume about 30 to 40 megawatts of electricity constantly, an amount of energy that is enough to power a city the size of Oldenburg. You would have to have all this in place before you start training your model, and that is before counting the monthly expenses for cooling, electricity, and specialized engineering staff.
+
+This is why only a handful of organizations can build frontier models with deep reasoning capabilities and keep them up-to-date. The barrier to building these models is not intellectual. It is industrial.
+
+And here you must ask yourselves, not only what this all means for a more equitable future for all humans, but also to what extent you wish to outsource your reasoning capabilities and ability to experience and make sense of life and its challenges to these costly 'products'. Products that must become indispensable to justify their cost (to you and the society), to sustain their unquenchable hunger for resources, and to feed the next generation of billionaires.
+
+While these are worth thinking about, my advice at this juncture is simple and pragmatic: use LLMs to support and advance your critical thinking, be thoughtful and responsible as you make them a part of your work, and turn them into your assistant that you *could* live without, and not your guide, without whom you could not search for answers on your own.
+
 
 ### EXC-004
 
 The next exercise is here to immerse you into the joy of writing code for real-world data tasks, and you are now free to use LLMs to do that.
 
-This is the most realistic problem we are going to be working on so far, and Sarahi Garcia has all the background on this problem that we had to resolve last year for a study. She can help us better understand its context, but here I will provide a very brief description of what is going on, and what needs to be done.
+This is the most realistic problem we are going to be working on so far, and comes from a real task in a real project I and Sarahi Garcia worked on together in the past.
 
 Please go into the `EXC-004` directory in your data pack, and take a look at the contents of it. You will realize that
 
