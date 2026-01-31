@@ -83,6 +83,13 @@ course_token="courses/PFLS"
 course_input_dir="$courses_repo_dir/programming-for-life-scientists/00_SYLLABUS_AND_CONTENT"
 course_web_dir="$web_repo_dir/$course_token"
 
+if ! command -v staticrypt &> /dev/null; then
+    echo ""
+    echo "Error: Sigh. 'staticrypt' is not installed or not in your PATH :/"
+    echo "       Install it first by running 'npm install -g staticrypt'"
+    exit 1
+fi
+
 echo -e "\nPLEASE NOTE: IF YOU ARE WAITING HERE FOREVER, IT MEANS SOMETHING IS NOT WORKING.\n \
     The proper way to run this script is the following (and you need two terminal windows for this):\n \
     In the first terminal window, execute 'rm -rf _site; bundle exec jekyll serve --incremental',\n \
