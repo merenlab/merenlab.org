@@ -25,7 +25,7 @@ The evaluation in this course will be based on **five parts** of a portfolio tha
 
 Class citizenship emails **will track your attendance and engagement to the course** and will help the course director to have an overall understanding of the evolution of the course.
 
-The class citizenship demands every participant to send a class citizenship email at the end of each day to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_ (*and* as in, sending the same email to both Meren and Sarahi).
+The class citizenship demands every participant to send a class citizenship email at the end of each day to _meren@hifmb.de_ **and** _ahmed.belfaqih@uni-oldenburg.de_ (*and* as in, sending the same email to both Meren and Ahmed).
 
 The class citizenship email must be composed of two parts:
 
