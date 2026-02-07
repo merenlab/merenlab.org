@@ -245,6 +245,16 @@ mkdir -p parent/child # Create nested directories
 
 ---
 
+`touch` – Create an empty file
+
+Creates a new empty file.
+
+```sh
+touch newfile.txt  # Create an empty file called newfile.txt
+```
+
+---
+
 `rm` – Remove files or directories
 
 Deletes files or directories.
@@ -277,16 +287,6 @@ Moves or renames files and directories.
 mv oldname.txt newname.txt   # Rename a file
 mv file.txt my_folder/       # Move a file into my_folder
 mv folder1 folder2           # Rename folder1 to folder2
-```
-
----
-
-`touch` – Create an empty file
-
-Creates a new empty file.
-
-```sh
-touch newfile.txt  # Create an empty file called newfile.txt
 ```
 
 ---
