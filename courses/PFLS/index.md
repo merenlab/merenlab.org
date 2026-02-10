@@ -1921,6 +1921,37 @@ And here you must ask yourselves, not only what this all means for a more equita
 
 While these are worth thinking about, my advice at this juncture is simple and pragmatic: use LLMs to support and advance your critical thinking, be thoughtful and responsible as you make them a part of your work, and turn them into your assistant that you *could* live without, and not your guide, without whom you could not search for answers on your own.
 
+## An exercise using an LLM of your choice
+
+Now that you have an general understanding of the terminal environment, shell scripting, version control, and the fundamentals of how LLMs work, we are going to get our hands dirty with some LLM work using one of the exercises we have already gone through during this course: [EXC-003](#exc-003), where you had to write a script to process a FASTA file and print out some features of it.
+
+Now we will re-develop that solution using AI assistance with the same initial instructions for EXC-003, but extending it further for you to encounter various lessons about robust scripting and effective AI collaboration.
+
+While solving EXC-003 with your favorite LLM, I suggest you explore the following additional considerations to make your script better, more robust, and more generally applicable and useful. For instance, thinking about its robustness and resilience against edge cases, can you figure out the best practices regarding
+
+- What happens with an empty file, or a file with a single sequence?
+- How should the script handle sequences containing ambiguous bases (N, R, Y, etc)? Should they be counted? Excluded from GC calculation? What would be the best practice there?
+- What if someone passes a file that is not a FASTA at all? How should your script behave, and how should it handle the situation?
+
+You can also consider extending your solution with additional statistics to report to the user of your porgram. Some ideas for that may include the following, but you can come up with more:
+
+- Calculating N50 (a metric you will encounter constantly in genomics)
+- Reporting the number of sequences that are above a certain length threshold
+- Showing a simple histogram of sequence length distribution in the terminal for convenience
+
+You can also consider usability improvements. For instance,
+
+- You can add a `--help` flag that explains how to use the script
+- You can make sure the script can accept multiple FASTA files and produce a combined or comparative report that the user can save as a TAB-delimited text file
+- You can add a flag to report an HTML page rather than a TAB-delimited file
+
+Once you are ready, I will have a few volunteers (or randomly selected individuals) come here and present to us their,
+
+* Prompting strategy, so we can see their first prompt and the progression and their ways of refining the code
+* Final solution, as they walk us through the code and explain what it does with example runs
+* Lessons learned, where they can tell us if they observed anything interesting
+
+So, please go back to EXC-003 now, think about it again from scratch with some help from your favorite tool, and then we will regroup to discuss things together.
 
 ### EXC-004
 
