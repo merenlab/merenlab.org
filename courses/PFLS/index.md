@@ -1731,7 +1731,10 @@ echo "ATCGATCGCG" | awk '{gc_count += gsub(/[GgCc]/, "", $1)} END {print gc_coun
 
 But of course what you want is GC-content, which essentially is the ratio of GC bases to _all_ bases.
 
-The solution is [here](solutions/EXC-003), and usual, we will go through it together once you are done. Good luck!
+The solution I wrote almost entirely in AWK is [here](solutions/EXC-003), and usual, we will go through it together once you are done. Good luck!
+
+{:.warning}
+Please note that if your script captures the output of various commands and assign them to variables using `$()`, printing those variables in different operating systems may yield minor differences (such as the inclusion of `\t` or `\n` only in some systems). If you wish to use `$()`, please consider being more defensive to prevent them.
 
 #### Evaluating EXC-003
 
@@ -1883,7 +1886,7 @@ Most life scientists are familiar with the power of molecular tools to generate 
 
 ### Advantages of using LLMs for programming
 
-Even though advantages are likely extremely clear, let's just mention a few of them.
+Even though advantages are likely extremely clear, let's just mention a few of them for the sake of being explicit.
 
 * LLMs lower the barrier to entry to programming. As they can generate code snippets and explain core concepts of programming in plain language, they make it easier to start writing code and troubleshoot code without extensive training.
 
@@ -1919,6 +1922,24 @@ This is why only a handful of organizations can build frontier models with deep 
 
 And here you must ask yourselves, not only what this all means for a more equitable future for all humans, but also to what extent you wish to outsource your reasoning capabilities and ability to experience and make sense of life and its challenges to these costly 'products'. Products that must become indispensable to justify their cost (to you and the society), to sustain their unquenchable hunger for resources, and to feed the next generation of billionaires.
 
+### Some questions to think about in the post-LLM era
+
+The following is a list of questions I have received through the class citizenship emails during 2026, we discussed it together during the class, and I think it is a good idea to continue wondering about these, even in cases where we have no clear answer, and learn to sit with our tension:
+
+* Could reliance on LLMs erode critical thinking skills?
+* Should AI assistance with editing be disclosed in academic papers?
+* Can the energy and resource demands of AI data centers be justified given climate change?
+* How does training data bias toward widely-spoken languages affect LLM performance in others?
+* Can LLMs create novelty, or only recombine patterns from training data?
+
+Most of these questions and more are deeply explored in many disciplines of research, including economics, social science, and neuroscience. Some of them (such as the carbon footprint one) are heavily contested, and the jury is still out (or lost, if you will, given the wide range of interest groups involved for some of these topics). But other questions in this list have almost certain answers. One of such questions, and I think the one that is most immediately relevant to us here, is the first one: do LLMs erode critical thinking skills? I will let you guess the answer, and will share with you a few resources to follow up on if you are interested:
+
+* [Your Brain on ChatGPT](https://arxiv.org/abs/2506.08872): This is a longitudinal study that uses EEG to track brain activity while performing writing tasks. After four months, participants who relied on ChatGPT for writing shows significantly reduced neural connectivity in regions crucial for attention, working memory, and language processing. Tthey term this trade off of short-term convenience at the cost of long-term cognitive development 'cognitive debt'. More alarmingly, participants who became accustomed to AI assistance during this phase struggled to re-engage the necessary neural networks in their future writing tasks without AI assistance.
+
+* [Cognitive Offloading Is Real—And New Learners Are Most at Risk](https://compare.rm.com/blog/2025/09/cognitive-offloading-is-realand-new-learners-are-most-at-risk-how-rm-compare-keeps-the-thinking-human/): This is science of learning research synthesis that tells us that the risks of 'cognitive offloading' are not shared equally across all individuals. According the these authors, less experienced learners are particularly susceptible to the negative effects of AI-driven offloading compared to experts. While the experts can benefit from the shortcuts with little risk, for those that are just learning new topics may suffer from limited critical growth, self-monitoring, and resilience. Basically the most critical essential lifelong skills in learning.
+
+* [From Offloading to Engagement](https://www.mdpi.com/2306-5729/10/11/172): This is a slighly positive (or more nuanced) note on the implications of AI on learning. In this experimental study that includes partipants from Germany, Switzerland, adn UK, researches benchmark the implications of AI usage given the *way* participants use it. The take home message from the stdy is that 'unguided' AI use fosters cognitive offloading without improving reasoning quality. But structured prompting (i.e., when users critically engage with model outputs) enhances both critical reasoning and reflective engagement.
+
 While these are worth thinking about, my advice at this juncture is simple and pragmatic: use LLMs to support and advance your critical thinking, be thoughtful and responsible as you make them a part of your work, and turn them into your assistant that you *could* live without, and not your guide, without whom you could not search for answers on your own.
 
 ## An exercise using an LLM of your choice
@@ -1953,9 +1974,9 @@ Once you are ready, I will have a few volunteers (or randomly selected individua
 
 So, please go back to EXC-003 now, think about it again from scratch with some help from your favorite tool, and then we will regroup to discuss things together.
 
-### EXC-004
+## EXC-004
 
-The next exercise is here to immerse you into the joy of writing code for real-world data tasks, and you are now free to use LLMs to do that.
+This is our final exercise together. And it is here to immerse you into the joy of writing code for real-world data tasks, and you are now free to use LLMs to do that.
 
 This is the most realistic problem we are going to be working on so far, and comes from a real task in a real project I and Sarahi Garcia worked on together in the past.
 
