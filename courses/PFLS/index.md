@@ -1994,7 +1994,7 @@ One of the most critical next steps is to estimate the actual abundances of indi
   * `XXX` is the culture name recovered from `sample-translation.txt`,
   * `YYY` is `MAG` if the completion is 50% or more and contamination is 5% less according to the information in stored in the relevant `checkm.txt` file, otherwise `YYY` is `BIN`,
   * `ZZZ` is `001`, `002`, and so on, where each `MAG` and each `BIN` for individual cultures have sequential numbering.
-* Ensure that each sequence in each FASTA file has a unique *defline* associated with the culture (`XXX`) -- pro tip: you can use {% include PROGRAM name="anvi-script-reformat-fasta" %} for this.
+* Ensure that each sequence in each FASTA file has a unique *defline* and that they can be traced back to the sample and genome from which they originate.
 * Copy `checkm.txt` and `gtdb.gtdbtk.tax` files in individual `bins/` directories into `COMBINED-DATA` as `XXX-CHECKM.txt` and `XXX-GTDB-TAX.txt`.
 
 Based on these instructions, when you run your script in the directory `EXC-004`,
