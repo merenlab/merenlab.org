@@ -1,3 +1,9 @@
+## 2025
+
+{% include IMAGE path="/images/group-photos/group-photo-2025.jpg" caption="Upper row left to right: Sarah Hahnke, Raïssa Meyer, Xixi Chen, and Nithin Joseph Simon. Lower row right to left: Florian Trigodet, Jessika Füssel, Iva Veseli, Kathryn Lambert-Slosarska (Katy), Avril von Hoyningen-Huene, Alex Henoch, and Meren. The photograph is missing our colleagues Samuel Miller and Sarah Tucker, who couldn't make it to the Lab Retreat." width="100" %}
+
+{% include IMAGE path="/images/group-photos/group-photo-2025-in-snow.jpg" caption="Left to right, Kathryn Lambert-Slosarska (Katy), Avril von Hoyningen-Huene, Sarah Hahnke, Raïssa Meyer, Jon Snow (who is acting as a place holder for everyone in the group who missed this moment), Iva Veseli, Florian Trigodet, and Nithin Joseph Simon." width="100" %}
+
 ## 2024
 
 {% include IMAGE path="/images/group-photos/group-photo-11-2024.jpg" caption="From left-bottom of the photo to the top of the stairs: Alex Henoch, Iva Veseli, Florian Trigodet, Xixi Chen, Kathryn Lambert-Slosarska (Katy), Metehan Sever. The bottom pair, left-to-right: Avril von Hoyningen-Huene, Chris Robinson (who happened to be visiting our group from the University of Indiana at the time). The top pair: Raïssa Meyer, Sarah Tucker. The photograph is missing our colleagues Samuel Miller, Matthew Schechter, Jessika Fuessel, Amy Willis, and Marie Carstensen who couldn't make it for various reasons." width="100" %}
