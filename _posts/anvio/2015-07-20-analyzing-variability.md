@@ -152,14 +152,14 @@ Instead, it relies on the following conservative heuristic to identify SNVs and 
 $$ y = \left(\frac{1}{b}\right)^{x^{\frac{1}{b}} - m} + c $$
 
 where, \$x\$ represents the coverage, and \$b\$, \$m\$, and \$c\$ represent the model parameters
-equal to 3, 1.45, and 0.05, respectively. Assuming \$n_1\$ and \$n_2\$ represent the frequency of
-the most frequent and the second most frequent bases in a given nucleotide position (see the table),
-base frequencies are reported only if \$n_2/n_1 > y\$ criterion is satisfied for a given coverage of
-\$x\$. It is this simple (and ugly, in a sense). But briefly, this approach sets a dynamic baseline
-for minimum variation required for reporting _as a function of coverage depth_. According to this
-heuristic, \$y\$ would be 0.29 for 20X coverage, 0.13 for 50X coverage, 0.08 for 100X coverage, and
-~0.05 for very large values of coverage as \$y\$ approaches to \$c\$. The goal here is to lessen the
-impact of sequencing and mapping errors in reported frequencies, and it does it's boring job.
+equal to 2, 1.45, and 0.05, respectively. A position's base frequencies are reported only if its
+`departure_from_reference` (i.e., the fraction of reads at that position that differ from the
+reference nucleotide) meets or exceeds \$y\$ for a given coverage \$x\$. It is this simple (and ugly,
+in a sense). But briefly, this approach sets a dynamic baseline for the minimum departure from
+reference required for reporting _as a function of coverage depth_. According to this heuristic,
+\$y\$ would be approximately 0.17 for 20X coverage, 0.07 for 50X coverage, and asymptotically
+approaches \$c\$ = 0.05 for very large values of coverage. The goal here is to lessen the impact of
+sequencing and mapping errors in reported frequencies, and it does its boring job.
 
 This heuristic is affirmatively _not_ the be all end all, and it is an area or our workflow we could
 stand to improve. We have chosen these parameters conservatively such that it reports SNVs that one
