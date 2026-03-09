@@ -97,6 +97,31 @@ publications:
 
 
   - doi:
+      10.1038/s41467-026-69584-w
+    title:
+      "Water mass specific genes dominate the Southern Ocean microbiome"
+    authors:
+      Emile Faure, Jolann Pommellec, Cyril Noel, Alexandre Cormier, Lisa-Marie Delpech, A. Murat Eren, Antonio Fernandez-Guerra, Chiara Vanni, Marion Fourquez, Marie-Noëlle Houssais, Ulysse Guyet, Corinne Da Silva, Frederick Gavory, Aude Perdereau, Karine Labadie, Patrick Wincker, Julie Poulain, Christel Hassler, Yajuan Lin, Nicolas Cassar, Loïs Maignien
+    journal:
+      Nature Communications
+    year:
+      2026
+    volume:
+      17
+    number:
+      2025
+    pages:
+    additional_info:
+      highlights:
+        - Introduces a Southern Ocean (SO) microbial gene catalog built from 218 metagenomes collected during the Antarctic Circumnavigation Expedition (ACE), increasing by an order of magnitude the number of SO samples ever analyzed in a metagenomics study and demonstrating that almost 40% of ACE genes lack homologs in current reference marine gene catalogs, defining the SO as a singular and largely unexplored genetic seascape.
+        - Shows that SO microbial gene assemblages share a common polar signature with the Arctic Ocean, yet are primarily structured by water masses at the SO scale, with biogeographical barriers at both the Sub-Antarctic Front and the Polar Front.
+        - Puts <a href="https://anvio.org/help/main/programs/anvi-profile-blitz/" target="_blank">anvi-profile-blitz</a>, which is a program we had implemented solely for this sutdy, to real work to profile 175 million genes across all metagenomes.
+        - All raw and processed data are deposited under ENA project code <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB83083" target="_blank">PRJEB83083</a>.
+      featured_image:
+        /images/pubs/faure_et_al_southern_ocean_2026.png
+
+
+  - doi:
       10.1038/s41467-025-62138-6
     title:
       "Gifting future scientists the past through well-preserved specimens of modern microbial ecosystems"

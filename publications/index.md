@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2026-01-07
+modified: 2026-03-09
 comments: false
 image:
    display: true
@@ -32,6 +32,23 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Nature Biotechnology</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Troubleshooting+common+errors+in+assemblies+of+long-read+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41587-025-02971-8" target="_blank">doi:10.1038/s41587-025-02971-8</a></span>
+</div>
+
+<a id="10.1038/s41467-026-69584-w">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-026-69584-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-026-69584-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/s41467-026-69584-w" target="_new">Water mass specific genes dominate the Southern Ocean microbiome</a></span>
+    <span class="pub-authors">Faure E, Pommellec J, Noel C, Cormier A, Delpech L, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Fernandez-Guerra A, Vanni C, Fourquez M, Houssais M, Guyet U, Silva CD, Gavory F, Perdereau A, Labadie K, Wincker P, Poulain J, Hassler C, Lin Y, Cassar N, Maignien L</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/faure_et_al_southern_ocean_2026.png"><img src="/images/pubs/faure_et_al_southern_ocean_2026.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Introduces a Southern Ocean (SO) microbial gene catalog built from 218 metagenomes collected during the Antarctic Circumnavigation Expedition (ACE), increasing by an order of magnitude the number of SO samples ever analyzed in a metagenomics study and demonstrating that almost 40% of ACE genes lack homologs in current reference marine gene catalogs, defining the SO as a singular and largely unexplored genetic seascape.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Shows that SO microbial gene assemblages share a common polar signature with the Arctic Ocean, yet are primarily structured by water masses at the SO scale, with biogeographical barriers at both the Sub-Antarctic Front and the Polar Front.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Puts <a href="https://anvio.org/help/main/programs/anvi-profile-blitz/" target="_blank">anvi-profile-blitz</a>, which is a program we had implemented solely for this sutdy, to real work to profile 175 million genes across all metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- All raw and processed data are deposited under ENA project code <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB83083" target="_blank">PRJEB83083</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature Communications</b>, 17(2025) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Water+mass+specific+genes+dominate+the+Southern+Ocean+microbiome" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41467-026-69584-w" target="_blank">doi:10.1038/s41467-026-69584-w</a></span>
 </div>
 
 
