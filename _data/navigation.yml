@@ -23,3 +23,7 @@
 - title: Blog
   url: /posts/
   style: "color: #3288bd;"
+
+- title: Opportunities
+  url: /opportunities/
+  style: "color: #9e6ebd;"

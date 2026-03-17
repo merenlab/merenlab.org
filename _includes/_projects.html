@@ -1,0 +1,123 @@
+{% assign master_projects = "" | split: "" %}
+{% assign rotation_projects = "" | split: "" %}
+
+{% for project in site.data.projects %}
+    {% if project.status == "available" %}
+        {% if project.type == "master" %}
+            {% assign master_projects = master_projects | push: project %}
+        {% elsif project.type == "rotation" %}
+            {% assign rotation_projects = rotation_projects | push: project %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+<div class="category-box">
+    <a href="#master-thesis-projects"><span class="category-item">Master Thesis ({{ master_projects.size }})</span></a>
+    <a href="#rotation-projects"><span class="category-item">Rotation ({{ rotation_projects.size }})</span></a>
+</div>
+
+<h3 id="master-thesis-projects">Master Thesis Projects (~6 months)</h3>
+
+{% if master_projects.size == 0 %}
+<p><i>There are no master thesis projects available at the moment. Please check back later or get in touch with us to discuss possibilities.</i></p>
+{% endif %}
+
+{% for project in master_projects %}
+<div style="border-left: 4px solid #9e6ebd; background: #fff; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+
+    <div style="margin-bottom: 10px;">
+        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
+    </div>
+
+    <p style="margin-bottom: 14px; color: #444;">{{ project.description }}</p>
+
+    <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+        {% for mentor_alias in project.mentors %}
+            {% for person in site.data.people %}
+                {% if person.alias == mentor_alias %}
+                <a href="{{ site.url }}/people/#{{ person.name | slugify }}" style="display: inline-flex; align-items: center; margin-right: 14px; text-decoration: none; color: #333;">
+                    {% if person.avatar contains 'http' %}
+                    <img src="{{ person.avatar }}" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; object-fit: cover; border: 1px solid #ddd;" alt="{{ person.name }}">
+                    {% else %}
+                    <img src="{{ site.url }}/images/{{ person.avatar }}" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; object-fit: cover; border: 1px solid #ddd;" alt="{{ person.name }}">
+                    {% endif %}
+                    <span style="font-size: 0.95em;">{{ person.name }}</span>
+                </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    {% if project.skills_required.size > 0 %}
+    <div style="margin-bottom: 6px;">
+        <span style="font-size: 0.85em; color: #777; text-transform: uppercase; letter-spacing: 0.5px;">Required</span>
+        {% for skill in project.skills_required %}
+            <span style="display: inline-block; border: 1px solid #d7d7d7; padding: 3px 10px; border-radius: 12px; margin: 2px 2px; font-size: 0.88em; background-color: #fafafa;">{{ skill }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if project.skills_developed.size > 0 %}
+    <div>
+        <span style="font-size: 0.85em; color: #777; text-transform: uppercase; letter-spacing: 0.5px;">You will learn</span>
+        {% for skill in project.skills_developed %}
+            <span style="display: inline-block; border: 1px solid #d7d7d7; padding: 3px 10px; border-radius: 12px; margin: 2px 2px; font-size: 0.88em; background-color: #fafafa;">{{ skill }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% endfor %}
+
+<h3 id="rotation-projects">Rotation Projects (~6 weeks)</h3>
+
+{% if rotation_projects.size == 0 %}
+<p><i>There are no rotation projects available at the moment. Please check back later or get in touch with us to discuss possibilities.</i></p>
+{% endif %}
+
+{% for project in rotation_projects %}
+<div style="border-left: 4px solid #3288bd; background: #fff; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+
+    <div style="margin-bottom: 10px;">
+        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
+    </div>
+
+    <p style="margin-bottom: 14px; color: #444;">{{ project.description }}</p>
+
+    <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+        {% for mentor_alias in project.mentors %}
+            {% for person in site.data.people %}
+                {% if person.alias == mentor_alias %}
+                <a href="{{ site.url }}/people/#{{ person.name | slugify }}" style="display: inline-flex; align-items: center; margin-right: 14px; text-decoration: none; color: #333;">
+                    {% if person.avatar contains 'http' %}
+                    <img src="{{ person.avatar }}" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; object-fit: cover; border: 1px solid #ddd;" alt="{{ person.name }}">
+                    {% else %}
+                    <img src="{{ site.url }}/images/{{ person.avatar }}" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; object-fit: cover; border: 1px solid #ddd;" alt="{{ person.name }}">
+                    {% endif %}
+                    <span style="font-size: 0.95em;">{{ person.name }}</span>
+                </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    {% if project.skills_required.size > 0 %}
+    <div style="margin-bottom: 6px;">
+        <span style="font-size: 0.85em; color: #777; text-transform: uppercase; letter-spacing: 0.5px;">Required</span>
+        {% for skill in project.skills_required %}
+            <span style="display: inline-block; border: 1px solid #d7d7d7; padding: 3px 10px; border-radius: 12px; margin: 2px 2px; font-size: 0.88em; background-color: #fafafa;">{{ skill }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if project.skills_developed.size > 0 %}
+    <div>
+        <span style="font-size: 0.85em; color: #777; text-transform: uppercase; letter-spacing: 0.5px;">You will learn</span>
+        {% for skill in project.skills_developed %}
+            <span style="display: inline-block; border: 1px solid #d7d7d7; padding: 3px 10px; border-radius: 12px; margin: 2px 2px; font-size: 0.88em; background-color: #fafafa;">{{ skill }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% endfor %}

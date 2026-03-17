@@ -1,0 +1,83 @@
+# =============================================================================
+# Student Projects — Meren Lab
+# =============================================================================
+#
+# This file defines student projects shown on the Opportunities page.
+# Any lab member can add, edit, or remove projects by editing this file.
+#
+# HOW TO ADD A NEW PROJECT
+# ------------------------
+# Copy the template below, paste it at the end of this file, and fill in
+# your details. Lines starting with # are comments and are ignored.
+#
+# TEMPLATE (copy everything between the dashed lines):
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# - title: "Your project title here"
+#   type: master              # "master" (~6 months) or "rotation" (~6 weeks)
+#   status: available         # "available" or "taken"
+#   mentors:
+#     - your_alias            # your alias from _data/people.yml
+#   description: >
+#     A paragraph describing the project. Use the > character above to write
+#     a multi-line description that will be rendered as a single paragraph.
+#   skills_required:
+#     - "Skill the student should already have"
+#   skills_developed:
+#     - "Skill the student will learn"
+#
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# FIELD REFERENCE
+# ---------------
+# title            (required)  Short descriptive title for the project
+# type             (required)  "master" for master thesis (~6 months) or
+#                               "rotation" for rotation projects (~6 weeks)
+# status           (required)  "available" = shown on the page
+#                               "taken" = hidden from the page
+# mentors          (required)  List of mentor aliases from _data/people.yml.
+#                               Common aliases: meren, sarah, avril, xixi,
+#                               florian, iva, alex, katy, raïssa
+# description      (required)  Project description (supports Markdown)
+# skills_required  (optional)  List of skills the student should bring
+# skills_developed (optional)  List of skills the student will gain
+#
+# TIPS
+# ----
+# - Set status to "taken" instead of deleting a project — this keeps a
+#   record and makes it easy to re-open later.
+# - You can list multiple mentors for co-supervised projects.
+# - Keep descriptions concise (3–5 sentences).
+#
+# =============================================================================
+
+- title: "Example master thesis project"
+  type: master
+  status: available
+  mentors:
+    - meren
+    - florian
+  description: >
+    This is a placeholder project. Replace this entry with a real master thesis
+    project. A good description explains the scientific question, the approach,
+    and what makes the project exciting.
+  skills_required:
+    - "Python or R programming"
+    - "Basic knowledge of microbiology"
+  skills_developed:
+    - "Metagenomic analysis"
+    - "Scientific writing"
+
+- title: "Example rotation project"
+  type: rotation
+  status: available
+  mentors:
+    - florian
+  description: >
+    This is a placeholder project. Replace this entry with a real rotation
+    project. Rotation projects are shorter (~6 weeks) and are a great way
+    to explore a topic before committing to a full thesis.
+  skills_required:
+    - "Interest in bioinformatics"
+  skills_developed:
+    - "Command-line data analysis"
