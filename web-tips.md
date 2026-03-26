@@ -7,6 +7,91 @@ comments: false
 
 The purpose of this page is to show some of the fancy things our web page can do. If you add new features that are specific to our web code, or discover uses of features that are not described here, please feel free to extend this list.
 
+# Adding people to the website
+
+People listed on our [People page](/people/) and those who can be named in posts on the lab webpage are stored in four YAML files under `_data/people/`. Choose the right file based on who you are adding:
+
+| File | Who goes here |
+|---|---|
+| `_data/people/members.yaml` | Current lab members |
+| `_data/people/honorary_members.yaml` | Honorary lab members |
+| `_data/people/alumni.yaml` | Former lab members who have moved on |
+| `_data/people/visitors.yaml` | People who visited the lab for a week or longer |
+| `_data/people/community.yaml` | Anyone we work with closely, or those who wrote blog posts, etc |
+
+You can see examples of how to add people to these files below. Please make sure to follow the formatting and to add all the information you can about the person you are adding. The more information you add, the more we can show on the website, and the better it will look.
+
+A current lab member:
+
+```yaml
+- alias: firstname
+  name: Full Name
+  tenure_start: 01/2025
+  role: Post-doctoral Scientist
+  email: email@inst.edu
+  github: githubhandle
+  orcid: 0000-0000-0000-0000
+  avatar: bio-firstname.jpg
+  bio: "A short bio."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Institution Name
+      inst_link: https://inst.edu
+      current: true
+```
+
+An alumnus:
+
+```yaml
+- alias: firstname
+  name: Full Name
+  tenure_start: 01/2020
+  tenure_end: 12/2024
+  last_current_info_check: 2025
+  role: Graduate Student
+  nick_name: First
+  contributions: "What they worked on during their time with us."
+  current_info: "a Postdoctoral Researcher at <a href='https://someplace.edu'>Some Place</a>"
+  avatar: bio-firstname.jpg
+  bio: "Their bio."
+  affiliations:
+    - title: Graduate Student
+      inst: Institution Name
+      inst_link: https://inst.edu
+      current: false
+```
+
+A visitor:
+
+```yaml
+- name: Full Name
+  nick_name: First
+  arrival: 03/2025
+  length_of_stay: 2 months
+  title: Professor
+  department: Department of Something
+  institute: Some University
+  dept_link: https://dept.edu
+  pers_link: https://theirwebsite.edu
+  country_flag: 🇩🇪
+```
+
+A community member:
+
+```yaml
+- alias: firstname
+  name: Full Name
+  name_as_author: Name As Author
+  avatar: bio-firstname.jpg
+  email: email
+  web: xxx
+  twitter: xxx
+  linkedin: xxx
+  github: xxx
+```
+
+
+
 # Show thumbnails for blog posts
 
 For a blog post to have its own thumbnail, you need to add the following to the frontmatter of the Markdown file:

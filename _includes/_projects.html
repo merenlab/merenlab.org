@@ -1,3 +1,4 @@
+{% assign all_people = site.data.people.members | concat: site.data.people.alumni | concat: site.data.people.community | concat: site.data.people.visitors %}
 {% assign master_projects = "" | split: "" %}
 {% assign rotation_projects = "" | split: "" %}
 
@@ -33,7 +34,7 @@
 
     <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
         {% for mentor_alias in project.mentors %}
-            {% for person in site.data.people %}
+            {% for person in all_people %}
                 {% if person.alias == mentor_alias %}
                 <a href="{{ site.url }}/people/#{{ person.name | slugify }}" style="display: inline-flex; align-items: center; margin-right: 14px; text-decoration: none; color: #333;">
                     {% if person.avatar contains 'http' %}
@@ -86,7 +87,7 @@
 
     <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
         {% for mentor_alias in project.mentors %}
-            {% for person in site.data.people %}
+            {% for person in all_people %}
                 {% if person.alias == mentor_alias %}
                 <a href="{{ site.url }}/people/#{{ person.name | slugify }}" style="display: inline-flex; align-items: center; margin-right: 14px; text-decoration: none; color: #333;">
                     {% if person.avatar contains 'http' %}

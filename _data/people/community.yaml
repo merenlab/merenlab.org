@@ -1,0 +1,118 @@
+- alias: sarahi
+  name: Sarahi Garcia
+  name_as_author: Sarahi Garcia
+  avatar: bio-sarahi.jpg
+  email: sarahi.garcia@uni-oldenburg.de
+  linkedin: sarilog
+  web: https://miint.org/
+  twitter: sarilog
+
+- alias: mikeyu
+  name: Michael Yu
+  name_as_author: Michael K Yu
+  avatar: bio-mikeyu.jpg
+  email: mikeyu@ttic.edu
+  web: https://www.ttic.edu/faculty/yu/
+  linkedin: michaelyumit
+  github: michaelkyu
+
+- alias: blair
+  avatar: bio-blair.jpg
+  name: Blair G. Paul
+  name_as_author: Blair G Paul
+  email: bgpaul@mbl.edu
+  web: https://www.mbl.edu/jbpc/staff/bgpaul/
+  twitter: gnome_science
+  orcid: 0000-0002-5738-5568
+
+- alias: antonio
+  avatar: bio-antonio.png
+  name: Antonio Fernandez-Guerra
+  name_as_author: Antonio Fernandez-Guerra
+  email: antonio@metagenomics.eu
+  orcid: 0000-0002-8679-490X
+  web: https://dark.metagenomics.eu
+
+- alias: chiara
+  name: Chiara Vanni
+  name_as_author: Chiara Vanni
+  avatar: bio-chiara.jpg
+  email: cvanni@mpi-bremen.de
+  orcid: 0000-0002-1124-1147
+  github: ChiaraVanni
+  web: https://scholar.google.com/citations?user=0-KzK6MAAAAJ&hl=en
+  twitter: ChiaraVanni5
+
+- alias: ryan
+  avatar: bio-ryan.jpeg
+  name: Ryan Moore
+  name_as_author: Ryan M Moore
+  linkedin: ryan-moore-444a21b5
+  twitter: TenderIsTheByte
+  github: mooreryan
+
+- alias: mike
+  name: Mike Lee
+  name_as_author: Michael D Lee
+  avatar: bio-mike.jpg
+  email: michael.lee0517@gmail.com
+  github: AstrobioMike
+  web: https://astrobiomike.github.io
+  twitter: AstrobioMike
+  linkedin: AstrobioMike
+
+- alias: veronika
+  avatar: bio-veronika.jpg
+  name: Veronika Kivenson
+  name_as_author: Veronika Kivenson
+  web: http://methane.geol.ucsb.edu/Home.html
+  twitter: v_kivenson
+
+- alias: antti
+  email: antti.karkman@helsinki.fi
+  avatar: bio-antti.png
+  name: Antti Karkman
+  name_as_author: Antti Karkman
+  github: karkman
+
+- alias: elaina
+  avatar: bio-elaina.jpg
+  name: Elaina Graham
+  name_as_author: Elaina Graham
+  github: edgraham
+  twitter: perilousUnknown
+
+- alias: bryan
+  avatar: bio-bryan.jpg
+  name: Bryan Merrill
+  name_as_author: Bryan D Merrill
+  github: brymerr921
+  email: bmerrill@stanford.edu
+
+- alias: julie
+  avatar: bio-julie.jpg
+  name: Julie Reveillaud
+  name_as_author: Julie Reveillaud
+  web: https://juliereve.wordpress.com
+  twitter: JulieReve
+
+- alias: vincent_d
+  avatar: bio-vincent_d.png
+  name: Vincent J. Denef
+  name_as_author: Vincent J Denef
+  email: vdenef@umich.edu
+  web: http://www-personal.umich.edu/~vdenef/
+  twitter: VJDenef
+
+- alias: jacob_e
+  avatar: bio-jacob_e.png
+  name: Jacob T. Evans
+  name_as_author: Jacob T Evans
+  email: jtevans@umich.edu
+
+- alias: jarrod_s
+  avatar: bio-jarrod_s.jpg
+  name: Jarrod J. Scott
+  name_as_author: Jarrod J Scott
+  email: jarrod.jude.scott@gmail.com
+  web: https://istmobiome.rbind.io/

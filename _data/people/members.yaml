@@ -1,0 +1,309 @@
+- alias: meren
+  name: A. Murat Eren (Meren)
+  name_as_author: A Murat Eren
+  tenure_start: 10/2015
+  role: PI
+  twitter: merenbey
+  github: meren
+  web: http://meren.org
+  avatar: bio-meren.jpg
+  email: a.murat.eren@gmail.com
+  twitter: merenbey
+  github: meren
+  linkedin: meren
+  orcid: 0000-0001-9013-4827
+  phone: +49-471-4831-2543
+  skype: a.murat.eren
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
+  affiliations:
+    - title: Professor
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_address: 26129 Oldenburg, Germany
+      inst_link: https://hifmb.de
+      current: true
+    - title: Professor
+      inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
+      inst_address: 27570 Bremerhaven, Germany
+      inst_link: https://awi.de
+      current: true
+    - title: Professor
+      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
+      inst_address: 26129 Oldenburg, Germany
+      inst_link: https://uol.de/icbm
+      current: true
+    - title: Group Leader
+      subtitle: "Head of MPI-HIFMB Bridging Group, Marine 'Omics"
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: http://www.mpi-bremen.de/
+      inst_address: 28359 Bremen, Germany
+      current: true
+    - title: Fellow
+      inst: Marine Biological Laboratory
+      inst_address: Woods Hole, MA 02543, United States
+      inst_link: http://www.mbl.edu/
+      current: false
+    - title: Assistant Professor
+      inst: The Department of Medicine at the University of Chicago
+      inst_address: Chicago, IL 60637, United States
+      inst_link: http://medicine.uchicago.edu/
+      current: false
+    - title: Committee on Microbiology
+      inst: The Biomedical Sciences Cluster at the University of Chicago
+      inst_address: Chicago, IL 60637, United States
+      inst_link: https://biomedsciences.uchicago.edu/
+      current: false
+
+- alias: sarah
+  name: Sarah Tucker
+  name_as_author: Sarah J Tucker
+  tenure_start: 03/2024
+  role: Post-doctoral Scientist
+  email: stucker@mbl.edu
+  web: https://sarahjtucker.com/
+  twitter: sjtucker13
+  orcid: 0000-0003-0541-0853
+  github: tucker4
+  linkedin: sarah-tucker-0a9591a2
+  avatar: bio-sarah.jpeg
+  address: Marine Biological Laboratory, 7 MBL Street, Woods Hole, MA, 02543, USA
+  bio: "I am a marine microbiologist interested in the genomic, metabolic, and physiological diversity of microorganisms and how this diversity impacts ecological interactions and ocean processes. Currently, I am using computational approaches to examine how marine microbes respond to environmental change."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Josephine Bay Paul Center for Comparative Molecular Biology and Evolution, Marine Biological Laboratory
+      inst_link: https://www.mbl.edu/research/research-centers/josephine-bay-paul-center
+      current: true
+    - title: Fellow
+      inst: Simons Postdoctoral Fellowship in Marine Microbial Ecology
+      inst_link: https://www.simonsfoundation.org/grant/simons-postdoctoral-fellowships-in-marine-microbial-ecology/
+      current: true
+    - title: Fellow
+      inst: John A. Knauss Marine Policy Fellowship Program
+      inst_link: https://seagrant.noaa.gov/knauss-fellowship-program/
+      current: false
+    - title: PhD Student
+      inst: Hawaiʻi Institute of Marine Biology, University of Hawaiʻi at Mānoa
+      inst_link: https://www.himb.hawaii.edu/
+      current: false
+
+- alias: avril
+  name: Avril von Hoyningen-Huene
+  name_as_author: Avril Jean Elisabeth von Hoyningen-Huene
+  tenure_start: 02/2024
+  role: Post-doctoral Scientist
+  email: avril.hoyningen@hifmb.de
+  twitter: avihuene
+  orcid: 0000-0002-1928-3560
+  github: AviHuene
+  linkedin: avril-von-hoyningen-huene
+  avatar: bio-avril.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a microbiologist and bioinformatician delving into the dynamics of phytoplankton communities in response to environmental changes."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Post-doctoral Scientist
+      inst: Institute for General Microbiology at Kiel University (CAU)
+      inst_link: https://www.mikrobio.uni-kiel.de/de
+      current: false
+    - title: PhD Student
+      inst: General and Applied Microbiology at the University of Göttingen
+      inst_link: http://appmibio.uni-goettingen.de/
+      current: false
+
+- alias: xixi
+  name: Xi Chen (Xixi)
+  name_as_author: Xi Chen
+  tenure_start: 02/2024
+  role: Post-doctoral Scientist
+  email: chenxi1251@gmail.com
+  orcid: 0009-0007-7692-9771
+  github: u-xixi
+  linkedin: xi-chen-1a6925256
+  avatar: bio-xixi.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a bioinformatician and microbial ecologist. I enjoy tailoring computational methods to explore the diversity and dynamics of microbes. My current focus is on those that live in the ocean."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de/
+      current: true
+    - title: PhD student
+      inst: Department of Computer Science, University of Tübingen
+      inst_link: https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/computer-science/department/
+      current: false
+
+- alias: florian
+  name: Florian Trigodet
+  name_as_author: Florian Trigodet
+  tenure_start: 08/2019
+  role: Senior Scientist
+  email: trigodet.florian@gmail.com
+  twitter: FlorianTrigodet
+  orcid: 0000-0002-4933-2896
+  github: FlorianTrigodet
+  linkedin: florian-trigodet-67b351b4
+  avatar: bio-florian.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a microbiologist by training, and as a postdoctoral researcher I am using advanced computational strategies to make sense of the microbial ecology of complex habitats."
+  affiliations:
+    - title: Senior Scientist
+      inst: Alfred Wegener Institute for Polar and Marine Research
+      inst_link: https://awi.de
+      current: true
+    - title: Senior Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Associate Junior Fellow
+      inst: Hanse-Wissenschaftskolleg, Institute for Advanced Study
+      inst_link: https://hanse-ias.de/en/
+      current: true
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: false
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+      current: false
+
+- alias: jessika
+  name: Jessika Füssel
+  name_as_author: Jessika Füssel
+  tenure_start: 03/2026
+  role: Senior Scientist
+  email: ju.fuessel@gmail.com
+  twitter: FuesselJessika
+  orcid: 0000-0002-4210-2318
+  github: jessika-fuessel
+  avatar: bio-jessika.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using multi-omics approaches."
+  affiliations:
+    - title: Senior Scientist
+      inst: Alfred Wegener Institute for Polar and Marine Research
+      inst_link: https://awi.de
+      current: true
+    - title: Senior Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Post-doctoral Scientist
+      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
+      inst_link: https://uol.de/en/icbm
+      current: false
+
+- alias: iva
+  name: Iva Veseli
+  name_as_author: Iva Veseli
+  phd_tenure_start: 06/2019
+  tenure_start: 08/2023
+  role: Post-doctoral Scientist
+  email: iva.veseli@hifmb.de
+  github: ivagljiva
+  orcid: 0000-0003-2390-528
+  linkedin: iva-veseli
+  twitter: ivaglj1va
+  avatar: bio-iva.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a computational microbiologist who develops software to study microbial metabolism using (meta)genomic data. I'm curious about how metabolic capacity influences survival, lifestyle, and interactions between microbes living in different environments or exposed to different conditions. Currently, I'm investigating the nature of metabolic interactions within marine microbial communities."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Associate Junior Fellow
+      inst: Hanse-Wissenschaftskolleg, Institute for Advanced Study
+      inst_link: https://hanse-ias.de/en/
+      current: true
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+      current: false
+    - title: Fellow
+      inst: NSF Graduate Research Fellowship Program
+      inst_link: https://www.nsfgrfp.org/
+      current: false
+
+- alias: alex
+  name: Alexander Henoch
+  name_as_author: Alexander Henoch
+  tenure_start: 09/2022
+  role: Graduate Student
+  github: ahenoch
+  avatar: bio-alex.jpg
+  email: alexander.henoch@hifmb.de
+  orcid: 0000-0003-3808-576X
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a biologist-turned-computer scientist interested in understanding the influence of the environmental change on the genetic composition of microbial populations."
+  affiliations:
+  - title: Graduate Student
+    inst: Helmholtz Institute for Functional Marine Biodiversity
+    inst_link: https://hifmb.de
+    current: true
+  - title: Graduate Student
+    inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
+    inst_link: https://awi.de
+    current: true
+
+- alias: katy
+  name: Kathryn Lambert-Slosarska (Katy)
+  name_as_author: Kathryn Lambert-Slosarska
+  tenure_start: 09/2023
+  role: Graduate Student
+  twitter: Katy_LS_
+  github: katysloz
+  avatar: bio-katy.jpg
+  email: klambert@mpi-bremen.de
+  twitter: Katy_LS_
+  github: katysloz
+  orcid: 0000-0003-1612-6794
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a marine (micro)biologist utilising computational approaches to understand the dynamism and impact of diversity-generating retroelements in microbial lifestyles within changing marine ecosystems."
+  affiliations:
+    - title: Graduate Student
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: MarMic Graduate Student
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://www.mpi-bremen.de/en/Home.html
+      current: true
+    - title: MarMic Master's Student
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://www.mpi-bremen.de/en/Home.html
+      current: false
+
+- alias: raïssa
+  name: Raïssa Meyer
+  name_as_author: Raïssa Meyer
+  tenure_start: 03/2025
+  role: Post-doctoral Scientist
+  email: raissa.meyer@hifmb.de
+  twitter: raissameyer
+  orcid: 0000-0002-2996-719X
+  github: raissameyer
+  linkedin: raïssa-meyer-b97515206
+  avatar: bio-raissa.jpeg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a postdoctoral researcher with a background in marine microbiology. I am interested in biodiversity data supporting informed policy and ecosystem management decisions. In practice, that means that I am working at the intersection of people and data, with a focus on making biodiversity data work together across systems as well as on improving international coordination in ocean observing."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Graduate Student
+      inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
+      inst_link: https://www.awi.de/en/
+      current: false
+    - title: Graduate Student
+      inst: University of Bremen
+      inst_link: https://www.uni-bremen.de/en/
+      current: false
+    - title: Graduate Student
+      inst: Max-Planck-Institute for Marine Microbiology
+      inst_link: https://www.mpi-bremen.de/en/Home.html
+      current: false

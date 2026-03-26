@@ -44,9 +44,10 @@
         <h3>Recent posts from the blog</h3>
         {% for post in site.posts limit: 10 %}
         <article>
+            {% assign all_people = site.data.people.members | concat: site.data.people.alumni | concat: site.data.people.community | concat: site.data.people.visitors %}
             {% assign author = None %}
             {% assign p = post.authors[0] %}
-            {% for e in site.data.people %}
+            {% for e in all_people %}
               {% if e.alias == p %}
                   {% assign author = e %}
               {% endif %}

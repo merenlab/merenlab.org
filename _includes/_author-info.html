@@ -1,5 +1,6 @@
+{% assign all_people = site.data.people.members | concat: site.data.people.alumni | concat: site.data.people.community | concat: site.data.people.visitors %}
 {% for author in page.authors %}
-    {% for person in site.data.people %}
+    {% for person in all_people %}
         {% if author == person.alias %}
 {{  author ==  page.authors | first}}
         <div class="page-author">

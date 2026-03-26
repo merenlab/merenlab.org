@@ -30,7 +30,7 @@
 
             </div>
 
-            {% if person.lab_member and person.tenure_end and include.collaborator != true %}
+            {% if include.alumnus %}
                 <p class="person-info-text">
                    {{ person.nick_name }} was a <b>{{ person.role }}</b> in our group between {{person.tenure_start}} and {{person.tenure_end}}.
                    {{ person.contributions }}.{% if person.current_info %} The last time we checked (which was in {{ person.last_current_info_check }}), {{ person.nick_name }} was <span class="person-current-info">{{ person.current_info }}</span>.{% endif %}

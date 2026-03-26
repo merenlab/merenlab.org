@@ -1,0 +1,146 @@
+- name: Amy D Willis
+  nick_name: Amy
+  arrival: 09/2024
+  length_of_stay: "9 months"
+  title: Professor
+  department: Department of Biostatistics
+  dept_link: https://www.biostat.washington.edu/
+  pers_link: https://statdivlab.github.io/
+  institute: University of Washington
+  country_flag: 🇺🇸
+  notes: "Amy's visit was more than a visit -- it was a true sabbatical during which we took advantage of the new genomes in public databases to investigate the codon variation landscape throughout the tree of life as a function of microbial ecology, evolution, and metabolism. Members of our group is forever thankful to the members of <a href='https://statdivlab.github.io/' id='aff-link' target='_blank'>Amy's group</a> for sharing her with us"
+
+- name: Siyu Mei
+  nick_name: Mei
+  arrival: 03/2025
+  length_of_stay: 1 month
+  title: Graduate Student
+  department: Groningen Institute for Evolutionary Life Science
+  institute: University of Groningen
+  dept_link: https://www.rug.nl/research/gelifes/
+  country_flag: 🇳🇱
+
+- name: Chris Robinson
+  nick_name: Chris
+  arrival: 11/2024
+  length_of_stay: 6 weeks
+  title: Graduate Student
+  department: Department of Biology
+  institute: Indiana University
+  dept_link: https://bloomington.iu.edu/
+  country_flag: 🇺🇸
+
+- name: Eeva Eronen-Rasimus
+  nick_name: Eeva
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Senior Researcher
+  department:  Marine Reserach Center
+  institute: Finnish Environmental Institute
+  country_flag: 🇫🇮
+  dept_link: https://www.syke.fi/en-US
+  pers_link: https://www.syke.fi/en-US/Experts/Eeva_EronenRasimus(66205)
+  photos:
+    - caption: Eeva, Igor, and Tommi during a lunch meeting with the rest of the group :)
+      url: /images/visitors/2024_pessi.jpg
+
+- name: Tommi Välikangas
+  nick_name: Tommi
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Postdoctoral Scientist
+  institute: Natural Resources Institute Finland
+  country_flag: 🇫🇮
+  dept_link: https://www.luke.fi/en
+  pers_link: https://www.researchgate.net/profile/Tommi-Vaelikangas
+
+- name: Igor Pessi
+  nick_name: Igor
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Postdoctoral Scientist
+  institute: Finnish Environment Institute
+  country_flag: 🇫🇮
+  dept_link: https://www.syke.fi/en-US
+  pers_link: https://igorpessi.com/
+
+- name: Stephen J Giovannoni
+  nick_name: Steve
+  pers_link: https://microbiology.oregonstate.edu/directory/stephen-j-giovannoni
+  title: Professor
+  department: Department of Microbiology
+  dept_link: https://microbiology.oregonstate.edu
+  institute: Oregon State University
+  country_flag: 🇺🇸
+  arrival: 07/2024
+  length_of_stay: "3 months"
+  notes: "A large proportion of the logistics of Steve's visit was coordinated by the Hanse-Wissenschaftskolleg (HWK), an independent institute for advanced study and a non-profit foundation. We are extremely lucky in Oldenburg that such an institute exists and supports international collaborators who wish to visit a lab in the region. If you are thinking about coming here for a sabbatical or a for a few months of research stay, please consider visiting the <a id='aff-link' target='_blank' href='https://hanse-ias.de/en/'>HWK web page</a>"
+  photos:
+    - caption: Journal Club with Steve.
+      url: /images/visitors/2024_journal_club_with_giovannoni.jpg
+
+- name: Arthur Cousson
+  nick_name: Arthur
+  arrival: 05/2024
+  length_of_stay: "8 weeks"
+  title: Graduate Student
+  department: EcoSols Joint Research Unit
+  institute: Institut Agro Montpellier
+  country_flag: 🇫🇷
+  dept_link: https://www.umr-ecosols.fr/en/
+  pers_link: https://github.com/ImagoXV
+  photos:
+    - caption: Arthur and others.
+      url: /images/visitors/2024_cousson_et_al.jpg
+
+- name: Oleg Vlasovets
+  nick_name: Oleg
+  arrival: 01/2024
+  length_of_stay: "3 months"
+  title: Graduate Student
+  institute: Helmholtz Zentrum München
+  country_flag: 🇩🇪
+  dept_link: https://www.helmholtz-munich.de/en/
+  pers_link: https://www.linkedin.com/in/oleg-vlasovets-b6a05813b/
+  photos:
+    - caption: Lunch meeting with Oleg (on the most left), Daan Speth, Tom Delmont, Sarahi Garcia, and others in the lab.
+      url: /images/visitors/2024_oleg_and_others.jpg
+
+- name: Mary Ann Moran
+  nick_name: Mary Ann
+  arrival: 10/2023
+  length_of_stay: "a week"
+  title: Professor
+  department: Department of Marine Sciences
+  institute: University of Georgia
+  country_flag: 🇺🇸
+  dept_link: https://www.marsci.uga.edu/
+  pers_link: https://moranresearch.org/
+  photos:
+    - caption: Sarahi Garcia, Sandra McLellan, Jessika Fuessel, Meren, and Mary Ann Moran in Bremen.
+      url: /images/visitors/2023_moran_mclellan_and_others.jpg
+
+- name: Sandra McLellan
+  nick_name: Sandra
+  arrival: 10/2023
+  length_of_stay: "a week"
+  title: Professor
+  department: School of Freshwater Sciences
+  institute: University of Wisconsin-Milwaukee
+  country_flag: 🇺🇸
+  dept_link: https://uwm.edu/freshwater/
+  pers_link: https://sites.uwm.edu/mclellanlab/
+
+- name: Jed Fuhrman
+  nick_name: Jed
+  arrival: 09/2022
+  length_of_stay: "a week"
+  title: Professor
+  department: Wrigley Institute for Environmental Studies
+  institute:  University of Southern California
+  country_flag: 🇺🇸
+  dept_link: https://dornsife.usc.edu/wrigley/
+  pers_link: https://dornsife.usc.edu/fuhrmanlab/
+  photos:
+    - caption: Tom Delmont, Jed Fuhrman, Meren, and all the carboard boxes.
+      url: /images/visitors/2022_fuhrman_delmont.jpg

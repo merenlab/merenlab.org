@@ -1,0 +1,452 @@
+- alias: matt
+  name: Matthew Schechter
+  name_as_author: Matthew S Schechter
+  nick_name: Matt
+  tenure_start: 10/2019
+  tenure_end: 02/2025
+  last_current_info_check: 2026
+  current_info: "A postdoctoral researcher in <a href='http://luis-barreirolab.org/' target='_blank'>Luis Barreiro's group</a> at UChicago"
+  contributions: "During his time with our group, he developed methods to leverage the growing number of environmental genomes and metagenomes to study the phylogeography of individual proteins. His work led to the creation of <a href='https://anvio.org/help/main/workflows/ecophylo/' target='_blank'>EcoPhylo</a>, an easy-to-use computational workflow that integrates ecological and evolutionary perspectives on gene families de novo"
+  role: Graduate Student
+  email: mschechter@uchicago.edu
+  avatar: bio-matt.jpg
+  linkedin: matthewschechter
+  orcid: 0000-0002-8435-3203
+  twitter: mschecht_bio
+  github: mschecht
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
+  affiliations:
+    - title: Post-doctoral Researcher
+      inst: Department of Medicine, University of Chicago
+      inst_link: http://uchicago.edu/
+      current: true
+    - title: Graduate Student
+      inst: Department of Medicine, University of Chicago
+      inst_link: http://uchicago.edu/
+      current: false
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: false
+
+- alias: mete
+  name: Metehan Sever
+  name_as_author: Metehan Sever
+  nick_name: Mete
+  tenure_start: 10/2022
+  tenure_end: 02/2025
+  last_current_info_check: 2026
+  current_info: "a Software Engineer at Automation Factory GmbH"
+  contributions: "Mete worked on improving anvi'o interactive interfaces by finetuning existing features or adding new ones. Some of his work, especially on how to display and work with phylogenetic trees made anvi'o much more suitable for such applications"
+  role: Scientific Programmer
+  twitter: metehaansever
+  github: metehaansever
+  avatar: bio-mete.jpg
+  email: metehaansever@gmail.com
+  twitter: metehaansever
+  github: metehaansever
+  linkedin: metehaansever
+  orcid: 0000-0003-1043-4956
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a computer scientist and UX designer who loves to design and develop user interfaces."
+  affiliations:
+    - title: Scientific Programmer
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+
+- alias: cynthia
+  name: Cynthia Wang
+  nick_name: Cynthia
+  name_as_author: Cynthia Wang
+  tenure_start: 09/2022
+  tenure_end: 07/2023
+  contributions: "She investigated computational means to study the interplay between codon composition in genomes and their metabolic priorities"
+  role: Fulbright Scholar
+  github: c-y-n-t-h-i-a
+  avatar: bio-cynthia.jpg
+  email: cynthia.wang2@duke.edu
+  last_current_info_check: 2026
+  current_info: A graduate student at the Biophysical Sciences Graduate Program at the University of Chicago
+  bio: "A computer scienctist exploring the association between sequence composition and metabolism."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+      current: true
+    - title: Fulbright Scholar
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: false
+    - title: Undergraduate Student
+      inst: Department of Computer Science, Duke University
+      inst_link: https://www.cs.duke.edu/
+      current: false
+
+- alias: emily
+  name: Emily Fogarty
+  name_as_author: Emily C Fogarty
+  tenure_start: 06/2018
+  tenure_end: 06/2023
+  nick_name: Emily
+  contributions: "Emily put an effort into understanding the ecology and evolution of naturally occurring plasmids of the human gut microbiome. Her work described the ecology of pBI143, a cryptic plasmid that happens to be one of the most prevalent and numerous extrachromosomal circular elements of the human gut"
+  current_info: a Medical Science Liaison at <a href="https://www.veracyte.com/">Veracyte</a>
+  last_current_info_check: 2026
+  role: Graduate Student
+  email: efogarty@uchicago.edu
+  github: efogarty11
+  orcid: 0000-0002-8957-9922
+  avatar: bio-emily.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in developing computational and wet lab strategies to study horizontal gene transfer in the human gut microbiome."
+  affiliations:
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: false
+
+- alias: isaac
+  name: Isaac Fink
+  name_as_author: Isaac Fink
+  tenure_start: 04/2020
+  tenure_end: 01/2023
+  nick_name: Isaac
+  contributions: "Isaac worked on implementing new capabilities for anvi'o to visualize genomic contexts interactively, and contributed code to improve interactive interfaces of anvi'o"
+  current_info: an Associate Software Engineer at <a href="https://www.veeva.com/" target="_blank">Veeva Systems</a>
+  last_current_info_check: 2026
+  role: Undergraduate Researcher
+  email: iafink@uchicago.edu
+  avatar: bio-isaac.png
+  orcid: 0000-0003-3930-029X
+  bio: “I am interested in enhancing the power and accessibility of computational tools that analyze the microbiome.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computer Science
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
+      current: false
+
+- alias: sam
+  name: Samuel Miller
+  name_as_author: Samuel E Miller
+  tenure_start: 11/2019
+  tenure_end: 9/2022
+  nick_name: Sam
+  contributions: "Sam took on one of the most exciting challenges our group had to offer at that time: taking advantage of the recent advances in high-throughput sequencing of short RNA molecules to make sense of microbial tRNA transcripts in complex habitats. Towards this goal, he developed novel and advanced open-source software tools to study all aspects of chemical modification and relative abundance analysis of tRNA transcripts, and combining them with tRNA genes, codons, and metabolisms found in genomes and metagenomes"
+  current_info: a Scientific Programmer for <a href="https://ccomp-stc.org/" target="_blank">the Center for Chemical Currencies of a Microbial Planet</a> at the <a href="https://mbl.edu" target="_blank">Marine Biological Laboratory</a>
+  last_current_info_check: 2026
+  role: Post-doctoral Scientist
+  email: samuelmiller@uchicago.edu
+  orcid: 0000-0002-2836-1401
+  twitter: smiller_science
+  github: semiller10
+  web: https://semiller10.github.io
+  avatar: bio-sam.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I study how microbes function in their environments by developing and applying computational tools to interpret data from approaches such as tRNA-sequencing, proteomics, and metagenomics."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+
+- alias: matthew
+  name: Matthew Lawrence Klein
+  nick_name: Matthew
+  name_as_author: Matthew Lawrence Klein
+  web: http://matthewlawrencekle.in
+  github: matthewlawrenceklein
+  linkedin: matthew-lawrence-klein
+  tenure_start: 11/2020
+  tenure_end: 10/2022
+  current_info: a Software Developer in Los Angeles
+  last_current_info_check: 2026
+  contributions: Matthew focused on improving the anvi'o interactive interface. He has made numerous significant contributions to anvi'o that improved the responsiveness of the interactive interface, addressed many bugs, and added most needed features
+  role: Programmer
+  email: mtt.l.kln@gmail.com
+  avatar: bio-matthew_k.jpg
+  bio: “I am interested in technology's role in supporting a more equitable future on planet earth.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+      current: false
+
+- alias: evan
+  name: Evan Kiefl
+  nick_name: Evan
+  name_as_author: Evan Kiefl
+  tenure_start: 04/2017
+  tenure_end: 06/2022
+  current_info: a Protein Bioinformatician at <a href="https://www.arcadiascience.com">Arcadia Science</a>
+  last_current_info_check: 2026
+  contributions: Evan has made <a href="https://anvio.org/people/ekiefl/">technical</a> and <a href="https://www.youtube.com/watch?v=7_uBDyANpdk">intellectual</a> contributions that allowed us to interpret the genetic diversity within naturally occuring microbial populations in the context of their predicted protein structures
+  role: Graduate Student
+  twitter: evankiefl
+  github: ekiefl
+  linkedin: evan-kiefl-825985b7
+  web: https://ekiefl.github.io
+  orcid: 0000-0002-6473-0921
+  email: kiefl.evan@gmail.com
+  avatar: bio-evan.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in uncovering how single nucleotide variants map to functional variation in the genes of naturally-occuring microbial populations."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+    - title: Bioinformatician
+      inst: AbCellera
+      inst_link: https://www.abcellera.com/
+      current: false
+    - title: Protein Bioinformatician
+      inst: Arcadia Science
+      inst_link: https://www.arcadiascience.com/
+      current: true
+
+- alias: karen
+  name: Karen Lolans
+  name_as_author: Karen Lolans
+  nick_name: Karen
+  tenure_start: 07/2018
+  tenure_end: 10/2021
+  role: Senior Research Technician
+  current_info: a Senior Technician at the University of Chicago
+  last_current_info_check: 2026
+  contributions: Karen has made significant contributons to the wet-lab branch of our group at the University of Chicago by creating and benchmarking protocols for tRNA sequencing and high molecular weight DNA extraction for long-read sequencing even from most challenging samples of low-biomass and host contamination
+  email: klolans@medicine.bsd.uchicago.edu
+  linkedin: karen-lolans-b39ab0
+  orcid: 0000-0003-1903-756X
+  avatar: bio-karen.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "As a molecular microbiologist, I am interested in the potential that interwoven wet lab and computational strategies play in elucidating complex microbial interactions and processes."
+  affiliations:
+    - title: Senior Research Technician
+      inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
+      inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
+
+- alias: andrea
+  name: Andrea Watson
+  name_as_author: Andrea R Watson
+  nick_name: Andrea
+  tenure_start: 06/2017
+  tenure_end: 09/2021
+  current_info: a Senior Scientist of Molecular & Virus Safety at <a href="https://www.merckgroup.com/en">Merck</a>
+  last_current_info_check: 2026
+  contributions: Throughout her graduate work, Andrea investigated the determinants of microbial colonization in the human gut, a critical question of the human microbiome research that has been beyond our reach outside of simplified model systems. Using genome-resolved metagenomics and fecal microbiota transplantation experiments, Andrea has found <a href="https://www.youtube.com/watch?v=4tPLu84Sjhc">some answers</a> to discuss the factors that influence microbial biodiversity in stressful gut environments
+  role: Graduate Student
+  email: watson.arr@gmail.com
+  linkedin: andrea-rose-watson
+  github: watsonar
+  orcid: 0000-0003-0128-6795
+  twitter: awatsontxt
+  avatar: bio-andrea.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in combining wet lab and computational methods in a complementary way to answer microbiological questions."
+  affiliations:
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: false
+
+
+- alias: jessica
+  nick_name: Jessica
+  name: Jessica Pan
+  name_as_author: Jessica N Pan
+  current_info: a Computer Science Master's Student at the <a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a>
+  last_current_info_check: 2026
+  contributions: Jessica has joined our lab as a high-school student and made significant contributions to the completely brand-new <a href="https://merenlab.org/software/anvio/help/main/" _target="blank">anvi'o help system</a>
+  tenure_start: 06/2019
+  tenure_end: 09/2020
+  role: Undergraduate Researcher
+  email: jnpan@mit.edu
+  avatar: bio-jessica.png
+  github: Jessica-Pan
+  orcid: 0000-0002-6743-6146
+  bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: MSc Student
+      inst: Massachusetts Institute of Technology
+      inst_link: http://web.mit.edu/
+    - title: Undergraduate Student
+      inst: Massachusetts Institute of Technology
+      inst_link: http://web.mit.edu/
+      current: false
+
+
+- alias: abby
+  nick_name: Abby
+  name: Abigail Schmid
+  name_as_author: Abigail C Schmid
+  current_info: a Research Associate at Los Alamos National Laboratory
+  last_current_info_check: 2026
+  contributions: Abby joined our group as an undergraduate researcher and used pangenomics and metagenomics for high-throughput characterization on hypervariable genomic islands of some of the most prevalent members of the human microbiome. Her work left behind a treasure trove of insights into some of the most interesting parts of microbial genomes
+  tenure_start: 10/2017
+  tenure_end: 09/2020
+  role: Undergraduate Researcher
+  email: abigailcschmid@uchicago.edu
+  avatar: bio-abby.jpg
+  linkedin: abigailschmid
+  orcid: 0000-0002-7685-864X
+  twitter: schmidabby
+  bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computational and Applied Mathematics
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
+
+
+- alias: joe
+  nick_name: Joe
+  name: Joe Runde
+  name_as_author: Joseph M Runde
+  tenure_start: 07/2018
+  tenure_end: 07/2020
+  current_info: an Assistant Professor at the <a href="https://www.luriechildrens.org/">Lurie Children's Hospital</a>, <a href="https://www.northwestern.edu/">Northwestern University</a>
+  last_current_info_check: 2023
+  contributions: In addition to serving as a Physician Researcher at the University of Chicago Medicine, Joe joined our group to study with us the microbial community dynamics in Chron's disease during Exclusive Enteral Nutrition therapy. His dedication and passion had a huge influence on our lab culture and dynamics
+  role: Physician Researcher
+  email: jrunde1@gmail.com
+  github: jrunde1
+  avatar: bio-joe.jpg
+  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
+  affiliations:
+    - title: Pediatric Gastroenterology Fellow
+      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
+      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
+
+- alias: alon
+  nick_name: Alon
+  tenure_start: 10/2016
+  tenure_end: 02/2020
+  current_info: Associate Director of Computational Biology at <a href="https://www.immunai.com/">Immunai</a>
+  last_current_info_check: 2024
+  contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
+  name: Alon Shaiber
+  name_as_author: Alon Shaiber
+  role: Graduate Student
+  email: alon.shaiber@gmail.com
+  twitter: alon_shaiber
+  orcid: 0000-0002-4806-9280
+  github: ShaiberAlon
+  linkedin: alon-shaiber
+  skype: alon.shaiber
+  avatar: bio-alon.jpg
+  bio: "I'm fascinated by the complexity of biological systems and interested in applying and developing computational tools to explore it."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+
+- alias: ozcan
+  nick_name: Ozcan
+  name: Özcan C. Esen
+  name_as_author: Özcan C Esen
+  tenure_start: 02/2016
+  tenure_end: 02/2020
+  current_info:
+  last_current_info_check:
+  contributions: Ozcan worked on anvi'o since it was nothing more than an idea, and has been one of the most prolific developers of it during the last five years. His remarkable contributions to the interactive capabilities of anvi'o has always been a critical component of the platform, and will continue to help many life scientists who use anvi'o
+  role: Programmer
+  email: ozcanesen@gmail.com
+  twitter: ozcanesen
+  avatar: bio-ozcan.jpg
+  github: ozcan
+  web: http://blog.ozcanesen.com/
+  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+
+- alias: mahmoud
+  nick_name: Mahmoud
+  name: Mahmoud Yousef
+  name_as_author: Mahmoud Yousef
+  tenure_start: 05/2017
+  tenure_end: 02/2020
+  current_info: an MD/PhD student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
+  last_current_info_check: 2024
+  contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters
+  avatar: bio-mahmoud.jpg
+  role: Undergraduate Researcher
+  email: mahmoudyousef@uchicago.edu
+  linkedin: mahmoud-yousef-314198128/
+  github: mahmoudyousef98
+  bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+     - title: Undergraduate Student
+       inst: Department of Computer Science at the University of Chicago
+       inst_link: https://www.cs.uchicago.edu/
+
+- alias: quentin
+  name: Quentin Clayssen
+  name_as_author: Quentin Clayssen
+  nick_name: Quentin
+  tenure_start: 04/2019
+  tenure_end: 10/2019
+  role: FACCTS Visiting Scientist
+  email: quentin.clayssen@gmail.com
+  github: qclayssen
+  linkedin: quentin-clayssen-398360139
+  twitter: ClayssenQ
+  avatar: bio-quentin.jpg
+  current_info: a Bioinformatician at <a href="https://www.dnascript.com/">DNA Script</a>
+  last_current_info_check: 2024
+  contributions: He contributed to the development of an anvi'o framework for <a href="http://merenlab.org/2019/10/08/anvio-scg-taxonomy/">the rapid determination of genome taxonomy</a>
+  bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
+
+- alias: sonny
+  name: Sonny T. M. Lee
+  name_as_author: Sonny T M Lee
+  nick_name: Sonny
+  tenure_start: 05/2016
+  twitter: sonnytmlee
+  tenure_end: 05/2018
+  current_info: an Associate Professor of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
+  last_current_info_check: 2024
+  contributions: He took the responsibility of leading the Fecal Microbiota Transplantation work in our lab. Sonny also was the driving force behind setting up the wet-lab component of our group
+  role: Post-doctoral Scientist
+  email: leet1@uchicago.edu
+  avatar: bio-sonny.jpg
+  bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
+
+- alias: steven
+  name: Steven Cui
+  name_as_author: Steven Cui
+  nick_name: Steven
+  tenure_start: 07/2016
+  tenure_end: 10/2016
+  current_info: a Principal Associate and a Senior Software Engineer <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
+  last_current_info_check: 2024
+  contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
+  role: Summer Student
+  avatar: bio-steven.png
+  email: stevencui729@gmail.com
+  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
+
+- alias: tom
+  name: Tom O. Delmont
+  name_as_author: Tom O Delmont
+  nick_name: Tom
+  tenure_start: 10/2015
+  tenure_end: 05/2018
+  current_info: a <a href="http://www.cnrs.fr/en">CNRS</a> scientist at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  last_current_info_check: 2024
+  contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
+  role: Post-doctoral Scientist
+  email: tom.o.delmont@gmail.com
+  twitter: tomodelmont
+  avatar: bio-tom.jpg
+  skype: tom.o.delmont
+  bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+  affiliations:
+     - title: CNRS
+       inst: Genoscope - Centre National de Séquençage
+       inst_link: https://www.genoscope.cns.fr
