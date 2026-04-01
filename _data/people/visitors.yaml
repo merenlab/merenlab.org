@@ -1,3 +1,17 @@
+- name: Rebecca Stevens-Green
+  nick_name: Becca
+  arrival: 02/2026
+  length_of_stay: 8 weeks
+  title: "Graduate Student"
+  department: Department of Biology
+  institute: Dalhousie University
+  dept_link: https://www.dal.ca/faculty/science/biology.html
+  country_flag: 🇨🇦
+  notes: "For her visit, Becca secured an <a href=https://nserc-crsng.canada.ca/en/funding-opportunity/canada-graduate-scholarships-michael-smith-foreign-study-supplements>NSERC MSFSS Scholarship</a>; a program by the Government of Canada to, in their own words, <i>support high-caliber graduate students in building global linkages and international networks through the pursuit of exceptional research experiences at research institutions outside of Canada</i>. While with us, Becca focused on the analysis of datasets she generated under Prof. Dr. Julie Laroche's supervision to study phytoplankton blooms in the Labrador Sea."
+  photos:
+    - caption: Becca during an impromptu discussion with the rest of the group.
+      url: /images/visitors/2026_becca.jpg
+
 - name: Amy D Willis
   nick_name: Amy
   arrival: 09/2024
