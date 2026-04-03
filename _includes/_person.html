@@ -36,10 +36,24 @@
                    {{ person.contributions }}.{% if person.current_info %} The last time we checked (which was in {{ person.last_current_info_check }}), {{ person.nick_name }} was <span class="person-current-info">{{ person.current_info }}</span>.{% endif %}
                 </p>
 
+                {% assign alumnus_has_pubs = 0 %}
+                {% for pub in site.data.pubs.publications %}
+                    {% if pub.authors contains person.name_as_author %}
+                        {% assign alumnus_has_pubs = alumnus_has_pubs | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% assign alumnus_has_posts = 0 %}
+                {% for post in site.posts %}
+                    {% if post.authors contains person.alias %}
+                        {% assign alumnus_has_posts = alumnus_has_posts | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if alumnus_has_pubs > 0 or alumnus_has_posts > 0 %}
                 <div class="person-affiliations-papers-posts">
                   {% include _person_pubs.html %}
                   {% include _person_posts.html %}
                 </div>
+                {% endif %}
             {% else %}
                 <p>{{ person.bio }}</p>
 
