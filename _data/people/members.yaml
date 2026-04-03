@@ -1,6 +1,7 @@
 - alias: meren
   name: A. Murat Eren (Meren)
   name_as_author: A Murat Eren
+  phd: true
   tenure_start: 10/2015
   role: PI
   twitter: merenbey
@@ -54,9 +55,34 @@
       inst_link: https://biomedsciences.uchicago.edu/
       current: false
 
+- alias: sarah_h
+  name: Sarah Hahnke
+  name_as_author: Sarah Hahnke
+  phd: true
+  tenure_start: 11/2025
+  role: Laboratory Manager
+  email: sarah.hahnke@hifmb.de
+  avatar: bio-sarah-hahnke.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a trained biologist with a background in marine microbiology. As laboratory manager, I am responsible for the lab operations and I develop and apply methods to analyze marine microbial communities."
+  affiliations:
+    - title: Senior Technician
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+    - title: Senior Technician
+      inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
+      inst_link: https://awi.de
+      current: true
+    - title: Graduate Student
+      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
+      inst_link: https://uol.de/icbm
+      current: false
+
 - alias: sarah
   name: Sarah Tucker
   name_as_author: Sarah J Tucker
+  phd: true
   tenure_start: 03/2024
   role: Post-doctoral Scientist
   email: stucker@mbl.edu
@@ -81,7 +107,7 @@
       inst: John A. Knauss Marine Policy Fellowship Program
       inst_link: https://seagrant.noaa.gov/knauss-fellowship-program/
       current: false
-    - title: PhD Student
+    - title: Graduate Student
       inst: Hawaiʻi Institute of Marine Biology, University of Hawaiʻi at Mānoa
       inst_link: https://www.himb.hawaii.edu/
       current: false
@@ -89,6 +115,7 @@
 - alias: avril
   name: Avril von Hoyningen-Huene
   name_as_author: Avril Jean Elisabeth von Hoyningen-Huene
+  phd: true
   tenure_start: 02/2024
   role: Post-doctoral Scientist
   email: avril.hoyningen@hifmb.de
@@ -108,7 +135,7 @@
       inst: Institute for General Microbiology at Kiel University (CAU)
       inst_link: https://www.mikrobio.uni-kiel.de/de
       current: false
-    - title: PhD Student
+    - title: Graduate Student
       inst: General and Applied Microbiology at the University of Göttingen
       inst_link: http://appmibio.uni-goettingen.de/
       current: false
@@ -116,6 +143,7 @@
 - alias: xixi
   name: Xi Chen (Xixi)
   name_as_author: Xi Chen
+  phd: true
   tenure_start: 02/2024
   role: Post-doctoral Scientist
   email: chenxi1251@gmail.com
@@ -138,6 +166,7 @@
 - alias: florian
   name: Florian Trigodet
   name_as_author: Florian Trigodet
+  phd: true
   tenure_start: 08/2019
   role: Senior Scientist
   email: trigodet.florian@gmail.com
@@ -173,6 +202,7 @@
 - alias: jessika
   name: Jessika Füssel
   name_as_author: Jessika Füssel
+  phd: true
   tenure_start: 03/2026
   role: Senior Scientist
   email: ju.fuessel@gmail.com
@@ -199,6 +229,7 @@
 - alias: iva
   name: Iva Veseli
   name_as_author: Iva Veseli
+  phd: true
   phd_tenure_start: 06/2019
   tenure_start: 08/2023
   role: Post-doctoral Scientist
@@ -274,36 +305,5 @@
       current: true
     - title: MarMic Master's Student
       inst: Max Planck Institute for Marine Microbiology
-      inst_link: https://www.mpi-bremen.de/en/Home.html
-      current: false
-
-- alias: raïssa
-  name: Raïssa Meyer
-  name_as_author: Raïssa Meyer
-  tenure_start: 03/2025
-  role: Post-doctoral Scientist
-  email: raissa.meyer@hifmb.de
-  twitter: raissameyer
-  orcid: 0000-0002-2996-719X
-  github: raissameyer
-  linkedin: raïssa-meyer-b97515206
-  avatar: bio-raissa.jpeg
-  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
-  bio: "I am a postdoctoral researcher with a background in marine microbiology. I am interested in biodiversity data supporting informed policy and ecosystem management decisions. In practice, that means that I am working at the intersection of people and data, with a focus on making biodiversity data work together across systems as well as on improving international coordination in ocean observing."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity
-      inst_link: https://hifmb.de
-      current: true
-    - title: Graduate Student
-      inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
-      inst_link: https://www.awi.de/en/
-      current: false
-    - title: Graduate Student
-      inst: University of Bremen
-      inst_link: https://www.uni-bremen.de/en/
-      current: false
-    - title: Graduate Student
-      inst: Max-Planck-Institute for Marine Microbiology
       inst_link: https://www.mpi-bremen.de/en/Home.html
       current: false

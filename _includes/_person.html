@@ -8,7 +8,7 @@
         </div>
 
         <div class="person-info">
-            <h3 id="{{ person.name | slugify }}">{{ person.name }}{% if include.current %} <span class="person-role"> ({{ person.role }})</span>{% endif %}</h3>
+            <h3 id="{{ person.name | slugify }}">{{ person.name }}{% if person.phd %}, PhD{% endif %}{% if include.current %} <span class="person-role"> ({{ person.role }})</span>{% endif %}</h3>
             <div class="social-box">
               {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
               {% if include.current %}

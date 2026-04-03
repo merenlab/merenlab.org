@@ -1,3 +1,19 @@
+- alias: raïssa
+  name: Raïssa Meyer
+  name_as_author: Raïssa Meyer
+  nick_name: Raïssa
+  tenure_start: 03/2025
+  tenure_end: 04/2026
+  role: Post-doctoral Scientist
+  email: raissa.meyer@hifmb.de
+  twitter: raissameyer
+  orcid: 0000-0002-2996-719X
+  github: raissameyer
+  linkedin: raïssa-meyer-b97515206
+  avatar: bio-raissa.jpeg
+  contributions: "During which focused on answering fundamental questions in ocean observing, such as what would an ocean observing system meant to last decades look like, and what can we do now for those decades ahead of us to enable discoveries we cannot yet imagine. She organized the workshop <a href=https://merenlab.org/workshops/MMOFF/ target=_blank>Marine Microbial Observatiories for the Future (MMOFF)</a>, which brought together scientists from around the globe to address to think about international coordination needs and opportunities in ocean observing"
+  bio: "I am a postdoctoral researcher with a background in marine microbiology. I am interested in biodiversity data supporting informed policy and ecosystem management decisions. In practice, that means that I am working at the intersection of people and data, with a focus on making biodiversity data work together across systems as well as on improving international coordination in ocean observing."
+
 - alias: matt
   name: Matthew Schechter
   name_as_author: Matthew S Schechter
@@ -14,21 +30,7 @@
   orcid: 0000-0002-8435-3203
   twitter: mschecht_bio
   github: mschecht
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
-  affiliations:
-    - title: Post-doctoral Researcher
-      inst: Department of Medicine, University of Chicago
-      inst_link: http://uchicago.edu/
-      current: true
-    - title: Graduate Student
-      inst: Department of Medicine, University of Chicago
-      inst_link: http://uchicago.edu/
-      current: false
-    - title: Graduate Student
-      inst: Committee on Microbiology at the University of Chicago
-      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
-      current: false
 
 - alias: mete
   name: Metehan Sever
@@ -48,13 +50,7 @@
   github: metehaansever
   linkedin: metehaansever
   orcid: 0000-0003-1043-4956
-  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
   bio: "I am a computer scientist and UX designer who loves to design and develop user interfaces."
-  affiliations:
-    - title: Scientific Programmer
-      inst: Helmholtz Institute for Functional Marine Biodiversity
-      inst_link: https://hifmb.de
-      current: true
 
 - alias: cynthia
   name: Cynthia Wang
@@ -70,19 +66,6 @@
   last_current_info_check: 2026
   current_info: A graduate student at the Biophysical Sciences Graduate Program at the University of Chicago
   bio: "A computer scienctist exploring the association between sequence composition and metabolism."
-  affiliations:
-    - title: Graduate Student
-      inst: The Biophysical Sciences Program at the University of Chicago
-      inst_link: http://biophysics.uchicago.edu/
-      current: true
-    - title: Fulbright Scholar
-      inst: Helmholtz Institute for Functional Marine Biodiversity
-      inst_link: https://hifmb.de
-      current: false
-    - title: Undergraduate Student
-      inst: Department of Computer Science, Duke University
-      inst_link: https://www.cs.duke.edu/
-      current: false
 
 - alias: emily
   name: Emily Fogarty
@@ -98,13 +81,7 @@
   github: efogarty11
   orcid: 0000-0002-8957-9922
   avatar: bio-emily.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am interested in developing computational and wet lab strategies to study horizontal gene transfer in the human gut microbiome."
-  affiliations:
-    - title: Graduate Student
-      inst: Committee on Microbiology at the University of Chicago
-      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
-      current: false
 
 - alias: isaac
   name: Isaac Fink
@@ -119,13 +96,7 @@
   email: iafink@uchicago.edu
   avatar: bio-isaac.png
   orcid: 0000-0003-3930-029X
-  bio: “I am interested in enhancing the power and accessibility of computational tools that analyze the microbiome.”
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Computer Science
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
-      current: false
+  bio: "I am interested in enhancing the power and accessibility of computational tools that analyze the microbiome."
 
 - alias: sam
   name: Samuel Miller
@@ -143,12 +114,7 @@
   github: semiller10
   web: https://semiller10.github.io
   avatar: bio-sam.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I study how microbes function in their environments by developing and applying computational tools to interpret data from approaches such as tRNA-sequencing, proteomics, and metagenomics."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
 
 - alias: matthew
   name: Matthew Lawrence Klein
@@ -165,13 +131,7 @@
   role: Programmer
   email: mtt.l.kln@gmail.com
   avatar: bio-matthew_k.jpg
-  bio: “I am interested in technology's role in supporting a more equitable future on planet earth.”
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Programmer
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
-      current: false
+  bio: "I am interested in technology's role in supporting a more equitable future on planet earth."
 
 - alias: evan
   name: Evan Kiefl
@@ -190,20 +150,7 @@
   orcid: 0000-0002-6473-0921
   email: kiefl.evan@gmail.com
   avatar: bio-evan.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am interested in uncovering how single nucleotide variants map to functional variation in the genes of naturally-occuring microbial populations."
-  affiliations:
-    - title: Graduate Student
-      inst: The Biophysical Sciences Program at the University of Chicago
-      inst_link: http://biophysics.uchicago.edu/
-    - title: Bioinformatician
-      inst: AbCellera
-      inst_link: https://www.abcellera.com/
-      current: false
-    - title: Protein Bioinformatician
-      inst: Arcadia Science
-      inst_link: https://www.arcadiascience.com/
-      current: true
 
 - alias: karen
   name: Karen Lolans
@@ -219,12 +166,7 @@
   linkedin: karen-lolans-b39ab0
   orcid: 0000-0003-1903-756X
   avatar: bio-karen.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "As a molecular microbiologist, I am interested in the potential that interwoven wet lab and computational strategies play in elucidating complex microbial interactions and processes."
-  affiliations:
-    - title: Senior Research Technician
-      inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
-      inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
 - alias: andrea
   name: Andrea Watson
@@ -242,14 +184,7 @@
   orcid: 0000-0003-0128-6795
   twitter: awatsontxt
   avatar: bio-andrea.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am interested in combining wet lab and computational methods in a complementary way to answer microbiological questions."
-  affiliations:
-    - title: Graduate Student
-      inst: Committee on Microbiology at the University of Chicago
-      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
-      current: false
-
 
 - alias: jessica
   nick_name: Jessica
@@ -266,16 +201,6 @@
   github: Jessica-Pan
   orcid: 0000-0002-6743-6146
   bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: MSc Student
-      inst: Massachusetts Institute of Technology
-      inst_link: http://web.mit.edu/
-    - title: Undergraduate Student
-      inst: Massachusetts Institute of Technology
-      inst_link: http://web.mit.edu/
-      current: false
-
 
 - alias: abby
   nick_name: Abby
@@ -293,12 +218,6 @@
   orcid: 0000-0002-7685-864X
   twitter: schmidabby
   bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Computational and Applied Mathematics
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
-
 
 - alias: joe
   nick_name: Joe
@@ -314,10 +233,6 @@
   github: jrunde1
   avatar: bio-joe.jpg
   bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
-  affiliations:
-    - title: Pediatric Gastroenterology Fellow
-      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
-      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
 
 - alias: alon
   nick_name: Alon
@@ -337,10 +252,6 @@
   skype: alon.shaiber
   avatar: bio-alon.jpg
   bio: "I'm fascinated by the complexity of biological systems and interested in applying and developing computational tools to explore it."
-  affiliations:
-    - title: Graduate Student
-      inst: The Biophysical Sciences Program at the University of Chicago
-      inst_link: http://biophysics.uchicago.edu/
 
 - alias: ozcan
   nick_name: Ozcan
@@ -358,11 +269,6 @@
   github: ozcan
   web: http://blog.ozcanesen.com/
   bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Programmer
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
 
 - alias: mahmoud
   nick_name: Mahmoud
@@ -379,11 +285,6 @@
   linkedin: mahmoud-yousef-314198128/
   github: mahmoudyousef98
   bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-     - title: Undergraduate Student
-       inst: Department of Computer Science at the University of Chicago
-       inst_link: https://www.cs.uchicago.edu/
 
 - alias: quentin
   name: Quentin Clayssen
@@ -446,7 +347,3 @@
   avatar: bio-tom.jpg
   skype: tom.o.delmont
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
-  affiliations:
-     - title: CNRS
-       inst: Genoscope - Centre National de Séquençage
-       inst_link: https://www.genoscope.cns.fr
