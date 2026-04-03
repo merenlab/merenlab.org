@@ -59,16 +59,33 @@
 
                 <div class="person-affiliations-papers-posts">
                     {% if person.affiliations %}
-                    <span style="font-variant: all-small-caps;">{% if include.community %}Affiliation at the time of their contributions{% else %}Affiliations{% endif %}</span>
+                    {% if include.community %}
+                    <span style="font-variant: all-small-caps;">Affiliation at the time of their contributions</span>
                     <ul class="person-affiliations">
                     {% for affiliation in person.affiliations %}
-                    {% if include.community %}
                     <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}{% if affiliation.subtitle %} ({{ affiliation.subtitle}}){% endif %}. <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}{% if affiliation.inst_address %}, {{ affiliation.inst_address }}{% endif %}.</li>
-                    {% else %}
-                    <li>{% if affiliation.current == false %}<code class="tags" id="past-affiliation">past</code>{% else %}<code class="tags" id="current-affiliation">current</code>{% endif %} {% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}{% if affiliation.subtitle %} ({{ affiliation.subtitle}}){% endif %}. <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}{% if affiliation.inst_address %}, {{ affiliation.inst_address }}{% endif %}.</li>
-                    {% endif %}
                     {% endfor %}
                     </ul>
+                    {% else %}
+                    {% assign current_affs = person.affiliations | where_exp: "aff", "aff.current != false" %}
+                    {% assign past_affs = person.affiliations | where: "current", false %}
+                    {% if current_affs.size > 0 %}
+                    <span style="font-variant: all-small-caps;">Affiliations</span>
+                    <ul class="person-affiliations">
+                    {% for affiliation in current_affs %}
+                    <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}{% if affiliation.subtitle %} ({{ affiliation.subtitle}}){% endif %}. <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}{% if affiliation.inst_address %}, {{ affiliation.inst_address }}{% endif %}.</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if past_affs.size > 0 %}
+                    <span style="font-variant: all-small-caps;">Past Affiliations</span>
+                    <ul class="person-affiliations">
+                    {% for affiliation in past_affs %}
+                    <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}{% if affiliation.subtitle %} ({{ affiliation.subtitle}}){% endif %}. <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}{% if affiliation.inst_address %}, {{ affiliation.inst_address }}{% endif %}.</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endif %}
                     {% endif %}
 
                     {% include _person_pubs.html %}

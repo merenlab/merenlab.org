@@ -727,66 +727,59 @@ th, td {
 
 .person-affiliations {
   list-style-type: none;
-  margin-left: 0px;
-  padding-left: 20px;
-  padding: 5px;
-  font-size: 1em;
-  font-family: HelveticaNeue-Thin;
-  border: 1px dashed #e4e4e4;
-  border-radius: 5px;
-  margin-left: 10px;
-  background-color: #fbfbfb;
+  margin: 0 0 10px 16px;
+  padding: 0 0 0 10px;
+  font-size: 0.9em;
+  border-left: 1px solid #f0f0f0;
+}
+
+.person-affiliations li {
+    padding: 2px 0;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .person-affiliations li:before {
-    content: "»";
-    padding-right: 5px;
+    content: none;
+}
+
+.person-affiliations li:last-child {
+    border-bottom: none;
 }
 
 #aff-link {
     font-size: 1em;
-    color: #1111AA;
+    color: #0969da;
 }
 
-.person-blogs {
+.person-affiliations-papers-posts ul.person-blogs,
+.person-affiliations-papers-posts ul.person-papers {
   list-style-type: none;
-  margin-left: 0px;
-  padding-left: 20px;
-  padding: 5px;
-  font-size: 1em;
-  font-family: "PT Sans Narrow",sans-serif;
-  border: 1px dashed #e4e4e4;
-  border-radius: 5px;
-  margin-left: 10px;
-  background-color: #f1fbfb;
+  margin: 0 0 10px 16px;
+  padding: 0 0 0 10px;
+  font-size: 0.88em;
+  border-left: 1px solid #f0f0f0;
 }
 
-.person-blogs li:before {
-    content: "✍️";
-    padding-right: 8px;
+.person-affiliations-papers-posts ul.person-blogs li,
+.person-affiliations-papers-posts ul.person-papers li {
+    padding: 2px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.person-papers {
-  list-style-type: none;
-  margin-left: 0px;
-  padding-left: 20px;
-  padding: 5px;
-  font-size: 1em;
-  font-family: "PT Sans Narrow",sans-serif;
-  border: 1px dashed #e4e4e4;
-  border-radius: 5px;
-  margin-left: 10px;
-  background-color: #fbf1f1;
+.person-affiliations-papers-posts ul.person-blogs li:before,
+.person-affiliations-papers-posts ul.person-papers li:before {
+    content: none;
 }
 
-.person-papers li:before {
-    content: "📰";
-    padding-right: 8px;
+.person-affiliations-papers-posts ul.person-blogs li:last-child,
+.person-affiliations-papers-posts ul.person-papers li:last-child {
+    border-bottom: none;
 }
 
 #contrib-link {
-    font-size: 1.25em;
-    color: #333332;
+    font-size: 1em;
+    color: #0969da;
 }
 
 .person {
@@ -818,12 +811,8 @@ th, td {
 }
 
 .person-affiliations-papers-posts {
-    padding: 13px;
     margin-left: 50px;
     margin-bottom: 20px;
-    border: 1px dashed #e9e9e9;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, whitesmoke, #ffffff00);
 }
 
 .person-info-text a {
@@ -1712,11 +1701,11 @@ $button-size: 1.5rem;
 }
 
 #current-affiliation {
-    color: green;
+    color: #2d8a4e;
 }
 
 #past-affiliation {
-    color: red;
+    color: #999;
 }
 
 #funding-logo {
