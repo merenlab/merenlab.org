@@ -418,6 +418,11 @@ th, td {
         @include prefix(12,0);
         @include suffix(12,0);
     }
+    @media (min-width: 37.5em) and (max-width: 1000px) {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
     @media #{$x-large} {
     }
 }
@@ -731,6 +736,9 @@ th, td {
   padding: 0 0 0 10px;
   font-size: 0.9em;
   border-left: 1px solid #f0f0f0;
+  @media (max-width: 37.5em) {
+      margin-left: 6px;
+  }
 }
 
 .person-affiliations li {
@@ -759,6 +767,9 @@ th, td {
   padding: 0 0 0 10px;
   font-size: 0.88em;
   border-left: 1px solid #f0f0f0;
+  @media (max-width: 37.5em) {
+      margin-left: 6px;
+  }
 }
 
 .person-affiliations-papers-posts ul.person-blogs li,
@@ -804,6 +815,9 @@ th, td {
         margin-bottom: 12px;
         margin-top: 12px;
         color: #a7a7a7;
+        @media (max-width: 37.5em) {
+            padding-left: 0;
+        }
     }
     a {
         color: #a7a7a7;
@@ -813,6 +827,9 @@ th, td {
 .person-affiliations-papers-posts {
     margin-left: 50px;
     margin-bottom: 20px;
+    @media (max-width: 37.5em) {
+        margin-left: 8px;
+    }
 }
 
 .person-info-text a {
@@ -1097,6 +1114,11 @@ $button-size: 1.5rem;
             @include prefix(12,0);
             @include suffix(12,0);
         }
+        @media (min-width: 37.5em) and (max-width: 1000px) {
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
         @media #{$x-large} {
         }
     }
@@ -1121,6 +1143,11 @@ $button-size: 1.5rem;
         @include grid(12,6);
         @include prefix(12,0);
         @include suffix(12,0);
+    }
+    @media (min-width: 37.5em) and (max-width: 1000px) {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
     @media #{$x-large} {
     }
@@ -1344,6 +1371,9 @@ $button-size: 1.5rem;
     @media #{$x-large} {
 
     }
+    @media (max-width: 1000px) {
+        display: none !important;
+    }
 }
 
 /* Author module - mobile only */
@@ -1389,6 +1419,9 @@ $button-size: 1.5rem;
     box-shadow: 6px 12px 34px 7px #909090;
     margin-bottom: 40px;
     background-color: #8A8A8A;
+    @media (max-width: 1000px) {
+        display: none;
+    }
     @media #{$large} {
         width: 16%;
         position: fixed;
