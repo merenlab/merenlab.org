@@ -1221,7 +1221,7 @@ $button-size: 1.5rem;
     clear: both;
     font-size: 80%;
 }
-.article-author-side,
+.left-panel,
 .article-author-bottom {
   margin-top: 2em;
     h3 {
@@ -1328,8 +1328,8 @@ $button-size: 1.5rem;
     }
 }
 
-/* Author sidebar */
-.article-author-side {
+/* Left panel */
+.left-panel {
     display: none;
     .bio-photo {
         max-width: 110px;
