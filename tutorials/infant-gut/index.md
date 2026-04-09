@@ -191,7 +191,7 @@ So at this point we don't have any idea about what genomes do we have in this da
 
 You can take a very quick look at the taxonomic composition of the metagenome through the command line first:
 
-```
+```bash
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
                            --metagenome-mode
 ```
@@ -199,29 +199,33 @@ anvi-estimate-scg-taxonomy -c CONTIGS.db \
 which should give us this output for the IGD:
 
 ```
-╒════════════════════╤════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
-│                    │   percent_identity │ taxonomy                                                                                                                         │
-╞════════════════════╪════════════════════╪══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╡
-│ Ribosomal_S6_11655 │               98.9 │ Bacteria / Firmicutes / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus / Staphylococcus epidermidis             │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_12163 │               98.9 │ Bacteria / Firmicutes / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus / Staphylococcus hominis                 │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_15200 │               98.9 │ Bacteria / Firmicutes / Bacilli / Lactobacillales / Lactobacillaceae / Leuconostoc / Leuconostoc citreum                         │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_25880 │               98.9 │ Bacteria / Firmicutes / Clostridia / Tissierellales / Helcococcaceae / Finegoldia / Finegoldia magna                             │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_2915  │               97.9 │ Bacteria / Firmicutes / Bacilli / Lactobacillales / Enterococcaceae / Enterococcus / Enterococcus faecalis                       │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_29818 │               98.9 │ Bacteria / Firmicutes / Bacilli / Lactobacillales / Streptococcaceae / Streptococcus / Streptococcus oralis                      │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_30904 │               92.5 │ Bacteria / Firmicutes / Clostridia / Tissierellales / Helcococcaceae / Anaerococcus / Anaerococcus sp002359915                   │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_4484  │               98.9 │ Bacteria / Firmicutes / Clostridia / Tissierellales / Peptoniphilaceae / Peptoniphilus / Peptoniphilus rhinitidis                │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_6421  │                100 │ Bacteria / Actinobacteriota / Actinobacteria / Propionibacteriales / Propionibacteriaceae / Cutibacterium / Cutibacterium avidum │
-├────────────────────┼────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ribosomal_S6_7660  │               98.9 │ Bacteria / Firmicutes / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus /                                        │
-╘════════════════════╧════════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+Taxa in metagenome "Infant Gut Contigs from Sharon et al."
+===============================================
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+|                                                         |   percent_identity | taxonomy                                                                                                                      |
++=========================================================+====================+===============================================================================================================================+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_14296 |                100 | Bacteria / Bacillota / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus /                                      |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_15532 |                100 | Bacteria / Bacillota / Bacilli / Lactobacillales / Lactobacillaceae / Leuconostoc / Leuconostoc citreum                       |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_22035 |                100 | Bacteria / Bacillota_A / Clostridia / Tissierellales / Peptoniphilaceae / Finegoldia /                                        |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_2326  |                100 | Bacteria / Bacillota / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus / Staphylococcus epidermidis           |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_2362  |                100 | Bacteria / Bacillota / Bacilli / Staphylococcales / Staphylococcaceae / Staphylococcus /                                      |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_24674 |                100 | Bacteria / Bacillota_A / Clostridia / Tissierellales / Peptoniphilaceae / Anaerococcus /                                      |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_28305 |                100 | Bacteria / Bacillota / Bacilli / Lactobacillales / Streptococcaceae / Streptococcus /                                         |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_3094  |                100 | Bacteria / Bacillota / Bacilli / Lactobacillales / Enterococcaceae / Enterococcus / Enterococcus faecalis                     |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_31255 |                100 | Bacteria / Bacillota / Bacilli / Lactobacillales / Streptococcaceae / Streptococcus / Streptococcus sp934216185               |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_3299  |                100 | Bacteria / Bacillota_A / Clostridia / Tissierellales / Peptoniphilaceae / Peptoniphilus_A / Peptoniphilus_A lacydonensis      |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_9786  |                100 | Bacteria / Actinomycetota / Actinomycetia / Propionibacteriales / Propionibacteriaceae / Cutibacterium / Cutibacterium avidum |
++---------------------------------------------------------+--------------------+-------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 Good, but could have been better. Why?
@@ -231,7 +235,7 @@ Good, but could have been better. Why?
 
 Making use of our {% include ARTIFACT name="profile-db" text="profile database" %} the following way, will give us a little more information about our dataset:
 
-```
+```bash
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
                            -p PROFILE.db \
                            --metagenome-mode \
@@ -243,34 +247,36 @@ which should give us the following output:
 ```
 Taxa in metagenome "Infant Gut Contigs from Sharon et al."
 ===============================================
-╒════════════════════╤════════════════════╤════════════════════════════════╤═══════════╤═══════════╤══════════╤═══════════╤═══════════╤══════════════╕
-│                    │   percent_identity │ taxonomy                       │   DAY_15A │   DAY_15B │   DAY_16 │   DAY_17A │   DAY_17B │ ... 6 more   │
-╞════════════════════╪════════════════════╪════════════════════════════════╪═══════════╪═══════════╪══════════╪═══════════╪═══════════╪══════════════╡
-│ Ribosomal_S6_2915  │               97.9 │ (s) Enterococcus faecalis      │   372.512 │   699.853 │  663.241 │    186.34 │    1149.6 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_11655 │               98.9 │ (s) Staphylococcus epidermidis │   112.694 │   172.478 │  147.304 │   23.3901 │   140.769 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_4484  │               98.9 │ (s) Peptoniphilus lacydonensis │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_7660  │               98.9 │ (g) Staphylococcus             │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_6421  │                100 │ (s) Cutibacterium avidum       │   17.8935 │   5.87368 │  4.79909 │         0 │         0 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_12163 │               98.9 │ (s) Staphylococcus hominis     │   2.39322 │   22.5447 │  13.2806 │         0 │   9.94853 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_15200 │               98.9 │ (s) Leuconostoc citreum        │         0 │         0 │  1.86532 │         0 │    1.6936 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_29818 │               98.9 │ (s) Streptococcus oralis       │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_25880 │               98.9 │ (s) Finegoldia magna           │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
-├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
-│ Ribosomal_S6_30904 │               98.1 │ (s) Anaerococcus nagyae        │  0.528958 │         0 │  0.14157 │         0 │         0 │ ... 6 more   │
-╘════════════════════╧════════════════════╧════════════════════════════════╧═══════════╧═══════════╧══════════╧═══════════╧═══════════╧══════════════╛
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+|                                                         |   percent_identity | taxonomy                         |   DAY_15A |   DAY_15B |   DAY_16 |   DAY_17A |   DAY_17B | ... 6 more   |
++=========================================================+====================+==================================+===========+===========+==========+===========+===========+==============+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_3094  |                100 | (s) Enterococcus faecalis        |   350.189 |   735.802 |  702.878 |   159.442 |   1186.66 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_2326  |                100 | (s) Staphylococcus epidermidis   |   129.471 |   227.719 |  151.295 |   28.3008 |   134.529 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_3299  |                100 | (s) Peptoniphilus_A lacydonensis |         0 |  0.275253 |        0 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_2362  |                100 | (g) Staphylococcus               |  0.250627 |   1.54135 | 0.837093 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_9786  |                100 | (s) Cutibacterium avidum         |   20.2125 |   4.93103 |  4.04362 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_14296 |                100 | (g) Staphylococcus               |   6.94236 |   16.9808 |  19.1525 |         0 |   9.18797 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_22035 |                100 | (g) Finegoldia                   |         0 |         0 |        0 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_28305 |                100 | (g) Streptococcus                |         0 |         0 |        0 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_15532 |                100 | (s) Leuconostoc citreum          |         0 |         0 |  1.17544 |         0 |  0.180451 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_24674 |                100 | (g) Anaerococcus                 |   1.22727 |   3.48485 |        0 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
+| Infant_Gut_Contigs_from_Sharon_et_al_Ribosomal_S8_31255 |                100 | (s) Streptococcus sp934216185    |         0 |         0 |        0 |         0 |         0 | ... 6 more   |
++---------------------------------------------------------+--------------------+----------------------------------+-----------+-----------+----------+-----------+-----------+--------------+
 ```
 
 These look like information that would have been useful to have in front of us in our interactive interface. Luckily, anvi'o can add these taxonomic insights into a given {% include ARTIFACT name="profile-db" text="profile database" %}, if you change the previous command just a bit:
 
-```
+```bash
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
                            -p PROFILE.db \
                            --metagenome-mode \
@@ -280,10 +286,12 @@ anvi-estimate-scg-taxonomy -c CONTIGS.db \
 
 Tadaa. Now let's take another look at our interactive interface and find the additional data for our layers:
 
-```
+```bash
 anvi-interactive -c CONTIGS.db \
                  -p PROFILE.db
 ```
+
+If you scroll down in the Settings panel to the `Layers` section, you should see checkboxes for the new SCG taxonomy data that you can click on to enable them in the visualization. Then click on the 'Redraw layer data' button.
 
 At this point we have an overall idea about the make up of this metagenome, but we don't have any genomes from it. The following sections will cover some of multiple ways to do this.
 
@@ -299,8 +307,9 @@ Next, we can perform a round of manual binning. This should take about 10 minute
 
 - You do not have to bin all contigs. Instead, try to identify bins corresponding to an actual genome. Those will have relatively high completion values. The low-completion or no-completion bins in metagenomes might represent viruses, plasmids, or other interesting genetic elements, but this tutorial will ignore them.
 - Please try to avoid bins with redundancy >10%. [Those likely contain contaminants](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
-- You can increase the inner tree radius (e.g., 5,000) for a better binning experience in the `Main` tab (additional settings)
+- You can increase the inner tree radius (e.g., 5,000) for a better binning experience in the `Main` tab (additional settings).
 - You can select the option `show grid` in the `Main` tab (additional settings) for a better demarcation of identified bins
+- If you want to know the potential identity of these populations that you are binning, try checking the box "Realtime taxonomy estimation for bins" at the top of the `Bins` tab in the Settings.
 
 </div>
 
