@@ -21,6 +21,9 @@ This post will likely speak to you if you are (1) an early-career researcher fro
 
 At the end of this post you may find yourself wondering "*is there something I could do to fix this?*". Yes, there is. And in fact, [in a Comment we published along with this blog post](https://doi.org/10.31222/osf.io/2aefg_v1), we offer some 2 cents for you to consider carrying into your future activities as a peer reviewer.
 
+{:.notice}
+This blog post is updated since its first publication. You can see precisely how it changed over time by [clicking here](https://github.com/merenlab/merenlab.org/commits/master/_posts/miscellaneous/2026-04-15-unfalsifiable-by-design.md).
+
 ---
 
 We know. Reading long and gloomy things is not easy, or fun. So we also wrote this summary, which essentially is an easier-to-read *TL;DR* of this blog post, for those of you who wish to leave early but also want to understand what is this all about before that:
