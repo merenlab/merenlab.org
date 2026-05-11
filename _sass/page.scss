@@ -21,6 +21,11 @@ p {
     line-height: 1.6em;
 }
 
+img[src*="img.shields.io"] {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 .imgclipholder p {
     color: #6b6b6b;
     background: #f5f5f5;
