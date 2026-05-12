@@ -177,7 +177,7 @@ To display a header image, but not the logo of the lab.
 [Here](https://merenlab.org/2022/01/03/giant-viruses/) is an example blog post where each of these parameters were used.
 
 
-## Code file name
+# Code file name
 
 When we show code, we usually use the standard markdown syntax and it looks like this:
 
@@ -216,7 +216,31 @@ echo "Exit Status of Last Command: $?"
 
 
 
-## Information boxes
+# Copy button for code blocks
+
+All fenced code blocks on the web page automatically display a small copy icon in the top-right corner when the reader hovers over them. Clicking it copies the block's contents to the clipboard without a trailing newline, so pasting into a terminal will not immediately execute the command — the reader has to press Enter themselves.
+
+If a code block is showing example output or something else that is not meant to be run or copied, you can suppress the copy button by using `no-copy` as the language tag:
+
+**Raw**:
+
+~~~
+```no-copy
+This is example output, not a command.
+Do not run this.
+```
+~~~
+
+**Rendered**:
+
+```no-copy
+This is example output, not a command.
+Do not run this.
+```
+
+The `no-copy` tag can also be combined with display-only content that has no specific syntax highlighting needs. If you need syntax highlighting *and* no copy button on the same block, that combination is not currently supported.
+
+# Information boxes
 
 If you want to show summary sections with a different background color, you can use this notation in your markdown files.
 
@@ -244,7 +268,7 @@ EXTRA INFO GOES HERE
 
 </div>
 
-## Warning and notice statements
+# Warning and notice statements
 
 You should feel free to use warning and notice statements.
 
@@ -268,12 +292,12 @@ A warning messages goes here.
 {:.notice}
 A notice statement goes here.
 
-## Turning TAB-delmited files to markdown notation
+# Turning TAB-delmited files to markdown notation
 
 Tutorial writers often need to display contents of TAB-delimited files. One easy way to do that is to use the program {% include PROGRAM name="anvi-script-as-markdown" %}. See examples on the program page.
 
 
-## Marking anvi'o artifacts and programs
+# Marking anvi'o artifacts and programs
 
 You can use this notation to link anvi'o programs and artifacts to their documentation with fancy looking links. If you are a `vim` user, you can automatize this conversion. Please see the section in this file called "A useful shortcut for vim users".
 
@@ -301,7 +325,7 @@ An anvi'o {% include ARTIFACT name="pan-db" %} comes from {% include PROGRAM nam
 
 An anvi'o {% include ARTIFACT name="pan-db" %} comes from {% include PROGRAM name="anvi-pan-genome" %}.
 
-## Fancy quotes
+# Fancy quotes
 
 **Raw**:
 
@@ -319,7 +343,7 @@ An interesting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 
-## Images
+# Images
 
 Never load your images directly, and always use this notation, which will enable **lazy loading** and will standardize all images:
 
@@ -369,7 +393,7 @@ If you don't want to have a **border around your figure**, you can also turn it 
 
 
 
-## A useful shortcut for vim users
+# A useful shortcut for vim users
 
 If you are using vim as a text editor, you can automatically turn anvi'o program and artifact names into nice markings shown below instantenously with no effort as originally suggested by Evan Kiefl. With this solution, when you type the following in any document in `insert` mode (notice the extra `i` at the end of program and artifact names),
 

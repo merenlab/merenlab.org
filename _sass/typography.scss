@@ -341,4 +341,31 @@ pre {
     padding: 10px;
     border-left: 5px solid #dc5252;
     border-radius: 5px;
+    position: relative;
+    .copy-code-btn {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: transparent;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        padding: 3px 7px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s ease, color 0.2s ease;
+        color: #666;
+        font-size: 13px;
+        line-height: 1;
+        &:hover {
+            color: #333;
+            border-color: #555;
+            background: rgba(255,255,255,0.6);
+        }
+        i.fa-check {
+            color: #4caf50;
+        }
+    }
+    &:hover .copy-code-btn {
+        opacity: 1;
+    }
 }

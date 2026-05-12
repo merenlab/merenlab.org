@@ -4,3 +4,22 @@
 {% if page.comments %}
   {% include _disqus_comments.html %}
 {% endif %}
+<script>
+$(function() {
+  $('pre').each(function() {
+    var $pre = $(this);
+    if ($pre.find('code.language-no-copy').length) return;
+    var $btn = $('<button class="copy-code-btn" title="Copy to clipboard"><i class="fa fa-copy"></i></button>');
+    $pre.css('position', 'relative').append($btn);
+    $btn.on('click', function() {
+      var code = ($pre.find('code').length ? $pre.find('code').text() : $pre.text()).replace(/\n$/, '');
+      navigator.clipboard.writeText(code).then(function() {
+        $btn.find('i').removeClass('fa-copy').addClass('fa-check');
+        setTimeout(function() {
+          $btn.find('i').removeClass('fa-check').addClass('fa-copy');
+        }, 1500);
+      });
+    });
+  });
+});
+</script>
