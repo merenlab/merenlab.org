@@ -317,9 +317,7 @@ If you are here, it means you have your `contigs.fa`, and your BAM files! Congra
 
 ## What is next?
 
-Now you can continue with the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), or you can take a look at all the other anvi'o stuff using this surprisingly fancy menu:
-
-{% include _project-anvio-navigation.html %}
+Now you can continue with the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}).
 
 <div style="margin: 50px;"></div>
 
