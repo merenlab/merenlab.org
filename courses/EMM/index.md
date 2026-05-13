@@ -1,10 +1,10 @@
 ---
 layout: page
 noleftpanel: true
-title: "Ecology of Marine Microbes (First Week)"
+title: "Ecology of Marine Microbes"
 author: "Course Plan"
-authors: [meren]
-date: May, 2025
+authors: [sarahi, jessika, florian]
+date: June, 2026
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
@@ -14,39 +14,48 @@ monofont: "DejaVu Sans Mono"
 
 ## Preface
 
-The purpose of this document is to share the details of the first week lectures and hands-on exercises for the  "**Ecology of marine microbes I (EMM)**". In the following sections you will find an hour-by-hour plan for our activities, learning objectives we will cover, as well as suggested reading material and datasets. All the other key information is at the very end of the page to ensure quick access to the schedule -- if this is the first time you are looking at this document, please take a look at those sections as well.
+The purpose of this document is to share the details of the lectures and hands-on exercises for the "**Ecology of marine microbes (EMM)**". In the following sections you will find an hour-by-hour plan for our activities, learning objectives we will cover, as well as suggested reading material and datasets. All the other key information is at the very end of the page to ensure quick access to the schedule -- if this is the first time you are looking at this document, please take a look at those sections as well.
 
 {:.notice}
-Every lecture will take place in the main conference room of the new [HIFMB](https://hifmb.de) Building at [Im Technologiepark 526129 Oldenburg](https://g.co/kgs/1wRp7YP).
+Every lecture will take place in the main conference room of the new [HIFMB](https://hifmb.de/) Building at [Im Technologiepark 526129 Oldenburg.](https://g.co/kgs/1wRp7YP)
 
-## Course Plan
+{:.warning}
+You will need a **personal laptop** (not a tablet) for the entire duration of this course.
 
-### Day 1, Monday (02/06/25)
+## Week 1
 
-The day of course logistics, discussions over microbial diversity, and a general overview of data-driven strategies to survey environmental microbiomes.
+### Day 1, Monday (01/06/26)
+
+The first day introduces the foundational questions of microbial ecology and provides the computational entry point for the course.
 
 
 #### 09:00 - 09:30: Course Logistics
 
-Discussion over what will happen throughout the next week and beyond. A great time to take a look at the course syllabus online together:
+Discussion over what will happen throughout the next weeks and beyond. A great time to take a look at the course syllabus online together:
 
 [https://merenlab.org/courses/EMM/](https://merenlab.org/courses/EMM/)
 
 
 #### 09:30 - 10:00: Installation check
 
-Making sure everyone who wishes to have anvi’o ([https://anvio.org](https://anvio.org)) installed on their computers for hands-on exercises have it ready.
+Making sure everyone has R, RStudio, a terminal and [anvi'o](https://anvio.org/install/#development-version) installed on their computers. For the anvi'o installation, make sure to install the 'development version' and **not** the v9. In addition to the installation, please follow the instructions to download some key resources (see 6.1 Setup key resources).
 
 
-#### 10:00 - 12:00: A brief introduction to **microbial life on Earth**
+#### 10:00 - 11:00: A brief introduction to **microbial diversity**
 
-Please remember, we will have an activity break at 11:00.
+We begin by exploring how scientists study microbial diversity, focusing on three guiding questions:
 
-* ***Learning Objectives***:
+* Who is there?
+* What are they doing?
+* How are they doing it?
 
-  * Describe the extent of microbial diversity on Earth, their involvement in key biogeochemical processes, as well as human health and disease
-  * Remember seminal studies that contributed to our understanding of the diversity, functioning, and metabolic potential of naturally occurring microbial communities and approaches to study them
-  * Explain the old and new intellectual and technical challenges that prevent us from defining fundamental units of microbial life, and the art of moving forward without any answers
+We will discuss how these questions are addressed using modern molecular approaches, and emphasize the assumptions, limitations, and interpretations that shape our understanding.
+
+* *Learning Objectives*:
+
+  * Describe the main questions driving the birth of microbial ecology
+  * Contrast approaches used to assess diversity
+  * Outline the basic steps to assemble genomes from metagenomes
 
 * ***Suggested Reading***:
 
@@ -54,7 +63,7 @@ Please remember, we will have an activity break at 11:00.
   * Pace NR (2018) [The small things can matter](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000009). *PLoS Biology*.
   * Falkowski, PG, Fenchel T, Delong EF (2008). [The microbial engines that drive Earth's biogeochemical cycles](https://doi.org/10.1126/science.1153213). *Science*.
 
-* ***Even More to Suggested Resources for the Ambitious***:
+* ***Even More Suggested Resources for the Ambitious***:
 
   * [Seeing the Invisible](https://www.youtube.com/watch?v=mTzHxNMK0bU), Op-Docs, The New York Times (a short and cute video on microbial life for a lay audience).
   * [Meet Your Microbes](https://www.ted.com/talks/jonathan_eisen_meet_your_microbes), Jonathan Eisen, TED Talk (an easy-to-follow introduction to microbes for a lay audience).
@@ -62,12 +71,183 @@ Please remember, we will have an activity break at 11:00.
   * [Overview of how next-generation sequencing works](https://www.youtube.com/watch?v=mI0Fo9kaWqo), Eric Chow (a very useful and easy-to-follow lecture on the general principles of sequencing with Illumina, Oxford Nanopore, and PacBio).
 
 
+#### 11:00 - 12:00: A brief introduction to **High Performance Computing**
 
-#### 13:00 - 15:00: An overview of **data-driven strategies** to survey environmental microbiomes
+We introduce the computational environment used throughout the course. Students will gain access to the high-performance computing system (ROSA) and learn the basics required to begin working with large-scale microbial data.
 
 * *Learning Objectives*:
 
-  * Recognize currently available &#39;omics data types (such as metagenomics, and metatranscriptomics), approaches (such as pangenomics, and phylogenomics), and questions they can *and* can not answer
+  * Access and navigate the HPC environment (ROSA)
+  * Execute basic commands in a remote computing environment
+
+
+#### 13:00 - 17:00: Introduction to the **Swedish lakes dataset** and **metaWRAP**
+
+> In this exercise, we will begin working with real metagenomic data to reconstruct microbial genomes. We will use metagenomes from a freshwater dataset: [Rodríguez-Gijón *et al.*, 2023. Scientific Data.](https://www.nature.com/articles/s41597-023-02722-x)
+>
+> These data will serve as a starting point to explore how genomes can be reconstructed from environmental sequencing data. The metagenomes are already available on ROSA.
+>
+> We will follow a modified version of the metaWRAP pipeline (the script is in the file [script.html](https://cloud.uol.de/s/CG33STj9rPbz9N9/download)).
+>
+> *Learning Objectives*:
+>
+>   * Explain how bins (MAGs) are generated from assembled data
+>   * Execute a metagenomic workflow using metaWRAP
+>
+> **Note:** You won't finish this exercise today, but will continue working on it the rest of this week and submit the final table by the end of the week.
+
+
+### Day 2, Tuesday (02/06/26)
+
+The day of genome size and microbial life strategies.
+
+
+#### 09:00 - 09:30: **Genome Size** and Microbial Life Strategies
+
+Genome size varies widely across Archaea and Bacteria, but this variation is not random. In this session, we will explore how genome size relates to microbial ecology and how it reflects different evolutionary and ecological strategies.
+
+
+#### 10:00 - 17:00: Exploring **genome size** across microbial lineages and ecosystems
+
+> In this exercise, we will explore how genome size varies across microbial groups and environments using a large comparative genome dataset. We will use the dataset compiled for the study [Rodríguez-Gijón *et al.*, 2022. Front. Microbiology.](https://doi.org/10.3389/fmicb.2021.761869)
+>
+> This exercise introduces genome size as an ecological trait and provides practice in data exploration and visualization using R. We will examine how genome size varies across taxonomic groups, ecosystem types, and genomic features such as GC content. You will use the R script [genomes_visualization_tutorial.R](https://cloud.uol.de/s/F3zJ9WkJ2C75CeJ/download).
+>
+> *Learning Objectives*:
+>
+>   * Inspect and subset a genomic dataset in R
+>   * Identify broad patterns in genome size across taxa and environments
+>   * Generate density plots, scatter plots, and violin plots in ggplot2
+>   * Interpret genome size as a genomic and ecological trait
+>
+> This exercise is designed both as an introduction to R-based visualization and as a conceptual entry point into microbial life strategies. Focus not only on producing figures, but also on asking what biological interpretation the figures support -- and what they do not.
+
+
+### Day 3, Wednesday (03/06/26)
+
+This day is dedicated to consolidating the concepts and workflows introduced in Days 1 and 2.
+
+
+#### 09:00 - 12:00: Continuation of **exercises**
+
+Students will continue working on:
+
+* Genome-resolved metagenomics using metaWRAP
+* Data exploration and visualization in R
+
+
+#### 13:00 - 15:00: **Student presentations**
+
+The second part of the day focuses on communicating results. Each student (or pair) will present:
+* Research question
+* Approach and code
+* Key figures
+* Interpretation
+
+Presentations should be concise and focused on the link between data and biological interpretation.
+
+> Presentation Guidelines:
+>  * Clearly state your research question
+>  * Show your code and figures in RStudio
+>  * Focus on figures and what they reveal
+>  * Discuss limitations and assumptions
+>  * Keep presentation within the allocated time
+>  * No PowerPoint is allowed
+>
+> This session is an opportunity to transition from guided exercises to independent thinking. Focus on clarity. A simple, well-explained analysis is more valuable than a complex but unclear one.
+
+
+### Day 4, Thursday (04/06/26)
+
+The day of Chlorobia ecology.
+
+
+#### 09:00 - 09:30: Introduction to the **Chlorobia** dataset
+
+Introduction to Chlorobia: who they are, their ecology, and what type of data we can use to study their distribution in lakes.
+
+
+#### 10:00 - 17:00: R tutorial -- **Vertical distribution of Chlorobia**
+
+> Guided analysis using phyloseq to explore the distribution of planktonic Chlorobia across lakes and depth. You will use the R script [abundances_visualization_tutorial.R](https://cloud.uol.de/s/bbZGoYg7yMcPmWQ/download).
+>
+> The following tables are needed for this exercise:
+>
+> * [abundance_per_OTUs.csv](https://cloud.uol.de/s/Z4Fk3qKgiRH5Gap/download)
+> * [metadata_Lake_depth_Biodiversity-clean.csv](https://cloud.uol.de/s/r2CspNqNmWDyLEf/download)
+> * [OTU_and_taxonomy.csv](https://cloud.uol.de/s/anCqJK3HixbePL6/download)
+>
+> *Learning Objectives*:
+>
+>   * Work with abundance, taxonomy, and metadata tables
+>   * Visualize Chlorobia distribution across lakes
+>   * Explore depth-resolved patterns
+>   * Relate abundance patterns to oxygen
+>
+> *Reference article*:
+>
+>   * [Distribution of Phototrophic Sulfur Bacteria in Meromictic Lake Cadagno](https://doi.org/10.1128/msystems.01196-20), 2021, mSystems.
+
+You will start working on the project for Day 5.
+
+
+### Day 5, Friday (05/06/26)
+
+The day of independent projects and presentations.
+
+
+#### 09:00 - 13:00: **Independent project work**
+
+> Time to continue working on:
+>
+> * Genome-resolved metagenomics using metaWRAP
+> * The final R project
+>
+> For the final project, you will work individually or in groups of two to develop your own research question using the data from [Rodríguez-Gijón *et al.*, 2023. Scientific Data.](https://www.nature.com/articles/s41597-023-02722-x)
+>
+> You will also use the additional table [SwedishLakes_abundances.csv](https://cloud.uol.de/s/MLi9wzf8n9AsiFK/download).
+>
+> Please follow these conditions:
+>
+> * Your research question must be answered with 1-2 figures created in R
+> * The figure(s) must be completed as if prepared for publication
+
+
+#### 14:00 - 17:00: **Student presentations**
+
+All groups or individuals will present their research question and results to the class. Please present your research question and figures in RStudio using the projector.
+
+Each student (or pair) will present:
+
+* Research question
+* Approach and code
+* Key figures
+* Interpretation
+
+Presentations should be concise and focused on the link between data and biological interpretation.
+
+> Presentation Guidelines:
+>  * Clearly state your research question
+>  * Show your code and figures in RStudio
+>  * Focus on figures and what they reveal
+>  * Discuss limitations and assumptions
+>  * Keep presentation within the allocated time
+>  * No PowerPoint is allowed
+>
+> This session is an opportunity to transition from guided exercises to independent thinking. Focus on clarity. A simple, well-explained analysis is more valuable than a complex but unclear one.
+
+
+## Week 2
+
+### Day 6, Monday (08/06/26)
+
+The day of data-driven strategies to survey environmental microbiomes and genome resolved metagenomics.
+
+#### 09:00 - 11:00: An overview of **data-driven strategies** to survey environmental microbiomes
+
+* *Learning Objectives*:
+
+  * Recognize currently available 'omics data types (such as metagenomics, and metatranscriptomics), approaches (such as pangenomics, and phylogenomics), and questions they can *and* can not answer
   * Recognize the available computational solutions to gain insights into fundamental questions in microbiology and their brief history
   * Explain the power of **metagenomic read recruitment** and interpret ecological and evolutionary insights we can infer through this strategy
 
@@ -75,23 +255,17 @@ Please remember, we will have an activity break at 11:00.
 
   * Eren AM, Banfield JF (2024). [Modern microbiology: Embracing complexity through integration across scales](https://doi.org/10.1016/j.cell.2024.08.028). *Cell*.
   * Franzosa EA, et al (2015). [Sequencing and beyond: integrating
-molecular ‘omics’ for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
+molecular 'omics' for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
 
-#### 15:00 - 17:00: A **read recruitment exercise** to warm up
+#### 11:00 - 15:00: A **read recruitment exercise** to warm up
 
 > The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes, and profile the read recruitment results to investigate gene distribution patterns of a given population.
 >
-> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further if we have time.
+> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi'o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further if we have time.
 >
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
-
-### Day 2, Tuesday (03/06/25)
-
-The day of genome resolved metagenomics, and pangenomics.
-
-
-#### 09:00 - 11:00: **Genome-resolved metagenomics**: opportunities and pitfalls
+#### 15:00 - 17:00: **Genome-resolved metagenomics**: opportunities and pitfalls
 
 * *Learning Objectives*:
 
@@ -112,12 +286,11 @@ The day of genome resolved metagenomics, and pangenomics.
   * Assembly is always a difficult topic that we don't cover extensively during our lectures. But here is a [VERY short lecture](https://www.youtube.com/watch?v=OY9Q_rUCGDw) on de Bruijn graphs, and here is a [slightly lengthier one](https://www.youtube.com/watch?v=TNYZZKrjCSk). Even watching these, please remember that they are not covering the assembly of shotgun metagenomes. Even though the same principles apply, it is a much more difficult case.
 
 
-#### 11:00 - 12:00: Open lab
+### Day 7, Tuesday (09/06/26)
 
-So you can take a look at some of the papers linked above (or below), and/or ask questions.
+The day of pangenomics and metapangenomics.
 
-
-#### 13:00 - 15:00: **Pangenomics**: comparative genomics in the era of genomic explosion
+#### 09:00 - 10:30: **Pangenomics**: comparative genomics in the era of genomic explosion
 
 * *Learning Objectives*:
 
@@ -132,7 +305,7 @@ So you can take a look at some of the papers linked above (or below), and/or ask
   * Zhou Z, et al (2018). [Pan-genome Analysis of Ancient and Modern Salmonella enterica Demonstrates Genomic Stability of the Invasive Para C Lineage for Millennia](https://doi.org/10.1016/j.cub.2018.05.058). *Current Biology*.
 
 
-#### 15:00 - 17:00: **Pangenomic analysis** of a bacterial genus
+#### 10:30 - 12:00: **Pangenomic analysis** of a bacterial genus
 
 > This is a small exercise with pangenomics. Please download the data pack for this exercise at [this Dropbox link](https://www.dropbox.com/scl/fi/4mx04ye5j08xpiilir0qj/Bifidobacterium_genomes.tar.gz?rlkey=fuu5t7i79meztpkyvxu20dbzw&dl=0).
 >
@@ -150,12 +323,9 @@ So you can take a look at some of the papers linked above (or below), and/or ask
 > * What are some of **common features of the genomic islands** that seem to be variable across individual genomes in this pangenome? Tip: you can have quick insights into genomic islands that occur only in some genomes by organizing gene clusters based on enforced synteny per genome.
 > * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichment analyses to figure out if there are functions that systematically occur in one clade of *Bifidobacterum* but not the other.
 
+#### 13:00 - 15:00: **Pangenomics analysis** - continued
 
-### Day 3, Wednesday (04/06/25)
-
-The day of genome metapangenomics (building on what we discussed the day before) and phylogenomics.
-
-#### 09:00 - 11:00: **Metapangenomics**: integrated interpretations of pangenomes and metagenomes
+#### 15:00 - 17:00: **Metapangenomics**: integrated interpretations of pangenomes and metagenomes
 
 * *Learning Objectives*:
 
@@ -168,8 +338,11 @@ The day of genome metapangenomics (building on what we discussed the day before)
   * Utter DR, et al (2020). [Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity](https://doi.org/10.1186/s13059-020-02200-2). *Genome Biology*.
   * Boeuf D, et al (2021). [Metapangenomics reveals depth-dependent shifts in metabolic potential for the ubiquitous marine bacterial SAR324 lineage](https://doi.org/10.1186/s40168-021-01119-5). *Microbiome*.
 
+### Day 8, Wednesday (10/06/26)
 
-#### 11:00 - 14:00: **Phylogenomics**: inferring evolutionary relationships between microorganisms
+The day of phylogenomics.
+
+#### 09:00 - 10:30: **Phylogenomics**: inferring evolutionary relationships between microorganisms
 
 * *Learning Objectives*:
 
@@ -180,7 +353,7 @@ The day of genome metapangenomics (building on what we discussed the day before)
 * *Suggested Reading*:
 
   * Woese CR, Fox GE (1977). [Phylogenetic structure of the prokaryotic domain: The primary kingdoms](https://doi.org/10.1073/pnas.74.11.5088). *PNAS*.
-  * Hug LA, et al (2016). [A new view of the tree of life](https://www.nature.com/articles/nmicrobiol201648). Nature Microbiology.
+  * Hug LA, et al (2016). [A new view of the tree of life](https://www.nature.com/articles/nmicrobiol201648). *Nature Microbiology*.
   * Shaiber A, et al (2020). [Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome](https://doi.org/10.1186/s13059-020-02195-w). *Genome Biology*.
   * Gaïa M, et al (2023). [Mirusviruses link herpesviruses to giant viruses](https://www.nature.com/articles/s41586-023-05962-4). *Nature*.
 
@@ -191,7 +364,7 @@ The day of genome metapangenomics (building on what we discussed the day before)
   * Spang A, et al (2018). [Asgard archaea are the closest prokaryotic relatives of eukaryotes](https://doi.org/10.1371/journal.pgen.1007080). *PLOS Genetics*.
 
 
-#### 14:00 - 17:00: Phylogenomic analysis of a bacterial genus
+#### 10:30 - 12:00: Phylogenomic analysis of a bacterial genus
 
 > This is a small exercise in phylogenomics. Please use the same data pack from the pangenomics exercise to complete this one. Since you already have your contigs-db files for the genomes in that data pack, this should be extremely fast for you. But please start early to avoid any last minute challenges :)
 >
@@ -202,7 +375,7 @@ The day of genome metapangenomics (building on what we discussed the day before)
 > Once you are done, please compare your phylogenomic tree to the dendrogram you have obtained from the pangenomic analysis. If you want to get fancy, feel free to include 'additional' *Bifidobacterium* genomes from other species in this genus :)
 
 
-### Day 4, Thursday (05/06/25)
+### Day 9, Thursday (11/06/26)
 
 The day of metabolism.
 
@@ -235,7 +408,7 @@ The day of metabolism.
 >- When you've analyzed all of the genomes, please summarize your findings with a few sentences describing the following points:
 >  - which part(s) of the nitrogen cycle you found to be complete, and which part(s) were missing across all genomes
 >  - which genome(s) were capable of carrying out multiple nitrogen metabolism pathways, and which genome(s) had no nitrogen metabolism capabilities at all
->  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might >have these capabilities or not, etc
+>  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might have these capabilities or not, etc
 >
 > And here are some optional things to include in your report, if you have the time or interest :)
 >
@@ -249,9 +422,9 @@ The day of metabolism.
 >- [An older (and much simpler) tutorial on metabolism estimation](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction)
 
 
-### Day 5, Friday (06/06/25)
+### Day 10, Friday (12/06/26)
 
-The day of genome microbial population genetics.
+The day of microbial population genetics.
 
 #### 09:00 - 10:30 **Microbial population genetics**: tools, terminology, and open questions
 
@@ -307,65 +480,143 @@ The day of genome microbial population genetics.
 Discussions, revisiting old topics, and preparations for the next week.
 
 
+## Weeks 3 and 4
+
+During these weeks, you will transition from guided exercises to independent research. Using the datasets and approaches introduced throughout the course, you will design and develop your own research question and address it through data analysis and visualization.
+
+This phase emphasizes:
+
+* Independent thinking
+* Data-driven reasoning
+* Clear scientific communication
+
+
+### June 15 -- June 24: Independent work on your project
+
+During this period, you will:
+
+* Define and refine your research question
+* Analyze data using the tools introduced in the course
+* Generate figures that support your conclusions
+
+
+### June 25: Presentation preparation
+
+You will use this day to:
+
+* Organize your results
+* Prepare your presentation
+
+
+### June 26: Symposium
+
+Each student (or group) will present their project to the class.
+
+* 15 minutes presentation
+* 20 minutes of discussion and questions
+
+
+### Project Expectations
+
+Your project should be based on a clear and testable research question derived from the datasets explored in the course.
+
+You are expected to:
+
+* Use appropriate analytical approaches
+* Generate 1-3 publication-quality figures
+* Interpret your results in an ecological context
+
+
+### Presentation Guidelines
+
+Your presentation should clearly communicate the work you have developed during the course.
+
+* **i. Background**: Provide context for your study and explain why the question is relevant
+* **ii. Research question**: Clearly state the question you aimed to address
+* **iii. Methods and rationale**: Describe the analytical approach and explain why it was appropriate
+* **iv. Results**: Present your key findings using figures
+* **v. Conclusion**: Summarize your interpretation and discuss implications and limitations
+
+This stage of the course is designed to consolidate all previous components: conceptual understanding, computational skills, data analysis, and interpretation.
+
+Focus on clarity and coherence. A well-defined question and a clear answer are more valuable than a complex but unfocused analysis.
+
+
 ## Faculty and Communication
 
-Lectures and exercises during this week will be led by [Prof. Dr. A. Murat Eren](https://merenlab.org) (Meren) and [Prof. Dr. Sarahi Garcia](https://miint.org/). While the lectures in this week will be primarily delivered by Meren, additional experts will take part in the design and/or delivery of various sections, and can be reached out to for questions. The following table lists individuals who will be involved in the first week of the course, and their contact information:
+The following table lists individuals who will be involved in the course, and their contact information:
 
-|Name|Role|Expertise|Contact information|
+|Name|Role|Contact information|
 |:---|:---|:---|:---|
-|**Meren**|Professor|Microbial Ecology, Computer Science|meren@hifmb.de|
-|**Sarahi**|Professor|Microbiology, Microbial Ecology|sarahi.garcia@uni-oldenburg.de|
-|**Iva Veseli**|Postdoc| Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
-|**Jessika Füssel**|Postdoc|Microbial Metabolism, Biogeochemistry|jessika.fuessel@uol.de|
-|**Florian Trigodet**|Postdoc|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
-
-Throughout the course (and beyond) you can reach out via email with any question to Meren, who should be your first contact for anything related to the course activities unless specified otherwise.
-
+|**Sarahi**|Instructor|sarahi.garcia@uni-oldenburg.de|
+|**Jessika Füssel**|Instructor|jessika.fuessel@uol.de|
+|**Florian Trigodet**|Instructor|florian.trigodet@hifmb.de|
+|**Samuel Hürten**|Supervisor Week 3-4|samuel.huerten@uni-oldenburg.de|
+|**Chandni Sidhu**|Supervisor Week 3-4|chandni.sidhu@uni-oldenburg.de|
+|**Anis Hosseini**|Teaching Assistant|anis.hosseini@uni-oldenburg.de|
+|**Ghazaleh Sheikhi Ghahi**|Teaching Assistant|ghazaleh.sheikhi.ghahi@uni-oldenburg.de|
 
 
 ## Description and Learning Objectives
 
-Every ecological niche our planet has to offer is home to an astonishing number of microbial cells that form complex communities. The last several years witnessed tremendous advances in molecular and computational approaches which now offer unprecedented access to these communities through new &#39;omics strategies. Developing an overall understanding of these strategies, including the ability to identify their appropriate applications and shortcomings, has quietly become a de facto necessity in the journey of an independent life scientist. **The primary aim of the first week** is to help you appreciate the basics of commonly used &#39;omics strategies to study ecology, evolution, and functioning of naturally occurring microbial populations and recognize the current **conceptual framework** that helps us wrap our collective mind around the most diverse form of life on our planet.
+The oceans are home to many microorganisms. In fact, the number of microbial cells in the oceans outnumber the stars in the known Universe. These countless microorganisms constitute slightly over half of the total biomass in the marine environment, playing a crucial role in maintaining the delicate balance of biogeochemical cycles on Earth.
 
-Throughout our sessions you wil hear about the theoretical underpinnings of popular &#39;omics data types and their contemporary applications. These data types include **genomics**, **metagenomics**, **metatranscriptomics**, **metaepitranscriptomics**, as well as various &#39;omics data analysis approaches such as **metabolic reconstruction** in genomes and metagenomes, **metagenomic read recruitment**, **pangenomics**, **phylogenomics**, and **microbial population genetics**.
+In our course, we delve into the fundamentals of computational approaches that now grant unprecedented access to these communities through innovative 'omics strategies. Acquiring a
+comprehensive understanding of these strategies, including their appropriate applications and limitations, has become an essential skill for any aspiring life scientist. The primary objective of this
+course is to empower participants to explore the ecology, evolution, and functionality of naturally occurring microbial populations, while grasping the current conceptual framework that aids our
+comprehension of the most diverse life forms on our planet.
+
+Over the span of two week, our course unfolds with a series of lectures and practical exercises, acquainting participants with the foundational concepts of omics strategies. They will delve into the
+theoretical foundations of prominent 'omics data types and their contemporary uses, encompassing genomics, metagenomics, metatranscriptomics, and various 'omics data analysis methodologies such
+as genome reconstructions from metagenomes, general visualization strategies for omics large datasets, metabolic reconstruction in genomes and metagenomes, metagenomic read recruitment,
+pangenomics, phylogenomics, and microbial population genetics.
+
+Moving into the third week, students will embark on small-scale research projects conducted in groups of up to three students. Each group will be presented with or will develop research questions concerning the ecology of marine microorganisms. Collaboratively, students, alongside instructors and supervisors, will strategize and devise methodologies to address these research questions. Following the designed strategies, students will then execute their plans to find answers to the research questions. Finally, they will present their findings to the other groups, fostering a dynamic exchange ofinsights and perspectives.
 
 The learning objectives of the course includes the following:
 
-* To explain **microbial diversity** in naturally occurring systems and their **evolution**.
-
-* To recognize data-enabled means to study **microbial ecosystems**.
-
-* To introduce **state-of-the-art ‘omics approaches** and data types to characterize naturally occurring microbial diversity.
-
-* To improve discussion, analytical, presentation and writing skills.
-
+- To apply state-of-the-art ‘omics approaches to various data types to make sense of complex
+datasets.
+- To engage with research questions and learn about designing strategies to answer the
+research questions.
+- To practice a different set of analytical or computational methods to answer research
+questions regarding microbial ecology.
+- To improve discussion, analytical, presentation and writing skills.
 
 
 ## Prerequisites
 
-To maximize benefit, the participants of this course are expected to be familiar with the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology), and able to answer what is a **gene**, a **genome**, a **transcript**, or a **protein**, and have at least a **preliminary understanding of the principles in ecology and evolution**, such as the basics of **taxonomy** and broad ecological principles that maintain complex ecosystems.
+1. To maximize benefit, the participants of this course are expected to be familiar with the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology), and able to answer what is a **gene**, a **genome**, a **transcript**, or a **protein**, and have at least a **preliminary understanding of the principles in ecology and evolution**, such as the basics of **taxonomy** and broad ecological principles that maintain complex ecosystems.
 
-You are also expected to be familiar with the the [UNIX shell](https://en.wikipedia.org/wiki/Unix_shell) (also known as the 'terminal environment', or 'command line interface'), especially if you are interested in following the hands-on exercises by yourselves (if you are not familiar with the terminal environment, you can team up with those who do, and follow them and contribute to data analyses and interpretations). You can use some of the following material to familiarize yourself with the command line interface, and Meren will be happy to help you with any questions:
+2. Throughout the course we will use [anvi’o](https://anvio.org) for 'omics analyses. Anvi’o is an open-source software platform that brings together many aspects of today’s cutting-edge computational strategies of data-enabled microbiology, including genomics, metagenomics, metatranscriptomics, pangenomics, metapangenomics, phylogenomics, and microbial population genetics in an integrated and easy-to-use fashion through extensive interactive visualization capabilities. Anvi’o is cited over 1,000 times in the literature and is actively maintained. It is a requirement for participants to have access to personal computers, install anvi’o software and **bring their computers with anvi’o installed to the classroom**. If you need a computer for loan, the University can arrange that, just contact the course coordinator.
 
-* [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag) (a video introduction to the Linux command line environment -- although Joe Collins is talking about Linux, the topics are relevant to anyone who uses a command line environment and Meren strongly recommends everyone to watch this in its entirety, and try to replicate commands).
-* [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php) (a chapter from the open book "*The Linux Command Line*" by William Shotts -- Meren highly recommends).
+3. The participants will also engage with R. **Install R and RStudio** (for all operating systems). If you run into problems installing this stuff please contact it@icbm.de (if possible attach a screenshot of the error message).
 
-The course will require its participants to read and understand contemporary literature written in English.
+4. Install MobaXterm (for Windows users only). MobaXterm is a simple Windows program to connect to remote Linux computers.
 
+5. The participants of this course are also expected to be familiar with the [UNIX shell](https://en.wikipedia.org/wiki/Unix_shell) (also known as the 'terminal environment', or 'command line interface'). Many of the students would have taken the course [Programming for Life Scientists](https://merenlab.org/courses/PFLS/). However, if you have no prior experience with the command line interface, that is OK, as you will generate those skills throughout the course as the vast majority of data analyses we will do will take place in the command line interface. Arguably, the exposure to the command line environment and developing a level of mastery of it will be one of the most impactful gains you will have from this course that will help you throughout your professional journey almost regardless of which career path you choose that involves data; so if you are not familiar with the command line environment, see this as an opportunity to invest time into developing some skills in it. You can use some of the following material to familiarize yourself with the command line interface.
 
-## Content Delivery
+    * [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag) (a video introduction to the Linux command line environment -- although Joe Collins is talking about Linux, the topics are relevant to anyone who uses a command line environment and we strongly recommends everyone to watch this in its entirety, and try to replicate commands).
+    * [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php) (a chapter from the open book "*The Linux Command Line*" by William Shotts -- highly recommended).
 
-The primary mode of course content delivery will be through slides, where Meren will explain **core concepts**, **data types**, and **analysis strategies**. There will often be extensive discussions over these slides, which will require **active, verbal participation** by the attendees.
-
-This document will provide attendees with **suggested readings** related to each topic from the recent literature that covers relevant topics and/or their real-world applications to contemporary questions in marine microbiology, oceanography, and beyond.
-
-Please note that **preparation** and **participation** will play a key role in your success. For an effective learning experience please consider taking a brief look at the suggested reading material whenever you have a chance and participate the lecture actively by asking questions and attending discussions.
+6. The course will require its participants to read and understand contemporary literature written in English.
 
 ## Attendance Policy
+Each participant is expected to attend each lecture in person (unless a legitimate reason for absence that is recognized by the University is in effect).
 
-Each participant is expected to attend each lecture in person. The attendance will be recorded by a strategy that we call **class citizenship**, which aims to help the course director to have an overall understanding of the evolution of the course.
 
-The class citizenship demands every participant to send a **class citizenship** email to meren@hifmb.de **AND** sarahi.garcia@uni-oldenburg.de at the end of **each day**. The class citizenship email must be composed of two parts:
+## Evaluation and Grading
+
+The evaluation in this course will be based on five parts of a portfolio.
+
+### Part I (10% of your grade)
+
+The first week of the course consist of lectures and exercises that familiarize you with the terminal, r and r studio, as well as asking research questions and designing code that helps you visualize answers to your questions using large datasets. This week there will be **4 small projects that when accomplished you will get 10% of the grade**.
+
+### Part II (10% of your grade)
+For the second week, the grade is based on class attendance and it will be recorded by a strategy we call **class citizenship**, which aims to help the course director to have an overall understanding of the evolution of the course.
+
+The class citizenship demands every participant to send a **class citizenship** email to jessika.fuessel@uol.de, florian.trigodet@hifmb.de, anis.hosseini@uni-oldenburg.de and ghazaleh.sheikhi.ghahi@uni-oldenburg.de at the end of **each day**. The class citizenship email must be composed of two parts:
 
 * A **brief summary** of the main concepts discussed during the day, interpreted by the attendee in their own words.
 
@@ -379,10 +630,44 @@ The title of the class citizenship email must follow this pattern **word-by-word
 
 For instance, the following would be the appropriate title for this email for the first day:
 
-> **EMM Class Citizenship: 10/06/24**
+> **EMM Class Citizenship: 01/06/26**
 
 The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 250 words. Please do not send notes you take throughout the class. You should use the last 15 minutes of the lecture to gather your thoughts, and come up with a summary of what you can remember. Here is an example class citizenship email:
 
 > Summary: Today we discussed what is phylogenomics, how phylogenomic trees are built, and why single-copy core genes are suitable for building phylogenomics trees. We also discussed the relationship between phylogenetics, phylogenomics, and pangenomics with respect to the fraction of genome used and the evolutionary distance that they can cover.
 >
 > Question: Since phylogenomics and pangenomics are both useful for inferring evolutionary distances, it seems to me that integrating both methods in a systematic way would yield a more reliable tree. But it looks like the field only uses phylogenomics and pangenomics separately, is there a reason for that?
+
+### Part III (30% of your grade)
+Starting on week 3 you will be divided into groups, and you will start working towards a methodological strategy to answer research questions. During the following 8 days you will be planning and executing data collection or data analysis. All these methods, and results must be compiled in a journal. A copy of this journal must be handed in by June 24th. This journal will be then graded by your course supervisor.
+
+### Part IV (10% of your grade)
+This part of your grade relates to teamwork commitment and will be evaluated by both your supervisor and your team-mates.
+
+### Part V (40% of your grade)
+The biggest part of your grade will consist of a presentation to be given on June 26th. In this presentation you will as a group explain to the rest of the class the project you have worked during the course.
+The presentation will be maximum 15 minutes and must contain:
+* i. background to your project
+* ii. research question
+* iii. methods and methods rationale
+* iv. results
+* v. conclusion
+
+You will have the entire day on June 25th to work with your team and finish and polish the presentation.
+The presentation will be followed by up to 20 minutes of questions.
+
+The grading scale for this module is as follows:
+
+Grade | Threshold
+-- | --
+1.0 | 95%
+1.3 | 90%
+1.7 | 85%
+2.0 | 80%
+2.3 | 75%
+2.7 | 70%
+3.0 | 65%
+3.3 | 60%
+3.7 | 55%
+4.0 | 50%
+
