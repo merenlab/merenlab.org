@@ -1,6 +1,6 @@
 ---
 layout: page
-title: A reproducible workflow for Henoch et al., 2026
+title: A reproducible workflow for Henoch et al, 2026
 modified: 2026-05-11
 excerpt: "A bioinformatics workflow for our study on the *Undatipelagibacter* pangenome graph"
 comments: true
@@ -11,7 +11,16 @@ authors: [alex]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to our bioinformatics workflow that generated the results for our study titled "**Synteny-aware microbial pangenomes reveal blueprints of genomic variation**" by Henoch et al.
+The purpose of this reproducible bioinformatics workflow is to give access to ad-hoc analyses and Python code that underpin our findings in the study, "**Synteny-aware microbial pangenomes reveal blueprints of genomic variation**" by Henoch et al:
+
+[PAPER WILL BE HERE ONCE THE BIORXIV PRE-PRINT IS OUT]
+
+Here is a list of links for quick access to the raw and intermediate data used in our manuscript:
+
+* [FASTA files](https://cloud.uol.de/public.php/dav/files/jSFTXG3cSQMBjYX) for 29 *Undatipelagibacter* genomes.
+* [Anvi'o contigs databases](https://cloud.uol.de/public.php/dav/files/7bRpYznDNBedSRk), as annotated [digital microbe](https://www.nature.com/articles/s41597-024-03778-z) files, for *Undatipelagibacter*.
+* The Undatipelagibacter pangenome: [genome-storage-db](https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ) and [pan-db](https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5).
+* The Undatipelagibacter pangenome-graph: [pan-graph-db](https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA)
 
 </div>
 
@@ -20,118 +29,183 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 {% include _join-anvio-discord.html %}
 
-## Abstract
+## Study description and Introduction
 
-The increasing availability of genomes across the tree of life enables increasingly precise insights into the genetic determinants of fitness. Pangenomics has emerged as a powerful approach to characterize the gene repertoire across a set of genomes and to quantify conserved and variable gene sets among closely related members of a taxon. However, popular computational approaches to compute pangenomes ignore gene synteny and define gene clusters solely by sequence homology. Graph-based approaches can incorporate both homology and synteny, but they often become difficult to interpret as graph complexity rapidly increases due to transposons, gene duplications, and other sources of genomic rearrangement. Here, we present an open-source software framework featuring a novel network-pruning strategy and graph-layout algorithm that enables interactive exploration of pangenome graphs that supports synteny-aware quantification and visualization of gene conservation and variability. We applied this framework to a pangenome graph of 29 isolates from the genus _Undatipelagibacter_ (formerly SAR11 subclade Ia.3.VI) and identified numerous hotspots of genomic variation, sometimes as short as a single gene. We further show that variable regions differ significantly in their functional composition from genomic backbones and that recurrent variable region (VR) organization patterns cluster into distinguishable evolutionary mechanisms. Together, these results show that microbial genomic variability is not partitioned into hypervariable islands and a static backbone but forms a structured continuum, in which variable regions differ from one another in scale, topology, function, and evolutionary character. 
+Our study implements a computational workflow to study gene-centric pangenome graphs interactively and applies it to 29 circular isolates from _Undatipelagibacter_ to demonstrate that,
 
-## Study description
 
-We used 29 circular isolates from _Undatipelagibacter_ to create a pangenome graph in anvi'o. At a high level, our pipeline does the following:
+* Synteny-aware pangenome graphs **preserve chromosomal context that conventional pangenomes discard**, revealing an **intricate landscape of variable regions** alternating with backbone stretches across genomes,
+* Variable regions are **functionally specialized and coherent units** that are distinct from the genomic backbone, rather than random assortments of genes,
+* Genomic variability is distributed as a **structured continuum** rather than a binary partition of hypervariable islands and a static backbone, as evidenced by graph-derived metrics such as the "Composite Variability Score" we have implemented,
+* Variable regions differ from one another in **scale, structural topology, functional identity, and evolutionary character**, clustering into distinguishable organizational patterns that likely reflect distinct evolutionary mechanisms,
+* Fine-grained, **position-specific sequence divergence gradients** can be detected within otherwise conserved operons (exemplified by a volcano-shaped amino acid identity pattern centered on the Skp), and
+* **Deeply conserved variable regions** with consistent functional signatures and genomic contexts are shared across genera within the _Pelagibacterales_, pointing to ancestral hotspots of variation maintained over deep evolutionary timescales.
 
-1. reoriented the genomes to all start with the DnaA gene, using {% include PROGRAM name='anvi-reorient-genomes' %}
-2. built one {% include ARTIFACT name='contigs-db' %} per isolate with {% include PROGRAM name='anvi-gen-contigs-database' %}
-3. annotated each {% include ARTIFACT name='contigs-db' %} with various functions using {% include PROGRAM name='anvi-run-hmms' %}, {% include PROGRAM name='anvi-run-scg-taxonomy' %}, {% include PROGRAM name='anvi-scan-trnas' %}, {% include PROGRAM name='anvi-run-ncbi-cogs' %} and {% include PROGRAM name='anvi-run-kegg-kofams' %}
-4. combined every {% include ARTIFACT name='contigs-db' %} into a {% include ARTIFACT name='genomes-storage-db' %} with {% include PROGRAM name='anvi-gen-genomes-storage' %}
-5. ran a pangenomics analysis using the {% include ARTIFACT name='genomes-storage-db' %} to create a {% include ARTIFACT name='pan-db' %} using {% include PROGRAM name='anvi-pan-genome' %}
-6. calculated the ANI with {% include PROGRAM name='anvi-compute-genome-similarity' %}
-7. created a {% include ARTIFACT name='pan-graph-db' %} with {% include PROGRAM name='anvi-pan-genome-graph' %}
-8. summarized the {% include ARTIFACT name='pan-graph-db' %} using {% include PROGRAM name='anvi-summarize' %} to create the files `GENESxSYNGCs.txt`, `SYNGCs.txt` and `REGIONS.txt`
-9. used the summary output tables for various downstream analyses that will be described in detail in the following sections
+Our reproducible bioinfromatics workflow picks up from another document related to this study, which [explains how to generate pangenome graphs](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/) using the **same set of genomes**. Therefore the output of the reproducible tutorial becomes the input of our reproducible bioinformatics workflow.
 
-For detailed information on how to generate the mentioned input anvi'o artifacts necessary for creating the _Undatipelagibacter_ pangenome graph (steps 1 to 8), see [this](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/) tutorial. Steps 2 to 7 can be automated with {% include PROGRAM name='anvi-run-workflow' %}, additional information can be found [here](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/).
+The sections below produce the analyses behind each main figure of our paper.
 
-The downstream sections below produce the analyses behind each main figure of the paper. The visualization section reproduces the top of __Figure 1__; the combining and summary-statistics sections produce the Sankey diagram at the bottom of __Figure 1__; the functional distributions section produces __Figure 2__ and the associated supplementary panel; the metrics section produces __Figure 4__; and the position-wise comparisons section produces __Figure 5__.
+* The top panel of __Figure 1__, which visualizes the pangenome graph, is produced in the section [visualizing the Undatipelagibacter pangenome graph](##visualizing-the-undatipelagibacter-pangenome-graph) section,
+* The Sankey diagram at the bottom of __Figure 1__ is produced across the [combining the pangenome graph tables](#combining-the-pangenome-graph-tables-into-one) and [summary statistics](#calculating-summary-statistics-on-the-combined-table) sections,
+* __Figure 2__, which visualizes the functional distributions of variable regions, and its associated supplementary panel are produced in the [functional distributions plots and VR/BR comparisons](#functional-distributions-plots-and-vrbr-comparisons) section,
+* __Figure 4__, which visualizes the graph-derived metrics and Composite Variability Score, is produced in the [metrics](#metrics-of-the-pangenome-graph) section, and
+* __Figure 5__, which visualizes position-wise sequence similarity patterns, is produced in the [position-wise comparisons](#position-wise-sequence-comparisons) section.
 
-## Downloading the data for this reproducible workflow
 
-Assuming you want to reproduce a part or all of this study, choose your favorite working directory and store it as a variable `$WD`:
+## Setting up the stage
 
-```bash
-cd /where/you/want/to/work
-WD=$PWD
-```
+Reproduce our study requires a few simple steps to set things up, which will not take more than a few minutes.
 
-The rest of the document will make use of the terminal variable `$WD`. This reproducible workflow describes the downstream analysis of the _Undatipelagibacter_ pangenome graph we have generated and will expect you to have the following files available:
+This reproducible workflow assumes that you have access to a conda enviornment for the development version of anvi'o (`anvio-dev`), which you can install via [https://anvio.org/install/](https://anvio.org/install/#development-version).
 
- - _Undatipelagibacter_ {% include ARTIFACT name='pan-graph-db' %}
- - _Undatipelagibacter_ {% include ARTIFACT name='genomes-storage-db' %}
- - the summary files `GENESxSYNGCs.txt`, `SYNGCs.txt` and `REGIONS.txt`
- - the five python scripts `create_all_combined.py`, `functional_distribution_clustering.py`, `metrics_clustering.py`, `similarity_per_position.py` and `summary_statistics.py` used to generate the figures
-
-You can download all these files via:
+In addition to `anvio-dev`, the reproducible workflow requires a *second conda environment*, since some of the tools used below (such as `holoviews`) are not native to the anvio environment. To keep the two environments separate (so that the anvi'o stack stays intact and isolated from the analysis stack that is only used for downstream plotting and statistics), please run the following commands to generate a second conda enviornment. Running these commands will not take more than a minute on a laptop computer:
 
 ```bash
-mkdir $WD/03_PAN
-mkdir $WD/04_RESULTS
+# make sure you are not in the anvi'o environment:
+conda deactivate
 
-curl -L xxxxxxxx -o $WD/00_SCRIPTS.tar.gz
-tar -xzf $WD/00_SCRIPTS.tar.gz -C $WD/ && rm $WD/00_SCRIPTS.tar.gz
-
-curl -L https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ -o $WD/03_PAN/UNDATIPELAGIBACTER-GENOMES.db
-curl -L https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5 -o $WD/03_PAN/UNDATIPELAGIBACTER-PAN.db
-curl -L https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA -o $WD/UNDATIPELAGIBACTER-PAN-GRAPH.db
-
-curl -L https://cloud.uol.de/public.php/dav/files/8snz92oDqJeARDK -o $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
-tar -xzf $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz -C $WD/ && rm $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
-```
-
-## Details of the computational environment
-
-While we used the anvi'o version `9-dev`, which is the development version following the `v9` stable release for the _Undatipelagibacter_ pangenome graph creation, this reproducible workflow requires a second conda environment as `holoviews` is not present in the anvio environment. We keep the two environments separated so that the anvi'o stack stays intact and isolated from the analysis stack that is only used for downstream plotting and statistics. Switching between them is handled explicitly in every code block below with `conda activate` / `conda deactivate`, so you can copy commands one block at a time without worrying about which environment you are currently in.
-
-```bash
-conda create -n anvio-analysis -c conda-forge -c bioconda \
+# create a new environment for the reproducible workflow
+conda create -y -n henoch_et_al_2026 -c conda-forge -c bioconda \
         python=3.10 \
         holoviews matplotlib seaborn pandas numpy scipy biopython scikit-learn tqdm
 ```
 
-Here is how the `$WD` should look like at this stage:
+At this stage, when you run `conda env list` on your terminal, you should see an output that includes at least the following two items:
 
 ```bash
-.
-├── 00_SCRIPTS
-    ├── create_all_combined.py
-    ├── functional_distribution_clustering.py
-    ├── metrics_clustering.py
-    ├── similarity_per_position.py
-    └── summary_statistics.py
-├── 03_PAN
-    ├── UNDATIPELAGIBACTER-GENOMES.db
-    ├── UNDATIPELAGIBACTER-PAN.db
-    └── ...
-├── 04_RESULTS
-├── UNDATIPELAGIBACTER-PAN-GRAPH.db
-├── UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY
-    ├── GENESxSYNGCs.txt
-    ├── REGIONS.txt
-    ├── SYNGCs.txt
-    └── ...
-
-└── ...
+anvio-dev                /[some path to]/miniconda3/envs/anvio-dev
+henoch_et_al_2026        /[some path to]/miniconda3/envs/henoch_et_al_2026
 ```
+
+If that is the case, you are ready to clone the repository of our ad-hoc scripts. For this, you can simply run the following command, which will generate a new directory in your home folder:
+
+```
+# go to your home directory:
+cd ~
+
+# clone the repostiory:
+git clone https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs.git
+
+# change your work directory to the scripts directory:
+cd Henoch_et_al_2026_pangenome_graphs
+```
+
+At this stage, your working directory structure should look like this:
+
+```
+.
+├── README.md
+├── 00_SCRIPTS
+│   ├── create_all_combined.py
+│   ├── functional_distribution_clustering.py
+│   ├── metrics_clustering.py
+│   ├── similarity_per_position.py
+│   └── summary_statistics.py
+├── 01_DATA
+│   └── 00_README.txt
+└── 02_RESULTS
+    └── 00_README.txt
+```
+
+If that is the case, we are good.
+
+The final step of setting up the stage is to download the files that represent the *Undatipelagibacter* pangenome graph and associated files from our [reproducible tutorial](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/). For this, please simply copy-paste these commands into your terminal (while still in the same directory):
+
+```
+curl -L https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ -o 01_DATA/UNDATIPELAGIBACTER-GENOMES.db
+curl -L https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5 -o 01_DATA/UNDATIPELAGIBACTER-PAN.db
+curl -L https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA -o 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
+curl -L https://cloud.uol.de/public.php/dav/files/8snz92oDqJeARDK -o 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
+tar -xzf 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz -C 01_DATA/ && rm 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
+```
+
+At this stage, your working directory structure should look like this:
+
+```
+.
+├── README.md
+├── 00_SCRIPTS
+│   ├── create_all_combined.py
+│   ├── functional_distribution_clustering.py
+│   ├── metrics_clustering.py
+│   ├── similarity_per_position.py
+│   └── summary_statistics.py
+├── 01_DATA
+│   ├── 00_README.txt
+│   ├── UNDATIPELAGIBACTER-GENOMES.db
+│   ├── UNDATIPELAGIBACTER-PAN-GRAPH.db
+│   ├── UNDATIPELAGIBACTER-PAN.db
+│   └── UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY
+│       ├── GENESxSYNGCs.txt
+│       ├── GENOMES_DIST.newick
+│       ├── GENOMES_DIST_MAT.txt
+│       ├── REGIONS.txt
+│       ├── SYNGCs.txt
+│       └── misc_data_items
+│           └── default.txt
+└── 02_RESULTS
+    └── 00_README.txt
+```
+
+If that is the case, you are ready.
 
 ## Visualizing the _Undatipelagibacter_ pangenome graph
 
-Instructions on how to visualize the _Undatipelagibacter_ pangenome graph and pangenome can also be found in the tutorial [here](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/). The {% include ARTIFACT name='pan-graph-db' %} and {% include ARTIFACT name='pan-db' %} files already include states to generate the left-upper and right-upper figures of the paper's __Figure 1__.
+Our reproducicble tutorial [here](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/) already details of how `UNDATIPELAGIBACTER-PAN.db` (an anvi'o {% include ARTIFACT name='pan-db' %} artifact) and `UNDATIPELAGIBACTER-PAN-GRAPH.db` (an anvi'o {% include ARTIFACT name='pan-graph-db' %} artifact) are generated from FASTA files. What constitutes the left-upper and right-upper figures of the paper's __Figure 1__ are also the recommended starting point for exploring the data:
 
-The interactive graph display is the recommended starting point for exploring the data. It lays out the graph linearly from left to right so that you can scroll along the genomic context, zoom into any variable region, and inspect individual SynGCs together with their functional annotations, COG24 categories, KEGG modules, and the genomes that contribute to them. Backbone SynGCs are colored in blue and variable regions in yellow by default, while the different SynGC types (core, duplication, rearrangement, accessory, singleton, and tRNA/rRNA) carry their own node colors that you can change through the interface. All regions are labeled and enable you to jump directly to specific variable regions of interest (e.g. VR #32, #90, #22, or #180, the four highest-CVS regions in the paper), and the stored states reproduce the exact view used in the figures. From any node, you can pull up the underlying genes, their amino acid sequences, and the functional annotations across all contributing genomes, which is how we drilled into individual VRs throughout the paper.
 
-[![undatipelagibacter_pangenome_graph](images/undatipelagibacter_pangenome_graph.png)](images/undatipelagibacter_pangenome_graph.png){:.center-img .width-90}
-[![undatipelagibacter_pangenome](images/undatipelagibacter_pangenome.png)](images/undatipelagibacter_pangenome.png){:.center-img .width-90}
+
+You can also visualize the pangenome and pangenome graph by activating `anvio-dev`:
+
+```
+conda deactivate
+conda activate anvio-dev
+```
+
+And running the folowing command to visalize the {% include ARTIFACT name='pan-db' %} in your `01_DATA` directory,
+
+```
+anvi-display-pan -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db \
+                 -p 01_DATA/UNDATIPELAGIBACTER-PAN.db
+```
+
+which will give you an interactive display for that shows you the 'pangenome' part of the Figure 1,
+
+{% include IMAGE path="images/undatipelagibacter_pangenome.png" width="70" caption="The Undatipelagibacter pangenome" %}
+
+And you can run teh following command to visalize the {% include ARTIFACT name='pan-graph-db' %} in your `01_DATA` directory,
+
+```
+anvi-display-pan-graph -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db \
+                       -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
+```
+
+which will give you an interactive display for that shows you the 'pangenome graph' part of the Figure 1,
+
+{% include IMAGE path="images/undatipelagibacter_pangenome_graph.png" width="70" caption="The Undatipelagibacter pangenome graph" %}
+
+Using the interactive display you can zoom into any variable region, and inspect individual SynGCs together with their functional annotations, and the genomes that contribute to them.
+
+Backbone SynGCs are colored in blue and variable regions in yellow by default, while the different SynGC types (core, duplication, rearrangement, accessory, singleton, and tRNA/rRNA) carry their own node colors that you can change through the interface. All regions are labeled and enable you to jump directly to specific variable regions of interest (e.g. VR #32, #90, #22, or #180, the four highest-CVS regions in the paper), and the stored states reproduce the exact view used in the figures. From any node, you can pull up the underlying genes, their amino acid sequences, and the functional annotations across all contributing genomes, which is how we drilled into individual VRs throughout the paper.
 
 Similarly the tutorial can be used to generate pangenome graphs from the other _Pelagibacterales_ datasets, that build __Figure 3__.
 
 ## Combining the pangenome graph tables into one
 
+For most of the commands below, we will stay in the conda environment `henoch_et_al_2026`. Let's switch to it now:
+
+```bash
+conda deactivate
+conda activate henoch_et_al_2026
+```
+
 For easier downstream analysis we first need to combine two of the pangenome graph tables them together. These tables are not combined from that get go to keep the data as atomary as possible and joining them will create a lot of repetetive information, but this is harmless and makes the analysis a lot easier. The `GENESxSYNGCs.txt` includes information at the gene level and `SYNGCs.txt` at the synteny gene cluster level. By joining them together we get access to all the synteny gene cluster information per gene. The following command generates the joined `all_combined.txt` file.
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/create_all_combined.py \
-    -g $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/GENESxSYNGCs.txt \
-    -s $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/SYNGCs.txt \
-    -d $WD/04_RESULTS/
-conda deactivate
+python3 00_SCRIPTS/create_all_combined.py \
+        -g 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/GENESxSYNGCs.txt \
+        -s 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/SYNGCs.txt \
+        -d 02_RESULTS/
 ```
 
 At the same step we also join our definition of simplified COG24 groups to the dataset. In case you want to review our definitions, there is a `cog_functional_groups.txt` that includes the same information as the following table.
@@ -180,13 +254,11 @@ The resulting `all_combined.txt` contains the merged information from two of the
 With the `all_combined.txt` file in place we can now generate the summary statistics for the pangenome graph. A dedicated script handles this, and you can run it with the following command once the files are in the right places.
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/summary_statistics.py \
-    -c $WD/04_RESULTS/all_combined.txt \
-    -d $WD/04_RESULTS/ \
-    -pw 9.69 \
-    -ph 6.27
-conda deactivate
+python3 00_SCRIPTS/summary_statistics.py \
+        -c 02_RESULTS/all_combined.txt \
+        -d 02_RESULTS/ \
+        -pw 9.69 \
+        -ph 6.27
 ```
 
 This will generate four summary tables for you. First the `synteny_gene_clusters_summary.txt` file includes information about the different synteny gene cluster types (`node_type`). We want to make sure to see a nice 100% in the last two columns to make sure that no gene call was left out.
@@ -214,7 +286,7 @@ And you probably guessed it, we have a third similar table `regions_summary.txt`
 | 1     | variable      |             8871 |           170 |              2662 |                 68.75 |              20.1792 |           51.0511 |
 | Total |               |            43961 |           333 |              3872 |                   100 |                  100 |               100 |
 
-The final summary table `conversion_summary` combines the information of all three other files and shows the conversion from gene cluster to synteny gene cluster to region and the number of gene calls per these conversion. 
+The final summary table `conversion_summary` combines the information of all three other files and shows the conversion from gene cluster to synteny gene cluster to region and the number of gene calls per these conversion.
 
 |       | __gene_cluster_type__   | __node_type__     | __region_type__   |   __num_syn_cluster__ |   __num_gene_cluster__ |   __num_gene_calls__ |   __percent_gene_cluster__ |   __percent_syn_cluster__ |   __percent_gene_calls__ |   __conversion_factor__ |
 | 0     | accessory           | accessory     | variable      |               855 |                855 |             6330 |                23.7236 |               22.0816 |              14.3991 |                   1 |
@@ -232,7 +304,7 @@ The final summary table `conversion_summary` combines the information of all thr
 
 The script also generated a figure `conversion_summary_sankey.png` to visualize this exact information as a nice sankey diagram. This figure is the second part of the paper's __Figure 1__.
 
-[![conversion_summary_sankey](images/conversion_summary_sankey.png)](images/conversion_summary_sankey.png){:.center-img .width-90}
+{% include IMAGE path="images/conversion_summary_sankey.png" width="70" caption="Unedited sankey plot output" %}
 
 ## Functional distributions plots and VR/BR comparisons
 
@@ -241,37 +313,33 @@ The __Figure 2__ of the paper shows the functional distributions patterns of the
 Under the hood, the script does three things in sequence. (1) for every variable region it counts the genes that fall into each of the five simplified COG24 functional groups defined earlier and normalizes them into a proportion vector, which is what you see as the stacked bar plot in the middle column of __Figure 2__. (2) it clusters these per-region proportion vectors with Ward linkage on Euclidean distances and draws the dendrogram on the left; cutting that dendrogram at the height shown in the figure creates the eight functional clusters that we discussed in the paper. (3) for each VR the script computes the Hellinger distance between its functional proportion vector and the proportion vector of the full backbone, which gives the black dot on the right-hand side of the figure. To assess whether that observed distance is unusual, the script draws 10,000 random samples of backbone genes matched in size to the VR and computes the Hellinger distance between those. The resulting null distribution is plotted as the gray violin behind the dot, and a dot falling outside its own violin indicates a VR whose functional composition differs significantly from what you would expect by simply subsampling the backbone.
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/functional_distribution_clustering.py \
-    -c $WD/04_RESULTS/all_combined.txt \
-    -d $WD/04_RESULTS/ \
-    -pw 6.27 \
-    -ph 9.69 \
-    -r $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt 
-conda deactivate
+python3 00_SCRIPTS/functional_distribution_clustering.py \
+        -c 02_RESULTS/all_combined.txt \
+        -d 02_RESULTS/ \
+        -pw 6.27 \
+        -ph 9.69 \
+        -r 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt
 ```
 
-[![functional_distribution_clustering](images/functional_distribution_clustering.png)](images/functional_distribution_clustering.png){:.center-img .width-70}
+{% include IMAGE path="images/functional_distribution_clustering.png" width="70" caption="Clustering of VRs based on their functional profile" %}
 
 At the same time the script generates the related supplementary figure, showing the difference in distribution patterns between the backbone and variable regions, as well as the different pangenome graph artifacts. This is a useful sanity check that confirms the broad functional divergence between backbone and variable regions.
 
-[![functional_distribution_by_artifact](images/functional_distribution_by_artifact.png)](images/functional_distribution_by_artifact.png){:.center-img .width-70}
+{% include IMAGE path="images/functional_distribution_by_artifact.png" width="50" %}
 
 ## Metrics of the pangenome graph
 
-The following command generates the results we used in the third chapter and especially all figures related to the pangenome graph metrics.  
+The following command generates the results we used in the third chapter and especially all figures related to the pangenome graph metrics.
 
 The script reads the per-region Complexity, Expansion, Diversity, Weight and Composite Variability Score values directly from the `REGIONS.txt` summary table. These values are computed inside `anvi-pan-genome-graph` according to the mathematical definitions given in the next subsection. From this table the script produces two complementary outputs. (1) it sorts all variable regions by their CVS and plots the ranked curve shown in the upper-right of __Figure 4__, together with a log curve to see whether the CVS values follow a log like decrease. (2) it clusters variable regions by Complexity and Expansion using Ward linkage and cuts the resulting dendrogram into four groups, which correspond to the four topological categories shown at the bottom of __Figure 4__ ('high complexity / high expansion', 'high complexity / low expansion', 'medium / medium', and 'low / low').
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/metrics_clustering.py \
-    -c $WD/04_RESULTS/all_combined.txt \
-    -d $WD/04_RESULTS/ \
-    -pw 6.27 \
-    -ph 6.27 \
-    -r $WD/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt 
-conda deactivate
+python3 00_SCRIPTS/metrics_clustering.py \
+        -c 02_RESULTS/all_combined.txt \
+        -d 02_RESULTS/ \
+        -pw 6.27 \
+        -ph 6.27 \
+        -r 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt
 ```
 
 The script includes, among other calculations, the calculation of the Pearson Correlation Coefficient (r), that we used to test a linear relationship between Complexity and Expansion. The test output will be directly printed in the terminal you used to run the script and will look like this.
@@ -303,7 +371,7 @@ R-squared = 0.461
 
 The script will print the upper part of the paper's __Figure 4__. The lower part was generated from the visualized pangenome graph.
 
-[![metrics_clustering](images/metrics_clustering.png)](images/metrics_clustering.png){:.center-img .width-70}
+{% include IMAGE path="images/metrics_clustering.png" width="70" %}
 
 ### Complexity, expansion, weight, and diversity
 
@@ -342,7 +410,7 @@ $$
 \end{align}
 $$
 
-**Expansion (E)**: “How much gene content can be inserted in this variable region?” Answered by calculating the maximum number of newly introduced genes by a single genome in the region. 
+**Expansion (E)**: “How much gene content can be inserted in this variable region?” Answered by calculating the maximum number of newly introduced genes by a single genome in the region.
 
 
 $$
@@ -371,7 +439,7 @@ $$
 \begin{align}
     W = \frac{H}{G}
 \end{align}
-$$    
+$$
 
 **Composite Variability Score (CVS)** “How _special_ is the variable region?” Answered by calculating the degree of genomic variation inside a given VR. We use the geometric mean to balance four different terms, requiring higher scores in all metrics to reach a high CVS score.
 
@@ -379,7 +447,7 @@ $$
 \begin{align}
     CVS = (C' D' E' W')^{\frac{1}{4}}
 \end{align}
-$$    
+$$
 
 For the calculation of the CVS, all terms are normalized according to min-max normalization.
 
@@ -387,13 +455,13 @@ $$
 \begin{align}
     Z_{\min} = \min(Z), \quad Z_{\max} = \max(Z)
 \end{align}
-$$ 
+$$
 
 $$
 \begin{align}
     Z' = \frac{(Z - Z_{\min})}{(Z_{\max} - Z_{\min})}
 \end{align}
-$$ 
+$$
 
 ## Position-wise sequence comparisons
 
@@ -402,55 +470,57 @@ The volcano-shaped sequence similarity profile around region #148 in __Figure 5_
 We split this analysis into two runs of the same script because of an intermediate step that needs anvi'o programs. The first execution with the `--preprocess` flag scans `all_combined.txt` for the user-supplied region IDs (here `147 148 149 150 151`, which covers the envelope biogenesis operon and a few extra SynGCs on either side) and writes out a list of the conventional gene cluster IDs that those regions correspond to. Anvi'o's gene cluster export program expects GC IDs rather than SynGC or region IDs, so this preprocessing step is what bridges the pangenome graph world back into the conventional pangenome world.
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/similarity_per_position.py \
-    -c $WD/04_RESULTS/all_combined.txt \
-    -d $WD/04_RESULTS/ \
-    -f 147 148 149 150 151 \
-    --preprocess
-conda deactivate
+python3 00_SCRIPTS/similarity_per_position.py \
+        -c 02_RESULTS/all_combined.txt \
+        -d 02_RESULTS/ \
+        -f 147 148 149 150 151 \
+        --preprocess
 ```
 
 Running `anvi-get-sequences-for-gene-clusters` we can then export these gene clusters from the {% include ARTIFACT name='genomes-storage-db' %} and {% include ARTIFACT name='pan-db' %}. The `--split-output-per-gene-cluster` flag produces one FASTA file per gene cluster, each containing the amino acid sequences of every contributing genome aligned within that cluster.
 
+This command requires us to leave the conda environment for `henoch_et_al_2026` and activate `anvio-dev` temporarly:
+
 ```bash
-conda activate anvio-dev
-anvi-get-sequences-for-gene-clusters \
-    -p $WD/03_PAN/UNDATIPELAGIBACTER-PAN.db \
-    -g $WD/03_PAN/UNDATIPELAGIBACTER-GENOMES.db \
-    --gene-cluster-ids-file $WD/04_RESULTS/gene_clusters.txt \
-    --split-output-per-gene-cluster \
-    -O $WD/04_RESULTS/
+# deactivate henoch_et_al_2026 and activate anvio-dev
 conda deactivate
+conda activate anvio-dev
+
+# get the sequences of interest
+anvi-get-sequences-for-gene-clusters -p 01_DATA/UNDATIPELAGIBACTER-PAN.db \
+                                     -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db \
+                                     --gene-cluster-ids-file 02_RESULTS/gene_clusters.txt \
+                                     --split-output-per-gene-cluster \
+                                     -O 02_RESULTS/
+
+# deactivate anvio-dev and activate henoch_et_al_2026
+conda deactivate
+conda activate henoch_et_al_2026
 ```
 
 A second execution of the script without the `--preprocess` flag reads these per-cluster FASTA files back in and computes the average pairwise amino acid identity (AAI) at each column of the alignment, using BioPython's pairwise comparison routines. The script then orders the SynGCs along the genomic axis and concatenates their per-position AAI values into the single curve plotted in __Figure 5__. Positions in conserved SynGCs end up at the high end of the curve (~97% on average for the flanking operons), positions in the _Skp_ gene drop to the floor (~40%), and positions in the genes neighboring _Skp_ within the same operon take intermediate values, producing the characteristic volcano pattern.
 
 ```bash
-conda activate anvio-analysis
-python3 $WD/00_SCRIPTS/similarity_per_position.py \
-    -c $WD/04_RESULTS/all_combined.txt \
-    -d $WD/04_RESULTS/ \
-    -pw 6.27 \
-    -ph 3.23 \
-     -f 147 148 149 150 151
-conda deactivate
+python3 00_SCRIPTS/similarity_per_position.py -c 02_RESULTS/all_combined.txt \
+                                              -d 02_RESULTS/ \
+                                              -pw 6.27 \
+                                              -ph 3.23 \
+                                              -f 147 148 149 150 151
 ```
 
-[![similarity_per_position](images/similarity_per_position.png)](images/similarity_per_position.png){:.center-img .width-60}
+{% include IMAGE path="images/similarity_per_position.png" width="80" caption="The amino acid seuqence identity across graph nodes around Skp" %}
+
 
 The same procedure can in principle be applied to any other variable region of interest by simply changing the `-f` argument to the desired region IDs, which makes this a generic recipe for inspecting fine-grained sequence variation within and around any region the pangenome graph flags as variable.
 
-The prediction of the protein structures in the upper-part of __Figure 5__ was carried out on an high performance computing cluster with Colabfold and are not part of this reproducible workflow. In case you want to still reproduce these structures, all amino acid sequences for the genes in region #148 are included in `position_1401_aa.fa` and instructions on how to run Colabfold can be found [here](https://github.com/sokrypton/colabfold). A ready to use online version of Colabfold is also available [here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb).
+The prediction of the protein structures in the upper-part of __Figure 5__ was carried out on an high performance computing cluster with Colabfold and are not part of this reproducible workflow. In case you want to still reproduce these structures, all amino acid sequences for the genes in region #148 are included in `02_RESULTS/position_1401_aa.fa` and instructions on how to run Colabfold can be found [here](https://github.com/sokrypton/colabfold).
+
+An onine, ready-to-use version of Colabfold is also available [here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb).
 
 ## Closing notes
 
-I really hope you found this reproducible workflow useful. If you ran into something that did not behave as described, please open an issue on the [anvi'o GitHub repository](https://github.com/merenlab/anvio/issues) or leave a comment below; both are read regularly and concrete bug reports help us improve the tooling for everyone.
+If you ran into something that did not behave as described, please open an issue on the [anvi'o GitHub repository](https://github.com/merenlab/anvio/issues) or leave a comment below; both are read regularly and bug reports help us improve the tooling for everyone.
 
 If you would like to **build a pangenome graph from your own genomes** rather than only analyzing the _Undatipelagibacter_ one described here, the [pangenome graph tutorial](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/) walks through the same steps starting from raw FASTA files.
 
-If our work is useful to your own, please cite the paper:
-
-> Henoch et al. (2026). _Synteny-aware microbial pangenomes reveal blueprints of genomic variation._
-
-Thanks for reading, and feel free to reach out through the channels above with questions, suggestions, or just to share what you discovered in your own pangenome graphs.
+Thanks for reading, and feel free to reach out to me with questions, suggestions, or just to share what you discovered in your own pangenome graphs.
