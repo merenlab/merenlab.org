@@ -1,7 +1,7 @@
 ---
 layout: page
-title: A reproducible workflow for Füssel et al. 2025
-modified: 2025-07-03
+title: A reproducible workflow for Füssel et al. 2026
+modified: 2026-05-20
 excerpt: "A bioinformatics workflow for genomically guided compound prediction in cultures and co-cultures"
 comments: true
 authors: [sam]
@@ -28,25 +28,25 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 ### Background
 
-Microorganisms in the surface ocean remineralize the majority (~84%) of photosynthetically fixed carbon within minutes to days, with ~16% persisting for weeks to years, and <1% entering the long-lived reservoir of dissolved organic matter (DOM) that is comparable in size to the atmospheric carbon dioxide pool. The activity of microbial communities shapes the molecular composition of the marine DOM pool and drives the sequential transformtion of labile to persistent DOM. It is challenging to gain mechanistic insights into these microbially mediated processes in complex natural environments. Methodological and technological limitations such as the incomplete functional annotation of genes and the selective and incomplete recovery of dissolved organic compounds from seawater complicate the effective, direct integration of biological and chemical data. To explore the nature of microbial interactions driving DOM transformation, we used four bacterial isolates from the same North Sea water sample in a fully factorial setup, allowing us to study and compare the fates of several thousand largely unknown molecular formulas across eleven microbial co-cultures.
+Microorganisms in the surface ocean remineralize the majority (~84%) of photosynthetically fixed carbon within minutes to days, with ~16% persisting for weeks to years, and <1% entering the long-lived reservoir of dissolved organic matter (DOM) that is comparable in size to the atmospheric carbon dioxide pool. The activity of microbial communities shapes the molecular composition of the marine DOM pool and drives the sequential transformation of labile to persistent DOM. It is challenging to gain mechanistic insights into these microbially mediated processes in complex natural environments. Methodological and technological limitations such as the incomplete functional annotation of genes and the selective and incomplete recovery of dissolved organic compounds from seawater complicate the integration of biological and chemical data. To explore the nature of microbial interactions driving DOM transformation, we used four bacterial isolates from the same North Sea water sample in a fully factorial setup, allowing us to compare the fates of several thousand largely unknown molecular formulas across eleven microbial co-cultures.
 
 ### Cultures
 
-We cultured four isolates that belonged to three genera (*Pelagimonas*, *Sulfitobacter*, *Phaeobacter*) within the family *Roseobacteraceae*, a diverse clade of heterotrophic bacteria in a combinatorial fashion (i.e., as individuals as well as co-cultures two, three, and all four strains) as triplicates using an artificial seawater minimal medium, which contained 1 g/L of glucose, trace elements, vitamins, and a bicarbonate buffer.
+We cultured four isolates belonging to three genera (*Pelagimonas*, *Sulfitobacter*, *Phaeobacter*) of family *Roseobacteraceae*, a diverse clade of heterotrophic bacteria. Triplicate cultures were prepared in a combinatorial fashion (i.e., as individual strains as well as co-cultures of two, three, and all four strains) using an artificial seawater minimal medium containing 1 g/L of glucose, trace elements, vitamins, and a bicarbonate buffer.
 
-The four strains had divergent metabolic capabilities from their genomes and substrate utilization preferences in culture. *Pelagimonas varians* SH4-1 (**SH4**) has a more extensive set of sugar metabolism genes than the other three strains, and grew on a variety of organic acids and monosaccharides, as well as a few polysaccharides. In the glucose minimal medium, SH4 had a negligible lag phase and grew to a higher optical density compared to the other strains. *Phaeobacter* sp. **SH40** and *Sulfitobacter* sp. SH22-1 (**SH22**) grew well on organic acids and relatively poorly on sugars, and *Sulfitobacter* sp. SH24-1b (**SH24**) exhibited limited growth on all tested substrates. After a longer lag phase compared to SH4, the three other strains also grew more slowly to stationary phase.
+The four strains had divergent metabolic capabilities encoded in their genomes and preferences for substrate utilization in culture. *Pelagimonas varians* SH4-1 (**SH4**) encodes a more extensive set of sugar metabolism genes than the other three strains and grew on a variety of organic acids and monosaccharides, plus a few polysaccharides. In the glucose minimal medium, SH4 had a negligible lag phase and grew to a higher optical density than the other strains. *Phaeobacter* sp. **SH40** and *Sulfitobacter* sp. SH22-1 (**SH22**) grew well on organic acids and relatively poorly on sugars. *Sulfitobacter* sp. SH24-1b (**SH24**) exhibited limited growth on all tested substrates. Compared to SH4, SH40, SH22, and SH24 grew more slowly to stationary phase after a longer lag phase.
 
-Growth in co-culture contrasted with growth in monoculture. The observed growth exceeded modeled growth based on competitive glucose consumption, especially in co-cultures with SH4. The discrepancy between co-culture growth curves and models generally increased with the addition of strains, suggesting metabolic cross-feeding across strains.
+Growth in co-culture contrasted with growth in monoculture. Observed growth exceeded modeled growth based on competitive glucose consumption, especially in co-cultures with SH4. The discrepancy between co-culture growth curves and models generally increased with the addition of strains, suggesting cross-feeding across strains.
 
 ### Untargeted metabolomics
 
-We extracted DOM from the filtered (0.2 µm) culture supernatant of each biological replicate at the beginning of the experiment and after 255 hours. DOM was extracted via Priority PolLutant (PPL) SPE cartridges, which preferentially retain hydrophobic organic compounds. Analytes were then measured by FT-ICR-MS in negative ion mode using electrospray ionization. The mass error was <0.1 ppm for all samples following calibration to endogenous peaks. Only masses detected in all replicates of a culture and not present in blanks were retained. Molecular formulas were assigned to spectra by [ICBM-OCEAN](https://pubs.acs.org/doi/10.1021/acs.analchem.9b05659) software.
+We extracted DOM from the filtered (0.2 µm) culture supernatant of each biological replicate at the beginning of the experiment and after 255 hours. DOM was extracted via Priority PolLutant (PPL) SPE cartridges, which preferentially retain hydrophobic organic compounds. Analytes were measured by FT-ICR-MS in negative ion mode using electrospray ionization. Mass error was <0.1 ppm for all samples following calibration to endogenous peaks. Masses detected in all replicates of a culture and not present in blanks were retained for analysis. Molecular formulas were assigned to spectra by [ICBM-OCEAN](https://pubs.acs.org/doi/10.1021/acs.analchem.9b05659) software.
 
-Molecular formula fates were tracked from pure culture to co-cultures. The fastest growing strain, SH4, yielded 2,216 formulas, or 89% of unique formulas found in pure cultures of the four strains. Across all co-cultures, 2,066 formulas were also found in pure cultures, while 2,508 were not. A majority of formulas novel to the co-cultures were unique to a single co-culture.
+The occurrence of molecular formulas was compared between pure cultures and co-cultures. The fastest growing strain, SH4, yielded 2,216 formulas, or 89% of unique formulas found in the pure cultures of the four strains. Of the formulas found in co-cultures, 2,066 formulas were also found in pure cultures, while 2,508 were not. A majority of formulas unique to co-cultures were only found in a single co-culture.
 
 ### Compound prediction
 
-A formula can represent various isomers, so we used the metabolic networks predicted for each of the strains and groups of strains in co-cultures to propose molecular identifications of the formulas, as described in this workflow. This approach involves the anvi'o {% include ARTIFACT name="reaction-network" %}. Reaction networks are constructed from [KEGG Ortholog](https://www.genome.jp/kegg/ko.html) (KO) annotations of genes (see {% include ARTIFACT name="anvi-run-kegg-kofams" %}) and associated reaction and compound entries from the [ModelSEED Biochemistry Database](https://github.com/ModelSEED/ModelSEEDDatabase) (see {% include ARTIFACT name="anvi-setup-modelseed-database" %}). KOs are often annotated with KEGG reactions and EC numbers, indicating potential reactions that may be catalyzed by a gene protein product. Genomic reaction networks of co-cultured strains were merged to produce networks representing the combined metabolic potential of the community.
+A formula can represent various isomers, so we used the metabolic networks predicted for each of the strains and groups of co-cultured strains to propose molecular identifications of the formulas, as described in this workflow. This approach involves the anvi'o {% include ARTIFACT name="reaction-network" %}. Reaction networks are constructed from [KEGG Ortholog](https://www.genome.jp/kegg/ko.html) (KO) annotations of genes (see {% include PROGRAM name="anvi-run-kegg-kofams" %}) and associated reaction and compound entries from the [ModelSEED Biochemistry Database](https://github.com/ModelSEED/ModelSEEDDatabase) (see {% include PROGRAM name="anvi-setup-modelseed-database" %}). KOs are often annotated with KEGG reactions and EC numbers, indicating potential reactions that may be catalyzed by a gene protein product. Individual genomic reaction networks of strains were merged for each co-culture to produce networks representing the combined metabolic potential of the community.
 
 For each molecular feature in a culture, we matched its neutral formula, formula with one subtracted proton and charge of -1, and formula with two subtracted protons and charge of -2 to the formulas of compounds in the culture reaction network. The network often contains compounds in the protonation state that would exist in aqueous solution, so it is necessary to also search for -1 and -2 variants of the neutral formula to capture metabolites such as mono- and dicarboxylates.
 
@@ -64,11 +64,11 @@ If a formula is found in multiple cultures, a compound match must occur in all o
 
 ##### KO annotation specificity
 
-Matching compounds must be strongly associated with KO annotations. We evaluated whether there was sufficient evidence to include compounds in the reaction network given the specificity of KO and associated reaction annotations involving the compounds. We ignored compounds included in the network via KOs associated with higher EC categories, such as 1.1.1.- and 2.3.-.-, or broad EC categories, such as 1.1.1.1 (alcohol dehydrogenase), that are linked to numerous ModelSEED reactions. Likewise, we ignored compounds included in the network via KOs with unconstrained catalytic capabilities, such as K00128 (aldehyde dehydrogenase), which is associated with a variety of reactions not necessarily catalyzed by the particular gene product. Many KOs, however, are associated with a single reaction, reducing the uncertainty that participating compounds are actually involved in the organism's metabolism.
+Matching compounds must be strongly associated with KO annotations. We evaluated whether there was sufficient evidence to include compounds in the reaction network given the specificity of KO and associated reaction annotations involving the compounds. We ignored compounds included in the network via KOs associated with higher EC categories, such as 1.1.1.- and 2.3.-.-, or broad EC categories, such as 1.1.1.1 (alcohol dehydrogenase), that are linked to numerous ModelSEED reactions. Likewise, we ignored compounds included in the network via KOs with unconstrained catalytic capabilities, such as K00128 (aldehyde dehydrogenase), which is associated with a variety of reactions not necessarily catalyzed by the particular gene product. Many KOs, however, are associated with a single reaction, reducing the uncertainty that participating compounds are truly involved in the organism's metabolism.
 
 ##### Production pathway
 
-Matching compounds must be produced by reactions in a network, not just consumed. Furthermore, reactions are more likely to occur in the organism when they are well-connected to other reactions encoded by the network rather than isolated from other parts of the network, particularly where reaction substrates and products do not arise from and feed into other reactions in the network. We checked KEGG pathway maps for reaction connectivity. Gene KO annotations are also occasionally wrong, with a lower-ranking KO hit to the gene sequence rather than the top hit representing the true protein product, and co-occurrence of a KO with others in a KEGG pathway bolsters confidence in the KO. Additionally, annotation of multiple genes with the same KO bolsters annotation confidence.
+Matching compounds must be produced by reactions in a network, not just consumed. Furthermore, reactions are more likely to occur in the organism when they are well-connected to other reactions encoded by the network rather than isolated from other parts of the network, particularly where reaction substrates and products do not arise from and feed into other reactions in the network. We checked KEGG pathway maps for reaction connectivity. Gene KO annotations are also occasionally wrong, with a lower-ranking KO hit to the gene sequence rather than the top hit representing the true protein product; co-occurrence of a KO with others in a KEGG pathway bolsters confidence in the KO annotation. Additionally, the annotation of multiple genes with the same KO bolsters annotation confidence.
 
 ##### Compound chemistry
 
@@ -76,19 +76,19 @@ Chemical considerations support the existence of a matching compound. Predicted 
 
 ##### Known biological isomers
 
-There is the possibility that the true compound represented by a formula is not encoded in the reaction network. It is therefore sensible to compare the number of compounds with the formula in the network to the number in a large database of metabolites. We find the number of isomeric compounds in the ModelSEED Biochemistry compound database. This database includes pesticides and other synthetic compounds, many of which are not represented in the KEGG compound database, one of the databases incorporated into the ModelSEED database. Thus we also subset the isomeric ModelSEED compounds to those in the KEGG database. Furthermore, we subset isomeric KEGG compounds that participate in KEGG reactions, as these tend to be more common biological substrates. All else equal, matching compounds with fewer "potential false negative" isomers in the reference databases are more likely to actually be in the culture than compounds with more isomers.
+The true compound represented by a formula may not be encoded in the reaction network. It is therefore sensible to compare the number of compounds in the network with the formula to the number of compounds with the formula in a large database of metabolites. Therefore, we retrieve the number of isomeric compounds in the ModelSEED Biochemistry compound database for each formula. This database includes pesticides and other synthetic compounds, many of which are not represented in the KEGG compound database, one of the databases incorporated into the ModelSEED database. Thus we also consider the subset of isomeric ModelSEED compounds in the KEGG database. We further subset isomeric KEGG compounds that participate in KEGG reactions, as these tend to be more common biological substrates. All else equal, matching compounds with a smaller number "potential false negative" isomers in the reference databases are more likely to truly be in the culture.
 
 ## Reproducing this workflow
 
 ### Computational environment
 
-This workflow uses the development version of [anvi'o](https://anvio.org) (`8-dev`), which you can install and activate following [anvi'o installation instructions](https://anvio.org/install/#development-version). Any more recent version of anvi'o should also work successfully. Load the anvi'o conda environment before running the workflow. The ModelSEED database should be installed in the default location for the anvi'o environment by {% include PROGRAM name="anvi-setup-modelseed-database" %}.
+This workflow uses the development version of [anvi'o](https://anvio.org) (`9-dev`), which you can install and activate following [anvi'o installation instructions](https://anvio.org/install/#development-version). Any more recent version of anvi'o should also work successfully. Load the anvi'o conda environment before running the workflow. The ModelSEED database should be installed in the default location for the anvi'o environment by {% include PROGRAM name="anvi-setup-modelseed-database" %}.
 
 The computational demands of reproducing the workflow are minimal. All commands below should run within a few minutes or less on a modest laptop.
 
 ### The data pack
 
-Below you will find brief descriptions of individual files used in our downstream analyses. If you would like to follow this workflow, you can download the following data pack that includes the four genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (or replace directory names manually):
+Below you will find brief descriptions of individual files used in our downstream analyses. If you would like to follow this workflow, you can download the following data pack that includes the four genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (replacing directory names as appropriate):
 
 ``` bash
 # make sure there is a Downloads directory at your home
@@ -103,7 +103,7 @@ curl -o roseobacteraceae-dom-datapack.tar.gz https://merenlab.org/data/DOM-molec
 # unpack the data pack
 tar -zxvf roseobacteraceae-dom-datapack.tar.gz
 
-# go into the resulting data directory:
+# go into the resulting data directory
 cd roseobacteraceae-dom-datapack
 ```
 
@@ -120,9 +120,9 @@ If you are here, you should be looking at a directory structure like this:
 
 ### Genomes
 
-The files with the extension `.db` represent the four isolate genomes sequenced with PacBio Hifi long reads. To include them in our computational workflows we used the anvi'o program {% include PROGRAM name="anvi-gen-contigs-database" %} to turn the FASTA files into so-called {% include ARTIFACT name="contigs-db" %} files for downstream analyses. This file format contains much more information than a FASTA file, including gene coordinates, function annotations, and metabolic module membership of individual genes that will be essential to have in this workflow.
+The files with the extension `.db` represent the four isolate genomes sequenced with PacBio HiFi long reads. To include them in our computational workflows we used the anvi'o program {% include PROGRAM name="anvi-gen-contigs-database" %} to turn the FASTA files into so-called {% include ARTIFACT name="contigs-db" %} files for downstream analyses. This file format contains much more information than a FASTA file, including gene coordinates, function annotations, and metabolic module membership of individual genes, which will be essential for this workflow.
 
-You can use the program {% include PROGRAM name="anvi-db-info" %} to learn more about the contents of a given {% include ARTIFACT name="contigs-db" %}:
+You can use the {% include PROGRAM name="anvi-db-info" %} program to learn more about the contents of a given {% include ARTIFACT name="contigs-db" %}:
 
 ``` bash
 anvi-db-info SH22-CONTIGS.db
@@ -216,7 +216,7 @@ Here are the first few lines of this table, so you can browse the individual col
 
 |**`mz`**|**`diff`**|**`reference`**|**`formula`**|**`formula_isotopefree`**|**`formula_ion`**|**`homseries`**|**`totalc`**|**`HC`**|**`OC`**|**`C`**|**`H`**|**`O`**|**`N`**|**`S`**|**`P`**|**`MDL_3`**|**`ResPow`**|**`m1`**|**`SE`**|**`present_in`**|**`AI`**|**`AImod`**|**`DBE`**|**`Aromatic`**|**`AromaticO_rich`**|**`AromaticO_poor`**|**`Highlyunsaturated`**|**`HighlyunsaturatedO_rich`**|**`HighlyunsaturatedO_poor`**|**`Unsaturated`**|**`UnsaturatedO_rich`**|**`UnsaturatedO_poor`**|**`UnsaturatedwithN`**|**`Saturated`**|**`SaturatedO_rich`**|**`SaturatedO_poor`**|**`mean_signal_to_MDL`**|**`homnetworkmember`**|**`diff_filter`**|**`alternative_formula`**|**`SH4_Start`**|**`SH22_Start`**|**`SH24_Start`**|**`SH40_Start`**|**`SH22_SH4_Start`**|**`SH24_SH4_Start`**|**`SH4_SH40_Start`**|**`SH22_SH24_Start`**|**`SH22_SH40_Start`**|**`SH24_SH40_Start`**|**`SH22_SH24_SH4_Start`**|**`SH22_SH4_SH40_Start`**|**`SH24_SH4_SH40_Start`**|**`SH22_SH24_SH40_Start`**|**`SH22_SH24_SH4_SH40_Start`**|**`SH4_Final`**|**`SH22_Final`**|**`SH24_Final`**|**`SH40_Final`**|**`SH22_SH4_Final`**|**`SH24_SH4_Final`**|**`SH4_SH40_Final`**|**`SH22_SH24_Final`**|**`SH22_SH40_Final`**|**`SH24_SH40_Final`**|**`SH22_SH24_SH4_Final`**|**`SH22_SH4_SH40_Final`**|**`SH24_SH4_SH40_Final`**|**`SH22_SH24_SH40_Final`**|**`SH22_SH24_SH4_SH40_Final`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|95.0138555132338|0.0281917|96.021129238|C_5 H_4 O_2|C5H4O2|C_5 H_3 O_2|4610|5|0.800|0.400|5|4|2|0|0|0|2234458.755|2256845.978|95.0138533467|0.0475922619|46|0.67|0.75|4|1|0|1|0|0|0|0|0|0|0|0|0|0|2.40|50|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00005244|0.00006392|0.00040420|0.00000000|0.00000000|0.00000000|0.00000000|0.00007395|0.00000000|0.00000000|
+|95.0138555132338|0.0281917|96.021129238|C_5&nbsp;H_4 O_2|C5H4O2|C_5&nbsp;H_3 O_2|4610|5|0.800|0.400|5|4|2|0|0|0|2234458.755|2256845.978|95.0138533467|0.0475922619|46|0.67|0.75|4|1|0|1|0|0|0|0|0|0|0|0|0|0|2.40|50|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00005244|0.00006392|0.00040420|0.00000000|0.00000000|0.00000000|0.00000000|0.00007395|0.00000000|0.00000000|
 |95.0502412690511|0.0320849|96.057514619|C_6 H_8 O_1|C6H8O|C_6 H_7 O_1|4610|6|1.333|0.167|6|8|1|0|0|0|2234458.755|2147563.946|95.0502396249|0.0406344107|56|0.40|0.45|3|0|0|0|1|0|1|0|0|0|0|0|0|0|2.36|50|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00005490|0.00000000|0.00000000|0.00000000|0.00000000|0.00010295|0.00010424|0.00000000|0.00000000|0.00000000|0.00015376|0.00000000|0.00000000|0.00000000|0.00000000|
 |97.0294959619701|0.0698105|98.036779238|C_5 H_6 O_2|C5H6O2|C_5 H_5 O_2|4610|5|1.200|0.400|5|6|2|0|0|0|2235191.822|2138590.306|97.0294935409|0.0620774329|85|0.33|0.50|3|0|0|0|1|0|1|0|0|0|0|0|0|0|2.70|50|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00007827|0.00000000|0.00000000|0.00000000|0.00000000|0.00011741|0.00022261|0.00000000|0.00000000|0.00000000|0.00014084|0.00008886|0.00020904|0.00010036|0.00014362|
 |100.0404053413720|0.0349439|101.047678242|C_4 H_7 O_2 N_1|C4H7NO2|C_4 H_6 O_2 N_1|3423|4|1.750|0.500|4|7|2|1|0|0|2236291.873|2138425.208|100.0404041292|0.0737641951|24|0.00|0.00|2|0|0|0|0|0|0|1|0|1|1|0|0|0|1.41|27|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00005162|0.00011517|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|
@@ -251,42 +251,59 @@ Here are the first few lines of this table, so you can browse the individual col
 
 The workflow was originally implemented in a Jupyter notebook that used anvi'o libraries to process the anvi'o {% include ARTIFACT name="reaction-network" %}.
 
-Python cells of the Jupyter notebook are split up into sections of this workflow document with accompanying explanations and analyses of the output. If you wish to follow along interactively in Python, you can enter `python3` in your terminal and run the code blocks sequentially. The following package imports are first required in the Python interactive shell.
+Python cells of the Jupyter notebook are split up into sections of this workflow document with accompanying explanations and analyses of the output.
+
+Ensure that the [RDKit](https://www.rdkit.org/) cheminformatics Python package is installed:
+
+```bash
+pip install rdkit
+```
+
+If you wish to follow along interactively in Python, you can enter `python3` in your terminal and run the code blocks sequentially. The following package imports are first required in the Python interactive shell:
 
 ```python
+# Import non-anvi'o modules.
 import os
 import sys
+import math
 import rdkit
 import itertools
 import numpy as np
 import pandas as pd
 
-from rdkit import Chem
+from pathlib import Path
 from copy import deepcopy
 from typing import Iterable
 from collections import defaultdict
+
+from rdkit import Chem
+from rdkit.Chem.Draw import rdMolDraw2D
 ```
 
-Imports from anvi'o will fail if the anvi'o package isn't in the Python module search path, a problem that can arise in Jupyter notebooks. If you have used the standard installation instructions on the anvi'o installation page, running this command should solve that issue:
+Imports from anvi'o will fail if the anvi'o package isn't in the Python module search path, a problem that can arise in Jupyter notebooks. If you have followed the standard installation instructions on the anvi'o installation page with the suggested file path, running this command should solve that issue:
 
 ```python
 sys.path.append('~/github/anvio')
 ```
 
-Then you should be able to run these two lines without any errors:
+Then you should be able to run these two lines in the Python shell without any errors:
 
 ```python
+# Import anvi'o modules.
 import anvio
 import anvio.reactionnetwork as rn
 ```
 
+Further commands in this workflow are in the Python shell.
+
 ### Genomic networks
 
-The four {% include ARTIFACT name="contigs-db" %} files in our data pack for the four strains we have worked with contain gene calls with KO annotations and reaction networks based on the KOs. Genes were annotated with KOs using {% include PROGRAM name="anvi-run-kegg-kofams" %}, and networks were constructed with {% include PROGRAM name="anvi-reaction-network" %}.
+The four {% include ARTIFACT name="contigs-db" %} files in our data pack for the four strains contain gene calls with KO annotations and reaction networks based on the KOs. Genes were annotated with KOs using {% include PROGRAM name="anvi-run-kegg-kofams" %}. KOfam models used for KO annotation come from the 2023-09-22 snapshot of the KEGG database (which can be set up in anvi'o with the command, `anvi-setup-kegg-data --kegg-snapshot v2023-09-22`). Reaction networks were constructed with {% include PROGRAM name="anvi-reaction-network" %}, using KO KEGG reaction annotations from the snapshot of the v2024-09-08 snapshot of the KEGG database (set up in anvi'o with the command, `anvi-setup-kegg-data --kegg-snapshot v2025-09-08`) and the 2020-09-01 `v.1.1.1` release of the ModelSEED Biochemistry database (set up in anvi'o with the command `anvi-setup-modelseed-database`).
 
 List the strains and their database files. Load reaction networks into memory. The dictionary of reaction networks is keyed by tuples, as co-culture "metagenomic" reaction networks keyed by tuples of strain IDs will be added to the dictionary.
 
 ```python
+# Identify data for strains.
 all_strains = ['SH22', 'SH24', 'SH4', 'SH40']
 strain_names = {
     'SH22': 'Sulfitobacter sp. SH22-1',
@@ -298,6 +315,7 @@ all_contigs_dbs = [f'{strain}-CONTIGS.db' for strain in all_strains]
 ```
 
 ```python
+# Load genomic reaction networks.
 con = rn.Constructor()
 all_networks: dict[tuple[str], rn.GenomicNetwork] = {}
 for contigs_db in all_contigs_dbs:
@@ -310,6 +328,7 @@ for contigs_db in all_contigs_dbs:
 Avoid the inclusion of reactions on the basis of higher EC categories, such as 1.1.1.- or 2.3.-.-, that annotate KOs. Higher categories encompass a range of ModelSEED reactions that cannot be confidently attributed to the particular enzyme. Inclusion of these reactions increases the likelihood of false positive formula matches to compounds that are not actually produced by the organism. Networks filtered to removed EC categories are called "refined" networks. These network are used in formula matching.
 
 ```python
+# Remove parts of the network built on vague EC category annotations.
 all_refined_networks: dict[tuple[str], rn.GenomicNetwork] = {}
 for strain_combo, unrefined_network in all_networks.items():
     modelseed_reaction_ids_to_retain = []
@@ -332,11 +351,12 @@ for strain_combo, unrefined_network in all_networks.items():
 
 ### Networks based on KEGG reactions
 
-Compare the sizes of reaction networks constructed in two ways: first, using the default of both KEGG reaction and EC number annotations of KOs, and second, using just KEGG reaction annotations. KEGG reactions are more specific than EC numbers, which often map to a larger group of reactions in the ModelSEED database, as explained above in [KO annotation specificity](#ko-annotation-specificity). The "EC+KEGG" network is prone to more false positive formula-compound matches that must be evaluated and fewer false negatives, or missing formula-compound matches, than the "just KEGG" network.
+Compare the sizes of reaction networks constructed in two ways: first, using the default of both KEGG reaction and EC number annotations of KOs, and second, using just KEGG reaction annotations. KEGG reactions are more specific than EC numbers, which often map to a larger group of reactions in the ModelSEED database, as explained above in [KO annotation specificity](#ko-annotation-specificity). The "EC+KEGG" network is prone to more false positive formula-compound matches that must be evaluated but fewer false negatives, or missing formula-compound matches, than the "just KEGG" network.
 
 Although it would be useful to design a flag in {% include PROGRAM name="anvi-reaction-network" %} that allows a network to be constructed from KEGG reactions excluding EC numbers, for now we will remove the parts of the "EC+KEGG" networks that are based solely on EC numbers. This is achieved using the function from the anvi'o library that subsets networks by select items.
 
 ```python
+# Create subsetted networks built on KEGG reaction annotations, ignoring parts of the network built on EC numbers.
 all_kegg_networks: dict[tuple[str], rn.GenomicNetwork] = {}
 for strain_combo, ec_kegg_network in all_networks.items():
     modelseed_reaction_ids_to_retain = []
@@ -353,6 +373,7 @@ for strain_combo, ec_kegg_network in all_networks.items():
 Merge genomic reaction networks to represent co-culture "metagenomic" reaction networks. The network merge function avoids duplicate entries, such as KOs or reactions shared by both networks. Genes with identical anvi'o gene caller IDs (GCIDs) in different genomes would be considered the same in merging, so the identity of the genes must be maintained by adjusting integer GCIDs to be non-overlapping. Since the number of genes in these genomes is less than 10,000, add 10,000 to SH22 genome GCIDs, 20,000 to SH24 GCIDs, 30,000 to SH4 GCIDs, and 40,000 to SH40 GCIDs. Each gene in the network can thereby be traced back to the source genome, with SH22 genes, for example, having GCIDs between 10,000 and 20,000.
 
 ```python
+# Function to reindex genes in individual networks to allow them to be traced to strains in merged networks.
 def make_gcids_nonoverlapping(networks: dict[tuple[str], rn.GenomicNetwork], increment: int = 10000) -> None:
     i = increment
     for network in networks.values():
@@ -369,6 +390,7 @@ def make_gcids_nonoverlapping(networks: dict[tuple[str], rn.GenomicNetwork], inc
 ```
 
 ```python
+# Function to merge individual networks into co-culture networks.
 def merge_networks(networks: dict[tuple[str], rn.GenomicNetwork]) -> None:
     merged_networks = {}
     for r in range(2, len(networks) + 1):
@@ -386,12 +408,15 @@ def merge_networks(networks: dict[tuple[str], rn.GenomicNetwork]) -> None:
 ```
 
 ```python
+# Merge unrefined ("default") networks based on both KEGG reactions and EC numbers.
 make_gcids_nonoverlapping(all_networks)
 merge_networks(all_networks)
 
+# Merge "refined" networks based on both KEGG reactions and EC numbers.
 make_gcids_nonoverlapping(all_refined_networks)
 merge_networks(all_refined_networks)
 
+# Merge refined networks based only on KEGG reactions ("KEGG networks").
 make_gcids_nonoverlapping(all_kegg_networks)
 merge_networks(all_kegg_networks)
 ```
@@ -399,6 +424,7 @@ merge_networks(all_kegg_networks)
 List the strain combination tuples identifying the co-culture networks.
 
 ```python
+# Get IDs for co-cultures.
 all_strain_combos = list(all_networks)
 ```
 
@@ -407,6 +433,7 @@ all_strain_combos = list(all_networks)
 Compare the three types of networks constructed on the basis of varying KO annotations: KEGG reactions and all EC numbers ("default networks"), KEGG reactions and EC numbers but not higher EC categories ("refined networks"), and just KEGG reactions ("KEGG networks"). How many compounds are removed from the default networks excluding higher EC categories and EC numbers altogether?
 
 ```python
+# Report the number of compounds in each strain network of each type.
 header = ['strains', 'EC+KEGG_network_compounds', 'refined_network_compounds', 'KEGG_network_compounds']
 rows = []
 for strain_combo, ec_kegg_network in all_networks.items():
@@ -418,6 +445,7 @@ for strain_combo, ec_kegg_network in all_networks.items():
     row.append(len(refined_network.metabolites))
     row.append(len(kegg_network.metabolites))
     rows.append(row)
+
 network_compound_counts = pd.DataFrame(rows, columns=header).set_index('strains')
 network_compound_counts['refined_compound_fraction'] = network_compound_counts['refined_network_compounds'] / network_compound_counts['EC+KEGG_network_compounds']
 network_compound_counts['KEGG_compound_fraction'] = network_compound_counts['KEGG_network_compounds'] / network_compound_counts['EC+KEGG_network_compounds']
@@ -425,25 +453,29 @@ print(network_compound_counts.to_string())
 ```
 
 ```python
+# Report the proportion of compounds removed in the refined and KEGG networks compared to the default networks.
 mean_refined_compound_fraction = network_compound_counts['refined_compound_fraction'].mean()
 mean_kegg_compound_fraction = network_compound_counts['KEGG_compound_fraction'].mean()
 print(f"An average of {round((1 - mean_refined_compound_fraction) * 100, 1)}% of compounds in the \"EC+KEGG\" network are removed ignoring higher EC categories in the \"refined\" network")
-print(f"{round((1 - mean_kegg_compound_fraction) * 100, 1)}% of compounds in the \"EC+KEGG\" network are removed ignoring EC numbers and only considering KEGG reactions in the \"KEGG\" network")
+
+print(f"An average of {round((1 - mean_kegg_compound_fraction) * 100, 1)}% of compounds in the \"EC+KEGG\" network are removed ignoring EC numbers and only considering KEGG reactions in the \"KEGG\" network")
 ```
 
-On average 40.8% of compounds in the default "EC+KEGG" network are removed ignoring higher EC categories in the "refined" network. On average 73.2% of compounds in the default "EC+KEGG" network are removed ignoring EC numbers and only considering KEGG reactions in the "KEGG" network.
+On average, 40.8% of compounds in the default "EC+KEGG" network are removed ignoring higher EC categories in the "refined" network. On average, 73.2% of compounds in the default "EC+KEGG" network are removed ignoring EC numbers and only considering KEGG reactions in the "KEGG" network.
 
 ## Prepare metabolomics data
 
 Load the metabolomics data table, SI Table 2b from the paper. Each row represents a monoisotopic molecular feature.
 
 ```python
+# Load metabolomics data.
 roseobacteraceae_dom_df = pd.read_csv('roseobacteraceae-dom-datapack-data.tsv', sep='\t', header=0)
 ```
 
 Confirm that a unique molecular formula was assigned to each feature.
 
 ```python
+# Confirm a unique molecular formula was assigned to each feature.
 len(roseobacteraceae_dom_df) == roseobacteraceae_dom_df['formula_isotopefree'].nunique()
 ```
 
@@ -452,27 +484,28 @@ len(roseobacteraceae_dom_df) == roseobacteraceae_dom_df['formula_isotopefree'].n
 Add formulas for deprotonated versions of compounds as they may exist in the aqueous solution of cultures and the ModelSEED database used to populate compounds in reaction networks. Allow up to 2 hydrogens, 1 per oxygen, to be removed from each neutral formula. It does not make sense to remove 3 hydrogens in searching for common metabolites, since there are few with a -3 charge -- primarily the tricarboxylic acids citrate, isocitrate, and aconitate in the TCA cycle.
 
 ```python
+# Add formulas for potentially deprotonated versions of compounds to columns in the table.
 formula_data = roseobacteraceae_dom_df[['formula', 'formula_isotopefree', 'O', 'H']]
 
 deprot_rows = []
 for _, row in formula_data.iterrows():
     formula_isotopefree = row.formula_isotopefree
-
+    # Get atom counts.
     atom_count = {}
     for atomic_entry in row.formula.split():
         atom, count = atomic_entry.split('_')
         count = int(count)
         atom_count[atom] = count
-
+    # Subtract hydrogens, assuming carboxylic acid deprotonation.
     deprot_row = []
     for num_protons_subtracted in range(1, 3):
         if num_protons_subtracted > row.O:
             deprot_row.append('')
             continue
-
+        # Get atom count of adjusted formula.
         new_atom_count = atom_count.copy()
         new_atom_count['H'] = atom_count['H'] - num_protons_subtracted
-
+        # Get adjusted formula string.
         new_formula_isotopefree = ''
         for atom, count in new_atom_count.items():
             new_formula_isotopefree += f'{atom}{count}' if count > 1 else atom
@@ -489,9 +522,10 @@ after = roseobacteraceae_dom_df[cols[col_idx + 1: ]]
 feature_table = pd.concat([before, deprot_table, after], axis=1)
 ```
 
-Make a new version of the table with a row per formula protonation state.
+Make a new version of the table with a row per protonation state formula.
 
 ```python
+# Make a version of the table with rows per protonation state formula.
 new_rows = []
 new_idx = 0
 for _, row in feature_table.iterrows():
@@ -501,8 +535,7 @@ for _, row in feature_table.iterrows():
     new_row['search_charge'] = 0
     new_rows.append(new_row)
     new_idx += 1
-    break
-
+    # Add row for -1 formula
     if not row['formula_isotopefree_minus_1_H']:
         continue
     new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
@@ -511,7 +544,7 @@ for _, row in feature_table.iterrows():
     new_row['search_charge'] = -1
     new_rows.append(new_row)
     new_idx += 1
-
+    # Add row for -2 formula
     if not row['formula_isotopefree_minus_2_H']:
         continue
     new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
@@ -534,6 +567,7 @@ feature_table = feature_table[last_col_names + first_col_names]
 Find compounds in the ModelSEED Biochemistry database with molecular formulas, including deprotonated formulas. To help evaluate the number of possible biomolecular isomers that could exist as part of controlling false positive compound matches (see the section, [Known biological isomers](#known-biological-isomers)), subset isomeric compounds in the KEGG compound database, and those that participate in KEGG reactions.
 
 ```python
+# Find database compounds with molecular formulas.
 # Keys are (<formula>, <charge>), values are {<source of isomers>: [(<ModelSEED compound ID>, <ModelSEED compound name>)]}.
 compound_isomers: dict[tuple[str, int], dict[str, list[tuple[str, str]]]] = {}
 # Load the ModelSEED database from the default anvi'o installation location.
@@ -542,7 +576,9 @@ compounds_table = modelseed_db.compounds_table
 
 # Subset compounds with KEGG aliases.
 compounds_with_kegg_alias_table = compounds_table[compounds_table['KEGG'].notna()]
+```
 
+```python
 # Subset compounds that participate in KEGG reactions.
 kegg_reactions_table = modelseed_db.kegg_reactions_table
 kegg_reaction_compound_ids = []
@@ -554,13 +590,18 @@ for compound_ids in kegg_reactions_table['compound_ids']:
         continue
     for compound_id in compound_ids.split(';'):
         kegg_reaction_compound_ids.append(compound_id)
+
 kegg_reaction_compound_ids = sorted(set(kegg_reaction_compound_ids))
 select_rows = []
 for row in compounds_with_kegg_alias_table.itertuples():
     if row.Index in kegg_reaction_compound_ids:
         select_rows.append(row)
-compounds_with_kegg_reaction_table = pd.DataFrame(select_rows).set_index('Index')
 
+compounds_with_kegg_reaction_table = pd.DataFrame(select_rows).set_index('Index')
+```
+
+```python
+# Record the database isomers.
 for feature_row in feature_table.itertuples():
     formula = feature_row.search_formula
     charge = feature_row.search_charge
@@ -574,9 +615,11 @@ for feature_row in feature_table.itertuples():
 ```
 
 ```python
+# Report the number of formulas in each protonation state to be searched against networks.
 charge_isomer_stats: dict[int, dict[str, list[int]]] = {}
 for charge in [0, -1, -2]:
     charge_isomer_stats[charge] = {'modelseed_isomers': [], 'kegg_isomers': [], 'kegg_isomers_with_reaction': []}
+
 for (formula, charge), isomers in compound_isomers.items():
     isomer_stats = charge_isomer_stats[charge]
     for db_source, entries in isomers.items():
@@ -612,6 +655,7 @@ Since reaction network compounds must be in ModelSEED, these statistics also sho
 Match molecular formulas to compounds predicted in the reaction networks. If a feature is observed in a particular culture, match it to that culture's network. Match to the "refined" network, which ignores higher EC category annotations of KOs, and match to the "KEGG" network, which ignores EC number annotations altogether.
 
 ```python
+# Make the function that matches formulas to network compounds.
 def match_formulas(networks: dict[tuple[str], rn.GenomicNetwork]) -> tuple[
     dict[tuple[str, int], dict[tuple[str], list[rn.ModelSEEDCompound]]],
     dict[tuple[str, int], dict[tuple[str], rn.GenomicNetwork]],
@@ -632,36 +676,40 @@ def match_formulas(networks: dict[tuple[str], rn.GenomicNetwork]) -> tuple[
             start_abund = getattr(row, f"{'_'.join(strain_combo)}_Start")
             if final_abund - start_abund == 0:
                 continue
-
+            # Match the formula to the network.
             matcher = rn.FormulaMatcher(network)
             compounds, subnetwork = matcher.match_metabolites_network(formula, charge=charge)
             culture_compounds[strain_combo] = compounds
             culture_subnetwork[strain_combo] = subnetwork
-
+            # Record the compounds matching the formula.
             try:
                 formula_compounds = culture_formula_compounds[strain_combo]
             except KeyError:
                 culture_formula_compounds[strain_combo] = formula_compounds = {}
             formula_compounds[(formula, charge)] = compounds
-
+            # Record the subnetworks in which the formula matches compounds.
             try:
                 formula_subnetwork = culture_formula_subnetwork[strain_combo]
             except KeyError:
                 culture_formula_subnetwork[strain_combo] = formula_subnetwork = {}
             formula_subnetwork[(formula, charge)] = subnetwork
+    # Return dictionaries.
     return formula_culture_compounds, formula_culture_subnetwork, culture_formula_compounds, culture_formula_subnetwork
 ```
 
 ```python
+# Match formulas to network compounds.
 formula_culture_refined_compounds, formula_culture_refined_subnetwork, culture_formula_refined_compounds, culture_formula_refined_subnetwork = match_formulas(all_refined_networks)
 formula_culture_kegg_compounds, formula_culture_kegg_subnetwork, culture_formula_kegg_compounds, culture_formula_kegg_subnetwork = match_formulas(all_kegg_networks)
 ```
 
 ```python
+# Report how many formulas of each protonation state matched network compounds.
 formula_count = len(feature_table[feature_table['search_charge'] == charge])
 charge_match_stats: dict[int, dict[str, int]] = {}
 for charge in [0, -1, -2]:
     charge_match_stats[charge] = {'search_formulas': 0, 'refined': 0, 'kegg': 0}
+
 for (formula, charge), culture_compounds in formula_culture_refined_compounds.items():
     match_stats = charge_match_stats[charge]
     match_stats['search_formulas'] += 1
@@ -669,6 +717,7 @@ for (formula, charge), culture_compounds in formula_culture_refined_compounds.it
         if compounds:
             match_stats['refined'] += 1
             break
+
 for (formula, charge), culture_compounds in formula_culture_kegg_compounds.items():
     match_stats = charge_match_stats[charge]
     for compounds in culture_compounds.values():
@@ -703,23 +752,29 @@ Evaluate the strength of compound matches using the [criteria](#criteria) given 
 We generated a report for each compound match to evaluate the criteria. The report is structured like the reaction network, showing the genes, then KO annotations, then reaction annotations that are the basis of the inclusion of the compound in the network.
 
 ```python
-# Filter the feature table to rows representing search formulas that match network compounds.
+# Record a list of the formulas/charges that match.
 matching_formulas: list[tuple[str, int]] = []
 for (search_formula, search_charge), culture_compounds in formula_culture_refined_compounds.items():
     for compounds in culture_compounds.values():
         if compounds:
             matching_formulas.append((search_formula, search_charge))
+
+# Filter the feature table to rows representing search formulas that match network compounds.
 matching_feature_table = feature_table[feature_table[['search_formula', 'search_charge']].apply(tuple, axis=1).isin(matching_formulas)]
-
+# Report match information.
 indent_increment = 4
-for formula_isotopefree, group_table in matching_feature_table.groupby('formula_isotopefree'):
-    # Print neutral formulas that have at least one search formula match network compounds.
-    print(f"Feature neutral formula: {formula_isotopefree}")
+```
 
+```python
+# Loop through each neutral matching formula along with derived deprotonated matching formulas.
+for formula_isotopefree, group_table in matching_feature_table.groupby('formula_isotopefree'):
+    # Print neutral formulas that have at least one search formula matching network compounds.
+    print(f"Feature neutral formula: {formula_isotopefree}")
+    # Find groups of compounds matched by the same formula/charge.
     group_matching_formulas: list[tuple[str, int]] = []
     for group_row in group_table.itertuples():
         group_matching_formulas.append((group_row.search_formula, group_row.search_charge))
-
+    # Print information on the occurrence of matches in each culture.
     for strain_combo in all_strain_combos:
         formula_compounds = culture_formula_refined_compounds[strain_combo]
         for group_matching_formula in group_matching_formulas:
@@ -727,9 +782,9 @@ for formula_isotopefree, group_table in matching_feature_table.groupby('formula_
                 break
         else:
             continue
-        # Print cultures with a network compound matching a search formula.
+        # Print cultures with a network match to the search formula.
         print(f"{' ' * indent_increment}Culture: {'_'.join(strain_combo)}")
-
+        # Loop through each neutral or derived deprotonated matching formula.
         for group_matching_formula in group_matching_formulas:
             try:
                 matching_compounds = formula_compounds[group_matching_formula]
@@ -737,7 +792,7 @@ for formula_isotopefree, group_table in matching_feature_table.groupby('formula_
                 continue
             # Print search formulas that match the culture network.
             print(f"{' ' * indent_increment * 2}Search formula: {group_matching_formula[0]} [{group_matching_formula[1]}]")
-
+            # Retrieve isomeric compounds with the formula
             isomers = compound_isomers[group_matching_formula]
             modelseed_isomer_count = len(isomers['modelseed_isomers'])
             kegg_isomer_count = len(isomers['kegg_isomers'])
@@ -746,39 +801,38 @@ for formula_isotopefree, group_table in matching_feature_table.groupby('formula_
             print(f"{' ' * indent_increment * 2}- ModelSEED database isomer count: {modelseed_isomer_count}")
             print(f"{' ' * indent_increment * 2}- ModelSEED database KEGG compound isomer count: {kegg_isomer_count}")
             print(f"{' ' * indent_increment * 2}- ModelSEED database KEGG compound in KEGG reaction isomer count: {kegg_with_reaction_isomer_count}")
-
+            # Get the culture subnetwork containing compounds matching the formula.
             formula_subnetwork = formula_culture_refined_subnetwork[group_matching_formula][strain_combo]
             for compound in matching_compounds:
                 # Print compound matches.
                 print(f"{' ' * indent_increment * 3}ModelSEED {compound.modelseed_id} {compound.modelseed_name}")
                 print(f"{' ' * indent_increment * 3}- KEGG compound aliases: {' '.join(compound.kegg_aliases)}")
-
+                # Get the culture subnetwork containing the compound under consideration.
                 compound_subnetwork = formula_subnetwork.subset_network(metabolites_to_subset=[compound.modelseed_id])
                 for gcid, gene in compound_subnetwork.genes.items():
                     # Print genes linked to the compound.
                     print(f"{' ' * indent_increment * 4}Gene {gcid}")
-
+                    # Loop through each KO annotation of the gene.
                     for ko_id in gene.ko_ids:
-                        # Print KO annotations of the gene. Print ModelSEED reactions associated
-                        # (via EC numbers and KEGG reactions) with the KO. Print all EC numbers and
-                        # KEGG reactions associated with the KO.
+                        # Print KO annotations of the gene.
                         ko = compound_subnetwork.kos[ko_id]
                         print(f"{' ' * indent_increment * 5}KO {ko_id} {ko.name}")
                         print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction IDs: {' '.join(ko.reaction_ids)}")
+                        # Print ModelSEED reactions associated (via EC numbers and KEGG reactions) with the KO.
                         message = ""
                         for modelseed_reaction_id, kegg_reaction_ids in ko.kegg_reaction_aliases.items():
                             message += f"{modelseed_reaction_id}: {' '.join([kegg_reaction_id for kegg_reaction_id in kegg_reaction_ids])} ; "
                         message = message[: -3]
                         print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction KEGG reaction aliases: {message}")
+                        # Print all EC numbers and KEGG reactions associated with the KO.
                         message = ""
                         for modelseed_reaction_id, ec_numbers in ko.ec_number_aliases.items():
                             message += f"{modelseed_reaction_id}: {' '.join([ec_number for ec_number in ec_numbers])} ; "
                         message = message[: -3]
                         print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction EC number aliases: {message}")
-
+                        # Loop through ModelSEED IDs associated with the KO that are in the subnetwork and therefore underlie the compound match.
                         for reaction_id in ko.reaction_ids:
-                            # Print ModelSEED reactions involving the compound. Print all KEGG and
-                            # EC number aliases of the reaction.
+                            # Print ModelSEED reactions involving the compound.
                             reaction = compound_subnetwork.reactions[reaction_id]
                             equation = rn.get_chemical_equation(
                                 reaction,
@@ -787,8 +841,10 @@ for formula_isotopefree, group_table in matching_feature_table.groupby('formula_
                             )
                             print(f"{' ' * indent_increment * 6}ModelSEED reaction {reaction_id}")
                             print(f"{' ' * indent_increment * 6}{equation}")
+                            # Print KEGG and EC number aliases of the ModelSEED reaction that are linked to the compound.
                             print(f"{' ' * indent_increment * 6}- KEGG reaction aliases: {' '.join(reaction.kegg_aliases)}")
                             print(f"{' ' * indent_increment * 6}- EC number aliases: {' '.join(reaction.ec_number_aliases)}")
+                            # Print all KEGG and EC number aliases of the ModelSEED reaction, not restricted to those linked to the compound.
                             try:
                                 kegg_reaction_aliases = " ".join(ko.kegg_reaction_aliases[reaction_id])
                             except KeyError:
@@ -801,7 +857,7 @@ for formula_isotopefree, group_table in matching_feature_table.groupby('formula_
                             print(f"{' ' * indent_increment * 6}- KO EC number associations: {ec_number_aliases}")
 ```
 
-Part of the report for the first match in the output is shown below. A feature was assigned the neutral molecular formula of C<sub>10</sub>H<sub>10</sub>O<sub>6</sub>. The deprotonated variants of the formula with a -1 and -2 charge were also searched against the reaction networks of the culture with this feature. As shown, one network was from the pure culture of SH4, while another was from the co-culture of SH22 and SH4. The feature matched compounds in the SH4 network and all SH4 co-culture networks, suggesting that it was produced by SH4 but not fully consumed by SH22, SH24, and SH40 in co-culture. C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup> was the only deprotonated formula that matched compounds in the networks. To evaluate the potential breadth of the match, we found all isomers with the formula in the ModelSEED Biochemistry compound database, and two subsets of the database in KEGG. There were three isomers with the formula in each of the three sets of reference compounds. These three compounds -- prephenate, chorismate, and isochorismate -- are also in the reaction networks (note that since they are in the SH4 network, they must be in the co-culture networks which are supersets of the SH4 network). The absence of other isomeric compounds in the ModelSEED database besides those in the reaction network reduces the likelihood of missing biological compounds that may actually represent the molecular feature. Isochorismate is ignored because it is only included on the basis of an enzyme which consumes it, isochorismate pyruvate lyase (K04782), not any enzymes that produce it.
+Part of the report for the first match in the output is shown below. A mass spectral feature was assigned the neutral molecular formula of C<sub>10</sub>H<sub>10</sub>O<sub>6</sub>. For each culture with this feature, this formula and deprotonated variants of this formula with -1 and -2 charges were searched against the culture reaction network. The feature matched compounds in the SH4 network and all SH4 co-culture networks, suggesting that it was produced by SH4 but not fully consumed by SH22, SH24, and SH40 in co-culture. The deprotonated formula, C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup>, was the only version of the formula which matched compounds in the networks. To evaluate the potential breadth of isomers that could theoretically be associated with the formula, we found all isomers with the formula in the ModelSEED Biochemistry compound database, and two subsets of the database in KEGG. There were three isomers with the formula in each of these three sets of reference compounds. These three compounds -- prephenate, chorismate, and isochorismate -- are also in the reaction networks (note that since they are in the SH4 network, they must be in the co-culture networks which are supersets of the SH4 network). The absence of other isomeric compounds in the ModelSEED database besides those in the reaction network reduces the likelihood of missing biological compounds that may actually represent the molecular feature. Isochorismate is ignored because it is only included on the basis of an enzyme which consumes it, isochorismate pyruvate lyase (K04782), not any enzymes that produce it.
 
 Prephenate and chorismate are related compounds in the shikimate pathway for biosynthesis of aromatic amino acids and other compounds. The report presents genomic evidence for production of these compounds. The SH4 genome encodes chorismate mutase, the key enzyme responsible for prephenate biosynthesis from chorismate. The genome also encodes cyclohexadienyl dehydratase and prephenate dehydrogenase, enzymes which react prephenate to form the precursors of phenylalanine and tyrosine, respectively. Chorismate mutase (K04092) has KEGG reactions and an EC number linked to three ModelSEED reactions, redundant entries with different IDs for the same chorismate mutase reaction of chorismate to prephenate.
 
@@ -1177,68 +1233,86 @@ Feature neutral formula: C10H10O6
 
 ### Pathway integration
 
-It is important to assess the connectivity of putative compounds in the metabolic network of an organism to evaluate the likelihood that compounds are actually in the culture. Pathway-level analysis using maps was performed for each matching compound. The genomic capacity of the four strains to cycle prephenate and chorismate in the shikimate pathway is displayed in a KEGG pathway map produced by {% include PROGRAM name="anvi-draw-kegg-pathways" %}. The possibility of prephenate and chorismate being erroneous matches is reduced by the extensive genomic evidence for production of these compounds by SH4.
+It is important to assess the connectivity of putative compounds in the metabolic network of an organism to evaluate the likelihood that compounds are truly in the culture. Pathway-level analysis using maps was performed for each matching compound. The genomic capacity of the four strains to cycle prephenate and chorismate in the shikimate pathway is displayed in a KEGG pathway map produced by {% include PROGRAM name="anvi-draw-kegg-pathways" %}. The possibility of prephenate and chorismate being erroneous matches is reduced by the extensive genomic evidence for production of these compounds by SH4.
 
-[![01_chorismate_prephenate_pathway_figure_1](images/01_chorismate_prephenate_pathway_figure_1.png)](images/01_chorismate_prephenate_pathway_figure_1.png){:.center-img .width-40}
+[![01_chorismate_prephenate_pathway_figure_1](images/01_chorismate_prephenate_pathway_figure_1.png)](images/01_chorismate_prephenate_pathway_figure_1.png){:.center-img .width-100}
+
+If you're interested, here is how you can generate the maps used in the analysis. `anvi-draw-kegg-pathways` can take any number of contigs databases as input. Unfortunately it requires a KEGG snapshot containing some additional files that differs from the snapshot that was used to make the reaction networks. This can be set up in the working directory (here using 8 threads).
+
+```bash
+anvi-setup-kegg-data --kegg-data-dir kegg-latest-snapshot -T 20
+```
+
+Here is a command that shows how to generate maps for a single genome (SH4).
+
+```bash
+anvi-draw-kegg-pathways --contigs-dbs SH4-CONTIGS.db --ko --kegg-dir kegg-latest-snapshot -o SH4-maps --name-files --categorize-files
+```
+
+Here is a command that generates maps for multiple genomes (all four strains).
+
+```bash
+anvi-draw-kegg-pathways --contigs-dbs SH4-CONTIGS.db SH22-CONTIGS.db SH24-CONTIGS.db SH40-CONTIGS.db --ko --kegg-dir kegg-latest-snapshot --draw-grid -o SH4-SH22-SH24-SH40-maps --name-files --categorize-files
+```
+
+The map files are in nested directories structured by the KEGG BRITE hierarchy of pathways; the "Phenylalanine, tyrosine and tryptophan biosynthesis" map shown above is written to `SH4-SH22-SH24-SH40/Metabolism/Amino_acid_metabolism/kos_00400_Phenylalanine_tyrosine_and_tryptophan_biosynthesis.pdf`. The colorbar, showing the number of genomes containing each KO, and therefore common to all of the maps, is written to `SH4-SH22-SH24-SH40-maps/colorbar.pdf`.
 
 ### Extraction and ionization chemistry
 
 Putative exometabolites are more likely when their structures are consistent with retention in the sample extract and the conditions of electrospray ionization. The PPL SPE cartridges used for DOM extraction in this study retain aromatic compounds well. The mass spectrometer was run in negative ion mode in this study, so compounds such as carboxylic and phenolic acids that can assume a -1 charge through a ready change in protonation state are easily ionized. Prephenate and chorismate are aromatic carboxylates that are well-suited for extraction and ionization, increasing the likelihood that they are indeed exometabolites.
 
 ```python
-# Here is the source on how to render molecules as a grid of SVG images in RDKit:
-# https://iwatobipen.wordpress.com/2020/05/01/draw-molecules-as-svg-in-horizontal-layout-drawing-rdkit-memo/
-
-class HorizontalDisplay:
-    def __init__(self, *args):
-        self.args = args
-
-    def _repr_html_(self):
-        template = '<div style="float:left;padding:10px;">{0}</div>'
-        return "\n".join(template.format(arg) for arg in self.args)
-
 def draw_structures(
-    compounds: list[rn.ModelSEEDCompound] = None,
+    compounds: list[rn.ModelSEEDCompound],
+    output_path: str,
     panel_width: int = 250,
-    panel_height: int = 250
-) -> HorizontalDisplay:
-    drawing_texts = []
-
-    for compound in compounds:
-        mol: Chem.Mol = Chem.MolFromSmiles(compound.smiles)
-        mol.SetProp('_Name', compound.modelseed_name)
-        d2d = rdMolDraw2D.MolDraw2DSVG(panel_width, panel_height)
-        d2d.DrawMolecule(mol, legend=mol.GetProp('_Name'))
-        d2d.FinishDrawing()
-        text = d2d.GetDrawingText()
-        drawing_texts.append(text)
-
-    if not drawing_texts:
-        return
-    print(len(drawing_texts))
-
-    return HorizontalDisplay(*drawing_texts)
+    panel_height: int = 250,
+    scale: int = 2,
+    cols: int = None,
+    rows: int = None,
+) -> None:
+    """Draw compound structures in a grid and save as PNG. If cols and/or rows are not given, a near-square grid is chosen to fit."""
+    n = len(compounds)
+    if cols is None and rows is None:
+        cols = math.ceil(math.sqrt(n))
+        rows = math.ceil(n / cols)
+    elif cols is None:
+        cols = math.ceil(n / rows)
+    elif rows is None:
+        rows = math.ceil(n / cols)
+    d2d = rdMolDraw2D.MolDraw2DCairo(
+        panel_width * cols * scale,
+        panel_height * rows * scale,
+        panel_width * scale,
+        panel_height * scale,
+    )
+    d2d.drawOptions().bondLineWidth = 2 * scale
+    mols = [Chem.MolFromSmiles(c.smiles) for c in compounds]
+    legends = [c.modelseed_name for c in compounds]
+    d2d.DrawMolecules(mols, legends=legends)
+    d2d.FinishDrawing()
+    Path(output_path).write_bytes(d2d.GetDrawingText())
 ```
 
 ```python
 chorismate = all_refined_networks[('SH4', )].metabolites['cpd00216']
 prephenate = all_refined_networks[('SH4', )].metabolites['cpd00219']
-draw_structures([prephenate, chorismate, isochorismate])
+draw_structures([prephenate, chorismate], 'chorismate_prephenate_structures.png')
 ```
 
 [![02_chorismate_prephenate_structures_figure_2](images/02_chorismate_prephenate_structures_figure_2.png)](images/02_chorismate_prephenate_structures_figure_2.png){:.center-img .width-40}
 
 ### Evaluation table
 
-The evaluation of formula matches to network compounds is summarized in the following table. Compound matches that were not found in **all** of the reaction networks of cultures containing the particular formula were first screened out and not included in the table (see [Compound consistency across cultures](#compound-consistency-across-cultures)). A molecular feature's "Neutral formula" in the table has an "Ionized formula" that was searched against the reaction networks to yield a "Compound match". "Database isomers" of the ionized formula are the numbers of isomeric ModelSEED Biochemistry database compounds, the subset aliasing KEGG compounds, and the subset aliasing KEGG compounds in reactions (see [Known biological isomers](#known-biological-isomers)).
+The table, found below, summarizes our evaluation of mass spectrum formula matches to genomic reaction network compounds. Compound matches that were not found in **all** of the reaction networks of cultures containing the particular formula were not included in the table (see [Compound consistency across cultures](#compound-consistency-across-cultures)). The first column records the "Neutral formula" of molecular features. The "Ionized formula" of the second column represents the formula, either an unchanged or deprotonated version of the neutral formula, that was searched against the reaction networks to yield a "Compound match". "Database isomers" of the ionized formula are three counts of 1) isomeric ModelSEED Biochemistry database compounds, 2) the subset aliasing KEGG compounds, and 3) the subset aliasing KEGG compounds in reactions (see [Known biological isomers](#known-biological-isomers)).
 
 Subsequent columns after "Compound match" evaluate [criteria](#criteria) for compound assignment confidence. A value of 1 indicates that the compound passes the filter, and a value of 0 indicates removal by the filter. The last column, "Passes filters", has a value of 1 if the compound match has a value of 1 in each of the individual filter columns. To expedite the process of evaluating compounds, the series of filters was applied from left to right, and evaluation was stopped if a value of 0 was recorded: this is the reason for absent values in the individual filter columns to the right of a 0.
 
-Examples of compound matches that are retained and discarded illustrate the filters. As discussed above, C<sub>10</sub>H<sub>10</sub>O<sub>6</sub> matched three compounds in the culture reaction networks containing the formula: the deprotonated variant of the formula, C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup>, matched prephenate, chorismate, and isochorismate. These represented the only three isomeric compounds recorded in the ModelSEED Biochemistry database and the two KEGG subsets (the value of "3,3,3" in the "Database isomers" column). We judged that this relatively low number allowed the compounds to pass the "Database isomer specificity" filter, with a value of 1. The "Annotation specificity" filter was passed because the compounds were populated in the reaction networks via KO enzyme annotations with KEGG reactions and EC numbers that always specifically involve the compounds. Isochorismate did not pass the next "Metabolic integration" filter since the compound was only included in reaction networks via isochorismate pyruvate lyase (K04782), which consumes but does not produce the compound. In contrast, chorismate and prephenate are well-integrated metabolites produced by enzymes of the genomically complete shikimate pathway. Chorismate and prephenate then passed the "Ionizability" filter, which accounts for plausible chemical properties that make a compound suitable for measurement. Finally, the compounds passed the "Metabolic similarity" filter since they have similar metabolic roles as adjacent isomers in the shikimate pathway.
+Examples of compound matches that are retained and discarded explicate the filters. As discussed above, C<sub>10</sub>H<sub>10</sub>O<sub>6</sub> matched three compounds in the culture reaction networks: the deprotonated variant of the formula, C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup>, matched prephenate, chorismate, and isochorismate. These were also the only three isomeric compounds of this formula recorded in the ModelSEED Biochemistry database and the two KEGG subsets, thus the value of "3,3,3" in the "Database isomers" column. We decided that this relatively low number of potential biomolecular isomers allowed the compounds to pass the "Database isomer specificity" filter, with a value of 1. The "Annotation specificity" filter was passed because the compounds were populated in the reaction networks via KO enzyme annotations with KEGG reactions and EC numbers that always specifically involve the compounds. Isochorismate did not pass the next "Metabolic integration" filter since the compound was only included in reaction networks via isochorismate pyruvate lyase (K04782), which consumes but does not produce the compound. In contrast, chorismate and prephenate are well-integrated metabolites produced by enzymes of the genomically complete shikimate pathway. Chorismate and prephenate then passed the "Ionizability" filter, which accounts for plausible chemical properties that make a compound suitable for measurement. Finally, the compounds passed the "Metabolic similarity" filter since they have similar metabolic roles as adjacent isomers in the shikimate pathway.
 
 The next formula in the table, C<sub>10</sub>H<sub>11</sub>NO<sub>2</sub>, matches 5-hydroxy-1H-indole-3-ethanol and indole-3-glycol. Both compounds passed the "Database isomer specificity" filter but were removed by the next "Annotation specificity" filter due to the broadness of the enzyme annotations that resulted in the compounds' inclusion in the reaction networks. The compounds are involved in some of the numerous ModelSEED alcohol dehydrogenase reactions associated with EC 1.1.1.1, which annotates the enzymes S-(hydroxymethyl)glutathione dehydrogenase / alcohol dehydrogenase (K00121) and alcohol dehydrogenase, propanol-preferring (K13953). High uncertainty in the reaction specificity of the gene enzyme products reduces the likelihood that the particular compounds actually occur in the strains' metabolomes.
 
-Further down the table occurs C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>, which matches a number of disaccharides in the reaction networks. Before reaching the "Ionizability" filter, which would discard sugar compound matches due to the lack of an acidic proton for straightforward negative ionization, the compounds are filtered out by "Database isomer specificity." A large number of possible compounds besides the matched disaccharides have the same formula in the reference databases (66 isomers in ModelSEED, 35 and 22 in the KEGG subsets), increasing the likelihood that other compounds produced by the strains actually represent the formula.
+Further down the table occurs C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>, which matches a number of disaccharides in the reaction networks. Moving from left to right in the table, before reaching the "Ionizability" filter, which would discard sugar compound matches due to the lack of an acidic proton for straightforward negative ionization, the compounds are filtered out by "Database isomer specificity." A large number of possible compounds besides the matched disaccharides have the same formula in the reference databases (66 isomers in ModelSEED, 35 and 22 in the KEGG subsets), increasing the likelihood that other compounds produced by the strains actually represent the formula.
 
 From this table, 53 molecular formulas had compound matches that passed the filters. These comprise SI Table 2f in our Füssel et al. publication.
 
@@ -1408,4 +1482,4 @@ From this table, 53 molecular formulas had compound matches that passed the filt
 
 ## The end
 
-If you made it all the way here, you now know how we developed a computational workflow for "genomically guided metabolomics" and how we applied it to an intricate microbial co-culture experiment. In the end is the beginning, because this is only a first foray into a promising approach for plucking molecular needles out of the mass spectral haystack. Next we are exploring tandem mass spectrometry datasets to match structures instead of just molecular formulas and targeted metabolomes to further validate our approach. Best of luck, to you and us.
+If you made it here, you now know how we developed a computational workflow for "genomically guided metabolomics" and how we applied it to an intricate microbial co-culture experiment. In the end is the beginning, because this is only the first application of a promising approach for plucking molecular needles out of the mass spectral haystack. Next, we will be exploring tandem mass spectrometry datasets to match structures instead of just molecular formulas, as well as targeted metabolomes for further validation.
