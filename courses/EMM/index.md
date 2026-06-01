@@ -186,7 +186,7 @@ Introduction to Chlorobia: who they are, their ecology, and what type of data we
 >
 > *Reference article*:
 >
->   * [Distribution of Phototrophic Sulfur Bacteria in Meromictic Lake Cadagno](https://doi.org/10.1128/msystems.01196-20), 2021, mSystems.
+>   * [Freshwater Chlorobia Exhibit Metabolic Specialization among Cosmopolitan and Endemic Population](https://doi.org/10.1128/msystems.01196-20), 2021, mSystems.
 
 You will start working on the project for Day 5.
 
