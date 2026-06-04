@@ -23,6 +23,9 @@ The tutorial will start with raw FASTA files for each genome, and end with a pan
 * Visualize the resulting {% include ARTIFACT name="pan-graph-db" %} using {% include PROGRAM name="anvi-display-pan-graph" %}, and,
 * Summarize the pangenome graph into flat-text files for downstream analyses using {% include PROGRAM name="anvi-summarize" %}.
 
+{:.notice}
+An interactive (but read-only) access to the final pangenome graph is available at [https://merenlab.org/upg-interactive/](/upg-interactive/)
+
 ### Why pangenome graphs?
 
 If you are familiar with [the anvi'o pangenomics workflow](https://merenlab.org/2016/11/08/pangenomics-v2/), you already know how to identify which genes are shared across a set of genomes and which are unique. But conventional pangenome analyses collapse genes into unordered clusters, discarding their chromosomal context. A pangenome *graph* preserves the syntenic relationships between genes: it tells you not only *which* genes are shared, but *where* they sit relative to each other on the chromosome. This makes it possible to precisely delineate structurally conserved **backbone** regions from **variable** regions, and to study how genomic neighborhoods differ across organisms. In short, a conventional pangenome answers "what genes do these genomes have?", while a pangenome graph answers "how are these genomes organized?".

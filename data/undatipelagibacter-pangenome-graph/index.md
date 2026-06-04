@@ -20,8 +20,7 @@ Here is a list of links for quick access to the raw and intermediate data used i
 * [FASTA files](https://cloud.uol.de/public.php/dav/files/jSFTXG3cSQMBjYX) for 29 *Undatipelagibacter* genomes.
 * [Anvi'o contigs databases](https://cloud.uol.de/public.php/dav/files/7bRpYznDNBedSRk), as annotated [digital microbe](https://www.nature.com/articles/s41597-024-03778-z) files, for *Undatipelagibacter*.
 * The Undatipelagibacter pangenome: [genome-storage-db](https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ) and [pan-db](https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5).
-* The Undatipelagibacter pangenome-graph: [pan-graph-db](https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA)
-
+* The Undatipelagibacter pangenome-graph: [pan-graph-db](https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA). You can visualize this pangenome graph interactively at [https://merenlab.org/upg-interactive/](/upg-interactive/).
 </div>
 
 {:.notice}
