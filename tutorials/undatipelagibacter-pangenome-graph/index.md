@@ -11,6 +11,30 @@ redirect_from: /pangraph-tutorial/
 
 The purpose of this reproducible tutorial is to describe step-by-step how **gene-centric pangenome graphs are computed**, **interactively visualized**, and **summarized for downstream analyses** in [anvi'o](https://anvio.org).
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Are you only here to see the pangenome graph?</span>
+
+If you are here *only* to visualize the products of this tutorial on your computer, please install `anvio-dev` on your computer following the instructions [here](https://anvio.org/install/#development-version), and run the following commands on your terminal:
+
+```bash
+# go to your home directory
+cd
+
+# create a new directory and go into it
+mkdir UNDATIPELAGIBACTER-PAN-GRAPH && cd UNDATIPELAGIBACTER-PAN-GRAPH
+
+# download all necessary files
+curl -L https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ -o UNDATIPELAGIBACTER-GENOMES.db
+curl -L https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA -o UNDATIPELAGIBACTER-PAN-GRAPH.db
+
+# initiate the interactive interface
+anvi-display-pan-graph
+```
+
+For those of you who are here to go through the tutorial, please continue :)
+</div>
+
 Throughout this tutorial we will use 29 genomes that belong to *Undatipelagibacter* (a.k.a. **SAR11 subclade Ia.3.VI**), a [recently named genus](https://www.nature.com/articles/s41467-025-67043-6) in the family *Pelagibacteraceae*.
 
 The tutorial will start with raw FASTA files for each genome, and end with a pangenome graph and associated flat-text summaries of genomic regions identified in them for downstream analyses. We will demonstrate how to
