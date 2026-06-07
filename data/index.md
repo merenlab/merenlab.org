@@ -20,6 +20,29 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Pelagibacterales (SAR11) phylogenomics
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1038/s41467-025-67043-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-025-67043-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/s41467-025-67043-6" target="_new">New SAR11 isolate genomes and global marine metagenomes resolve ecologically relevant units within the Pelagibacterales</a></span>
+    <span class="pub-authors">Freel KC, <span class="pub-member-author" title="An official member of the lab at the time of publication">Tucker SJ</span>, Freel EB, Giovannoni SJ, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span>, Rappé MS</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/freel_et_al_SAR11_2024.jpg"><img src="/images/pubs/freel_et_al_SAR11_2024.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 29 genera within the order Pelagibacterales along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow for the phylogenomics of SAR11 along with all raw and intermediate data products is available <a href="https://merenlab.org/data/sar11-phylogenomics/" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature Communications</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=New+SAR11+isolate+genomes+and+global+marine+metagenomes+resolve+ecologically+relevant+units+within+the+Pelagibacterales" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41467-025-67043-6" target="_blank">doi:10.1038/s41467-025-67043-6</a></span>
+</div>
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/sar11-phylogenomics/](/data/sar11-phylogenomics) gives access to a **reproducible bioinformatics workflow** to regenerate or extend the SAR11 phylogenomic tree, FASTA files for all genomes, and anvi'o reproducible artifacts.
+
+
 ## Phylogeography of ribosomal proteins with EcoPhylo
 
 <div class="pub_float">
