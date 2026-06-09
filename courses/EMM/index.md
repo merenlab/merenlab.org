@@ -370,7 +370,7 @@ The day of phylogenomics.
 >
 > To solve this exercise, please apply phylogenomics principles to calculate a tree for the *Bifidobacterium* clade.
 >
-> You can benefit from the tutorial on [anvi'o phylogenomics workflow](https://merenlab.org/2017/06/07/phylogenomics/) and see examples on how to get the necessary genes from genomes for phylogenomics. Reconstructing a final tree for these genomes with phylogenomics, and being able to explain why you have made certain choices to generate it, is the answer to this exercise.
+> You can benefit from the tutorial on [anvi'o phylogenomics with Tricodesmium genomes](https://anvio.org/tutorials/trichodesmium-tutorial/chapter-3/) and see examples on how to get the necessary genes from genomes for phylogenomics. Reconstructing a final tree for these genomes with phylogenomics, and being able to explain why you have made certain choices to generate it, is the answer to this exercise.
 >
 > Once you are done, please compare your phylogenomic tree to the dendrogram you have obtained from the pangenomic analysis. If you want to get fancy, feel free to include 'additional' *Bifidobacterium* genomes from other species in this genus :)
 
