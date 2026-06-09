@@ -389,9 +389,9 @@ The day of metabolism.
 
 * *Suggested Reading*:
 
-  * Watson AR, Füssel J, Veseli I, et al (2023). [Metabolic independence drives gut microbial colonization and resilience in health and disease](https://doi.org/10.1186/s13059-023-02924-x). *Genome Biology*.
-  * van Kessel MAHJ, et al (2015). [Complete nitrification by a single microorganism](https://doi.org/10.1038/nature16459). *Nature*.
-  * Liu R, et al (2022). [Novel Chloroflexi genomes from the deepest ocean reveal metabolic strategies for the adaptation to deep-sea habitats](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-022-01263-6). *Microbiome*.
+  * Xie X, et al (2026). [Metagenome-resolved global microbial diversity and function in activated-sludge wastewater treatment systems](https://doi.org/10.1038/s44221-025-00576-8). *Nature Water*
+  * Waldrop M (2021). [Microbes for better sewage treatment](https://doi.org/10.1073/pnas.2112863118). *PNAS*
+  * Veseli I, et al (2025). [Microbes with higher metabolic independence are enriched in human gut microbiomes under stress](https://doi.org/10.7554/eLife.89862.3). *eLife*
 
 
 #### 13:00 - 17:00: Comparative microbial metabolism
