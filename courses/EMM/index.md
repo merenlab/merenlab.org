@@ -396,8 +396,8 @@ The day of metabolism.
 
 #### 13:00 - 17:00: Comparative microbial metabolism
 
-> This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on at [this Dropbox link](https://www.dropbox.com/scl/fi/g9o9g05m8844p8wuo1tvb/metabolism-data-pack.tar.gz?rlkey=4pug5oe0mptku6yaydckq72uh).
->
+> This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on at [this Dropbox link](https://www.dropbox.com/scl/fi/a00jla37ewjk11v3f722i/metabolism-data-pack-I.tar.gz?rlkey=bx3hhj7xkljxcb9qrzttqarxn&st=qh4g7sp7&dl=0) (and if something goes wrong, [here is a link](https://www.dropbox.com/scl/fi/le5morpflo5i6gydaufme/metabolism-data-pack-II.tar.gz?rlkey=8t3r1m7n88em90hkngo8jpp3y&st=p6dgkhw0&dl=0) to the same data pack already annotated).
+ >
 > The data pack contains four microbial genomes, and your task is to investigate which of these organisms (if any) are capable of nitrogen cycling. Please use anvi'o to annotate these genomes with KOfams, and then run `anvi-estimate-metabolism` to calculate the completeness of metabolic pathways in the KEGG MODULE database. You should examine the output of that program to identify the completeness scores for nitrogen cycling pathways in each genome. You will find a list of all KEGG modules for nitrogen metabolism [at this link](https://www.genome.jp/entry/pathway+map00910). This list contains seven pathways for nitrogen fixation, nitrate reduction, denitrification, and nitrification.
 >
 > Your short report should answer the following questions:
