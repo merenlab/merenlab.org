@@ -110,12 +110,16 @@ If that is the case, we are good.
 
 The final step of setting up the stage is to download the files that represent the *Undatipelagibacter* pangenome graph and associated files from our [reproducible tutorial](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/). For this, please simply copy-paste these commands into your terminal (while still in the same directory):
 
-```
+```bash
 curl -L https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ -o 01_DATA/UNDATIPELAGIBACTER-GENOMES.db
 curl -L https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5 -o 01_DATA/UNDATIPELAGIBACTER-PAN.db
 curl -L https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA -o 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
 curl -L https://cloud.uol.de/public.php/dav/files/8snz92oDqJeARDK -o 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
 tar -xzf 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz -C 01_DATA/ && rm 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
+
+# migrate all DB files in case anvi'o had any database updates in between
+# in between
+anvi-migrate 01_DATA/*db --migrate-quickly
 ```
 
 At this stage, your working directory structure should look like this:
@@ -462,7 +466,7 @@ $$
 \end{align}
 $$
 
-## Position-wise sequence comparisons
+## Position-wise sequence comparisons around the highly divergent Skp gene
 
 The volcano-shaped sequence similarity profile around region #148 in __Figure 5__ is one of the most interesting findings of our paper because it shows that what looks like a single highly variable gene at the pangenome graph level (the _Skp_ gene, which split into twelve distinct SynGCs) is actually the middle of a sequence similarity gradient. To regenerate the data for this we need to drop down to the underlying amino acid sequences and align them column-by-column across all 29 genomes.
 
@@ -515,6 +519,304 @@ The same procedure can in principle be applied to any other variable region of i
 The prediction of the protein structures in the upper-part of __Figure 5__ was carried out on an high performance computing cluster with Colabfold and are not part of this reproducible workflow. In case you want to still reproduce these structures, all amino acid sequences for the genes in region #148 are included in `02_RESULTS/position_1401_aa.fa` and instructions on how to run Colabfold can be found [here](https://github.com/sokrypton/colabfold).
 
 An onine, ready-to-use version of Colabfold is also available [here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb).
+
+## Testing whether Skp divergence mirrors the genome phylogeny
+
+To investigate if the the putative operon that encoded Skp was maintained by recombination, we tested the evolution of Skp with that of the *Undatipelagibacter* genomes. This required a high-resolution phylogenomic analysis of the *Undatipelagibacter* genomes, and a phylogeny of the Skp genes.
+
+### Phylogenomics of *Undatipelagibacter*
+
+To calculate a high-resolution tree for *Undatipelagibacter*, we used the same 165 alphaproteobacterial single-copy core genes used in Freel et al. in the study titled "*[New SAR11 isolate genomes and global marine metagenomes resolve ecologically relevant units within the Pelagibacterales](https://doi.org/10.1038/s41467-025-67043-6)*", following the reproducible workflow [here](https://merenlab.org/data/sar11-phylogenomics/).
+
+Our workflow below download and unpack anvi'o {% include ARTIFACT name="contigs-db" %} files for *Undatipelagibacter*, download the {% include ARTIFACT name="hmm-source" %} for 165 alphaproteobacterial SCGs, annotate *Undatipelagibacter* {% include ARTIFACT name="contigs-db" %} files with them, extract a superalignmet of SCGs, and compute a tree.
+
+---
+
+We downloaded the *Undatipelagibacter* {% include ARTIFACT name="contigs-db" %} files used in our study into our work directory using the following command:
+
+
+```bash
+# make sure you are in the right directory
+cd ~/Henoch_et_al_2026_pangenome_graphs
+
+# Download the contigs-db files (which are actualy coming from the
+# tutorial section of this reproducible workflow at
+# https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/
+curl -l https://cloud.uol.de/public.php/dav/files/7bRpYznDNBedSRk \
+     -o 01_DATA/CONTIGS-DBs.tar.gz
+```
+
+Next, we unpacked the data file and placed it in a location that follows the structure of our work directory:
+
+```bash
+# unpack under 01_DATA
+tar -zxvf 01_DATA/CONTIGS-DBs.tar.gz -C 01_DATA
+
+# give it a more descriptive name
+mv 01_DATA/CONTIGS-DBs 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs
+
+# remove the archive file
+rm -rf 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.tar.gz
+
+# migrate the contigs-db files to the latest version
+# of anvi'o
+anvi-migrate 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/*db \
+             --migrate-quickly
+
+# generate an external-genomes file for quick access
+anvi-script-gen-genomes-file --input-dir 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/ \
+                             -o 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.txt
+```
+
+Next, we downloaded the alphaproteobacterial SCGs used to calculate the global tree described in Freel et al. ([2016](https://doi.org/10.1038/s41467-025-67043-6)):
+
+```bash
+# Download the hmm-source
+curl https://merenlab.org/data/sar11-phylogenomics/files/Alphaproteobacterial_SCGs.tar.gz \
+     -o 01_DATA/Alphaproteobacterial_SCGs.tar.gz
+
+# unpack it into the 01_DATA directory
+tar -zxvf 01_DATA/Alphaproteobacterial_SCGs.tar.gz -C 01_DATA
+
+# give it a better name
+mv 01_DATA/Alphaproteobacterial_SCGs 01_DATA/ALPHAPROTEOBACTERIAL_SCGs
+
+# get rid of the archive
+rm -rf 01_DATA/Alphaproteobacterial_SCGs.tar.gz
+```
+
+Next, we ran the anvi'o the {% include ARTIFACT name="hmm-source" %} on all *Undatipelagibacter* {% include ARTIFACT name="contigs-db" %} files to identify alphaproteobacterial SCGs in them, which took about 2 seconds per genome:
+
+```bash
+for genome in 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/*db
+do
+    anvi-run-hmms -c $genome \
+                  -H 01_DATA/ALPHAPROTEOBACTERIAL_SCGs \
+                  --num-threads 8
+done
+```
+
+Having the `ALPHAPROTEOBACTERIAL_SCGs` as an HMM source (here is making sure using one of the genomes as an example),
+
+```bash
+anvi-db-info 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/HIMB122.db
+
+DB Info (no touch)
+===============================================
+Database Path ................................: 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/HIMB122.db
+description ..................................: [Not found, but it's OK]
+db_type ......................................: contigs (variant: unknown)
+version ......................................: 25
+
+
+(...)
+
+AVAILABLE HMM SOURCES
+===============================================
+* 'ALPHAPROTEOBACTERIAL_SCGs' (165 models with 165 hits)
+* 'Archaea_76' (76 models with 32 hits)
+* 'Bacteria_71' (71 models with 70 hits)
+* 'Protista_83' (83 models with 3 hits)
+* 'Ribosomal_RNA_16S' (3 models with 1 hit)
+* 'Ribosomal_RNA_18S' (1 model with 0 hits)
+* 'Transfer_RNAs' (68 models with 30 hits)
+```
+
+We next generated a super-alignment for each genome where 165 genes are aligned and concatenated across all genomes (which took about 20 seconds):
+
+```bash
+# create a directory in 02_RESULTS to store phylogenomics
+# related data
+mkdir 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/
+
+anvi-get-sequences-for-hmm-hits --external-genomes 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.txt \
+                                -o 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA-RAW.fa \
+                                --hmm-source ALPHAPROTEOBACTERIAL_SCGs \
+                                --return-best-hit \
+                                --get-aa-sequences \
+                                --concatenate
+```
+
+Trimmed columns with excessive gaps:
+
+```
+trimal -in  02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA-RAW.fa \
+       -out 02_RESULTS//UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
+       -gt 0.50
+```
+
+And ran IQTREE to calculate the final tree for genomes:
+
+```bash
+iqtree -s 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS//UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
+       -m LG+F+R10 \
+       -T 10 \
+       -ntmax 25 \
+       --alrt 1000 \
+       -B 1000
+```
+
+Once this is over, we renamed the resulting tree file to a more meaningful name, `UNDATIPELAGIBACTER-ALPHASCGs.newick`,
+
+```
+mv 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA.fa.treefile \
+   02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+```
+
+The contents of which looked like this:
+
+```
+(HIMB1597:0.0000223763,((((((((((HIMB1770:0.0000224095,HIMB1493:0.0000010069)77.3/97:0.0000222991,
+HIMB1518:0.0000215109)100/100:0.0190601071,((((((HIMB1636:0.0000000000,HIMB1526:0.0000000000):0.0000000000,
+HIMB1552:0.0000000000):0.0000010069,HIMB1641:0.0000010069)78.8/96:0.0000217393,(HIMB1556:0.0000010069,
+HIMB1702:0.0000010069)77.5/95:0.0000218372)100/100:0.0129613967,HIMB1662:0.0118990338)100/100:0.0042673028,
+HIMB1723:0.0196013815)100/100:0.0024892878)97.6/98:0.0012401690,HIMB1507:0.0179007591)100/100:0.0018750656,
+(HIMB1513:0.0196954887,HIMB1573:0.0208457841)100/88:0.0048378315)39.5/35:0.0007825449,(((HIMB140:0.0207519481,
+(HIMB1758:0.0001366421,HIMB1611:0.0002025385)100/100:0.0189204500)92.9/82:0.0017767438,(HIMB1577:0.0000010069,
+HIMB1631:0.0000010069)100/100:0.0172580891)71.2/60:0.0011601578,HIMB122:0.0209247152)72.3/32:0.0010367221)100/91:0.0021742263,
+(((HIMB1506:0.0180084954,HIMB1488:0.0138845770)100/100:0.0092145862,HIMB1701:0.0288550375)83.6/90:0.0017391483,
+HIMB1765:0.0242998974)99.7/99:0.0023063614)100/100:0.0045360204,HIMB1593:0.0162610490)100/100:0.0023453705,
+HIMB1491:0.0163187769)26.2/66:0.0021571721,HIMB1685:0.0160545714)100/100:0.0201109324,HIMB1559:0.0000445912);
+```
+
+### Recovery and phylogenetics of Skp Genes
+
+To recover Skp gene sequences, we used the anvi'o interactive interface for pangenome graphs.
+
+```bash
+anvi-display-pan-graph -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db
+```
+
+Once the display showed up, we zoomed into the Skp region:
+
+
+{% include IMAGE path="images/skp_gene_region.png" width="70" caption="The Skp region" %}
+
+Pressing `Alt` on the keyboard, we selected all Skp genes in a bin:
+
+{% include IMAGE path="images/skp_gene_region_selection.png" width="70" caption="The Skp region selected into a bin" %}
+
+From the bins panel, we clicked on the 'Nodes' column of the Skp bin, and downloaded the FASTA file using the relevant section in the dialog window:
+
+{% include IMAGE path="images/skp_gene_region_download.png" width="70" caption="Downloading the amino acid sequnces for all Skp genes" %}
+
+We moved the downloaded file `UNDATIPELAGIBACTER_Bin_1_GENES_AA.fa` to a better location:
+
+```
+mv ~/Downloads/UNDATIPELAGIBACTER_Bin_1_GENES_AA.fa \
+   01_DATA/UNDATIPELAGIBACTER_SKP_GENES_AA_UNALIGNED.fa
+```
+
+Since the deflines of sequences include gene caller ids, and we only need genome names to be able to compare the phylogeny of the Skp genes to the phylogenomics of the *Undatipelagibacter* genomes, we fixed the deflines using the following `awk` one-liner:
+
+```bash
+awk '/^>/{sub(/_[0-9]+$/, "")}1' 01_DATA/UNDATIPELAGIBACTER_SKP_GENES_AA_UNALIGNED.fa > tmp \
+    && mv tmp 01_DATA/UNDATIPELAGIBACTER_SKP_GENES_AA_UNALIGNED.fa
+```
+
+We created a directory to store Skp phylogeny-related output files:
+
+```bash
+mkdir 02_RESULTS/SKP-PHYLOGENETICS
+```
+
+We then aligned these sequences using `muscle`,
+
+```bash
+muscle -in 01_DATA/UNDATIPELAGIBACTER_SKP_GENES_AA_UNALIGNED.fa \
+       -out 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA_RAW.fa
+```
+
+Trimmed excessive gaps,
+
+```bash
+trimal -in 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA_RAW.fa \
+       -out 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.fa \
+       -gt 0.50
+```
+
+Ran IQTREE the same way before:
+
+```
+iqtree -s 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.fa \
+       -m LG+F+R10 \
+       -T 10 \
+       -ntmax 25 \
+       --alrt 1000 \
+       -B 1000
+```
+
+And finally renamed the resulting tree file to a more meaningful name, `UNDATIPELAGIBACTER_SKP_GENES_AA.newick`,
+
+```
+mv 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.fa.treefile \
+   02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+```
+
+The contents of which looked like this:
+
+```
+(HIMB1701:1.1326036100,(((((((HIMB1593:0.8440687974,((HIMB1559:0.0000009947,HIMB1597:0.0000009947)99.9/100:0.5075530029,
+HIMB1685:0.4322609089)89.5/91:0.1793674488)74/61:0.0604480327,HIMB1491:0.7283119215)72.9/64:0.0809153224,
+HIMB1765:0.6819726624)99.6/100:0.5708229496,(HIMB1577:0.0000009947,HIMB1631:0.0000009947)100/100:0.6940641477)
+84.7/65:0.1220357814,(HIMB1723:1.1427802668,((((((HIMB1526:0.0000000000,HIMB1636:0.0000000000):0.0000000000,
+HIMB1556:0.0000000000):0.0000000000,HIMB1641:0.0000000000):0.0000000000,HIMB1702:0.0000000000):0.0000009947,
+HIMB1552:0.0000009947)92.4/99:0.1120543874,HIMB1662:0.0669078561)99.3/100:0.7530830943)88.5/75:0.2934209924)
+1.5/31:0.0500581324,HIMB1507:1.1411752748)74.3/51:0.0772569627,((HIMB1573:1.1078217239,((HIMB1493:0.0000000000,
+HIMB1770:0.0000000000):0.0000009947,HIMB1518:0.0000009947)100/100:1.0263878720)1.7/26:0.1530953996,(HIMB1488:0.3343931678,
+HIMB1506:0.4578569414)99.9/100:0.6944285056)78.4/30:0.1517070031)64.5/27:0.0990607948,((HIMB1611:0.0000009947,
+HIMB1758:0.0000009947)100/100:1.1246136160,(HIMB140:0.5375660781,HIMB1513:0.3438026003)96.4/97:0.3479016466)31.6/42:0.0626461251);
+```
+
+### Testing the phylogenetic congruence between Skp genes and genomes
+
+Using the data generated in the previous two steps, we implemented a Phython script ([skp_genome_phylogenetic_congruence.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_genome_phylogenetic_congruence.py), available to you under the scripts directory) to test whether Skp divergence mirrors genome ancestry, and if yes, to what extent by asking the following questions:
+
+* Are genome-wide and Skp patristic distances congruent?
+
+* Do per-branch Skp substitutions scale with genome-wide divergence?
+
+Both questions are answered by running the script the following way, which produces the terminal output below with statistics,
+
+```bash
+python 00_SCRIPTS/skp_genome_phylogenetic_congruence.py
+
+SKP vs GENOME PHYLOGENETIC CONGRUENCE
+===============================================
+Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+Skp gene tree ................................: 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+Skp alignment ................................: 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.fa
+Genomes in analysis ..........................: 29
+
+Genome-wide vs Skp patristic distances
+===============================================
+Pearson r ....................................: 0.804
+Spearman r ...................................: 0.419
+Mantel p (49,999 permutations) ...............: 0.0000
+
+Per-branch Skp substitutions vs genome branch length
+===============================================
+Spearman r ...................................: 0.928
+Pearson r ....................................: 0.870
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_genome_phylogenetic_congruence.pdf
+PNG ..........................................: 02_RESULTS/skp_genome_phylogenetic_congruence.png
+```
+
+And generates the following output figure:
+
+{% include IMAGE path="images/skp_genome_phylogenetic_congruence.png" width="70" caption="Exploring the phylogenetic congruence between Skp genes and genomes that encode them in five panels. Panel a shows genome-wide vs Skp pairwise patristic distance, one point per genome pair. Panel b shows the result of a Mantel permutation null distribution with the observed correlation. Panel c shows a tanglegram that contrasts the genome tree and the Skp gene tree. Panel d shows per-branch Skp substitutions vs genome-wide branch length. And Panel e shows the genome tree with each branch painted by its inferred Skp substitutions" %}
+
+Overall, this result shows that Skp divergence tracks genome ancestry to a large degree, and even though Skp is quite variable across the *Undatipelagibacter* (down to 25% amino-acid identity), it does accumulate substitutions on each lineage in proportion to that lineage's genome-wide divergence given the phylogenomic tree for *Undatipelagibacter* genomes (Spearman r = 0.90), and its pairwise divergences correlate significantly with genome-wide distances (Mantel *p* = 1×10^-4).
+
+Both tests support vertical signal in Skp, and the stronger, metric-robust evidence is per-branch: the number of Skp substitutions mapped onto each genome-tree branch scales tightly with the genome-wide divergence within the branch (Spearman r = 0.90, Pearson r = 0.87, highly concordant results that indicate this is not an artifact of a few long branches). The pairwise distance test between the two trees corroborates this with a significant but moderate monotonic correlation (Spearman ρ = 0.42, Mantel p = 1×10^-4; Pearson r = 0.80). The gap between the two distance metrics reflects the clade's structure: genome-wide distances are strongly bimodal (as we have a tight cluster of near-identical genomes plus a band of divergent pairs (see Panel e)), so both trees agree confidently on deep splits while concording only weakly on the fine ordering among the divergent majority. But the vertical signal for Skp appears to be real and strongest at deeper divergences, rather than a uniform tight tracking of every pairwise relationship.
+
+
+## Investigating whether Skp divergence matches the divergence of its β-barrel clients
+
+TBD
 
 ## Closing notes
 
