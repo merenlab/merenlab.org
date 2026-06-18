@@ -4,7 +4,7 @@ title: A reproducible workflow for Henoch et al, 2026
 modified: 2026-05-11
 excerpt: "A bioinformatics workflow for our study on the *Undatipelagibacter* pangenome graph"
 comments: true
-authors: [alex]
+authors: [alex, meren]
 ---
 
 <div class="extra-info" markdown="1">
@@ -520,9 +520,13 @@ The prediction of the protein structures in the upper-part of __Figure 5__ was c
 
 An onine, ready-to-use version of Colabfold is also available [here](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb).
 
-## Testing whether Skp divergence mirrors the genome phylogeny
+## Diving into the Skp rabbit hole
 
-To investigate if the the putative operon that encoded Skp was maintained by recombination, we tested the evolution of Skp with that of the *Undatipelagibacter* genomes. This required a high-resolution phylogenomic analysis of the *Undatipelagibacter* genomes, and a phylogeny of the Skp genes.
+The observation below compelled us to investigate what maintains the extremely high variability of the Skp gene and divergence gradient around it by considering the envelope biogenesis operon that encodes skip, as well as the genes flank this operon:
+
+{% include IMAGE path="images/Figure_5.png" width="80" caption="The envelope biogenesis operon and its surroundings." %}
+
+To gain deeper insights into the evolutionary forces and mechanisms that maintain what we see here, we formally tested recombination rates in this region as well as the signal for epistatic co-selection with immediate partners of Skp (such as BamA and LptD), as well as those genes that generally encoded functions related to cell envelope but encoded elsewhere in the genome. These analyses required us to perform phylogenomics and phylogenetic anlayses the *Undatipelagibacter* genomes and each gene in the operons shown above, and the following sections will walk you though our reproducible bioinformatics workflow.
 
 ### Phylogenomics of *Undatipelagibacter*
 
@@ -690,11 +694,11 @@ anvi-display-pan-graph -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db -g 01_DATA/UND
 Once the display showed up, we zoomed into the Skp region:
 
 
-{% include IMAGE path="images/skp_gene_region.png" width="70" caption="The Skp region" %}
+{% include IMAGE path="images/skp_gene_region.png" width="40" caption="The Skp region" %}
 
 Pressing `Alt` on the keyboard, we selected all Skp genes in a bin:
 
-{% include IMAGE path="images/skp_gene_region_selection.png" width="70" caption="The Skp region selected into a bin" %}
+{% include IMAGE path="images/skp_gene_region_selection.png" width="40" caption="The Skp region selected into a bin" %}
 
 From the bins panel, we clicked on the 'Nodes' column of the Skp bin, and downloaded the FASTA file using the relevant section in the dialog window:
 
@@ -768,7 +772,7 @@ HIMB1506:0.4578569414)99.9/100:0.6944285056)78.4/30:0.1517070031)64.5/27:0.09906
 HIMB1758:0.0000009947)100/100:1.1246136160,(HIMB140:0.5375660781,HIMB1513:0.3438026003)96.4/97:0.3479016466)31.6/42:0.0626461251);
 ```
 
-### Testing the phylogenetic congruence between Skp genes and genomes
+### Testing the phylogenetic congruence between Skp genes and Undatipelagibacter genomes
 
 Using the data generated in the previous two steps, we implemented a Phython script ([skp_genome_phylogenetic_congruence.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_genome_phylogenetic_congruence.py), available to you under the scripts directory) to test whether Skp divergence mirrors genome ancestry, and if yes, to what extent by asking the following questions:
 
@@ -807,16 +811,349 @@ PNG ..........................................: 02_RESULTS/skp_genome_phylogenet
 
 And generates the following output figure:
 
-{% include IMAGE path="images/skp_genome_phylogenetic_congruence.png" width="70" caption="Exploring the phylogenetic congruence between Skp genes and genomes that encode them in five panels. Panel a shows genome-wide vs Skp pairwise patristic distance, one point per genome pair. Panel b shows the result of a Mantel permutation null distribution with the observed correlation. Panel c shows a tanglegram that contrasts the genome tree and the Skp gene tree. Panel d shows per-branch Skp substitutions vs genome-wide branch length. And Panel e shows the genome tree with each branch painted by its inferred Skp substitutions" %}
+{% include IMAGE path="images/skp_genome_phylogenetic_congruence.png" width="70" caption="Skp divergence is congruent with the vertical genome phylogeny. The top row addresses whether genome-wide and Skp pairwise distances agree, and the bottom row addresses whether per-branch Skp substitutions scale with genome-wide divergence. (a) Pairwise patristic distance on the genome tree versus on the Skp gene tree, with a least-squares guide line. (b) Mantel permutation test. (c) Tanglegram of the genome tree (left) and the Skp gene tree (right). (d) Skp amino-acid substitutions inferred on each branch of the genome tree by Fitch parsimony, versus that branch's genome-wide length (substitutions/site). (e) The genome tree with each branch colored by its inferred number of Skp substitutions (Supplementary Figure 8 in the manuscript)." %}
 
 Overall, this result shows that Skp divergence tracks genome ancestry to a large degree, and even though Skp is quite variable across the *Undatipelagibacter* (down to 25% amino-acid identity), it does accumulate substitutions on each lineage in proportion to that lineage's genome-wide divergence given the phylogenomic tree for *Undatipelagibacter* genomes (Spearman r = 0.90), and its pairwise divergences correlate significantly with genome-wide distances (Mantel *p* = 1×10^-4).
 
 Both tests support vertical signal in Skp, and the stronger, metric-robust evidence is per-branch: the number of Skp substitutions mapped onto each genome-tree branch scales tightly with the genome-wide divergence within the branch (Spearman r = 0.90, Pearson r = 0.87, highly concordant results that indicate this is not an artifact of a few long branches). The pairwise distance test between the two trees corroborates this with a significant but moderate monotonic correlation (Spearman ρ = 0.42, Mantel p = 1×10^-4; Pearson r = 0.80). The gap between the two distance metrics reflects the clade's structure: genome-wide distances are strongly bimodal (as we have a tight cluster of near-identical genomes plus a band of divergent pairs (see Panel e)), so both trees agree confidently on deep splits while concording only weakly on the fine ordering among the divergent majority. But the vertical signal for Skp appears to be real and strongest at deeper divergences, rather than a uniform tight tracking of every pairwise relationship.
 
+More eloquent and likely more up-to-date description of what this shows is in the manuscript.
 
-## Investigating whether Skp divergence matches the divergence of its β-barrel clients
+### Analyzing gene-level signatures of the Skp-operon divergence and a within-population test for staggered recombination.
 
-TBD
+The purpose of this analysis was to shed light on whether the volcano-shaped divergence pattern in the envelope biogenesis operon (that contained the Skp gene) was a result of staggered recombination, or by gradual in-place divergence.
+
+For this, we needed to export a slighlty larger genomic context that exceeded the envelope biogenesis operon itself. Thus, we exported the genomic loci between the TrpD gene (SynGC GC_00000545_1; graph order 1392) to DnaE (SynGC GC_00001037_1; graph order 1409) using the anvi'o program {% include PROGRAM name="anvi-export-pan-subgraph" %} first to get a {% include ARTIFACT name="contigs-db" %} file that contains the sequence between these two nodes from each genome:
+
+
+```
+anvi-export-pan-subgraph -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db \
+                         -e 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.txt \
+                         --graph-nodes GC_00000545_1,GC_00001037_1 \
+                         -o 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
+
+
+Pan Graph DB ................................................: Initialized: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db (v. 21)
+Pangenome graph database .....................: UNDATIPELAGIBACTER
+Pan graph database ...........................: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
+Nodes to export ..............................: GC_00000545_1, GC_00001037_1
+Gene caller ids ..............................: Kept as they are to match the source contigs databases
+Loci .........................................:
+    - 746 to 763 (17 genes) for HIMB122
+    - 747 to 764 (17 genes) for HIMB140
+    - 775 to 792 (17 genes) for HIMB1488
+    - 766 to 783 (17 genes) for HIMB1491
+    - 717 to 734 (17 genes) for HIMB1493
+    - 791 to 808 (17 genes) for HIMB1506
+    - 740 to 757 (17 genes) for HIMB1507
+    - 747 to 764 (17 genes) for HIMB1513
+    - 718 to 735 (17 genes) for HIMB1518
+    - 731 to 748 (17 genes) for HIMB1526
+    - 731 to 748 (17 genes) for HIMB1552
+    - 764 to 781 (17 genes) for HIMB1556
+    - 810 to 827 (17 genes) for HIMB1559
+    - 787 to 804 (17 genes) for HIMB1573
+    - 722 to 739 (17 genes) for HIMB1577
+    - 731 to 748 (17 genes) for HIMB1593
+    - 799 to 816 (17 genes) for HIMB1597
+    - 772 to 789 (17 genes) for HIMB1611
+    - 723 to 740 (17 genes) for HIMB1631
+    - 720 to 737 (17 genes) for HIMB1636
+    - 728 to 745 (17 genes) for HIMB1641
+    - 710 to 727 (17 genes) for HIMB1662
+    - 746 to 763 (17 genes) for HIMB1685
+    - 748 to 765 (17 genes) for HIMB1701
+    - 740 to 757 (17 genes) for HIMB1702
+    - 754 to 771 (17 genes) for HIMB1723
+    - 769 to 786 (17 genes) for HIMB1758
+    - 715 to 732 (17 genes) for HIMB1765
+    - 730 to 747 (17 genes) for HIMB1770
+
+✓ export_pan_subgraph.py took 0:00:07.875367
+```
+
+This generated a bunch of files (i.e., {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} and FASTA files for each locus) under the directory `02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI`. Then, we used the program {% include PROGRAM name="anvi-get-sequences-for-gene-calls" %} to export individual gene sequences from the {% include ARTIFACT name="contigs-db" %} files for downstream analyses of dN/dS calculations and more:
+
+```bash
+for contigs_db in 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI/*db
+do
+    name=$(basename $contigs_db .db)
+    anvi-get-sequences-for-gene-calls -c 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI/$name.db \
+                                      -o 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI/$name-locus-genes.fa \
+                                      --defline '{contigs_db_project_name}_{gene_caller_id}'
+done
+```
+
+We then implemented a Python script ([skp_operon_recombination.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_recombination.py); available to you in your `00_SCRIPTS` directory), which codon-aligns every gene across the locus exporded above and computes (1) position by position the mean and full per-pair distribution of amino-acid identity (and its bimodality), (2) synonymous versus nonsynonymous divergence, and (3) the identity of each consensus alleles to the codon identity in each genome to test whether the volcano-shaped divergence pattern reflects 'a population-wide mixture of alleles consistent with staggered recombination' or forms 'a uniform gradual divergence' pattern.
+
+We ran the script the following way, which generated the following output and the figure shown below:
+
+```
+python 00_SCRIPTS/skp_operon_recombination.py
+
+IS THE SKP OPERON VALLEY RECOMBINATION OR GRADUAL DIVERGENCE?
+===============================================
+Locus directory ..............................: 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
+Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+Genomes in analysis ..........................: 29
+Synteny positions in locus ...................: 18
+Operon (LpxB..UppS) ..........................: LpxB, LpxI, LpxA, LpxD, FabA, Skp, BamA, Dxr, CdsA, UppS
+
+WHAT THE LOCUS LOOKS LIKE
+===============================================
+Mean AAI, flank genes ........................: 97.0%
+Mean AAI, operon genes .......................: 71.5%
+Mean AAI, Skp ................................: 39.7%
+
+DISCRIMINATING SIGNATURES (recombination vs. gradual divergence)
+===============================================
+Genes with bimodal pairwise identity .........: LpxB, LpxI, LpxA, Skp, BamA, Dxr, CdsA, UppS
+Mean pS (synonymous), flanks vs Skp ..........: 0.245 vs 0.515
+Mean pN (non-synonymous), flanks vs Skp ......: 0.015 vs 0.363
+Mean dN/dS (where estimable), flanks vs Skp ..: 0.059 vs 0.561
+Mean identity to consensus, flanks vs Skp ....: 98.1% vs 54.6%
+
+PER-GENE PROFILE (AAI, pN, pS, dN/dS, bimodality)
+===============================================
+
+* gene region AAI% pN pS dN/dS bimodality
+
+* TrpD flank 97.1 0.013 0.140 0.089 0.498
+* TrpC flank 98.0 0.009 0.118 0.093 0.408
+* LexA flank 99.1 0.004 0.170 0.026 0.317
+* GlnS flank 96.5 0.016 0.172 0.087 0.357
+* LpxB OPERON 90.5 0.049 0.278 0.113 0.907
+* LpxI OPERON 88.4 0.061 0.284 0.132 0.926
+* LpxA OPERON 87.9 0.066 0.375 0.104 0.869
+* LpxD OPERON 80.9 0.110 0.435 0.169 0.342
+* FabA OPERON 88.2 0.079 0.562 0.076 0.377
+* Skp OPERON 39.7 0.363 0.515 0.561 0.896
+* BamA OPERON 59.4 0.254 0.592 0.246 0.902
+* Dxr OPERON 58.7 0.253 0.557 0.285 0.898
+* CdsA OPERON 51.0 0.307 0.549 0.387 0.721
+* UppS OPERON 70.7 0.179 0.552 0.194 0.808
+* Frr flank 95.0 0.031 0.493 0.038 0.371
+* Tsf flank 96.1 0.020 0.339 0.045 0.322
+* RpsB flank 97.2 0.016 0.335 0.035 0.251
+* DnaE flank 97.2 0.013 0.193 0.060 0.493
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_operon_recombination.pdf
+PNG ..........................................: 02_RESULTS/skp_operon_recombination.png
+
+OBSERVATIONS TO REMEMBER
+===============================================
+* (a) The volcano. Mean pairwise amino-acid identity (AAI) forms a smooth valley,
+  from 97% across the flanks to 40% at Skp (operon mean 72%). On its own this
+  averaged profile cannot tell staggered recombination from gradual in-place
+  divergence; panels (b) to (e) look below the average.
+
+* (b) Per-pair profiles. At Skp the individual genome pairs span a wide range of
+  identities (25% to 100%; pair-to-pair spread 16% vs 1% across the flanks), so
+  the smooth average is assembled from very different pairs rather than from
+  uniformly intermediate ones.
+
+* (c) Per-gene bimodality. Among the locus genes, genes LpxB, LpxI, LpxA, Skp,
+  BamA, Dxr, CdsA, UppS show a bimodal pairwise-identity distribution (Sarle's
+  coefficient above 0.56), with Skp at 0.90. Bimodality (pairs splitting into a
+  high-identity 'native' group and a low-identity 'imported' group rather than
+  forming one intermediate cluster) is the split expected under recombination.
+
+* (d) Synonymous vs non-synonymous. Into the valley pN rises from 0.015 at the
+  flanks to 0.363 at Skp, while pS goes from 0.245 to 0.515 (dN/dS at Skp 0.56).
+  pS rises into the valley alongside pN, consistent with a divergent DNA tract
+  imported wholesale.
+
+* (e) Per-genome mosaic. Identity to the per-gene consensus falls from 98% at the
+  flanks to 55% at Skp, and at the operon center it varies widely from genome to
+  genome (spread 10%). Whether those divergent alleles form contiguous, genome-
+  specific blocks with staggered boundaries (the signature of a recombination
+  mosaic) is read from the heatmap.
+```
+
+{% include IMAGE path="images/skp_operon_recombination.png" width="70" caption="Gene-level signatures of the Skp-operon divergence valley and a within-population test for staggered recombination. In every panel the operon is shaded and the hyper-variable Skp gene is marked with a dashed line; the flanking genes provide a conserved baseline. (a) Mean pairwise amino-acid identity (AAI) at each gene, averaged over all 406 genome pairs — the volcano profile, falling from ~97% across the flanks to ~40% at Skp (mean operon AAI ~72%). (b) The same profile drawn for each individual genome pair (gray; n = 406) with the mean overlaid (red); this exposes whether individual pairs are smooth Vs (expected under gradual in-place divergence) or sharp steps whose breakpoints fall at different positions in different pairs (expected under staggered recombination). (c) Distribution of the 406 pairwise AAI values at each gene (violins), annotated with Sarle's bimodality coefficient (red where it exceeds 5/9, the threshold above which a distribution is effectively two-moded). The operon 'wall' genes are bimodal — a high-identity 'native' mode and a low-identity 'divergent' mode — whereas the flanking genes are unimodal and tight, the pattern expected when native and introgressed alleles coexist in the population. (d) Mean pairwise proportion of nonsynonymous (pN, red) and synonymous (pS, green) differences per gene (Nei–Gojobori). Both rise across the operon; note that pS approaches saturation within the operon and so is uninformative about the depth of any import. (e) Heatmap of each genome's allele identity to the per-gene consensus sequence (rows = 29 genomes, ordered by the genome phylogeny; columns = the 18 genes). A staggered-recombination mosaic would appear as contiguous low-identity blocks whose boundaries differ from genome to genome. (Supplementary Figure 6 in the manuscript)." %}
+
+### Testing recombination events across the contiguous Skp locus at nucleotide, sub-gene resolution
+
+We implemented a Python script ([skp_operon_recombination_breakpoints.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_recombination_breakpoints.py); also available to you in your `00_SCRIPTS` directory) to perform position-aware recombination tests to quantify whether or not homologous recombination has shaped the locus. The script generates uses a sliding-window DNA identity profile across alignments, generates a [four-gamete](https://en.wikipedia.org/wiki/Four-gamete_test) incompatibility landscape, calculates a pairwise [homoplasy index (PHI, Φ<sub>w</sub>)](https://pmc.ncbi.nlm.nih.gov/articles/PMC1456386/) permutation test, and performs an incompatibility-versus-distance analysis.
+
+
+```
+python 00_SCRIPTS/skp_operon_recombination_breakpoints.py
+
+FORMAL RECOMBINATION TESTS ACROSS THE SKP OPERON
+===============================================
+Whole-locus alignment ........................: reusing cache: 02_RESULTS/UNDATIPELAGIBACTER_SKP_LOCUS_ALIGNED.fa
+Locus directory ..............................: 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
+Genomes in analysis ..........................: 29
+Whole-locus alignment length .................: 19,304 columns
+Informative biallelic sites ..................: 3,169
+
+RECOMBINATION SIGNAL
+===============================================
+Mean incompatibility (4-gamete), all sites ...: 0.358
+Operon informative sites .....................: 2091 (3943..13516 aln cols)
+Flank informative sites ......................: 1078
+PHI (whole locus), observed vs null mean .....: 0.3357 vs 0.3576
+PHI p-value (9,999 permutations) .............: 0.0001
+PHI within operon (statistic, p) .............: 0.3626, p = 0.0001
+PHI within flanks (statistic, p) .............: 0.2841, p = 0.0001
+
+* Some theory to keep in mind when interpreting results: low PHI & small p sugests
+  that nearby sites are more compatible than chance, which suggests
+  recombination. High PHI or a non-significant p do not necessarily prove the
+  absence of recombination, especially with few informative sites. The
+  incompatibility-vs-distance data also important: a rising trend is the
+  hallmark of recombination, while a flat line suggests clonal divergence. Also
+  keep in mind that this is all contemporary wisdom, not fact.
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_operon_recombination_breakpoints.pdf
+PNG ..........................................: 02_RESULTS/skp_operon_recombination_breakpoints.png
+Cached alignment .............................: 02_RESULTS/UNDATIPELAGIBACTER_SKP_LOCUS_ALIGNED.fa
+
+OBSERVATIONS TO REMEMBER
+===============================================
+* (a) Divergence profile. Mean pairwise nucleotide identity dips from 94.5% across
+  the flanks to 76.2% over the operon, with the floor of the valley (57.2%)
+  falling within the operon span (a smooth, sub-gene divergence valley rather
+  than a sharp gene-boundary step).
+
+* (b) Where conflict concentrates. Mean 4-gamete incompatibility per site is 0.36
+  over the operon vs 0.28 across the flanks: genealogical conflict concentrates
+  over the operon, where recombination has shuffled site histories.
+
+* (c) PHI test. Across the whole locus the observed PHI (0.336) is lower than the
+  permutation null mean (0.358; p = 0.0001): nearby sites are more compatible
+  than chance, the signature of recombination. Run separately, the operon (PHI =
+  0.363, p = 0.0001) and the flanks (PHI = 0.284, p = 0.0001) show the signal is
+  not confined to one part of the locus.
+
+* (d) Incompatibility vs. distance. Mean incompatibility rises from 0.37 between
+  the closest site pairs to 0.24 between the farthest (trend r = -0.88). A
+  rising trend is the hallmark of recombination shuffling genealogies along the
+  locus; a flat line would indicate clonal divergence.
+```
+
+And here is the figure this analysis generated for the Skp-encoding operon and its broader flanking genomic context:
+
+{% include IMAGE path="images/skp_operon_recombination_breakpoints.png" width="70" caption="Formal recombination tests across the contiguous Skp locus at nucleotide, sub-gene resolution. (a) Mean pairwise nucleotide identity in a 200-bp sliding window along the locus, resolving the divergence valley within and across genes. (b) Genealogical-conflict landscape: for each informative site, the mean 4-gamete incompatibility with its neighboring sites, positioned along the locus. (c) The pairwise homoplasy index (PHI / Φ<sub>w</sub>) test for recombination. The histogram is the null distribution of Φ<sub>w</sub> under 9,999 random permutations of site order; the red line is the observed value. (d) Mean 4-gamete incompatibility between pairs of informative sites as a function of the distance separating them. (Supplementary Figure 7 in the manuscript)." %}
+
+
+### Testing the existence (or lack thereof) the epistatic co-selection signal centered on Skp
+
+We implemented yet another Python script ([skp_operon_coselection.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_coselection.py); also available to you in your `00_SCRIPTS` directory) to test the other side of the madellion: whether the Skp divergence can be explained by epistatic co-selection. The script maps substitutions in each gene onto the genome phylogeny we generated previously, and quantifies (while controlling for genome-wide divergence rate) the dN/dS selection gradient across the operon, the rate-independent co-divergence of each gene with Skp (both within the operon and, genome-wide, across all core single-copy genes), and the enrichment of Skp's co-divergence partners for cell-envelope functions, to test whether the valley is shaped by epistatic co-selection centered on Skp.
+
+
+We ran the script the following way, which produced the following output,
+
+```
+python 00_SCRIPTS/skp_operon_coselection.py
+
+IS THE SKP OPERON VALLEY SHAPED BY CO-SELECTION CENTERED ON SKP?
+===============================================
+Locus directory ..............................: 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
+Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+Genomes in analysis ..........................: 29
+Synteny positions in locus ...................: 18
+Genome-wide null .............................: reusing cache: 02_RESULTS/UNDATIPELAGIBACTER_SKP_GENOMEWIDE_CODIVERGENCE_NULL.txt
+
+SELECTION GRADIENT AND CO-DIVERGENCE WITH SKP
+===============================================
+Mean dN/dS, flanks vs operon vs Skp ..........: 0.059 vs 0.227 vs 0.561
+Mean co-divergence with Skp, flanks vs operon : 0.216 vs 0.538
+  (operon genes co-diverge with Skp beyond rate; flanks should not) :
+
+* gene region dN/dS co-divergence-with-Skp (partial)
+
+* TrpD flank 0.089 +0.364
+* TrpC flank 0.093 +0.027
+* LexA flank 0.026 -0.108
+* GlnS flank 0.087 +0.284
+* LpxB OPERON 0.113 +0.339
+* LpxI OPERON 0.132 +0.175
+* LpxA OPERON 0.104 +0.359
+* LpxD OPERON 0.169 +0.524
+* FabA OPERON 0.076 +0.627
+* Skp OPERON 0.561 +1.000 <- Skp itself
+* BamA OPERON 0.246 +0.744
+* Dxr OPERON 0.285 +0.744
+* CdsA OPERON 0.387 +0.644
+* UppS OPERON 0.194 +0.684
+* Frr flank 0.038 +0.257
+* Tsf flank 0.045 +0.246
+* RpsB flank 0.035 +0.148
+* DnaE flank 0.060 +0.511
+Operon vs flank co-divergence with Skp (Mann-Whitney, greater) : U = 63, p = 0.0039
+
+GENOME-WIDE: ARE SKP'S PARTNERS THE CELL ENVELOPE?
+===============================================
+Core single-copy genes in null ...............: 924
+Envelope genes in null (COG cat. M) ..........: 66 / 924 (7.1%)
+Envelope fraction in top decile ..............: 15.2% (vs 7.1% overall)
+Envelope enrichment in top decile (hypergeometric) : p = 3.49e-03
+Envelope vs other co-divergence (Mann-Whitney) : p = 4.67e-08
+Envelope vs rate-matched peers (Wilcoxon) ....: median 60th pct, p = 1.92e-03
+LptD .........................................: partial co-divergence +0.640, 80th percentile vs rate-matched peers
+BamA .........................................: partial co-divergence +0.716, 87th percentile vs rate-matched peers
+
+* Top 10 genome-wide Skp co-divergence partners:
+    - GC_00000720 partial +0.76 (no COG annotation)
+    - GC_00000741 partial +0.74 Pyridoxal 5'-phosphate homeostasis protein YggS, UPF000
+    - GC_00000933 partial +0.73 1-deoxy-D-xylulose 5-phosphate reductoisomerase (Dxr) (
+    - GC_00000533 partial +0.67 Chromosome segregation protein Spo0J, contains ParB-lik
+    - GC_00000914 partial +0.67 Cell division protein FtsI, peptidoglycan transpeptidas [envelope]
+    - GC_00000943 partial +0.66 Outer membrane protein assembly factor BamD, BamD/ComL [envelope]
+    - GC_00000574 partial +0.66 Lipopolysaccharide export LptBFGC system, permease prot [envelope]
+    - GC_00000734 partial +0.65 Undecaprenyl pyrophosphate synthase (UppS) (PDB:1X07)
+    - GC_00000824 partial +0.65 Preprotein translocase subunit SecB (SecB) (PDB:1OZB)
+    - GC_00001048 partial +0.64 Molecular chaperone GrpE (heat shock protein HSP-70) (G
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_operon_coselection.pdf
+PNG ..........................................: 02_RESULTS/skp_operon_coselection.png
+
+OBSERVATIONS FROM THE RESULTS/FIGURE TO KEEP IN MIND
+===============================================
+* (a) Selection gradient. dN/dS is low and flat across the flanks (mean 0.06) and
+  peaks at Skp (0.56), with intermediate values across its operon neighbors
+  (operon mean 0.23). Every locus gene stays below 1, i.e. relaxed/diversifying
+  constraint rather than classical positive selection (shows a selection-
+  intensity gradient centered on Skp).
+
+* (b) Co-divergence with Skp. Operon genes co-diverge with Skp far more than the
+  flanking genes (mean 0.54 vs 0.22; Mann-Whitney p = 3.9e-03), beyond the
+  shared rate effect.
+
+* (c) Co-varying block. Co-divergence is higher within the operon (mean +0.48)
+  than between operon and flank genes (mean +0.27): the operon forms a coherent,
+  positively co-varying block rather than a distance-decaying pattern, as
+  expected if the genes share a selective regime.
+
+* (d) The two signals agree. Across genes, co-divergence with Skp and dN/dS track
+  each other (Spearman rho = +0.76): the genes that follow Skp most closely are
+  also under the most relaxed/diversifying selection (Skp at upper right, flanks
+  at lower left).
+
+* (e) Functional identity. Genome-wide, envelope-biogenesis genes (COG category M)
+  co-diverge with Skp more than the rest of the core genome (Mann-Whitney p =
+  4.7e-08) and are enriched among Skp's top-decile partners (15.2% vs 7.1%
+  overall; hypergeometric p = 3.5e-03). Skp's outer-membrane clients LptD and
+  BamA sit among the envelope genes.
+
+* (f) Rate control. Each envelope gene's percentile vs the non-envelope genes
+  closest to it in substitution count sits above the 50th percentile (median
+  60th; Wilcoxon p = 1.9e-03), as do LptD and BamA (80th and 87th percentiles)
+  (so the envelope signal is NOT a by-product of evolutionary rate).
+```
+
+and the following figure:
+
+{% include IMAGE path="images/skp_operon_coselection.png" width="70" caption="Selection and co-divergence across the Skp locus and genome-wide. Operon-internal analyses (a–d) use the per-gene codon alignments of all locus genes with amino-acid substitutions mapped onto each branch of the genome tree by Fitch parsimony, and the genome-wide analyses (e–f) apply the same test to all single-copy core genes. Throughout, 'co-divergence with Skp' indicates the partial Spearman correlation between the per-branch substitutions of a given gene and Skp, while controlling for genome-wide branch length. In a–d the operon is shaded and Skp is marked. (a) Mean pairwise dN/dS (Nei–Gojobori) at each locus gene. (b) Each gene's rate-controlled co-divergence with Skp. (c) Pairwise co-divergence among all locus genes. (d) dN/dS versus co-divergence with Skp, one point per gene. (e) Genome-wide partial co-divergence with Skp for envelope-biogenesis genes (COG category M; n = 66) versus all other single-copy core genes (n = 858), with Skp's outer-membrane clients LptD and BamA overlaid. (f) Each envelope gene's percentile rank for co-divergence with Skp among the non-envelope genes closest to it in substitution count. p-values: a–d Mann–Whitney; e Mann–Whitney and hypergeometric; f Wilcoxon. (Supplementary Figure 9 in the manuscript)." %}
+
 
 ## Closing notes
 
