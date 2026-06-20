@@ -32,7 +32,6 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 Our study implements a computational workflow to study gene-centric pangenome graphs interactively and applies it to 29 circular isolates from _Undatipelagibacter_ to demonstrate that,
 
-
 * Synteny-aware pangenome graphs **preserve chromosomal context that conventional pangenomes discard**, revealing an **intricate landscape of variable regions** alternating with backbone stretches across genomes,
 * Variable regions are **functionally specialized and coherent units** that are distinct from the genomic backbone, rather than random assortments of genes,
 * Genomic variability is distributed as a **structured continuum** rather than a binary partition of hypervariable islands and a static backbone, as evidenced by graph-derived metrics such as the "Composite Variability Score" we have implemented,
@@ -42,13 +41,14 @@ Our study implements a computational workflow to study gene-centric pangenome gr
 
 Our reproducible bioinfromatics workflow picks up from another document related to this study, which [explains how to generate pangenome graphs](https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/) using the **same set of genomes**. Therefore the output of the reproducible tutorial becomes the input of our reproducible bioinformatics workflow.
 
-The sections below produce the analyses behind each main figure of our paper.
+The sections below produce the analyses behind,
 
 * The top panel of __Figure 1__, which visualizes the pangenome graph, is produced in the section [visualizing the Undatipelagibacter pangenome graph](##visualizing-the-undatipelagibacter-pangenome-graph) section,
 * The Sankey diagram at the bottom of __Figure 1__ is produced across the [combining the pangenome graph tables](#combining-the-pangenome-graph-tables-into-one) and [summary statistics](#calculating-summary-statistics-on-the-combined-table) sections,
 * __Figure 2__, which visualizes the functional distributions of variable regions, and its associated supplementary panel are produced in the [functional distributions plots and VR/BR comparisons](#functional-distributions-plots-and-vrbr-comparisons) section,
 * __Figure 4__, which visualizes the graph-derived metrics and Composite Variability Score, is produced in the [metrics](#metrics-of-the-pangenome-graph) section, and
 * __Figure 5__, which visualizes position-wise sequence similarity patterns, is produced in the [position-wise comparisons](#position-wise-sequence-comparisons) section.
+* As well as __Supplementary Figures 6, 7, 8, and 9__.
 
 
 ## Setting up the stage
@@ -99,11 +99,20 @@ At this stage, your working directory structure should look like this:
 │   ├── functional_distribution_clustering.py
 │   ├── metrics_clustering.py
 │   ├── similarity_per_position.py
+│   ├── skp_genome_phylogenetic_congruence.py
+│   ├── skp_operon_coselection.py
+│   ├── skp_operon_export_locus_map.py
+│   ├── skp_operon_recombination_breakpoints.py
+│   ├── skp_operon_recombination.py
 │   └── summary_statistics.py
 ├── 01_DATA
-│   └── 00_README.txt
+│   └── 00_README.txt
 └── 02_RESULTS
-    └── 00_README.txt
+    ├── 00_README.txt
+    ├── SKP-PHYLOGENETICS
+    │   └── UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+    └── UNDATIPELAGIBACTER-PHYLOGENOMICS
+        └── UNDATIPELAGIBACTER-ALPHASCGs.newick
 ```
 
 If that is the case, we are good.
@@ -118,8 +127,14 @@ curl -L https://cloud.uol.de/public.php/dav/files/8snz92oDqJeARDK -o 01_DATA/UND
 tar -xzf 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz -C 01_DATA/ && rm 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY.tar.gz
 
 # migrate all DB files in case anvi'o had any database updates in between
-# in between
+# in between. first activate anvio-dev,
+conda activate anvio-dev
+
+# migrate all
 anvi-migrate 01_DATA/*db --migrate-quickly
+
+# deactivate anvio-dev
+conda deactivate
 ```
 
 At this stage, your working directory structure should look like this:
@@ -132,6 +147,11 @@ At this stage, your working directory structure should look like this:
 │   ├── functional_distribution_clustering.py
 │   ├── metrics_clustering.py
 │   ├── similarity_per_position.py
+│   ├── skp_genome_phylogenetic_congruence.py
+│   ├── skp_operon_coselection.py
+│   ├── skp_operon_export_locus_map.py
+│   ├── skp_operon_recombination_breakpoints.py
+│   ├── skp_operon_recombination.py
 │   └── summary_statistics.py
 ├── 01_DATA
 │   ├── 00_README.txt
@@ -140,14 +160,18 @@ At this stage, your working directory structure should look like this:
 │   ├── UNDATIPELAGIBACTER-PAN.db
 │   └── UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY
 │       ├── GENESxSYNGCs.txt
-│       ├── GENOMES_DIST.newick
 │       ├── GENOMES_DIST_MAT.txt
+│       ├── GENOMES_DIST.newick
 │       ├── REGIONS.txt
 │       ├── SYNGCs.txt
 │       └── misc_data_items
 │           └── default.txt
 └── 02_RESULTS
-    └── 00_README.txt
+    ├── 00_README.txt
+    ├── SKP-PHYLOGENETICS
+    │   └── UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+    └── UNDATIPELAGIBACTER-PHYLOGENOMICS
+        └── UNDATIPELAGIBACTER-ALPHASCGs.newick
 ```
 
 If that is the case, you are ready.
@@ -161,7 +185,6 @@ Our reproducicble tutorial [here](https://merenlab.org/tutorials/undatipelagibac
 You can also visualize the pangenome and pangenome graph by activating `anvio-dev`:
 
 ```
-conda deactivate
 conda activate anvio-dev
 ```
 
@@ -372,7 +395,7 @@ complexity_mm_scaled     0.5664      0.047     11.984      0.000       0.473    
 R-squared = 0.461
 ```
 
-The script will print the upper part of the paper's __Figure 4__. The lower part was generated from the visualized pangenome graph.
+The script will print the upper part of the paper's __Figure 4__. The lower part was generated from the visualized pangenome graph (and it will take a relatively long time to run, so beware).
 
 {% include IMAGE path="images/metrics_clustering.png" width="70" %}
 
@@ -562,6 +585,10 @@ mv 01_DATA/CONTIGS-DBs 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs
 # remove the archive file
 rm -rf 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.tar.gz
 
+# activate the anvio-dev environment
+conda deactivate
+conda activate anvio-dev
+
 # migrate the contigs-db files to the latest version
 # of anvi'o
 anvi-migrate 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs/*db \
@@ -645,11 +672,14 @@ Trimmed columns with excessive gaps:
 
 ```
 trimal -in  02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA-RAW.fa \
-       -out 02_RESULTS//UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
+       -out 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
        -gt 0.50
 ```
 
 And ran IQTREE to calculate the final tree for genomes:
+
+{:.warning}
+While working on our manuscript, we re-ran the reproducible workflow you are reading many many times. And it became clear to us that in some cases the phylogenomics analysis of the *Undatipelagibacter* genomes will yiled ever slightly different trees (most likely as a by product of the maximum likelihood calculations -- when the starting trees chance, the final output after so many iterations also change in tiny amounts). Slight changes in the initial genome trees will give you slightly different numbers after thousands of permutations in downstream analyses on this page, especially Skp co-selection tests below. Please note that none of the trees we came up with changed any of our conclusions or significance scores since the differences were quite minmal. Why this note, then? Well, this note is here in case you want to have *byte-perfect* reproduction of our results. If that is the case, please skip to the [next section](#recovery-and-phylogenetics-of-skp-genes) without running the IQ-TREE analysis below. You already have the genome tree that gave us the outputs you have on this page and in our manuscript in your git clone. If you continue with the IQ-TREE analysis here nothing will change. The following commands will simply overwrite the tree file, and the rest will use your copy rather than the original file. 
 
 ```bash
 iqtree -s 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS//UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
@@ -741,6 +771,9 @@ trimal -in 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA_RAW.fa \
 
 Ran IQTREE the same way before:
 
+{:.warning}
+The same story here, but for the Skp tree. If you have read the previous warning, you can move on. Otherwise, here is the full story: while working on our manuscript, we re-ran the reproducible workflow you are reading many many times. And it became clear to us that in some cases the phylogenetic analysis of the Skp genes will yiled ever slightly different trees. Slight changes in the initial genome trees will give you slightly different numbers after thousands of permutations in downstream analyses on this page, especially Skp co-selection tests below. These chances don't change anything in our conclusions or results, but if you want to have *byte-perfect* reproduction of our findings, please skip to the [next section](#testing-the-phylogenetic-congruence-between-skp-genes-and-undatipelagibacter-genomes) without running the IQ-TREE analysis below. You already have the gene tree that gave us the outputs you have on this page and in our manuscript in your git clone. If you continue with the IQ-TREE analysis here, it is fine too. The following commands will simply overwrite the tree file you already have, and the rest will use your copy rather than the original file.
+
 ```
 iqtree -s 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.fa \
        -m LG+F+R10 \
@@ -780,11 +813,16 @@ Using the data generated in the previous two steps, we implemented a Phython scr
 
 * Do per-branch Skp substitutions scale with genome-wide divergence?
 
-Both questions are answered by running the script the following way, which produces the terminal output below with statistics,
+Both questions are answered by running the script the following way,
 
 ```bash
 python 00_SCRIPTS/skp_genome_phylogenetic_congruence.py
+```
 
+will produces the terminal output below with statistics,
+
+
+```no-copy
 SKP vs GENOME PHYLOGENETIC CONGRUENCE
 ===============================================
 Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
@@ -809,13 +847,13 @@ PDF ..........................................: 02_RESULTS/skp_genome_phylogenet
 PNG ..........................................: 02_RESULTS/skp_genome_phylogenetic_congruence.png
 ```
 
-And generates the following output figure:
+and generate the following output figure:
 
-{% include IMAGE path="images/skp_genome_phylogenetic_congruence.png" width="70" caption="Skp divergence is congruent with the vertical genome phylogeny. The top row addresses whether genome-wide and Skp pairwise distances agree, and the bottom row addresses whether per-branch Skp substitutions scale with genome-wide divergence. (a) Pairwise patristic distance on the genome tree versus on the Skp gene tree, with a least-squares guide line. (b) Mantel permutation test. (c) Tanglegram of the genome tree (left) and the Skp gene tree (right). (d) Skp amino-acid substitutions inferred on each branch of the genome tree by Fitch parsimony, versus that branch's genome-wide length (substitutions/site). (e) The genome tree with each branch colored by its inferred number of Skp substitutions (Supplementary Figure 8 in the manuscript)." %}
+{% include IMAGE path="images/skp_genome_phylogenetic_congruence.png" width="70" caption="Skp divergence versus the genome phylogeny. The top row addresses whether genome-wide and Skp pairwise distances agree, and the bottom row addresses whether per-branch Skp substitutions scale with genome-wide divergence. (a) Pairwise patristic distance on the genome tree versus on the Skp gene tree, with a least-squares guide line. (b) Mantel permutation test. (c) Tanglegram of the genome tree (left) and the Skp gene tree (right). (d) Skp amino-acid substitutions inferred on each branch of the genome tree by Fitch parsimony, versus that branch's genome-wide length (substitutions/site). (e) The genome tree with each branch colored by its inferred number of Skp substitutions (Supplementary Figure 8 in the manuscript)." %}
 
-Overall, this result shows that Skp divergence tracks genome ancestry to a large degree, and even though Skp is quite variable across the *Undatipelagibacter* (down to 25% amino-acid identity), it does accumulate substitutions on each lineage in proportion to that lineage's genome-wide divergence given the phylogenomic tree for *Undatipelagibacter* genomes (Spearman r = 0.90), and its pairwise divergences correlate significantly with genome-wide distances (Mantel *p* = 1×10^-4).
+Overall, this result shows that Skp divergence tracks genome ancestry to a large degree, and even though Skp is quite variable across the *Undatipelagibacter* (down to 25% amino-acid identity), it does accumulate substitutions on each lineage in proportion to that lineage's genome-wide divergence given the phylogenomic tree for *Undatipelagibacter* genomes (Spearman r = 0.90), and its pairwise divergences correlate significantly with genome-wide distances (Mantel *p* = 1e-4).
 
-Both tests support vertical signal in Skp, and the stronger, metric-robust evidence is per-branch: the number of Skp substitutions mapped onto each genome-tree branch scales tightly with the genome-wide divergence within the branch (Spearman r = 0.90, Pearson r = 0.87, highly concordant results that indicate this is not an artifact of a few long branches). The pairwise distance test between the two trees corroborates this with a significant but moderate monotonic correlation (Spearman ρ = 0.42, Mantel p = 1×10^-4; Pearson r = 0.80). The gap between the two distance metrics reflects the clade's structure: genome-wide distances are strongly bimodal (as we have a tight cluster of near-identical genomes plus a band of divergent pairs (see Panel e)), so both trees agree confidently on deep splits while concording only weakly on the fine ordering among the divergent majority. But the vertical signal for Skp appears to be real and strongest at deeper divergences, rather than a uniform tight tracking of every pairwise relationship.
+Both tests support vertical signal in Skp, and the stronger, metric-robust evidence is per-branch: the number of Skp substitutions mapped onto each genome-tree branch scales tightly with the genome-wide divergence within the branch (Spearman r = 0.90, Pearson r = 0.87, highly concordant results that indicate this is not an artifact of a few long branches). The pairwise distance test between the two trees corroborates this with a significant but moderate monotonic correlation (Spearman ρ = 0.42, Mantel p = 1e-4; Pearson r = 0.80). The gap between the two distance metrics reflects the clade's structure: genome-wide distances are strongly bimodal (as we have a tight cluster of near-identical genomes plus a band of divergent pairs (see Panel e)), so both trees agree confidently on deep splits while concording only weakly on the fine ordering among the divergent majority. But the vertical signal for Skp appears to be real and strongest at deeper divergences, rather than a uniform tight tracking of every pairwise relationship.
 
 More eloquent and likely more up-to-date description of what this shows is in the manuscript.
 
@@ -823,7 +861,7 @@ More eloquent and likely more up-to-date description of what this shows is in th
 
 The purpose of this analysis was to shed light on whether the volcano-shaped divergence pattern in the envelope biogenesis operon (that contained the Skp gene) was a result of staggered recombination, or by gradual in-place divergence.
 
-For this, we needed to export a slighlty larger genomic context that exceeded the envelope biogenesis operon itself. Thus, we exported the genomic loci between the TrpD gene (SynGC GC_00000545_1; graph order 1392) to DnaE (SynGC GC_00001037_1; graph order 1409) using the anvi'o program {% include PROGRAM name="anvi-export-pan-subgraph" %} first to get a {% include ARTIFACT name="contigs-db" %} file that contains the sequence between these two nodes from each genome:
+For this, we needed to export a slighlty larger genomic context that exceeded the envelope biogenesis operon itself. Thus, we exported the genomic loci between the TrpD gene (SynGC GC_00000545_1; graph order 1392) to DnaE (SynGC GC_00001037_1; graph order 1409) using the anvi'o program {% include PROGRAM name="anvi-export-pan-subgraph" %} first to get a {% include ARTIFACT name="contigs-db" %} file that contains the sequence between these two nodes from each genome. Running this script this way,
 
 
 ```
@@ -831,8 +869,11 @@ anvi-export-pan-subgraph -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db \
                          -e 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.txt \
                          --graph-nodes GC_00000545_1,GC_00001037_1 \
                          -o 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
+```
 
+will generate the following terminal output,
 
+```no-copy
 Pan Graph DB ................................................: Initialized: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db (v. 21)
 Pangenome graph database .....................: UNDATIPELAGIBACTER
 Pan graph database ...........................: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
@@ -872,7 +913,9 @@ Loci .........................................:
 ✓ export_pan_subgraph.py took 0:00:07.875367
 ```
 
-This generated a bunch of files (i.e., {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} and FASTA files for each locus) under the directory `02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI`. Then, we used the program {% include PROGRAM name="anvi-get-sequences-for-gene-calls" %} to export individual gene sequences from the {% include ARTIFACT name="contigs-db" %} files for downstream analyses of dN/dS calculations and more:
+and a bunch of ouptput files files (i.e., {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} and FASTA files for each locus) under the directory `02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI`.
+
+Then, we used the program {% include PROGRAM name="anvi-get-sequences-for-gene-calls" %} the following way,
 
 ```bash
 for contigs_db in 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI/*db
@@ -884,13 +927,83 @@ do
 done
 ```
 
-We then implemented a Python script ([skp_operon_recombination.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_recombination.py); available to you in your `00_SCRIPTS` directory), which codon-aligns every gene across the locus exporded above and computes (1) position by position the mean and full per-pair distribution of amino-acid identity (and its bimodality), (2) synonymous versus nonsynonymous divergence, and (3) the identity of each consensus alleles to the codon identity in each genome to test whether the volcano-shaped divergence pattern reflects 'a population-wide mixture of alleles consistent with staggered recombination' or forms 'a uniform gradual divergence' pattern.
+Which exported individual gene sequences from the {% include ARTIFACT name="contigs-db" %} files for downstream analyses of dN/dS calculations and more.
 
-We ran the script the following way, which generated the following output and the figure shown below:
+Here, we generated a simpler representation of the genes in the loci we exported above in the context of the graph to make it easier to develop scripts that can track the order of indivdiual genes and their annotations for visualization purposes. Running it the following way,
 
+```bash
+python 00_SCRIPTS/skp_operon_export_locus_map.py
 ```
-python 00_SCRIPTS/skp_operon_recombination.py
 
+generated this terminal output,
+
+```no-copy
+EXPORTING THE SKP OPERON LOCUS MAP
+===============================================
+Source table .................................: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/SYNGCs.txt
+Anchor nodes .................................: GC_00000545_1 .. GC_00001037_1
+Synteny coordinate range .....................: 1392 .. 1409
+Synteny positions in locus ...................: 18
+Synteny gene clusters (rows) .................: 31
+Variable positions ...........................: 1401 (Skp), 1404 (CdsA)
+
+OUTPUT
+===============================================
+Locus map ....................................: 01_DATA/SKP_LOCUS_MAP.txt
+
+* Wrote 31 rows across 18 synteny positions to the locus map. This is the file
+  skp_operon_recombination.py will read as SKP_LOCUS_MAP.
+```
+
+and the content of this file looked like this:
+
+|**`synteny_position`**|**`syngc_node`**|**`gene_cluster_id`**|**`region_type`**|**`num_genomes`**|**`gene`**|
+|:--|:--|:--|:--|:--|:--|
+|1392|GC_00000545_1|GC_00000545|backbone|29|TrpD|
+|1393|GC_00001094_1|GC_00001094|backbone|29|TrpC|
+|1394|GC_00000509_1|GC_00000509|backbone|29|LexA|
+|1395|GC_00000679_1|GC_00000679|backbone|29|GlnS|
+|1396|GC_00000577_1|GC_00000577|backbone|29|LpxB|
+|1397|GC_00000598_1|GC_00000598|backbone|29|LpxI|
+|1398|GC_00001138_1|GC_00001138|backbone|29|LpxA|
+|1399|GC_00000668_1|GC_00000668|backbone|29|LpxD|
+|1400|GC_00001015_1|GC_00001015|backbone|29|FabA|
+|1401|GC_00001473_1|GC_00001473|variable|7|Skp|
+|1401|GC_00001565_1|GC_00001565|variable|6|Skp|
+|1401|GC_00001767_1|GC_00001767|variable|3|Skp|
+|1401|GC_00001956_1|GC_00001956|variable|2|Skp|
+|1401|GC_00002031_1|GC_00002031|variable|2|Skp|
+|1401|GC_00002096_1|GC_00002096|variable|2|Skp|
+|1401|GC_00002140_1|GC_00002140|variable|2|Skp|
+|1401|GC_00002436_1|GC_00002436|variable|1|Skp|
+|1401|GC_00003046_1|GC_00003046|variable|1|Skp|
+|1401|GC_00003063_1|GC_00003063|variable|1|Skp|
+|1401|GC_00003530_1|GC_00003530|variable|1|Skp|
+|1401|GC_00003553_1|GC_00003553|variable|1|Skp|
+|1402|GC_00000909_1|GC_00000909|backbone|29|BamA|
+|1403|GC_00000933_1|GC_00000933|backbone|29|Dxr|
+|1404|GC_00001286_1|GC_00001286|variable|25|CdsA|
+|1404|GC_00001760_1|GC_00001760|variable|3|CdsA|
+|1404|GC_00003583_1|GC_00003583|variable|1|CdsA|
+|1405|GC_00000734_1|GC_00000734|backbone|29|UppS|
+|1406|GC_00001005_1|GC_00001005|backbone|29|Frr|
+|1407|GC_00000888_1|GC_00000888|backbone|29|Tsf|
+|1408|GC_00000746_1|GC_00000746|backbone|29|RpsB|
+|1409|GC_00001037_1|GC_00001037|backbone|29|DnaE|
+
+---
+
+Then, we went all the way back to our original goal here, and implemented a Python script ([skp_operon_recombination.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_recombination.py); available to you in your `00_SCRIPTS` directory), that codon-aligns every gene across the locus exporded above and computes (1) position by position the mean and full per-pair distribution of amino-acid identity (and its bimodality), (2) synonymous versus nonsynonymous divergence, and (3) the identity of each consensus alleles to the codon identity in each genome to test whether the volcano-shaped divergence pattern reflects 'a population-wide mixture of alleles consistent with staggered recombination' or forms 'a uniform gradual divergence' pattern.
+
+Running the script the following way,
+
+```bash
+python 00_SCRIPTS/skp_operon_recombination.py
+```
+
+will generate the following output in the terminal,
+
+```no-copy
 IS THE SKP OPERON VALLEY RECOMBINATION OR GRADUAL DIVERGENCE?
 ===============================================
 Locus directory ..............................: 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
@@ -972,16 +1085,24 @@ OBSERVATIONS TO REMEMBER
   mosaic) is read from the heatmap.
 ```
 
-{% include IMAGE path="images/skp_operon_recombination.png" width="70" caption="Gene-level signatures of the Skp-operon divergence valley and a within-population test for staggered recombination. In every panel the operon is shaded and the hyper-variable Skp gene is marked with a dashed line; the flanking genes provide a conserved baseline. (a) Mean pairwise amino-acid identity (AAI) at each gene, averaged over all 406 genome pairs — the volcano profile, falling from ~97% across the flanks to ~40% at Skp (mean operon AAI ~72%). (b) The same profile drawn for each individual genome pair (gray; n = 406) with the mean overlaid (red); this exposes whether individual pairs are smooth Vs (expected under gradual in-place divergence) or sharp steps whose breakpoints fall at different positions in different pairs (expected under staggered recombination). (c) Distribution of the 406 pairwise AAI values at each gene (violins), annotated with Sarle's bimodality coefficient (red where it exceeds 5/9, the threshold above which a distribution is effectively two-moded). The operon 'wall' genes are bimodal — a high-identity 'native' mode and a low-identity 'divergent' mode — whereas the flanking genes are unimodal and tight, the pattern expected when native and introgressed alleles coexist in the population. (d) Mean pairwise proportion of nonsynonymous (pN, red) and synonymous (pS, green) differences per gene (Nei–Gojobori). Both rise across the operon; note that pS approaches saturation within the operon and so is uninformative about the depth of any import. (e) Heatmap of each genome's allele identity to the per-gene consensus sequence (rows = 29 genomes, ordered by the genome phylogeny; columns = the 18 genes). A staggered-recombination mosaic would appear as contiguous low-identity blocks whose boundaries differ from genome to genome. (Supplementary Figure 6 in the manuscript)." %}
+and create the following figure that describe the analysis results here:
+
+{% include IMAGE path="images/skp_operon_recombination.png" width="70" caption="Gene-level signatures of the Skp-operon divergence valley and a within-population test for staggered recombination. In every panel the operon that encodes Skp is shaded and theSkp gene is marked with a dashed line. (a) Mean pairwise amino-acid identity (AAI) at each gene. (b) The same profile drawn for each individual genome pair with the mean overlaid. (c) Distribution of the 406 pairwise AAI values at each gene; red numbers indicate when Sarle's bimodality coefficient exceeds 5/9. (d) Mean pairwise proportion of nonsynonymous differences per gene (Nei-Gojobori). (e) Heatmap of each genome's allele identity to the per-gene consensus sequence where genomes are ordered by the genome phylogeny (Supplementary Figure 6 in the manuscript)." %}
 
 ### Testing recombination events across the contiguous Skp locus at nucleotide, sub-gene resolution
 
 We implemented a Python script ([skp_operon_recombination_breakpoints.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_recombination_breakpoints.py); also available to you in your `00_SCRIPTS` directory) to perform position-aware recombination tests to quantify whether or not homologous recombination has shaped the locus. The script generates uses a sliding-window DNA identity profile across alignments, generates a [four-gamete](https://en.wikipedia.org/wiki/Four-gamete_test) incompatibility landscape, calculates a pairwise [homoplasy index (PHI, Φ<sub>w</sub>)](https://pmc.ncbi.nlm.nih.gov/articles/PMC1456386/) permutation test, and performs an incompatibility-versus-distance analysis.
 
+Running the script the following way (which will take a few minutes),
 
-```
+
+```bash
 python 00_SCRIPTS/skp_operon_recombination_breakpoints.py
+```
 
+will generate the following terminal output,
+
+```no-copy
 FORMAL RECOMBINATION TESTS ACROSS THE SKP OPERON
 ===============================================
 Whole-locus alignment ........................: reusing cache: 02_RESULTS/UNDATIPELAGIBACTER_SKP_LOCUS_ALIGNED.fa
@@ -1037,28 +1158,49 @@ OBSERVATIONS TO REMEMBER
   locus; a flat line would indicate clonal divergence.
 ```
 
-And here is the figure this analysis generated for the Skp-encoding operon and its broader flanking genomic context:
+And will generate the figure below for the Skp-encoding operon and its broader flanking genomic context:
 
 {% include IMAGE path="images/skp_operon_recombination_breakpoints.png" width="70" caption="Formal recombination tests across the contiguous Skp locus at nucleotide, sub-gene resolution. (a) Mean pairwise nucleotide identity in a 200-bp sliding window along the locus, resolving the divergence valley within and across genes. (b) Genealogical-conflict landscape: for each informative site, the mean 4-gamete incompatibility with its neighboring sites, positioned along the locus. (c) The pairwise homoplasy index (PHI / Φ<sub>w</sub>) test for recombination. The histogram is the null distribution of Φ<sub>w</sub> under 9,999 random permutations of site order; the red line is the observed value. (d) Mean 4-gamete incompatibility between pairs of informative sites as a function of the distance separating them. (Supplementary Figure 7 in the manuscript)." %}
 
 
 ### Testing the existence (or lack thereof) the epistatic co-selection signal centered on Skp
 
-We implemented yet another Python script ([skp_operon_coselection.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_coselection.py); also available to you in your `00_SCRIPTS` directory) to test the other side of the madellion: whether the Skp divergence can be explained by epistatic co-selection. The script maps substitutions in each gene onto the genome phylogeny we generated previously, and quantifies (while controlling for genome-wide divergence rate) the dN/dS selection gradient across the operon, the rate-independent co-divergence of each gene with Skp (both within the operon and, genome-wide, across all core single-copy genes), and the enrichment of Skp's co-divergence partners for cell-envelope functions, to test whether the valley is shaped by epistatic co-selection centered on Skp.
+This analysis required us to work with every single single-copy core gene in the *Undatipelagibacter* pangenome, so we first used the program {% include PROGRAM name="anvi-summarize" %} to generate the necessary files to be able to recover gene sequences for each gene cluster in the pangenome:
 
+```bash
+# summarize the pangenome
+anvi-summarize -p 01_DATA/UNDATIPELAGIBACTER-PAN.db -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db -o 02_RESULTS/UNDATIPELAGIBACTER-PAN-SUMMARY
 
-We ran the script the following way, which produced the following output,
+# decompress the key summary file
+gzip -d 02_RESULTS/UNDATIPELAGIBACTER-PAN-SUMMARY/UNDATIPELAGIBACTER_gene_clusters_summary.txt.gz
+```
+
+Then, we implemented yet another Python script ([skp_operon_coselection.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_coselection.py) -- also available to you in your `00_SCRIPTS` directory) to finally test the other side of the medallion: whether the Skp divergence can be explained by epistatic co-selection. The script maps substitutions in each gene onto the genome phylogeny we generated previously, and quantifies (while controlling for genome-wide divergence rate) the dN/dS selection gradient across the operon, the rate-independent co-divergence of each gene with Skp (both within the operon and, genome-wide, across all core single-copy genes), and the enrichment of Skp's co-divergence partners for cell-envelope functions, to test whether the valley is shaped by epistatic co-selection centered on Skp.
+
+Running the script the following way (which will take a loooong time to generate genome-wide null values),
 
 ```
 python 00_SCRIPTS/skp_operon_coselection.py
+```
 
+will produce the following output in the terminal,
+
+```
 IS THE SKP OPERON VALLEY SHAPED BY CO-SELECTION CENTERED ON SKP?
 ===============================================
 Locus directory ..............................: 02_RESULTS/UNDATIPELAGIBACTER-SKP-EXTENDED-LOCI
 Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
 Genomes in analysis ..........................: 29
 Synteny positions in locus ...................: 18
-Genome-wide null .............................: reusing cache: 02_RESULTS/UNDATIPELAGIBACTER_SKP_GENOMEWIDE_CODIVERGENCE_NULL.txt
+
+BUILDING THE GENOME-WIDE NULL
+===============================================
+No cached genome-wide null was found, so the partial co-divergence with Skp will
+now be computed for every core single-copy gene. This aligns hundreds of gene
+clusters and is the slow step (a few minutes); the result is cached to
+'02_RESULTS/UNDATIPELAGIBACTER_SKP_GENOMEWIDE_CODIVERGENCE_NULL.txt' and reused
+on later runs.
+
 
 SELECTION GRADIENT AND CO-DIVERGENCE WITH SKP
 ===============================================
@@ -1116,7 +1258,7 @@ FIGURES
 PDF ..........................................: 02_RESULTS/skp_operon_coselection.pdf
 PNG ..........................................: 02_RESULTS/skp_operon_coselection.png
 
-OBSERVATIONS FROM THE RESULTS/FIGURE TO KEEP IN MIND
+OBSERVATIONS TO REMEMBER
 ===============================================
 * (a) Selection gradient. dN/dS is low and flat across the flanks (mean 0.06) and
   peaks at Skp (0.56), with intermediate values across its operon neighbors
@@ -1150,9 +1292,9 @@ OBSERVATIONS FROM THE RESULTS/FIGURE TO KEEP IN MIND
   (so the envelope signal is NOT a by-product of evolutionary rate).
 ```
 
-and the following figure:
+and create the following figure that summarize the results here:
 
-{% include IMAGE path="images/skp_operon_coselection.png" width="70" caption="Selection and co-divergence across the Skp locus and genome-wide. Operon-internal analyses (a–d) use the per-gene codon alignments of all locus genes with amino-acid substitutions mapped onto each branch of the genome tree by Fitch parsimony, and the genome-wide analyses (e–f) apply the same test to all single-copy core genes. Throughout, 'co-divergence with Skp' indicates the partial Spearman correlation between the per-branch substitutions of a given gene and Skp, while controlling for genome-wide branch length. In a–d the operon is shaded and Skp is marked. (a) Mean pairwise dN/dS (Nei–Gojobori) at each locus gene. (b) Each gene's rate-controlled co-divergence with Skp. (c) Pairwise co-divergence among all locus genes. (d) dN/dS versus co-divergence with Skp, one point per gene. (e) Genome-wide partial co-divergence with Skp for envelope-biogenesis genes (COG category M; n = 66) versus all other single-copy core genes (n = 858), with Skp's outer-membrane clients LptD and BamA overlaid. (f) Each envelope gene's percentile rank for co-divergence with Skp among the non-envelope genes closest to it in substitution count. p-values: a–d Mann–Whitney; e Mann–Whitney and hypergeometric; f Wilcoxon. (Supplementary Figure 9 in the manuscript)." %}
+{% include IMAGE path="images/skp_operon_coselection.png" width="70" caption="Selection and co-divergence across the Skp locus and genome-wide. Operon-internal analyses (a-d) use the per-gene codon alignments of all locus genes with amino-acid substitutions mapped onto each branch of the genome tree by Fitch parsimony, and the genome-wide analyses (e-f) apply the same test to all single-copy core genes. Throughout, 'co-divergence with Skp' indicates the partial Spearman correlation between the per-branch substitutions of a given gene and Skp, while controlling for genome-wide branch length. In a-d the operon is shaded and Skp is marked. (a) Mean pairwise dN/dS (Nei-Gojobori) at each locus gene. (b) Each gene's rate-controlled co-divergence with Skp. (c) Pairwise co-divergence among all locus genes. (d) dN/dS versus co-divergence with Skp, one point per gene. (e) Genome-wide partial co-divergence with Skp for envelope-biogenesis genes (COG category M; n = 66) versus all other single-copy core genes (n = 858), with Skp's outer-membrane clients LptD and BamA overlaid. (f) Each envelope gene's percentile rank for co-divergence with Skp among the non-envelope genes closest to it in substitution count. (Supplementary Figure 9 in the manuscript)." %}
 
 
 ## Closing notes
