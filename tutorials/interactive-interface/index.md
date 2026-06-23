@@ -60,7 +60,7 @@ Each row in this table represents a gut metagenome and every column represents a
 You can download the full dataset on your computer by running the following command in your terminal:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/data.txt
+ $ curl -L -O http://merenlab.org/tutorials/interactive-interface/files/data.txt
 ```
 
 Then you can take a very quick look at it in anvi'o:
@@ -154,7 +154,7 @@ A rather comprehensive description of these tables, and how to operate on them i
 If you read that article, you already know about the simple structure of the input file to add new layers orders into a profile database. If you don't want to spend time on it you can download it here:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/layer-orders.txt
+ $ curl -L -O http://merenlab.org/tutorials/interactive-interface/files/layer-orders.txt
 ```
 
 After taking a look at the contents of this file, you can import it in your profile database:
@@ -209,7 +209,7 @@ Anvi'o can extend any view with additional data. For instance, we have some info
 You can download the pre-prepared items additional data file from here:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/additional-items-data.txt
+ $ curl -L -O http://merenlab.org/tutorials/interactive-interface/files/additional-items-data.txt
 ```
 
 The first column of the additional data file is pretty much identical to the data file, but there are some other data columns in it:
@@ -264,7 +264,7 @@ How about extending layers with extra information? At this point we can at least
 Here is a layers additional data file for the lazy:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/additional-layers-data.txt
+ $ curl -L -O http://merenlab.org/tutorials/interactive-interface/files/additional-layers-data.txt
 ```
 
 After taking a look at the file, you can import it into the profile database:
@@ -313,7 +313,7 @@ And this is the circular version, if you are curious AND not stubborn (hehe):
 You can import this visual display into your version by downloading the anvi'o state file:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/pretty-state.json
+ $ curl -L -O http://merenlab.org/tutorials/interactive-interface/files/pretty-state.json
  $ anvi-import-state -p profile.db -s pretty-state.json -n default
 ```
 

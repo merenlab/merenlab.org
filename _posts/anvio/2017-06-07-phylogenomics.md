@@ -58,7 +58,7 @@ If you want to follow this tutorial with the data I used here, you can type the 
 
 ``` bash
 # download the data pack
-wget https://ndownloader.figshare.com/files/28715136 -O AnvioPhylogenomicsTutorialDataPack.tar.gz
+curl -L https://api.figshare.com/v2/file/download/28715136 -o AnvioPhylogenomicsTutorialDataPack.tar.gz
 
 # unpack it
 tar -zxvf AnvioPhylogenomicsTutorialDataPack.tar.gz
@@ -126,7 +126,7 @@ The next step is to define all the contigs databases of interest, and give them 
 You can download this file into your work directory:
 
 ``` bash
-wget https://goo.gl/XuezQF -O external-genomes.txt
+curl -L https://goo.gl/XuezQF -o external-genomes.txt
 ```
 
 ---
@@ -281,7 +281,7 @@ It is also possible to extend the display with additional information. For insta
 You can download this file into your work directory:
 
 ``` bash
-wget https://goo.gl/UZDbC8 -O view.txt
+curl -L https://goo.gl/UZDbC8 -o view.txt
 ```
 
 Now you can run the interactive interface again to see the additional layers:
@@ -421,7 +421,7 @@ At the end of this the directory should be populated with files that ends with '
 Which you can download into your work directory this way:
 
 ``` bash
-wget https://goo.gl/DTM9sz -O external-genomes.txt
+curl -L https://goo.gl/DTM9sz -o external-genomes.txt
 ```
 
 Before we start, there is a question you may be asking yourself: why don't we analyze these genomes the way it is explained in the previous section? 

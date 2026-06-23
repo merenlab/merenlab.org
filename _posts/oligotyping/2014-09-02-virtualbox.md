@@ -132,7 +132,7 @@ This is the current Docker image for v2.1:
 If you would like to rebuild the Docker image for oligotyping on your own server, you first need to get the Docker file:
 
 ``` bash
-wget https://gist.githubusercontent.com/meren/3b16c98b830e3796216b9d623ea2c2f4/raw/38e4188b0c21de89dd9eace5da361c9f9492f77d/Oligotyping_Dockerfile_v2.1.sh -O Dockerfile
+curl -L https://gist.githubusercontent.com/meren/3b16c98b830e3796216b9d623ea2c2f4/raw/38e4188b0c21de89dd9eace5da361c9f9492f77d/Oligotyping_Dockerfile_v2.1.sh -o Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):

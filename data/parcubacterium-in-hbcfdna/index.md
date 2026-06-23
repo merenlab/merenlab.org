@@ -73,8 +73,8 @@ The mapping procedure implements the anvi'o metagenomics workflow [described her
 Each line in this file corresponds to a metagenome that was generated from the cell-free DNA found in blood samples collected from a pregnant women cohort. To recruit reads using the entire set of contigs, we first merge the novel and non-novel contigs:
 
 ``` bash
-wget http://merenlab.org/data/parcubacterium-in-hbcfdna/files/non-novel-contigs.fa.zip
-wget http://merenlab.org/data/parcubacterium-in-hbcfdna/files/novel-contigs.fa.zip
+curl -L -O http://merenlab.org/data/parcubacterium-in-hbcfdna/files/non-novel-contigs.fa.zip
+curl -L -O http://merenlab.org/data/parcubacterium-in-hbcfdna/files/novel-contigs.fa.zip
 
 unzip non-novel-contigs.fa.zip
 unzip novel-contigs.fa.zip
@@ -358,8 +358,7 @@ We then downloaded anvi'o contigs databases for all CPR genomes published in the
 
 ``` bash
 # downlaod the archive
-curl -L https://ndownloader.figshare.com/files/9337477 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L "https://api.figshare.com/v2/file/download/9337477" \
      -o ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz
 
 # unpack it

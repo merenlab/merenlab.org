@@ -55,7 +55,7 @@ Now that the directory exists, the first thing you'll populate it with is all of
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #2</span>
 ```bash
-wget -O ZZ_SCRIPTS.zip https://figshare.com/ndownloader/files/35134069
+curl -L -o ZZ_SCRIPTS.zip https://api.figshare.com/v2/file/download/35134069
 unzip ZZ_SCRIPTS.zip
 rm ZZ_SCRIPTS.zip
 ```
@@ -71,11 +71,11 @@ Finally, there are some convenience files that will be used, that can be downloa
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #3</span>
 ```bash
-wget -O TARA_metadata.txt https://figshare.com/ndownloader/files/33108791
-wget -O 00_RAW_CORRECT_SIZES https://figshare.com/ndownloader/files/33109079
-wget -O 07_SEQUENCE_DEPTH https://figshare.com/ndownloader/files/33953300 # Note to self: Generated via /project2/meren/PROJECTS/KIEFL_2021/ZZ_SCRIPTS/gen_07_SEQUENCE_DEPTH.sh
-wget -O config.json https://figshare.com/ndownloader/files/33115685
-wget -O SAR11-GENOME-COLLECTION.txt https://figshare.com/ndownloader/files/33117305
+curl -L -o TARA_metadata.txt https://api.figshare.com/v2/file/download/33108791
+curl -L -o 00_RAW_CORRECT_SIZES https://api.figshare.com/v2/file/download/33109079
+curl -L -o 07_SEQUENCE_DEPTH https://api.figshare.com/v2/file/download/33953300 # Note to self: Generated via /project2/meren/PROJECTS/KIEFL_2021/ZZ_SCRIPTS/gen_07_SEQUENCE_DEPTH.sh
+curl -L -o config.json https://api.figshare.com/v2/file/download/33115685
+curl -L -o SAR11-GENOME-COLLECTION.txt https://api.figshare.com/v2/file/download/33117305
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -113,7 +113,7 @@ Click below to see a line-by-line of the script's contents.
 
 # First, download the supplementary info table from the Salazar et al 2019 paper
 # (with our naming conventions added as the column `sample_id`)
-wget --no-check-certificate -O 00_SAMPLE_INFO_FULL.txt https://figshare.com/ndownloader/files/33109100
+curl -L -k -o 00_SAMPLE_INFO_FULL.txt https://api.figshare.com/v2/file/download/33109100
 
 # Run a python script that loads in the table (00_SAMPLE_INFO_FULL.txt), subselects all samples that
 # were either (1) part of the Delmont & Kiefl et al, 2019
@@ -251,7 +251,7 @@ cd 00_RAW
 cat ../.00_FTP_LINKS_SCHEDULED_FOR_DOWNLOAD | while read ftp; do
     # overwrites incomplete files
     filename=$(basename "$ftp")
-    wget -O $filename $ftp
+    curl -L -o $filename $ftp
 done
 
 cd -
@@ -368,7 +368,7 @@ We have hosted this genome collection in FASTA format, which you can download wi
 <span class="extra-info-header">Command #7</span>
 ```bash
 # Download
-wget -O contigs.fa.tar.gz https://figshare.com/ndownloader/files/33114413
+curl -L -o contigs.fa.tar.gz https://api.figshare.com/v2/file/download/33114413
 tar -zxvf contigs.fa.tar.gz # decompress
 rm contigs.fa.tar.gz # remove compressed version
 ```
@@ -980,12 +980,12 @@ Simply run the following commands, and it will be _as if_ you completed Steps 2 
 
 ```
 # Downloads the profile database
-wget -O 06_MERGED.zip https://figshare.com/ndownloader/files/35160844
+curl -L -o 06_MERGED.zip https://api.figshare.com/v2/file/download/35160844
 unzip 06_MERGED.zip
 rm 06_MERGED.zip
 
 # Downloads the contigs database
-wget -O 03_CONTIGS.zip https://figshare.com/ndownloader/files/35160838
+curl -L -o 03_CONTIGS.zip https://api.figshare.com/v2/file/download/35160838
 unzip 03_CONTIGS.zip
 rm 03_CONTIGS.zip
 ```
@@ -1035,7 +1035,7 @@ Next, I annotated the genes in this SAR11 genome collection using Pfam, NCBI COG
 If you want to take a shortcut, download this {% include ARTIFACT name="functions" %} file, which contains all of the functions annotated _already_:
 
 ```bash
-wget -O functions.txt https://figshare.com/ndownloader/files/35134045
+curl -L -o functions.txt https://api.figshare.com/v2/file/download/35134045
 ```
 
 Now import it with {% include PROGRAM name="anvi-import-functions" %}:
@@ -1652,7 +1652,7 @@ To save myself a 3.7 Tb upload, and you a 3.7 Tb download, I stripped down the A
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #22</span>
 ```bash
-wget -O 09_STRUCTURES_AF.tar.gz https://figshare.com/ndownloader/files/33125294
+curl -L -o 09_STRUCTURES_AF.tar.gz https://api.figshare.com/v2/file/download/33125294
 tar -zxvf 09_STRUCTURES_AF.tar.gz
 rm 09_STRUCTURES_AF.tar.gz
 ```
@@ -2213,7 +2213,7 @@ If you are using Docker, you can skip this command :)
 This step downloads the v31.0 Pfam HMMs using EMBL-EBI's FTP server. Depending on when you try, your downloads may hang indefinitely. Or they may complete with no problems whatsoever. I have personally experienced both scenarios. Unfortunately, we are really at their mercy when downloading these files. If you try and fail several times, the alternative is to simply download my version of these files:
 
 ```bash
-wget -O Interacdome.tar.gz https://figshare.com/ndownloader/files/33131864
+curl -L -o Interacdome.tar.gz https://api.figshare.com/v2/file/download/33131864
 tar -zxvf Interacdome.tar.gz # decompress
 rm Interacdome.tar.gz # remove compressed version
 ```

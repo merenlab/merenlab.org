@@ -50,11 +50,11 @@ If you wish to fully reproduce the workflow down below, you can download the gen
 mkdir MAGs && cd MAGs
 
 # download Yeoman et al. Spiroplasma genome
-wget http://merenlab.org/data/spiroplasma-pangenome/files/Spiroplasma_MAG.fa.gz
+curl -L -O http://merenlab.org/data/spiroplasma-pangenome/files/Spiroplasma_MAG.fa.gz
 
 # download Sapountzis et al. genomes
-wget http://merenlab.org/data/spiroplasma-pangenome/files/Entomoplasmatales_EntAcro1.fa.gz
-wget http://merenlab.org/data/spiroplasma-pangenome/files/Entomoplasmatales_EntAcro10.fa.gz
+curl -L -O http://merenlab.org/data/spiroplasma-pangenome/files/Entomoplasmatales_EntAcro1.fa.gz
+curl -L -O http://merenlab.org/data/spiroplasma-pangenome/files/Entomoplasmatales_EntAcro10.fa.gz
 
 # unpack all and go to the upper directory
 gzip -d * && cd ..

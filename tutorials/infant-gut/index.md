@@ -43,7 +43,7 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/45076909), copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://api.figshare.com/v2/file/download/45076909), copy-paste the following commands into your terminal:
 
 ``` bash
 curl -L -o INFANT-GUT-TUTORIAL.tar.gz \
@@ -1973,8 +1973,8 @@ This section is here due to historical reasons. This is not our preferred way of
 For this step we will need [this R script](https://github.com/meren/anvio-methods-paper-analyses/blob/master/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R){:target="_blank"} Meren had written before. You can download it the following way:
 
 ``` bash
-wget https://raw.githubusercontent.com/meren/anvio-methods-paper-analyses/a57b0cee07e9dd6fc59892114f2ad5bb9df78215/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R \
-      -O visualize-SNVs.R
+curl -L https://raw.githubusercontent.com/meren/anvio-methods-paper-analyses/a57b0cee07e9dd6fc59892114f2ad5bb9df78215/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R \
+      -o visualize-SNVs.R
 chmod +x visualize-SNVs.R
 ```
 

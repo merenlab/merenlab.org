@@ -111,8 +111,7 @@ We used 494 genomes in Freel et al, and you can download them from doi:[10.6084/
 ```bash
 # download the FASTA files
 curl -L -o GENOMES.tar.gz \
-     -H "User-Agent: Chrome/115.0.0.0" \
-     https://figshare.com/ndownloader/files/59115383
+     "https://api.figshare.com/v2/file/download/59115383"
 
 
 # unpack it
@@ -265,8 +264,7 @@ Luckily you can download it from doi:[10.6084/m9.figshare.30467441](https://doi.
 ```
 # download the contigs-db files
 curl -L -o CONTIGS-DBs.tar.gz \
-     -H "User-Agent: Chrome/115.0.0.0" \
-     https://figshare.com/ndownloader/files/59126048
+     "https://api.figshare.com/v2/file/download/59126048"
 
 
 # unpack it

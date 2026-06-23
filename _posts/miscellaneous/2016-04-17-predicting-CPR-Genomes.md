@@ -121,7 +121,7 @@ Good job, classifier. You may have just proven yourself to be not an absolute jo
 How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes; the best test case: 
 
 ``` bash
-$ wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
+$ curl -L http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -o LMZU01.1.fsa_nt.gz
 $ gzip -d LMZU01.1.fsa_nt.gz
 $ anvi-script-remove-short-contigs-from-fasta LMZU01.1.fsa_nt --simplify-names -o OP11-2.fa -l 0
 $ anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db -n 'OP11'
@@ -144,7 +144,7 @@ But then I thought that it would be more fair to classify *all genomes* listed i
 
 ``` bash
 #!/bin/bash
-wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download="$1"01.1.fsa_nt.gz -O "$1"01.1.fsa_nt.gz
+curl -L http://www.ncbi.nlm.nih.gov/Traces/wgs/?download="$1"01.1.fsa_nt.gz -o "$1"01.1.fsa_nt.gz
 gzip -d "$1"01.1.fsa_nt.gz
 anvi-script-remove-short-contigs-from-fasta "$1"01.1.fsa_nt --simplify-names -o $2.fa -l 0
 anvi-gen-contigs-database -f $2.fa -o $2.db -n "$2"

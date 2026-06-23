@@ -40,7 +40,7 @@ Throughout this post, I will use a simple dataset for demonstration. If you woul
 
 
 ``` bash
-wget http://merenlab.org/files/anvio_additional_data_tables_example.tar.gz
+curl -L -O http://merenlab.org/files/anvio_additional_data_tables_example.tar.gz
 tar -zxvf anvio_additional_data_tables_example.tar.gz
 cd anvio_additional_data_tables_example/
 ```

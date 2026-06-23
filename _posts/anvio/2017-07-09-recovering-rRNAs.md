@@ -49,7 +49,7 @@ Let's assume you have a FASTA file. I will download a *B. fragilis* genome from 
 
 ``` bash
 # download the genome
-wget "http://www.ebi.ac.uk/ena/data/view/CR626927.1,CR626928.1&download=fasta&display=fasta" -O B_fragilis_ATCC_25285.fa
+curl -L "http://www.ebi.ac.uk/ena/data/view/CR626927.1,CR626928.1&download=fasta&display=fasta" -o B_fragilis_ATCC_25285.fa
 
 # clean up the crappy defline
 anvi-script-reformat-fasta B_fragilis_ATCC_25285.fa \
@@ -132,7 +132,7 @@ Here I will download the Infant Gut data pack from [this tutorial]({{site.url}}/
 
 ``` bash
 # download the data, unpack, and get into the directory:
-wget https://ndownloader.figshare.com/files/8252861 -O INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://api.figshare.com/v2/file/download/8252861 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz
 cd INFANT-GUT-TUTORIAL
 

@@ -416,7 +416,7 @@ Alternatively, you can skip this part, and apply the approach we describe to you
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/refining-mags/files/SRR_list.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/SRR_list.txt
 
 for SRR_accession in `cat SRR_list.txt`; do
     fastq-dump --outdir 01_RAW_FASTQ \
@@ -442,24 +442,24 @@ In our reanalysis we only focused on some of the key MAGs that represented under
 mkdir -p 01_FASTA
 
 # TM7_MAG_III_A (bin_8)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/965/GCA_003638965.1_ASM363896v1/GCA_003638965.1_ASM363896v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_III_A.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/965/GCA_003638965.1_ASM363896v1/GCA_003638965.1_ASM363896v1_genomic.fna.gz \
+    -o 01_FASTA/TM7_MAG_III_A.fa.gz
 
 # TM7_MAG_III_B (bin_9)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/935/GCA_003638935.1_ASM363893v1/GCA_003638935.1_ASM363893v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_III_B.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/935/GCA_003638935.1_ASM363893v1/GCA_003638935.1_ASM363893v1_genomic.fna.gz \
+    -o 01_FASTA/TM7_MAG_III_B.fa.gz
 
 # TM7_MAG_III_C (bin_10)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/915/GCA_003638915.1_ASM363891v1/GCA_003638915.1_ASM363891v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_III_C.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/915/GCA_003638915.1_ASM363891v1/GCA_003638915.1_ASM363891v1_genomic.fna.gz \
+    -o 01_FASTA/TM7_MAG_III_C.fa.gz
 
 # GN02_MAG_IV_A (bin_15)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/815/GCA_003638815.1_ASM363881v1/GCA_003638815.1_ASM363881v1_genomic.fna.gz \
-     -O 01_FASTA/GN02_MAG_IV_A.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/815/GCA_003638815.1_ASM363881v1/GCA_003638815.1_ASM363881v1_genomic.fna.gz \
+     -o 01_FASTA/GN02_MAG_IV_A.fa.gz
 
 # GN02_MAG_IV_B (bin_16)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM363880v1/GCA_003638805.1_ASM363880v1_genomic.fna.gz \
-     -O 01_FASTA/GN02_MAG_IV_B.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM363880v1/GCA_003638805.1_ASM363880v1_genomic.fna.gz \
+     -o 01_FASTA/GN02_MAG_IV_B.fa.gz
 ```
 
 ---
@@ -483,7 +483,7 @@ In order to create a merged FASTA file, we first wish to rename the headers in e
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/ESPINOZA-MAGS-FASTA.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/ESPINOZA-MAGS-FASTA.txt
 ```
 
 Here is a look into this file:
@@ -512,7 +512,7 @@ In addition, we used the following config file CONTIGS-CONFIG.json:
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/CONTIGS-CONFIG.json
+curl -L -O http://merenlab.org/data/refining-mags/files/CONTIGS-CONFIG.json
 ```
 
 We used the contigs workflow to just re-format these FASTA files:
@@ -556,7 +556,7 @@ We generated a collection file that we could later use to import into the anvi'o
 In order to generate this file, we used the following python script: `gen-collection-for-merged-fasta.py`, which you can download in the following way:
 
 ```bash
-wget https://gist.githubusercontent.com/ShaiberAlon/23fc13ed56e02854bee42773672832a5/raw/3322cf23effe3325b9f8d97615f0b5af212b2fc2/gen-collection-for-merged-fasta.py
+curl -L -O https://gist.githubusercontent.com/ShaiberAlon/23fc13ed56e02854bee42773672832a5/raw/3322cf23effe3325b9f8d97615f0b5af212b2fc2/gen-collection-for-merged-fasta.py
 ```
 
 This script takes a `fasta_txt` file as input and generates a collection file where the name of each entry in the `fasta_txt` file is associated with the names of contigs in the respective FASTA file.
@@ -608,7 +608,7 @@ We named our `collections_txt` ESPINOZA-COLLECTIONS-FILE.txt.
 You can download this file to your work directory:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/ESPINOZA-COLLECTIONS-FILE.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/ESPINOZA-COLLECTIONS-FILE.txt
 ```
 
 ```bash
@@ -630,7 +630,7 @@ First we will describe all the necesary files for the workflow.
 One of the key input files to start the run is the `samples.txt`. You can downlaod our `samples.txt` file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/refining-mags/files/samples.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/samples.txt
 ```
 
 Here is a glimpse at its contents:
@@ -667,7 +667,7 @@ And edited it to instruct the workflow manager to,
 You can download our config file `ESPINOZA-METAGENOMICS-CONFIG.json` into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/refining-mags/files/ESPINOZA-METAGENOMICS-CONFIG.json
+curl -L -O http://merenlab.org/data/refining-mags/files/ESPINOZA-METAGENOMICS-CONFIG.json
 ```
 
 The content of which should look like this:
@@ -819,8 +819,8 @@ You can get the collection files in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/refining-mags/files/$g-default-collection.txt
-    wget http://merenlab.org/data/refining-mags/files/$g-default-collection-info.txt
+    curl -L -O http://merenlab.org/data/refining-mags/files/$g-default-collection.txt
+    curl -L -O http://merenlab.org/data/refining-mags/files/$g-default-collection-info.txt
 done
 ```
 
@@ -842,7 +842,7 @@ You can download the default states in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/refining-mags/files/$g-default-state.json
+    curl -L -O http://merenlab.org/data/refining-mags/files/$g-default-state.json
 done
 ```
 
@@ -972,7 +972,7 @@ TM7x_GCA_000803625_1 | GCA_000803625.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/
 You can downloade this table:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/ref-genomes.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/ref-genomes.txt
 ```
 
 And then to download the genomes simply run:
@@ -981,14 +981,14 @@ And then to download the genomes simply run:
 mkdir -p 01_FASTA
 
 while read name accession assembly reference title source sample_type study HOT_designation_according_to_16S_rRNA; do
-    wget $f -O 01_FASTA/$name.fa.gz
+    curl -L $f -o 01_FASTA/$name.fa.gz
 done < ref-genomes.txt
 ```
 
 In addition, we included a _Streptococcus pneumoniae_ genomes as an outlier. To download this genome run:
 
 ```bash
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/147/095/GCF_000147095.1_ASM14709v1/GCF_000147095.1_ASM14709v1_genomic.fna.gz -O Streptococcus_pneumoniae_36532.fa.gz
+curl -L ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/147/095/GCF_000147095.1_ASM14709v1/GCF_000147095.1_ASM14709v1_genomic.fna.gz -o Streptococcus_pneumoniae_36532.fa.gz
 ```
 
 In order to compute the phylogeny we used the [snakemake](https://snakemake.readthedocs.io/en/stable/index.html)-based anvi'o [phylogenomics workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#phylogenomics-workflow).
@@ -1027,7 +1027,7 @@ We used the following config file PHYLOGENY-CONFIG.json:
 You can download it:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/PHYLOGENY-CONFIG.json
+curl -L -O http://merenlab.org/data/refining-mags/files/PHYLOGENY-CONFIG.json
 ```
 
 The external and internal genomes files are used for anvi-get-sequences-for-hmms-hits. The external genomes file will be generated automatically by the workflow, but we need to provide the internal genomes file.
@@ -1035,7 +1035,7 @@ The external and internal genomes files are used for anvi-get-sequences-for-hmms
 You can download the external genomes file:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/INTERNAL-GENOMES-PHYLOGENOMICS.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/INTERNAL-GENOMES-PHYLOGENOMICS.txt
 ```
 
 And this is what it look like:
@@ -1067,12 +1067,12 @@ The purpose of this section is to provide the steps to generate the pangenomes t
 To download the internal genomes files that we used:
 
 ```bash
-wget http://merenlab.org/data/refining-mags/files/SR1_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-mags/files/SR1_REFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-mags/files/GN02_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-mags/files/GN02_REFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-mags/files/TM7_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-mags/files/TM7_REFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/SR1_UNREFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/SR1_REFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/GN02_UNREFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/GN02_REFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/TM7_UNREFINED-GENOMES.txt
+curl -L -O http://merenlab.org/data/refining-mags/files/TM7_REFINED-GENOMES.txt
 ```
 
 Let's look at two of these for example:

@@ -71,25 +71,25 @@ The raw Illumina paired-end seqeuncing files for shotgun metagenomes are stored 
 If you wish to follow this workflow, you can download raw Illumina paired-end seqeuncing data file for 4 ovary samples into your work directory the following way:
 
 ``` bash
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/000/ERR2523110/ERR2523110_1.fastq.gz \
-     -O Culex_O03_RAW_R1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/000/ERR2523110/ERR2523110_2.fastq.gz \
-     -O Culex_O03_RAW_R2.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/000/ERR2523110/ERR2523110_1.fastq.gz \
+     -o Culex_O03_RAW_R1.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/000/ERR2523110/ERR2523110_2.fastq.gz \
+     -o Culex_O03_RAW_R2.fastq.gz
 
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/001/ERR2523111/ERR2523111_1.fastq.gz \
-     -O Culex_O07_RAW_R1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/001/ERR2523111/ERR2523111_2.fastq.gz \
-     -O Culex_O07_RAW_R2.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/001/ERR2523111/ERR2523111_1.fastq.gz \
+     -o Culex_O07_RAW_R1.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/001/ERR2523111/ERR2523111_2.fastq.gz \
+     -o Culex_O07_RAW_R2.fastq.gz
 
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/002/ERR2523112/ERR2523112_1.fastq.gz \
-     -O Culex_O11_RAW_R1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/002/ERR2523112/ERR2523112_2.fastq.gz \
-     -O Culex_O11_RAW_R2.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/002/ERR2523112/ERR2523112_1.fastq.gz \
+     -o Culex_O11_RAW_R1.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/002/ERR2523112/ERR2523112_2.fastq.gz \
+     -o Culex_O11_RAW_R2.fastq.gz
 
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/003/ERR2523113/ERR2523113_1.fastq.gz \
-     -O Culex_O12_RAW_R1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/003/ERR2523113/ERR2523113_2.fastq.gz \
-     -O Culex_O12_RAW_R2.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/003/ERR2523113/ERR2523113_1.fastq.gz \
+     -o Culex_O12_RAW_R1.fastq.gz
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR252/003/ERR2523113/ERR2523113_2.fastq.gz \
+     -o Culex_O12_RAW_R2.fastq.gz
 ```
 
 Once your downloads are finished, you must have the following files in your work directory for each of the four sample:
@@ -108,7 +108,7 @@ While we extensively listed our command lines and parameters in our previous rep
 One of the key input files to start the run is the `samples.txt`, and you can downlaod the version used in our study into your work directory this way:
 
 ``` bash
-wget http://merenlab.org/data/wolbachia-plasmid/files/samples.txt
+curl -L -O http://merenlab.org/data/wolbachia-plasmid/files/samples.txt
 ```
 
 Here is a quick look at its contents:
@@ -132,7 +132,7 @@ anvi-run-workflow -w metagenomics \
 And edited it slighlty before running the workflow. You can download our `config.json` file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/wolbachia-plasmid/files/config.json
+curl -L -O http://merenlab.org/data/wolbachia-plasmid/files/config.json
 ```
 
 The content of which should look like this:

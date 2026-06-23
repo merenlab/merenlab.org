@@ -39,7 +39,7 @@ If you get a `command not found` error, you have to install `conda`, and easy in
 Test your DSSP installation by running the following commands your terminal:
 
 ```bash
-wget http://files.rcsb.org/view/1H97.cif #download myoglobin structure
+curl -L -O http://files.rcsb.org/view/1H97.cif #download myoglobin structure
 mkdssp -i 1H97.cif -o myoglobin_DSSP.txt
 ```
 

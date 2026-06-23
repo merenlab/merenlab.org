@@ -214,8 +214,8 @@ To demonstrate how this new feature looks like in the anvi'o interactive interfa
 
 ``` bash
 # download the pangenome
-wget https://ndownloader.figshare.com/files/9416623 \
-     -O ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES.tar.gz
+curl -L https://api.figshare.com/v2/file/download/9416623 \
+     -o ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES.tar.gz
 
 # unpack the data
 tar -zxvf ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES.tar.gz

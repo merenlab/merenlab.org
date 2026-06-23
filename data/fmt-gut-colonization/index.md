@@ -88,13 +88,11 @@ You can download either or both data packs for donor A (4.14 Gb compressed) and 
 
 ``` bash
 # download donor A data pack:
-curl -L https://ndownloader.figshare.com/files/27452192 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L "https://api.figshare.com/v2/file/download/27452192" \
      -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 
 # download donor B data pack:
-curl -L https://ndownloader.figshare.com/files/27452216 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L "https://api.figshare.com/v2/file/download/27452216" \
      -o FMT_DONOR_B_AND_RECIPIENTS.tar.xz
 ```
 
@@ -450,8 +448,7 @@ At this stage we have multiple FASTA files for each individual in three cohorts 
 The resulting contigs databases are publicly available. If you would like to reproduce the steps below, you should first download the following file [943 Mb] to your work directory,
 
 ``` bash
-curl -L https://ndownloader.figshare.com/files/26842652 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L "https://api.figshare.com/v2/file/download/26842652" \
      -o WATSON_ET_AL_CONTIGS_DBS_FOR_METABOLIC_COMPARISON.tar.gz
 ```
 

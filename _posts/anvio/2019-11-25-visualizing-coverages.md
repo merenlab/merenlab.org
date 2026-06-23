@@ -78,7 +78,7 @@ If you would like to follow the rest of the post on your computer, you can run t
 
 ```bash
 # download
-wget http://merenlab.org/files/ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz
+curl -L -O http://merenlab.org/files/ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz
 
 # unpack
 tar -zxvf ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz && cd ANVIO-DBs-FOR-pLA6-MAPPING

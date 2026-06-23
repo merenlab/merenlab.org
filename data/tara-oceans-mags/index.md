@@ -85,7 +85,7 @@ The following file contains FTP URLs for each raw data file for 93 samples:
 You can get a copy of this file into your work directory,
 
 ``` bash
-wget http://merenlab.org/data/tara-oceans-mags/files/ftp-links-for-raw-data-files.txt
+curl -L -O http://merenlab.org/data/tara-oceans-mags/files/ftp-links-for-raw-data-files.txt
 ```
 
 
@@ -94,7 +94,7 @@ and download each of the raw sequencing data file from the EMBL servers:
 ``` bash
 for url in `cat ftp-links-for-raw-data-files.txt`
 do
-    wget $url
+    curl -L -O $url
 done
 ```
 
@@ -112,7 +112,7 @@ We tailored our sample naming schema for convenience and reproducibility. The fo
 This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/tara-oceans-mags/files/sets.txt
+curl -L -O http://merenlab.org/data/tara-oceans-mags/files/sets.txt
 ```
 
 The contents of the TARA sets file should look like this:
@@ -141,7 +141,7 @@ We used these three-letter prefixes to name each of the 93 samples, and to assoc
 This file will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/tara-oceans-mags/files/samples.txt
+curl -L -O http://merenlab.org/data/tara-oceans-mags/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -869,7 +869,7 @@ We elected to use NUCmer (Delcher et al., 2002) to generate raw alignment and se
 We used the first one to generate the list of comparison jobs to run on a cluster:
 
 ``` bash
-wget https://goo.gl/1KlGUH -O 01-gen-nucmer-jobs.py
+curl -L https://goo.gl/1KlGUH -o 01-gen-nucmer-jobs.py
 python 01-gen-nucmer-jobs.py REDUNDANT-MAGs-AFFILIATIONS.txt REDUNDANT-MAGs/ > NUCMER_JOBS_TO_RUN.sh
 ```
 
@@ -884,7 +884,7 @@ bash NUCMER_JOBS_TO_RUN.sh
 After running each job in the previous step, we run the second script to generate the `REDUNDANT-MAGs-ANI.txt` file:
 
 ``` bash
-wget http://goo.gl/QYLzpE -O 02-estimate-similarity.py
+curl -L http://goo.gl/QYLzpE -o 02-estimate-similarity.py
 python 02-estimate-similarity.py REDUNDANT-MAGs-LENGTH.txt REDUNDANT-MAGs-ANI.txt
 ```
 
@@ -918,9 +918,9 @@ We determined that a given pair of MAGs were 'redundant' if (1) their ANI reache
 We used the scripts `03-gen-table-for-redundancy-analysis.py` and `04-export-non-redundant-genomes.py`. Following commands will download these two scripts, as well as the library they rely on, into the working directory:
 
 ``` bash
-wget https://goo.gl/m2IuMz -O 03-gen-table-for-redundancy-analysis.py
-wget https://goo.gl/JLPPkq -O 04-identify-redundant-groups.py
-wget https://goo.gl/2FgGjU -O redundancy.py
+curl -L https://goo.gl/m2IuMz -o 03-gen-table-for-redundancy-analysis.py
+curl -L https://goo.gl/JLPPkq -o 04-identify-redundant-groups.py
+curl -L https://goo.gl/2FgGjU -o redundancy.py
 ```
 
 Then we first generated a table that describes the pairwise relationships between MAGs using previous output files:
@@ -1121,8 +1121,8 @@ You can use the self-contained databases above to visualize the coverage of all 
 
 ``` bash
 # download the self contained profile
-wget https://ndownloader.figshare.com/files/8248433 \
-     -O TARA_ANW_MAG_00006.tar.gz
+curl -L https://api.figshare.com/v2/file/download/8248433 \
+     -o TARA_ANW_MAG_00006.tar.gz
 
 # unpack
 tar -zxvf TARA_ANW_MAG_00006.tar.gz
@@ -1152,7 +1152,7 @@ Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/
 To finally identify MAGs that likely belonged to the Candidate Phyla Radiation in our collection of non-redundant MAGs, first we generated a classifier object,
 
 ``` bash
-wget https://goo.gl/KXp3iQ -O Brown_et_al-CPR-Campbell_et_al_BSCG.txt
+curl -L https://goo.gl/KXp3iQ -o Brown_et_al-CPR-Campbell_et_al_BSCG.txt
 anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt \
                                -o cpr-bscg.classifier
 ```

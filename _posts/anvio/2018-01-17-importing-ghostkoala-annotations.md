@@ -125,7 +125,7 @@ I will now show you how to generate this file, which contains the necessary info
 Because the KEGG database is currently working under a subscription model, I had to find a workaround to access the information to match the orthologies with function. To do this you can run the following command (or click the Download htext link in [this page](http://www.genome.jp/kegg-bin/get_htext?ko00001.keg)) to download the htext file:
 
 ```
-wget 'https://www.genome.jp/kegg-bin/download_htext?htext=ko00001&format=htext&filedir=' -O ko00001.keg
+curl -L 'https://www.genome.jp/kegg-bin/download_htext?htext=ko00001&format=htext&filedir=' -o ko00001.keg
 ```
 
 Once it is finished, you can use this (not-so-beautiful) code snippet to parse that file into the table above. It should work if you simply copy-paste it into your terminal and have the file `ko00001.keg` in your working directory:

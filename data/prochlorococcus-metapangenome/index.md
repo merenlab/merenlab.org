@@ -88,8 +88,7 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 You can get a copy of the FASTA file containing all 31 _Prochlorococcus_ isolate genomes (and the 74 _Prochlorococcus_ SAGs incorporated in the study) into your working directory using these commands:
 
 ``` bash
-curl -L https://ndownloader.figshare.com/files/9416614 \
-     -H "User-Agent: Chrome/115.0.0.0" \
+curl -L "https://api.figshare.com/v2/file/download/9416614" \
      -o PROCHLOROCOCCUS-FASTA-FILES.tar.gz
 tar -xzvf PROCHLOROCOCCUS-FASTA-FILES.tar.gz
 ```
@@ -305,7 +304,7 @@ To generate the *Prochlorococcus* pangenome, and to visuaize it, we used the anv
 We first created the file `internal-genomes.txt` so the pangenomic workflow can access to all the genomes the information about which are stored in the `Genomes` collection in the merged profile database individually (details of the anvi'o pangenomic workflow are [here]({% post_url anvio/2016-11-08-pangenomics-v2 %})). The internal genomes file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/prochlorococcus-metapangenome/files/internal-genomes.txt
+curl -L -O http://merenlab.org/data/prochlorococcus-metapangenome/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -434,8 +433,8 @@ These will generate multiple output files for both bins. The file that ends with
 For instance, you can download the output files for `MIT9314` the following way:
 
 ```bash
-wget http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-GENE-COVs.txt
-wget http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-ENV-DETECTION.txt
+curl -L -O http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-GENE-COVs.txt
+curl -L -O http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-ENV-DETECTION.txt
 ```
 
 And run the interactive interace to display the distribution of genes that appears in the first panel in the figure above:
@@ -452,7 +451,7 @@ If you run the command above successfully, and clicked 'Draw' in the interace, y
 
 ``` bash
 # download the state file:
-wget http://merenlab.org/data/prochlorococcus-metapangenome/files/GENES-PROFILE.json
+curl -L -O http://merenlab.org/data/prochlorococcus-metapangenome/files/GENES-PROFILE.json
 
 # import it into the db
 anvi-import-state -s GENES-PROFILE.json \

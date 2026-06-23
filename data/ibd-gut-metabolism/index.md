@@ -69,7 +69,7 @@ We've pre-packaged a lot of the data and scripts that you need for this workflow
 
 ```bash
 # download the datapack
-wget https://figshare.com/ndownloader/files/49589250 -O VESELI_2023_DATAPACK.tar.gz
+curl -L https://api.figshare.com/v2/file/download/49589250 -o VESELI_2023_DATAPACK.tar.gz
 
 # extract it
 tar -xvzf VESELI_2023_DATAPACK.tar.gz
@@ -94,7 +94,7 @@ The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). 
 
 ```bash
 # download the metagenome data archive
-wget https://zenodo.org/record/7872967/files/VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz 
+curl -L -O https://zenodo.org/record/7872967/files/VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz 
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz && mv SUBSET_CONTIGS_DBS/ VESELI_ET_AL_METAGENOME_CONTIGS_DBS
 
@@ -120,7 +120,7 @@ Likewise, there is [yet another link](https://doi.org/10.5281/zenodo.7883421) to
 
 ```bash
 # download the genome data archive
-wget https://zenodo.org/record/7883421/files/VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
+curl -L -O https://zenodo.org/record/7883421/files/VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 
 # extract the genome data
 tar -xvzf VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
@@ -1739,7 +1739,7 @@ This set of contigs databases is **9.2 GB** in size (and the archive is 3.1 GB).
 
 ```bash
 # download the metagenome data archive
-wget https://zenodo.org/record/7897987/files/VESELI_ET_AL_PALLEJA_CONTIGS_DBS.tar.gz
+curl -L -O https://zenodo.org/record/7897987/files/VESELI_ET_AL_PALLEJA_CONTIGS_DBS.tar.gz
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_PALLEJA_CONTIGS_DBS.tar.gz
 
@@ -1835,7 +1835,7 @@ In the R script at `SCRIPTS/plot_figures.R`, you will find the code for generati
 Panel B is a bit unusual because it doesn't use any of our own data, since it is a recreation of [Figure 1a (microbial richness boxplots) from the Palleja et al. paper](https://www-nature-com.proxy.uchicago.edu/articles/s41564-018-0257-9/figures/1). Producing this figure requires you to download their [Supplementary Data](http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/), because the script will make use of their mOTU abundance table:
 
 ```bash
-wget http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/Supplementary_data.tar.gz
+curl -L -O http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/Supplementary_data.tar.gz
 tar -xvzf Supplementary_data.tar.gz
 ```
 
@@ -1877,7 +1877,7 @@ You can find our hypothesis about the annotation bias in the Supplementary Infor
 To get at that last question, we asked our co-authors [Chiara Vanni](https://www.marum.de/en/Dr.-chiara-vanni.html) and [Antonio Fernandez-Guerra](https://anvio.org/people/genomewalker/) to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies for the 330 deeply-sequenced samples from healthy people and those with IBD. To see the resulting gene clustering and classification data, you can download it by running the following code (WARNING: you will need 3.5 GB of space on your computer for these additional files):
 
 ```bash
-wget https://figshare.com/ndownloader/files/42157545 -O AGNOSTOS_DATA.tar.gz
+curl -L https://api.figshare.com/v2/file/download/42157545 -o AGNOSTOS_DATA.tar.gz
 tar -xvzf AGNOSTOS_DATA.tar.gz
 ```
 
@@ -1965,7 +1965,7 @@ We validated our methodology for computing metagenomic PPCN values using synthet
 The datapack for this section is available [here](https://doi.org/10.6084/m9.figshare.26038018). It contains most of the scripts and input/output files mentioned below (if you find that something is missing, please let us know). You can download it as follows:
 
 ```bash
-wget https://figshare.com/ndownloader/files/49589430 -O SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+curl -L https://api.figshare.com/v2/file/download/49589430 -o SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
 tar -xvf SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
 cd SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL
 ```

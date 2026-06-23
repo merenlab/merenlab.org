@@ -35,7 +35,7 @@ OK. The reason I will use this genome is simple: it is a chimeric genome, and it
 This is how I downloaded the genome:
 
 ``` bash
-$ wget ftp://ftp.ensemblgenomes.org/pub/current/bacteria/fasta/bacteria_25_collection/bacillus_subtilis_best7613/dna/Bacillus_subtilis_best7613.ASM32874v1.31.dna.genome.fa.gz -O Bacillus_subtilis.fa.gz
+$ curl -L ftp://ftp.ensemblgenomes.org/pub/current/bacteria/fasta/bacteria_25_collection/bacillus_subtilis_best7613/dna/Bacillus_subtilis_best7613.ASM32874v1.31.dna.genome.fa.gz -o Bacillus_subtilis.fa.gz
 $ gzip -d Bacillus_subtilis.fa.gz
 $ ls -lh Bacillus_subtilis.fa
       -rw-r--r-- 7.4M Jun  6 14:42 Bacillus_subtilis.fa

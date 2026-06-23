@@ -1234,7 +1234,7 @@ Let's start with downloading the data pack, which is at [doi:10.6084/m9.figshare
 from anvio.utils import download_file, gzip_decompress_file, tar_extract_file
 
 # instruct jupyter notebook to download the datapack
-download_file('https://figshare.com/ndownloader/files/39659905',
+download_file('https://api.figshare.com/v2/file/download/39659905',
               output_file_path='MOTHER_INFANT_pBI143_POP_GEN.tar.gz')
 
 # if we are here, the download is finished. now we will

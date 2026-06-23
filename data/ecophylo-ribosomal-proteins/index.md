@@ -48,7 +48,7 @@ The following data items are compatible with anvi’o version v8 or later. The a
 If you want to follow along and run each code block in the following reproducible, you will need to install anvi’o. Next you will need to download the associated data ([DOI:10.6084/m9.figshare.28208018](https://doi.org/10.6084/m9.figshare.28208018)) and open it up like this:
 
 ``` bash
-wget -O REPRODUCIBLE_WORKFLOW_DATA.tar.gz https://figshare.com/ndownloader/files/51683177
+curl -L -o REPRODUCIBLE_WORKFLOW_DATA.tar.gz https://api.figshare.com/v2/file/download/51683177
 
 tar -xvzf REPRODUCIBLE_WORKFLOW_DATA.tar.gz
 ```
@@ -973,7 +973,7 @@ anvi-interactive -p "${SCG}"_curated/EVERYTHING_curated/PROFILE.db \
 Here is how you can explore all of the EcoPhylo interactive interfaces created for this paper!
 
 ``` bash
-wget -O ECOPHYLO_INTERACTIVES_METHODS.tar.gz https://figshare.com/ndownloader/files/53896007
+curl -L -o ECOPHYLO_INTERACTIVES_METHODS.tar.gz https://api.figshare.com/v2/file/download/53896007
 
 tar -xvzf ECOPHYLO_INTERACTIVES_METHODS.tar.gz
 
@@ -1216,7 +1216,7 @@ Prior to investigating the results of phylogeography of ribosomal proteins acros
 Here is how you can explore all of the EcoPhylo interactive interfaces created for this paper!
 
 ``` bash
-wget -O ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz https://figshare.com/ndownloader/files/53897114
+curl -L -o ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz https://api.figshare.com/v2/file/download/53897114
 
 tar -xvzf ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz
 

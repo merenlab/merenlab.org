@@ -34,7 +34,7 @@ I started by downloading the assembled contigs, and created an anvi'o contigs da
 
 ``` bash
 # download the assembled contigs
-wget http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt -O Kowarsky_et_al.fa
+curl -L http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt -o Kowarsky_et_al.fa
 
 # generate an anvi'o contigs database
 anvi-gen-contigs-database -f Kowarsky_et_al.fa \
@@ -235,7 +235,7 @@ Then I created a simple text file to identify contigs with ribosomal protein hit
 
 
 ```
-wget http://merenlab.org/files/Kowarsky_et_al_additional_data.txt
+curl -L -O http://merenlab.org/files/Kowarsky_et_al_additional_data.txt
 ```
 
 Then I run the `anvi-interactive` on these:

@@ -1203,12 +1203,12 @@ If you're here because you just want access to either the MODELLER structures, t
 
 ```bash
 # MODELLER
-wget -O 09_STRUCTURES_MOD.tar.gz https://figshare.com/ndownloader/files/38105496
+curl -L -o 09_STRUCTURES_MOD.tar.gz https://api.figshare.com/v2/file/download/38105496
 tar -zxvf 09_STRUCTURES_MOD.tar.gz
 rm 09_STRUCTURES_MOD.tar.gz
 
 # AlphaFold
-wget -O 09_STRUCTURES_AF.tar.gz https://figshare.com/ndownloader/files/33125294
+curl -L -o 09_STRUCTURES_AF.tar.gz https://api.figshare.com/v2/file/download/33125294
 tar -zxvf 09_STRUCTURES_AF.tar.gz
 rm 09_STRUCTURES_AF.tar.gz
 ```
@@ -2179,7 +2179,7 @@ To get the BioLiP database, we downloaded it directly from the [Zhang Group](htt
 ```bash
 mkdir 20_BIOLIP
 cd 20_BIOLIP
-wget http://zhanglab.ccmb.med.umich.edu/BioLiP/download/BioLiP.tar.bz2
+curl -L -O http://zhanglab.ccmb.med.umich.edu/BioLiP/download/BioLiP.tar.bz2
 tar -zxvf BioLiP.tar.bz2
 cd -
 ```

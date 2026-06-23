@@ -73,7 +73,7 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 You can get a copy of the FASTA file containing all 21 SAR11 cultivar genomes into your work directory using this command line:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/SAR11-isolates.fa.gz
+curl -L -O http://merenlab.org/data/sar11-saavs/files/SAR11-isolates.fa.gz
 gzip -d SAR11-isolates.fa.gz
 ```
 
@@ -82,7 +82,7 @@ gzip -d SAR11-isolates.fa.gz
 [This file](http://merenlab.org/data/sar11-saavs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory,
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/ftp-links-for-raw-data-files.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/ftp-links-for-raw-data-files.txt
 ```
 
 and download each of the raw sequencing data file from the EMBL servers this way:
@@ -90,7 +90,7 @@ and download each of the raw sequencing data file from the EMBL servers this way
 ``` bash
 for url in `cat ftp-links-for-raw-data-files.txt`
 do
-    wget $url
+    curl -L -O $url
 done
 ```
 
@@ -104,13 +104,13 @@ We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans 
 We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/sar11-saavs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/sets.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/sets.txt
 ```
 
 We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/sar11-saavs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/samples.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -438,7 +438,7 @@ We used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `
 We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url anvio/2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/internal-genomes.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -580,8 +580,8 @@ anvi-summarize -p NON-REDUNDANT-MAGs-SPLIT/HIMB083/PROFILE.db \
 The files `metagenomes-of-interest.txt` and `core-S-LLPA-genes.txt` contain the names of of 74 metagenomes and gene caller id's for 799 core genes, respectively. You can download these files into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/metagenomes-of-interest.txt
-wget http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/metagenomes-of-interest.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
 ```
 
 ## Quantifying the alignment quality of short reads to HIMB83 (and others)
@@ -591,7 +591,7 @@ It was of critical importance to quantify how well reads were mapping to HIMB83,
 To do this we wrote a python script that calculates a histogram for the percent identity of reads mapping to a reference genome. You should download the script:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/p-get_percent_identity.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/p-get_percent_identity.py
 ```
 
 We used this script in a couple of different ways.
@@ -599,7 +599,7 @@ We used this script in a couple of different ways.
 First, we calculated the percent identity histograms for each of the 21 isolates (over the whole genomes), where a metagenome was included for the isolate if the isolate's coverage was >50X in that metagenome. A small directory outlining this information should be downloaded below:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/ALL_ISOLATES.zip
+curl -L -O http://merenlab.org/data/sar11-saavs/files/ALL_ISOLATES.zip
 unzip ALL_ISOLATES.zip; rm ALL_ISOLATES.zip
 ```
 
@@ -730,9 +730,9 @@ anvi-get-codon-frequencies -c SAR11-CONTIGS.db -o codon_frequencies.txt
 Next, the frequency distribution of expected AASTs based on the frequency of codons was calculated for both models: Model 1 in which the probability of double or triple mutations was zero, with a transition vs transversion rate of 2 (`neutral_freq_dist_model_1.txt`), and Model 2 where the probability of transitioning to any of the other 63 codons were equally probable, regardless of mutational distance or number of transitions/transversions (`neutral_freq_dist_model_2.txt`). Respectively, these distributions for the top 25 amino acids were calculated with the following commands:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
-wget http://merenlab.org/data/sar11-saavs/files/model_1_frequency_vector.py
-wget http://merenlab.org/data/sar11-saavs/files/model_2_frequency_vector.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/model_1_frequency_vector.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/model_2_frequency_vector.py
 python model_1_frequency_vector.py 2
 python model_2_frequency_vector.py
 ```
@@ -742,10 +742,10 @@ python model_2_frequency_vector.py
 This brief section outlines how we made use of the SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt` to calculate allele frequency trajectories (illustrated in Figure S7) for each codon position that contained at least one SAAV. Allele frequency trajectories were calculated for each of such positions for the two amino acids comprising the most common AAST at that position. For example, if at some position, 40 of the 74 metagenomes had the AAST 'alanine/serine', and the remaining 34 metagenomes had the AAST 'alanine/valine', the trajectories of alanine and serine would be calculated. If in any of the metagenomes the coverage of both amino acids were 0, the position was discarded. For the remaining positions, the allele frequencies were correlated with in situ temperature with the script that can be downloaded like so:
 
 ```bash
-wget http://merenlab.org/data/sar11-saavs/files/frequency_trajectories_dataset.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/frequency_trajectories_dataset.py
 
 # also download this guy
-wget http://merenlab.org/data/sar11-saavs/files/TARA_metadata.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/TARA_metadata.txt
 ```
 
 A table summarizing the results of a linear regression to temperature for each of these positions, i.e. Table S11, can then be generated with the command:
@@ -781,7 +781,7 @@ downloaded the PDB database as a single FASTA file,
 
 
 ``` bash
-wget ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
+curl -L -O ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
 gzip -d pdb_seqres.txt.gz
 ```
 
@@ -808,7 +808,7 @@ blastp -query CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
 Next, we filtered out sequences with insufficient matches to the PDB. We accomplished this by considering only the PDB hit with the highest bitscore for each core S-LLPA gene, and by calculating `proper_pident`, which is the percentage of the query amino acids that were identical to an entry in the database given the entire lenght of the query sequence (so `proper_pident` helps us avoid the inflation of identity scores due to partial good matches). We filtered out genes in `CORE-S-LLPA-GENE-AA-SEQUENCES.fa` that had less than 30% `proper_pident` using the program `anvi-script-filter-fasta-by-blast`:
 
 ``` bash
-wget https://raw.githubusercontent.com/merenlab/anvio/master/sandbox/anvi-script-filter-fasta-by-blast -O anvi-script-filter-fasta-by-blast
+curl -L https://raw.githubusercontent.com/merenlab/anvio/master/sandbox/anvi-script-filter-fasta-by-blast -o anvi-script-filter-fasta-by-blast
 chmod +x anvi-script-filter-fasta-by-blast
 ./anvi-script-filter-fasta-by-blast CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
                                   --blast CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa \
@@ -828,7 +828,7 @@ Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predi
 RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/rename_all_in_ones.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/rename_all_in_ones.py
 cd RaptorXProperty
 python rename_all_in_ones.py
 cd -
@@ -839,7 +839,7 @@ Before mapping SAAVs onto the predicted protein structure, we first did some mai
 
 ``` bash
 # downlod the script
-wget http://merenlab.org/data/sar11-saavs/files/curate_SAAV_table.py
+curl -L -O http://merenlab.org/data/sar11-saavs/files/curate_SAAV_table.py
 
 # copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
 # URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
@@ -882,9 +882,9 @@ There are five inputs for this to work:
 You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
 
 ``` bash
-wget http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/sar11-saavs/files/samples-of-interest-for-PyMOL.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
+curl -L -O http://merenlab.org/data/sar11-saavs/files/samples-of-interest-for-PyMOL.txt
 ```
 
 For your information, our configuration file looked like this, and it is highly flexible for advanced users:

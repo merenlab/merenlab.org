@@ -156,7 +156,7 @@ This part is totally optional, and you can skip it if you do not wish to run the
 
 ```bash
 # download the data pack
-wget http://merenlab.org/files/WORKFLOW_TUTORIAL_DATA.tar.gz
+curl -L -O http://merenlab.org/files/WORKFLOW_TUTORIAL_DATA.tar.gz
 
 # unpack it
 tar -xvzf WORKFLOW_TUTORIAL_DATA.tar.gz
@@ -806,7 +806,7 @@ A common use-case for the reference based short read removal is to filter human 
 You can download the human genome from here:
 
 ```bash
-wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.fna.gz
+curl -L -O ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.fna.gz
 ```
 
 And then use the following `references_for_removal_txt`:

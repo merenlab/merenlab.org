@@ -86,7 +86,7 @@ You can download everything if you like, but for the sake of simplicity, I will 
 You can download the anvi'o profile for P214 and unpack it like this:
 
 ``` bash
-$ wget https://ndownloader.figshare.com/files/6035580 -O P214-MERGED.tar.gz
+$ curl -L https://api.figshare.com/v2/file/download/6035580 -o P214-MERGED.tar.gz
 $ tar -zxvf P214-MERGED.tar.gz
 $ cd P214-MERGED/
 $ ls
@@ -96,7 +96,7 @@ AUXILIARY-DATA.h5    CONTIGS.db    CONTIGS.h5    PROFILE.db    RUNINFO.mcp
 Once you are here, you can simply run `anvi-interactive` to initiate the display, and then click `Draw` to visualize the raw display, load CONCOCT bins, or the very conservative final bins used for the paper. But if you follow these steps, you will have a display that is identical to mine,
 
 ``` bash
-$ wget http://merenlab.org/files/P-214-state.json
+$ curl -L -O http://merenlab.org/files/P-214-state.json
 $ anvi-import-state -p PROFILE.db -n default -s P-214-state.json
 $ anvi-interactive -p PROFILE.db -c CONTIGS.db --split-hmm-layers
 ```

@@ -24,7 +24,7 @@ This tutorial assumes that you have both anvi'o and Prokka installed and functio
 The following commands will install a Python library, and download a script to parse Prokka annotations later. Please run these two commands in your work directory:
 
 ``` bash
- $ wget https://raw.githubusercontent.com/karkman/gff_parser/master/gff_parser.py -O gff_parser.py
+ $ curl -L https://raw.githubusercontent.com/karkman/gff_parser/master/gff_parser.py -o gff_parser.py
  $ pip install gffutils
 ```
 

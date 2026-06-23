@@ -81,7 +81,7 @@ To run VirSorter you will also need to download MetaGeneAnnotator ([Noguchi et a
 
 ```
 cd ~/miniconda/envs/virsorter/bin
-wget http://metagene.nig.ac.jp/metagene/mga_x86_64.tar.gz
+curl -L -O http://metagene.nig.ac.jp/metagene/mga_x86_64.tar.gz
 tar -xvzf mga_x86_64.tar.gz
 ```
 
@@ -102,7 +102,7 @@ Navigate to a directory where you want the data pack to live, and run the follow
 
 ```
 # download the data pack I re-formatted from the original data pack
-wget https://zenodo.org/record/1168727/files/virsorter-data-v2.tar.gz
+curl -L -O https://zenodo.org/record/1168727/files/virsorter-data-v2.tar.gz
 
 # run md5sum to make sure the output
 # matches to dd12af7d13da0a85df0a9106e9346b45
@@ -218,9 +218,9 @@ For the `phage_name` column, the first phage predicted by VirSorter is named `ph
 To run the parser you just need the python script `virsorter_to_anvio.py`. If you want to import hallmarn gene functions into anvi'o, you'll need two mapping files (one for each VirSorter database). You can download these files into your work directory the following way:
 
 ``` bash
-wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/virsorter_to_anvio.py
-wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db1_hallmark_functions.txt
-wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db2_hallmark_functions.txt
+curl -L -O https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/virsorter_to_anvio.py
+curl -L -O https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db1_hallmark_functions.txt
+curl -L -O https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db2_hallmark_functions.txt
 ```
 
 Arguments are described in the help menu:

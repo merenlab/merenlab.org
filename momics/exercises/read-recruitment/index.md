@@ -17,11 +17,11 @@ For this exercise we have a little data pack. To download it activate your anvi'
 
 
 ```
-wget http://merenlab.org/momics/exercises/read-recruitment/momics-week-02-lab-exercise.tar.gz
+curl -L -O http://merenlab.org/momics/exercises/read-recruitment/momics-week-02-lab-exercise.tar.gz
 ```
 
 {:.notice}
-First run `conda install wget` if you are getting a "command not found" error at this stage. `wget` is a program we commonly use to download things through the terminal. Once `wget` is installed, run the download command again.
+First run `conda install curl` if you are getting a "command not found" error at this stage. `curl` is a program we commonly use to download things through the terminal. Once `curl` is installed, run the download command again.
 
 Make sure you have the file by running this line:
 

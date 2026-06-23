@@ -63,7 +63,7 @@ As a small 'thank you' for releasing the data in an easily accessible form, I de
 First I got the data (took about 1 minute):
 
 ``` bash
-wget http://wrap.warwick.ac.uk/85593/8/DatabaseS8-MAGs_from_CONCOCT.zip
+curl -L -O http://wrap.warwick.ac.uk/85593/8/DatabaseS8-MAGs_from_CONCOCT.zip
 unzip DatabaseS8-MAGs_from_CONCOCT.zip
 ls *fa > bins.txt
 sed -i '' 's/.fa$//g' bins.txt
