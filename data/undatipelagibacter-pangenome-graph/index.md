@@ -43,12 +43,13 @@ Our reproducible bioinfromatics workflow picks up from another document related 
 
 The sections below produce the analyses behind,
 
-* The top panel of __Figure 1__, which visualizes the pangenome graph, is produced in the section [visualizing the Undatipelagibacter pangenome graph](##visualizing-the-undatipelagibacter-pangenome-graph) section,
+* The top panel of __Figure 1__, which visualizes the pangenome graph, is produced in the section [visualizing the Undatipelagibacter pangenome graph](#visualizing-the-undatipelagibacter-pangenome-graph) section,
 * The Sankey diagram at the bottom of __Figure 1__ is produced across the [combining the pangenome graph tables](#combining-the-pangenome-graph-tables-into-one) and [summary statistics](#calculating-summary-statistics-on-the-combined-table) sections,
 * __Figure 2__, which visualizes the functional distributions of variable regions, and its associated supplementary panel are produced in the [functional distributions plots and VR/BR comparisons](#functional-distributions-plots-and-vrbr-comparisons) section,
 * __Figure 4__, which visualizes the graph-derived metrics and Composite Variability Score, is produced in the [metrics](#metrics-of-the-pangenome-graph) section, and
 * __Figure 5__, which visualizes position-wise sequence similarity patterns, is produced in the [position-wise comparisons](#position-wise-sequence-comparisons) section.
-* As well as __Supplementary Figures 6, 7, 8, and 9__.
+* __Figure 6__, which visualizes Skp vs SurA co-evolution along with position-wise sequence similarity patterns, is reproduced in the section called [Connecting two divergence valleys: do Skp and SurA co-evolve beyond the genome?](#connecting-two-divergence-valleys-do-skp-and-sura-co-evolve-beyond-the-genome).
+* This document also includes scripts and commands that will reproduce __Supplementary Figures 6, 7, 8, and 9__.
 
 
 ## Setting up the stage
@@ -96,6 +97,7 @@ At this stage, your working directory structure should look like this:
 ├── README.md
 ├── 00_SCRIPTS
 │   ├── create_all_combined.py
+│   ├── export_sura_gene_aa_seqs.py
 │   ├── functional_distribution_clustering.py
 │   ├── metrics_clustering.py
 │   ├── similarity_per_position.py
@@ -104,6 +106,7 @@ At this stage, your working directory structure should look like this:
 │   ├── skp_operon_export_locus_map.py
 │   ├── skp_operon_recombination_breakpoints.py
 │   ├── skp_operon_recombination.py
+│   ├── skp_sura_genome_tree_congruence.py
 │   └── summary_statistics.py
 ├── 01_DATA
 │   └── 00_README.txt
@@ -111,6 +114,8 @@ At this stage, your working directory structure should look like this:
     ├── 00_README.txt
     ├── SKP-PHYLOGENETICS
     │   └── UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+    ├── SURA-PHYLOGENETICS
+    │   └── UNDATIPELAGIBACTER_SURA_GENES_AA.newick
     └── UNDATIPELAGIBACTER-PHYLOGENOMICS
         └── UNDATIPELAGIBACTER-ALPHASCGs.newick
 ```
@@ -144,6 +149,7 @@ At this stage, your working directory structure should look like this:
 ├── README.md
 ├── 00_SCRIPTS
 │   ├── create_all_combined.py
+│   ├── export_sura_gene_aa_seqs.py
 │   ├── functional_distribution_clustering.py
 │   ├── metrics_clustering.py
 │   ├── similarity_per_position.py
@@ -152,6 +158,7 @@ At this stage, your working directory structure should look like this:
 │   ├── skp_operon_export_locus_map.py
 │   ├── skp_operon_recombination_breakpoints.py
 │   ├── skp_operon_recombination.py
+│   ├── skp_sura_genome_tree_congruence.py
 │   └── summary_statistics.py
 ├── 01_DATA
 │   ├── 00_README.txt
@@ -170,6 +177,8 @@ At this stage, your working directory structure should look like this:
     ├── 00_README.txt
     ├── SKP-PHYLOGENETICS
     │   └── UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+    ├── SURA-PHYLOGENETICS
+    │   └── UNDATIPELAGIBACTER_SURA_GENES_AA.newick
     └── UNDATIPELAGIBACTER-PHYLOGENOMICS
         └── UNDATIPELAGIBACTER-ALPHASCGs.newick
 ```
@@ -861,7 +870,7 @@ More eloquent and likely more up-to-date description of what this shows is in th
 
 The purpose of this analysis was to shed light on whether the volcano-shaped divergence pattern in the envelope biogenesis operon (that contained the Skp gene) was a result of staggered recombination, or by gradual in-place divergence.
 
-For this, we needed to export a slighlty larger genomic context that exceeded the envelope biogenesis operon itself. Thus, we exported the genomic loci between the TrpD gene (SynGC GC_00000545_1; graph order 1392) to DnaE (SynGC GC_00001037_1; graph order 1409) using the anvi'o program {% include PROGRAM name="anvi-export-pan-subgraph" %} first to get a {% include ARTIFACT name="contigs-db" %} file that contains the sequence between these two nodes from each genome. Running this script this way,
+For this, we needed to export a slighlty larger genomic context that exceeded the envelope biogenesis operon itself. Thus, we exported the genomic loci between the TrpD gene (SynGC `GC_00000545_1`; graph order 1392) to DnaE (SynGC `GC_00001037_1`; graph order 1409) using the anvi'o program {% include PROGRAM name="anvi-export-pan-subgraph" %} first to get a {% include ARTIFACT name="contigs-db" %} file that contains the sequence between these two nodes from each genome. Running this script this way,
 
 
 ```
@@ -1295,6 +1304,211 @@ OBSERVATIONS TO REMEMBER
 and create the following figure that summarize the results here:
 
 {% include IMAGE path="images/skp_operon_coselection.png" width="70" caption="Selection and co-divergence across the Skp locus and genome-wide. Operon-internal analyses (a-d) use the per-gene codon alignments of all locus genes with amino-acid substitutions mapped onto each branch of the genome tree by Fitch parsimony, and the genome-wide analyses (e-f) apply the same test to all single-copy core genes. Throughout, 'co-divergence with Skp' indicates the partial Spearman correlation between the per-branch substitutions of a given gene and Skp, while controlling for genome-wide branch length. In a-d the operon is shaded and Skp is marked. (a) Mean pairwise dN/dS (Nei-Gojobori) at each locus gene. (b) Each gene's rate-controlled co-divergence with Skp. (c) Pairwise co-divergence among all locus genes. (d) dN/dS versus co-divergence with Skp, one point per gene. (e) Genome-wide partial co-divergence with Skp for envelope-biogenesis genes (COG category M; n = 66) versus all other single-copy core genes (n = 858), with Skp's outer-membrane clients LptD and BamA overlaid. (f) Each envelope gene's percentile rank for co-divergence with Skp among the non-envelope genes closest to it in substitution count. (Supplementary Figure 9 in the manuscript)." %}
+
+### Connecting two divergence valleys: do Skp and SurA co-evolve beyond the genome?
+
+The co-selection analysis above points a genome-wide process around the cell envelope. But we also wanted to REALLY establish some direct insights into this co-divergence patterns around cell envelope related genes so far we gleaned through summary statistics. Somewhere else in the pangenome graph, between `GC_00001256_1` (LptF) and `GC_00000656_1` (Gmk), we found another volcano-shaped divergence gradient with very low Expansion and very high Complexity value on the graph, just like the region that encoded Skp.
+
+The floor of this second divergence valley was the periplasmic chaperone **SurA** (synteny position 1762 in the graph). The very interesting thing is that Skp and SurA are two parallel periplasmic chaperone pathways that escort outer-membrane proteins from the Sec translocon to the BamA assembly machine, so SurA is the *natural* gene to which we can ask a much sharper question: **is the co-evolutionary signal between Skp and SurA stronger than the signal between either of them and the genome phylogeny?** Because if the answer to that qeustion turns out to be a clear yes, then we would be able to confirm that the shared selective regime on the chaperone pathway encoded by two functionally analogous/linked genes such as Skp and SurA that are encoded so far apart in each genome gene trees track each other beyond their shared ancestory dictates.
+
+Rather than clicking through the interactive interface, this time we recovered all the genes for SurA with a small Python script ([export_sura_gene_aa_seqs.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/export_sura_gene_aa_seqs.py); available to you in your `00_SCRIPTS` directory) that reads the {% include PROGRAM name="anvi-summarize" %} outout and reports a FASTA file of amino acids (the script also reproduces the Skp FASTA byte-for-byte when pointed at the Skp position, but instead of retrospectively changing our workflow, we decided to leave it the way we did it with the interactive interface (because it is arguably more fun to do it that way)). Running this script the following way,
+
+```bash
+python 00_SCRIPTS/export_sura_gene_aa_seqs.py
+```
+
+generated `01_DATA/UNDATIPELAGIBACTER_SURA_GENES_AA_UNALIGNED.fa` (one sequence per genome with the genome name as the defline, in the exact format of `01_DATA/UNDATIPELAGIBACTER_SKP_GENES_AA_UNALIGNED.fa`) with the following terminal output for SurA:
+
+```no-copy
+SurA
+===============================================
+Synteny position .............................: 1,762
+Gene clusters at position ....................: 10 (GC_00001413, GC_00001571, GC_00001708, GC_00001888, GC_00001921, GC_00002223, GC_00002883, GC_00002942, GC_00003139, GC_00003473)
+Genomes recovered ............................: 29
+Output FASTA .................................: 01_DATA/UNDATIPELAGIBACTER_SURA_GENES_AA_UNALIGNED.fa
+```
+
+We then put the SurA file through the same `muscle` -> `trimal` -> IQ-TREE pipeline we used for Skp:
+
+```bash
+mkdir -p 02_RESULTS/SURA-PHYLOGENETICS
+
+# align
+muscle -in 01_DATA/UNDATIPELAGIBACTER_SURA_GENES_AA_UNALIGNED.fa \
+       -out 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA_RAW.fa
+
+# trim excessive gaps
+trimal -in 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA_RAW.fa \
+       -out 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA.fa \
+       -gt 0.50
+
+# compute the gene tree
+iqtree -s 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA.fa \
+       -m LG+F+R10 \
+       -T 10 \
+       -ntmax 25 \
+       --alrt 1000 \
+       -B 1000
+
+# rename the tree to a meaningful name
+mv 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA.fa.treefile \
+   02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA.newick
+```
+
+{:.warning}
+As with the genome and Skp trees, re-running IQ-TREE here can yield ever so slightly different SurA trees from one run to the next (a by-product of the maximum-likelihood search), with correspondingly tiny changes in the numbers below; none of them alter the conclusion. For byte-perfect reproduction of our results, use the `.newick` file already in your git clone rather than re-running IQ-TREE.
+
+Finally, we implemented a Python script ([skp_sura_genome_tree_congruence.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_sura_genome_tree_congruence.py); available to you in your `00_SCRIPTS` directory) that compares the Skp gene tree, the SurA gene tree and the *Undatipelagibacter* genome tree against one another. For each of the three pairwise relationships (Skp-SurA, Skp-genome, SurA-genome) it runs the same two complementary tests used earlier for Skp vs. the genome: (1) a Mantel permutation test on the trees' pairwise patristic distances, and (2) the rate-controlled per-branch co-divergence (mapping each gene's amino-acid substitutions onto every branch of the genome tree by Fitch parsimony, then taking the Spearman correlation between genes).
+
+It then runs the two "beyond the genome" tests that actually answer the question: a **partial Mantel test** of Skp vs SurA holding the genome distance matrix fixed, and the **partial Spearman** of the Skp and SurA per-branch substitutions controlling for genome-wide branch length. For the visualization, every tree is first re-rooted *de novo* at its midpoint and only then are its internal nodes rotated to untangle the tanglegrams (since rooting and rotation change only the drawing, never the statistic, since distances and substitution counts are invariant to such trickery). Running this script the following way,
+
+```bash
+python 00_SCRIPTS/skp_sura_genome_tree_congruence.py
+```
+
+produces the following terminal output,
+
+```no-copy
+Skp vs SurA vs GENOME TREE CONGRUENCE
+===============================================
+Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+Skp gene tree ................................: 02_RESULTS/SKP-PHYLOGENETICS/UNDATIPELAGIBACTER_SKP_GENES_AA.newick
+SurA gene tree ...............................: 02_RESULTS/SURA-PHYLOGENETICS/UNDATIPELAGIBACTER_SURA_GENES_AA.newick
+Genomes in analysis ..........................: 29
+
+PAIRWISE CONGRUENCE (patristic distances, Mantel)
+===============================================
+Skp vs SurA ..................................: Spearman r = 0.703, Pearson r = 0.904, Mantel p = 0.0000
+Skp vs genome ................................: Spearman r = 0.419, Pearson r = 0.804, Mantel p = 0.0000
+SurA vs genome ...............................: Spearman r = 0.420, Pearson r = 0.797, Mantel p = 0.0001
+Skp vs SurA | genome (partial Mantel) ........: partial r = 0.655, p = 0.0000
+
+PER-BRANCH CO-DIVERGENCE (genome tree, Fitch)
+===============================================
+Skp vs SurA substitutions ....................: Spearman r = 0.968
+Skp vs genome branch length ..................: Spearman r = 0.891
+SurA vs genome branch length .................: Spearman r = 0.883
+Skp vs SurA | genome rate (partial) ..........: partial r = 0.781
+
+IS THE Skp-SurA SIGNAL STRONGER THAN EITHER GENE vs THE GENOME?
+===============================================
+* Patristic: Skp-SurA (0.70) vs Skp-genome (0.42) and SurA-genome (0.42).
+* Per-branch: Skp-SurA (0.97) vs Skp-genome (0.89) and SurA-genome (0.88).
+* Beyond the genome, Skp and SurA still co-vary: partial Mantel r = 0.65 (p = 0.0000); per-branch partial r = 0.78.
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_sura_genome_tree_congruence.pdf
+PNG ..........................................: 02_RESULTS/skp_sura_genome_tree_congruence.png
+```
+
+and the following figure:
+
+{% include IMAGE path="images/skp_sura_genome_tree_congruence.png" width="80" caption="Skp, SurA, and genome co-evolution. (a-c) Pairwise tanglegrams between the three trees, each re-rooted de novo at its midpoint and then rotated to untangle: (a) genome vs Skp, (b) genome vs SurA, (c) Skp vs SurA. Under each tanglegram printed the pair's congruence as the patristic-distance (Mantel) and per-branch (Fitch) Spearman correlations (the partial Mantel correlation of Skp and SurA with the genome distance matrix held fixed (with its permutation p-value) is shown as an additional metric under the Skp vs SurA tree). (d) Per-branch SurA vs Skp amino-acid substitutions inferred on every branch of the genome tree by Fitch parsimony, annotated with the Spearman correlation and the rate-controlled partial correlation (co-divergence with the genome rate removed)." %}
+
+But instead of putting this in the manuscript as another Supplementary Figure, we polished it in Inkscape to turn it into a main figure so we can explicitly show the trees in the context of the within-SynGC AAI divergence across all genes to better appreciate the congruence, which ended up looking like this:
+
+{:.warning}
+We were still working this one at the time of writing these lines, so this may not be the very final version.
+
+{% include IMAGE path="images/Figure_6.png" width="80" caption="Comparison of Skp vs SurA vs genome trees. Pairwise tanglegrams display three different comparisons: from left-to-right, (1) the genome tree versus the Skp tree, (2) the Skp tree versus the SurA tree, and (3) SurA tree versus the genome tree. Under each tanglegram, the congruence between the two trees are shown as the patristic-distance (Mantel) and per-branch (Fitch) Spearman correlations. The figure also includes the pangenome subgraphs for the region that encodes Skp and the one that encodes SurA along with within-SynGC average amino acid sequence identity of all genes. The superimposed protein structures show the congruence between AlphaFold2-predicted protein structures for all Skp sequences and all SurA sequences (Figure 6 in our manuscript)." %}
+
+Going back to the reason why we did this analysis at the first place, now we can confidently say the answer appears to be a resounding yes in deed: under the pairwise distance (Mantel) test the Skp and SurA gene trees are about as congruent with each other (Spearman r = 0.70) as the genome tree is with itself across two metrics, and roughly twice as congruent as either gene is with the genome (Skp-genome r = 0.42, SurA-genome r = 0.42). The per-branch substitution test tells the same story (Skp-SurA r = 0.97 vs 0.89 and 0.88 against the genome). Crucially, the excess survives removing the genome: Skp and SurA remain strongly congruent after the genome distance matrix is partialled out (partial Mantel r = 0.66, p = 1e-4), and their per-branch substitutions still co-vary once genome-wide branch length is controlled for (partial r = 0.78). In other words, two divergence valleys with no physical connection in the genome share a genealogy that the genome phylogeny alone does not explain, exactly as expected if a single co-selective regime on the periplasmic chaperone / outer-membrane-protein biogenesis pathway shapes both.
+
+Since we really were pushing the boundaries of space in our manuscript, we included a very short summary of this very big finding towards the end of that section.
+
+---
+
+But here is one fun note for the curious: The polished figure above includes a distance between the regions that encode Skp and SurA in the pangenome graph. Which is not quite easy to estimate since individual genomes can have different number of genes in between. We came up with that number using this very useful anvi'o program, {% include PROGRAM name="anvi-export-pan-subgraph" %}, which can export a FASTA file for each genome that contributes to a given subgraph between two SynGCs in the larger graph. So, we first used the first SynGC that was downstream to Skp, and the first SynGC that was upstream to SurA, to export the FASTA files from each genome that represented the target region:
+
+```bash
+anvi-export-pan-subgraph -p 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db \
+                         -e 01_DATA/UNDATIPELAGIBACTER-CONTIGS-DBs.txt \
+                         --graph-nodes GC_00000724_1,GC_00000909_1 \
+                         -o 02_RESULTS/FROM_SUR_A_TO_SKP_REGIONS
+```
+
+which produced the following terminal output::
+
+```no-copy
+Pangenome graph database .....................: UNDATIPELAGIBACTER
+Pan graph database ...........................: 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH.db
+Nodes to export ..............................: GC_00000724_1, GC_00000909_1
+Loci .........................................:
+    - 756 to 987 (231 genes) for HIMB122
+    - 757 to 994 (237 genes) for HIMB140
+    - 785 to 1045 (260 genes) for HIMB1488
+    - 776 to 999 (223 genes) for HIMB1491
+    - 727 to 948 (221 genes) for HIMB1493
+    - 801 to 1072 (271 genes) for HIMB1506
+    - 750 to 996 (246 genes) for HIMB1507
+    - 757 to 986 (229 genes) for HIMB1513
+    - 728 to 949 (221 genes) for HIMB1518
+    - 741 to 969 (228 genes) for HIMB1526
+    - 741 to 969 (228 genes) for HIMB1552
+    - 774 to 1001 (227 genes) for HIMB1556
+    - 820 to 1061 (241 genes) for HIMB1559
+    - 797 to 1032 (235 genes) for HIMB1573
+    - 732 to 988 (256 genes) for HIMB1577
+    - 741 to 968 (227 genes) for HIMB1593
+    - 809 to 1050 (241 genes) for HIMB1597
+    - 782 to 1020 (238 genes) for HIMB1611
+    - 733 to 989 (256 genes) for HIMB1631
+    - 730 to 958 (228 genes) for HIMB1636
+    - 738 to 966 (228 genes) for HIMB1641
+    - 720 to 959 (239 genes) for HIMB1662
+    - 756 to 989 (233 genes) for HIMB1685
+    - 758 to 1029 (271 genes) for HIMB1701
+    - 750 to 976 (226 genes) for HIMB1702
+    - 764 to 1012 (248 genes) for HIMB1723
+    - 779 to 1017 (238 genes) for HIMB1758
+    - 725 to 957 (232 genes) for HIMB1765
+    - 740 to 961 (221 genes) for HIMB1770
+
+✓ export_pan_subgraph.py took 0:00:16.849956
+```
+
+Then ran the following commandline to sort the exported FASTA files by length to get a sense of the shortest ditsance between the two genes:
+
+```bash
+for i in 02_RESULTS/FROM_SUR_A_TO_SKP_REGIONS/*fa; do length=$(grep -v '>' $i | wc -c); echo $length; done | sort -n
+```
+
+Which produced the following output:
+
+```no-copy
+195369
+195369
+195369
+203821
+206518
+206542
+208325
+208515
+208665
+208665
+208665
+208665
+210616
+213142
+213317
+214262
+215052
+216872
+219457
+219457
+221560
+222238
+222238
+224251
+229419
+232595
+232595
+245448
+247036
+```
+
+That's why in the figure we reported the distance between Skp- and SurA-coding regions to be over 195 kbp (even though it can be up to closer to 250 kbp in some genomes).
 
 
 ## Closing notes
