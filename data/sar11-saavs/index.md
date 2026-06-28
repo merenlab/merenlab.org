@@ -33,7 +33,7 @@ This document describes the reproducible bioinformatics workflow for our study t
 
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url 2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 {:.notice}
 The URL [http://merenlab.org/data/sar11-saavs/](/data/sar11-saavs/){:target="_blank"} serves the most up-to-date version of this document.
@@ -350,7 +350,7 @@ done
 The profiling of single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) is performed during this step.
 
 {:.notice}
-Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to send it to a cluster): [The new anvi'o BAM profiler]({% post_url anvio/2017-03-07-the-new-anvio-profiler %}).
+Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to send it to a cluster): [The new anvi'o BAM profiler]({% post_url 2017-03-07-the-new-anvio-profiler %}).
 
 ### Generating a merged anvi'o profile
 
@@ -435,7 +435,7 @@ We used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `
 
 ### Computing the pangenome
 
-We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url anvio/2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
+We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url 2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
 
 ``` bash
 curl -L -O http://merenlab.org/data/sar11-saavs/files/internal-genomes.txt

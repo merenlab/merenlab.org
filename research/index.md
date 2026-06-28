@@ -135,7 +135,7 @@ Some vocabulary we try to use, and promote as much as we can (for more, see our 
 
 - "**kbp**", "**Mbp**", or "**Gbp**" to communicate the number of base pairs in a contig, or a genome, *instead of* "**KB**", "**MB**", or "**GB**". Because the latter are commonly used to describe the amount of digital information in 'bytes', and the alternative use is not appropriate. Although it appears in the literature quite often, the use of "**Kb**", "**Mb**", or "**Gb**" are not very suitable either, since these units are commonly used to quantify digital information in 'bits'.
 
-- *Anything else* to describe microbes that are not yet characterized, *instead of* "**microbial dark matter**". [Just stop it]({% post_url miscellaneous/2017-06-22-microbial-dark-matter %}). [Please](https://twitter.com/merenbey/status/907708177403322368).
+- *Anything else* to describe microbes that are not yet characterized, *instead of* "**microbial dark matter**". [Just stop it]({% post_url 2017-06-22-microbial-dark-matter %}). [Please](https://twitter.com/merenbey/status/907708177403322368).
 
 If you believe we need corrections, please don't hesitate to [write to us]({{site.url}}/people/) :)
 

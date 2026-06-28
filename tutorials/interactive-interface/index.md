@@ -19,7 +19,7 @@ The purpose of this tutorial is to give you a brief idea about the capabilities 
 To follow this tutorial open your terminal, create a new directory anywhere on your computer, and go into it using your terminal.
 
 {:.notice}
-While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [data types in the anvi'o interactive interface understands]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}){:target="_blank"}.
+While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [data types in the anvi'o interactive interface understands]({% post_url 2016-02-27-the-anvio-interactive-interface %}){:target="_blank"}.
 
 ## The data matrix
 
@@ -149,7 +149,7 @@ It will require us to add this information into the 'layer orders' table. This t
 
 A rather comprehensive description of these tables, and how to operate on them is laid out here:
 
-* [Working with anvi'o additional data tables]({% post_url anvio/2017-12-11-additional-data-tables %})
+* [Working with anvi'o additional data tables]({% post_url 2017-12-11-additional-data-tables %})
 
 If you read that article, you already know about the simple structure of the input file to add new layers orders into a profile database. If you don't want to spend time on it you can download it here:
 

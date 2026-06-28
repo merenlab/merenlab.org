@@ -15,7 +15,7 @@ The version number of this tutorial is `1.0`, and for now it is tailored for Ill
 {:.notice}
 This is our **very initial attempt** to put together a comprehensive tutorial. If you would like to change something on this page, you can directly **[edit its source code](https://github.com/meren/meren.github.io/blob/master/tutorials/assembly-based-metagenomics/index.md)** by clicking the _"Edit this file"_ icon on the right top corner of the page, and send us a pull request through GitHub. We will be very thankful. You will need to login to GitHub to see that icon.
 
-**Assembly** and **mapping** are key steps for most **assembly-based, genome-resolved metagenomic studies**, and there are many ways to accomplish each of these steps. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available.
+**Assembly** and **mapping** are key steps for most **assembly-based, genome-resolved metagenomic studies**, and there are many ways to accomplish each of these steps. That's why, the [anvi'o metagenomic workflow]({% post_url 2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available.
 
 But a metagenomic study starts much earlier than assembly and mapping. Experimental design, sampling and storage strategies, library preparation, and sequencing are all critical steps that should be given considerable thought, especially if the purpose is to recover metagenome-assembled genomes.
 
@@ -75,7 +75,7 @@ Auxiliary HDF5 DB version ....................: 1
 Users DB version (for anvi-server) ...........: 1
 ```
 
-You may be lacking some of these software. You can install anvi'o using methods described in [this article]({% post_url anvio/2016-06-26-installation-v2 %}), or you can take a look at the article that gives [recipes to install third-party software]({% post_url anvio/2016-06-18-installing-third-party-software %}) (what you are looking for may not be covered in that article if it is very simple to install, in which case Google will help you find out how to install those on your system).
+You may be lacking some of these software. You can install anvi'o using methods described in [this article]({% post_url 2016-06-26-installation-v2 %}), or you can take a look at the article that gives [recipes to install third-party software]({% post_url 2016-06-18-installing-third-party-software %}) (what you are looking for may not be covered in that article if it is very simple to install, in which case Google will help you find out how to install those on your system).
 
 Let's start.
 
@@ -317,7 +317,7 @@ If you are here, it means you have your `contigs.fa`, and your BAM files! Congra
 
 ## What is next?
 
-Now you can continue with the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}).
+Now you can continue with the [anvi'o metagenomic workflow]({% post_url 2016-06-22-anvio-tutorial-v2 %}).
 
 <div style="margin: 50px;"></div>
 

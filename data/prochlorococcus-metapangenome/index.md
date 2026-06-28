@@ -37,7 +37,7 @@ This reproducible bioinformatics workflow  describes program names and exact par
 Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v3` (but it is OK to use anything newer than that, although pelase don't forget to run `anvi-migrate-db` on your databases). Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v3` (but it is OK to use anything newer than that, although pelase don't forget to run `anvi-migrate-db` on your databases). Please see [the installation notes]({% post_url 2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 <!--
 The URL [AAA](AAA){:target="_blank"} serves the publication.
@@ -101,7 +101,7 @@ We described these steps in [this](http://merenlab.org/data/tara-oceans-mags/) w
 
 ## Generating an anvi'o contigs database
 
-We used the program `anvi-gen-contigs-database` with default parameters to profile all contigs for _Prochlorococcus_ isolate genomes, and generate an [anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database) that stores for each contig the DNA sequence, GC-content, tetranucleotide frequency, and open reading frames as Prodigal `v2.6.3` (Hyatt et al., 2010) identifies them:
+We used the program `anvi-gen-contigs-database` with default parameters to profile all contigs for _Prochlorococcus_ isolate genomes, and generate an [anvi'o contigs database]({% post_url 2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database) that stores for each contig the DNA sequence, GC-content, tetranucleotide frequency, and open reading frames as Prodigal `v2.6.3` (Hyatt et al., 2010) identifies them:
 
 ``` bash
 anvi-gen-contigs-database -f Prochlorococcus-isolates.fa \
@@ -178,7 +178,7 @@ This process has resulted in 93 sorted and indexed BAM files that describe the m
 
 ### Profiling the mapping results with anvi'o
 
-After recruiting metagenomic short reads using contigs stored in the anvi'o contigs database for Prochlorococcus genomes, we used the program `anvi-profile` to process the BAM files and to generate [anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#anvi-profile)s that contain the coverage and detection statistics of each _Prochlorococcus_ contig in a given metagenome:
+After recruiting metagenomic short reads using contigs stored in the anvi'o contigs database for Prochlorococcus genomes, we used the program `anvi-profile` to process the BAM files and to generate [anvi'o profile database]({% post_url 2016-06-22-anvio-tutorial-v2 %}#anvi-profile)s that contain the coverage and detection statistics of each _Prochlorococcus_ contig in a given metagenome:
 
 ``` bash
 for sample in `awk '{print $1}' samples.txt`
@@ -195,12 +195,12 @@ done
 ```
 
 {:.notice}
-Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to send it to a cluster): [The new anvi'o BAM profiler]({% post_url anvio/2017-03-07-the-new-anvio-profiler %}).
+Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to send it to a cluster): [The new anvi'o BAM profiler]({% post_url 2017-03-07-the-new-anvio-profiler %}).
 
 
 ### Generating a merged anvi'o profile database
 
-Once the individual PROFILE databases were generated, we used the program `anvi-merge` to generate a [merged anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#anvi-merge):
+Once the individual PROFILE databases were generated, we used the program `anvi-merge` to generate a [merged anvi'o profile database]({% post_url 2016-06-22-anvio-tutorial-v2 %}#anvi-merge):
 
 
 ``` bash
@@ -301,7 +301,7 @@ You can find the summary output directory (which is a static HTML output that ca
 
 To generate the *Prochlorococcus* pangenome, and to visuaize it, we used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `anvi-display-pan` on the following order.
 
-We first created the file `internal-genomes.txt` so the pangenomic workflow can access to all the genomes the information about which are stored in the `Genomes` collection in the merged profile database individually (details of the anvi'o pangenomic workflow are [here]({% post_url anvio/2016-11-08-pangenomics-v2 %})). The internal genomes file can be downloaded using this command:
+We first created the file `internal-genomes.txt` so the pangenomic workflow can access to all the genomes the information about which are stored in the `Genomes` collection in the merged profile database individually (details of the anvi'o pangenomic workflow are [here]({% post_url 2016-11-08-pangenomics-v2 %})). The internal genomes file can be downloaded using this command:
 
 ``` bash
 curl -L -O http://merenlab.org/data/prochlorococcus-metapangenome/files/internal-genomes.txt

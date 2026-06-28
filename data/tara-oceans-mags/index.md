@@ -64,7 +64,7 @@ The document contains final and intermediate data products, as well as program n
 
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub. Most anvi'o commands should continue to work in most up-to-date anvi'o versions, but some adjustments may be necessary. Please feel free to get in touch with us if you need help.
+All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url 2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub. Most anvi'o commands should continue to work in most up-to-date anvi'o versions, but some adjustments may be necessary. Please feel free to get in touch with us if you need help.
 
 The following sections describe steps to download, quality-filter, and co-assemble the raw metagenomic data, followed by the recovery and characterization of a non-redundant database of metagenome-assembled genomes through binning and curation steps.
 
@@ -375,7 +375,7 @@ done
 We skipped the profiling of single-nucleotide variants (SNVs) for this particular project to minimize the computing time and the volume of resulting anvi'o files, but we generally suggest the inclusion of this step.
 
 {:.notice}
-Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to clusterize it): [The new anvi'o BAM profiler]({% post_url anvio/2017-03-07-the-new-anvio-profiler %}).
+Please read the following article for parallelization of anvi'o profiling (details of which can be important to consider especially if you are planning to clusterize it): [The new anvi'o BAM profiler]({% post_url 2017-03-07-the-new-anvio-profiler %}).
 
 ### Generating merged anvi'o profiles
 

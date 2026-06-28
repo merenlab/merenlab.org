@@ -71,9 +71,9 @@ If you type `ls` in the dataset directory you will see that the data-pack contai
 
 **The contigs and profile databases**. We generated an anvi'o contigs database using the program {% include PROGRAM name="anvi-gen-contigs-database" %}. This special anvi'o database keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow. We also generated a merged anvi'o profile database using the program {% include PROGRAM name="anvi-profile" %}. In contrast to the contigs database, anvi'o profile databases store *sample-specific* information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi'o can merge {% include ARTIFACT name="single-profile-db" text="single profiles" %} that link to the same contigs database into an **anvi'o merged profile** (which is what you will work with during this tutorial), using the program {% include PROGRAM name="anvi-merge" %}. Here are some direct links describing these steps:
 
-* [Creating an anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database){:target="_blank"}
-* [Creating an anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files){:target="_blank"}
-* [Merging anvi'o profile databases]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#working-with-anvio-profiles){:target="_blank"}
+* [Creating an anvi'o contigs database]({% post_url 2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database){:target="_blank"}
+* [Creating an anvi'o profile database]({% post_url 2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files){:target="_blank"}
+* [Merging anvi'o profile databases]({% post_url 2016-06-22-anvio-tutorial-v2 %}#working-with-anvio-profiles){:target="_blank"}
 
 **Identifying single-copy core genes among contigs**. We used the program {% include PROGRAM name="anvi-run-hmms" %} to identify single-copy core genes for Bacteria, Archaea, Eukarya, as well as sequences for ribosomal RNAs among the IGD contigs. All of these results are also stored in the contigs database. This information allows us to learn the completion and redundancy estimates of newly identified {% include ARTIFACT name="bin" %} in the interactive interface, on the fly. Note that if all single copy-core genes for a given domain are detected once in the selected bin, then the completion will be 100% and the redundancy 0%. If a few genes are detected multiple times, the redundancy value will increase. If a few genes are missing, then it is the completion value that will drop.
 
@@ -99,10 +99,10 @@ By the end of this chapter, you should (1) have a comprehensive understanding of
 
 ---
 
-A typical anvi'o genome-resolved metagenomic workflow [starts with one or more BAM files and a FASTA file of your contigs]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"}. There are many ways to get your contigs and BAM files for your metagenomes and we have started implementing a tutorial that [describes the workflows we often use]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}). But in this tutorial we will start from a point in the workflow where you have used your BAM and FASTA files to generate anvi'o contigs and profile databases.
+A typical anvi'o genome-resolved metagenomic workflow [starts with one or more BAM files and a FASTA file of your contigs]({% post_url 2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"}. There are many ways to get your contigs and BAM files for your metagenomes and we have started implementing a tutorial that [describes the workflows we often use]({% post_url 2018-07-09-anvio-snakemake-workflows %}). But in this tutorial we will start from a point in the workflow where you have used your BAM and FASTA files to generate anvi'o contigs and profile databases.
 
 {:.notice}
-While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
+While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url 2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
 Using the files in the data-pack directory, let's take a first look at the merged profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
@@ -161,7 +161,7 @@ Note that gene coordinates are displayed at the bottom and their inferred functi
 
 Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the contigs database, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
 
-Centrifuge ([code](https://github.com/DaehwanKimLab/centrifuge){:target="_blank"}, [paper](http://doi.org/10.1101/gr.210641.116){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
+Centrifuge ([code](https://github.com/DaehwanKimLab/centrifuge){:target="_blank"}, [paper](http://doi.org/10.1101/gr.210641.116){:target="_blank"}) is [one of the options]({% post_url 2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url 2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
 
 If you import these files into the contigs database the following way,
 
@@ -187,7 +187,7 @@ In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag 
 
 ### Inferring taxonomy for metagenomes
 
-So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this {% include PROGRAM name="anvi-run-scg-taxonomy" %} is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
+So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this {% include PROGRAM name="anvi-run-scg-taxonomy" %} is described [here]({% post_url 2019-10-08-anvio-scg-taxonomy %}) in greater detail.
 
 You can take a very quick look at the taxonomic composition of the metagenome through the command line first:
 
@@ -532,7 +532,7 @@ So this is how you load and display an external collection. So far so good.
 
 ### Comparing multiple binning approaches
 
-Since we have all these results from different binning approaches, it clearly would have been interesting to compare them to each other (because [benchmarking stuff]({% post_url anvio/2015-06-23-comparing-different-mapping-software %}){:target="_blank"} is often very insightful). But how to do it? The simplest way to do it is to assume a 'true organization of contigs', and then investigate every other approach with respect to that.
+Since we have all these results from different binning approaches, it clearly would have been interesting to compare them to each other (because [benchmarking stuff]({% post_url 2015-06-23-comparing-different-mapping-software %}){:target="_blank"} is often very insightful). But how to do it? The simplest way to do it is to assume a 'true organization of contigs', and then investigate every other approach with respect to that.
 
 Here we have multiple independent sources of information we could use. Including (1) the organization of contigs based on hierarchical clustering analysis, (2) per-contig taxonomy estimated from the gene-level taxonomic annotations by Centrifuge, and (3) results from the original publication from Sharon et al., in which authors did a very careful job to identify every genome in the dataset (even resolving the *Staphylococcus* pangenome, which is extremely hard for automatic binning approaches that work with a single co-assembly). So these are the things we can build upon for a modest comparison.
 
@@ -574,7 +574,7 @@ anvi-interactive -p PROFILE.db \
 
 <span class="extra-info-header">Dealing with additional data tables like a pro</span>
 
-As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can use the program {% include PROGRAM name="anvi-import-misc-data" %} to import this data into our database:
+As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url 2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can use the program {% include PROGRAM name="anvi-import-misc-data" %} to import this data into our database:
 
 ``` bash
 anvi-import-misc-data collections.tsv \
@@ -676,7 +676,7 @@ This command should give you a display similar to this:
 All previous interactive displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
 
 {:.notice}
-Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
+Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url 2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
 
 It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those bins to *behave*.
 
@@ -786,7 +786,7 @@ Thank you for following the tutorial this far!
 
 <details markdown="1"><summary>Show/hide More on refinement</summary>
 
-You can read more about {% include PROGRAM name="anvi-refine" %} [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
+You can read more about {% include PROGRAM name="anvi-refine" %} [here]({% post_url 2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url 2017-01-03-loki-the-link-archaea-eukaryota %}).
 
 If you are feeling lazy, you can just take a quick look at this videos from the post above.
 
@@ -818,7 +818,7 @@ So which one to choose? How to get out of this situation easily and move on? I k
 
 For instance, I think CONCOCT is doing a pretty awesome job identifying MAGs in the IGD, even with the low-abundance organisms. However, it is not perfect, either. In fact if you look carefully, you can see that it creates two bins for one *Candida albicans* genome. Hierarchical clustering will always get you closest to the best organization of contigs with simple distance metrics and linkage algorithms. But there are major challenges associated with that approach, including the fact that it is simply an exploratory method and can't give you "bins" out-of-the-box. Even more importantly, it has tremendous limitations come from its computational complexity (~*O*(*m*<sup>2</sup> log *m*), where *m* is the number of data points). So in most cases it is not even a remote possibility to organize contigs using a hierarchical clustering approach in an assembly in reasonable amount of time (and there is no way to visualize that even if you were to get a dendrogram for 200,000 contigs (you can create simple 2D ordinations with that number of items, but you really shouldn't, but that's another discussion)). Except assemblies with rather smaller number of contigs like the IGD, we are always going to use automated ways to identify bins, at least *initially*, knowing that resulting bins may be, and in most cases will be, crappy. That's why in anvi'o we implemented ways to quickly look into automatically identified bins (i.e., the `collection` mode of `anvi-interactive`), and even refine those with poor redundancy scores to improve final results (i.e., `anvi-refine`).
 
-So we can fix crappy bins to an extent since [we know more or less how things should look like]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}, and [we have tools to do that]({% post_url anvio/2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from **conflation error** (i.e., more than one genome ends up in one bin), it is much harder to recover from the **fragmentation error** (i.e., one genome is split into multiple bins). You can see an example for fragmentation error if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
+So we can fix crappy bins to an extent since [we know more or less how things should look like]({% post_url 2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}, and [we have tools to do that]({% post_url 2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from **conflation error** (i.e., more than one genome ends up in one bin), it is much harder to recover from the **fragmentation error** (i.e., one genome is split into multiple bins). You can see an example for fragmentation error if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
 
 [![Infant gut merged](images/infant-gut-collections-final-tod.png)](infant-gut-collections-final-tod.png){:.center-img .width-50}
 
@@ -834,7 +834,7 @@ Well, how do you even know how many bacterial genomes you should expect to find 
 <div class="blockquote-author">You</div>
 </blockquote>
 
-Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
+Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url 2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
 
 ```
 anvi-display-contigs-stats CONTIGS.db
@@ -895,7 +895,7 @@ We all just have to continue working, and enjoy this revolution.
 ## Chapter III: Phylogenomics
 
 {:.notice}
-This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
+This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url 2017-06-07-phylogenomics %}){:target="_blank"}'.
 
 {:.notice}
 To see a practical application of phylogenomics see [this workflow](http://merenlab.org/data/parcubacterium-in-hbcfdna/){:target="_blank"}.
@@ -1049,7 +1049,7 @@ Config Error: If you want your genes to be concatenated into a multi-alignment f
 
 Well. That didn't go well.
 
-The reason why it didn't go so well is because even in the most complete genomes, there may be multiple HMM hits for a given 'single-copy gene'. [Here is an evidence for that]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}) coming from gold standard genomes for skeptics. As a solution to this problem, anvi'o asks you to use the `--return-best-hit` flag, which will return the most significant HMM hit if there are more than one gene that matches to the HMM of a given gene in a given genome. Fine. Let's do that, then:
+The reason why it didn't go so well is because even in the most complete genomes, there may be multiple HMM hits for a given 'single-copy gene'. [Here is an evidence for that]({% post_url 2016-06-09-assessing-completion-and-contamination-of-MAGs %}) coming from gold standard genomes for skeptics. As a solution to this problem, anvi'o asks you to use the `--return-best-hit` flag, which will return the most significant HMM hit if there are more than one gene that matches to the HMM of a given gene in a given genome. Fine. Let's do that, then:
 
 ``` bash
 anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
@@ -1161,7 +1161,7 @@ Now you know how to organize distantly related genomes using universally conserv
 Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
 {:.notice}
-You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
+You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url 2016-11-08-pangenomics-v2 %}){:target="_blank"}.
 
 {:.warning}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
@@ -1198,7 +1198,7 @@ additional-files/pangenomics/external-genomes/Enterococcus_faecium_6798.db
 ```
 
 {:.notice}
-The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o contigs databases.
+The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url 2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o contigs databases.
 
 There also are two files in the `additional-files/pangenomics` directory to describe how to access to the {% include ARTIFACT name="external-genomes" %}:
 
@@ -1224,7 +1224,7 @@ and the {% include ARTIFACT name="external-genomes" text="internal" %} one:
 
 It is this simple to combine MAGs and isolates.
 
-So everything is ready for an analysis, and the first step in the pangenomic workflow is to generate an [anvi'o genomes storage]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#generating-an-anvio-genomes-storage){:target="_blank"}.
+So everything is ready for an analysis, and the first step in the pangenomic workflow is to generate an [anvi'o genomes storage]({% post_url 2016-11-08-pangenomics-v2 %}/#generating-an-anvio-genomes-storage){:target="_blank"}.
 
 ``` bash
 anvi-gen-genomes-storage -i additional-files/pangenomics/internal-genomes.txt \
@@ -1263,9 +1263,9 @@ Well, you can do whatever you want, but just take a look at this anvi'o figure:
 
 [![Salmonella pan](../../images/miscellaneous/2017-02-05-zhou-salmonella/zhemin_et_al_anvio.png)](../../images/miscellaneous/2017-02-05-zhou-salmonella/zhemin_et_al_anvio.png){:.center-img .width-50}
 
-This is a pangenomic analysis visualized with anvi'o by Zhemin Zhou and his colleagues. Here is more information about this excellent study: [An 800-years-old *Salmonella* genome, and a lovely anvi'o figure]({% post_url miscellaneous/2017-02-05-zhou-salmonella%}){:target="_blank"}.
+This is a pangenomic analysis visualized with anvi'o by Zhemin Zhou and his colleagues. Here is more information about this excellent study: [An 800-years-old *Salmonella* genome, and a lovely anvi'o figure]({% post_url 2017-02-05-zhou-salmonella%}){:target="_blank"}.
 
-I am not arguing that every figure should look like that one, but I would like you to consider the fact that if you would like to do better, there are ways. Here is a post about [working with SVG files anvi'o generate]({% post_url anvio/2016-10-27-high-resolution-figures %}){:target="_blank"}. Finally, please visit [this reproducible workflow](http://merenlab.org/data/spiroplasma-pangenome/) to see a step-by-step for a more humanly-possible prettification of a pangenome:
+I am not arguing that every figure should look like that one, but I would like you to consider the fact that if you would like to do better, there are ways. Here is a post about [working with SVG files anvi'o generate]({% post_url 2016-10-27-high-resolution-figures %}){:target="_blank"}. Finally, please visit [this reproducible workflow](http://merenlab.org/data/spiroplasma-pangenome/) to see a step-by-step for a more humanly-possible prettification of a pangenome:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This GIF shows the evolution of an anvi&#39;o figure from the raw anvi&#39;o display to its published form :) We know the anvi&#39;o interactive interface can be scary, but it IS powerful :)<a href="https://t.co/IfvDndFgBD">https://t.co/IfvDndFgBD</a> describes every step in the interface to go from the 1st to the 2nd image. <a href="https://t.co/sb4dzLKAg3">pic.twitter.com/sb4dzLKAg3</a></p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1166379164720685056?ref_src=twsrc%5Etfw">August 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -1292,7 +1292,7 @@ Now not only can we see how our E. faecalis genome looks like compared to availa
 
 ### Adding average nucleotide identity
 
-The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a {% include PROGRAM name="anvi-compute-genome-similarity" text="program" %} to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
+The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a {% include PROGRAM name="anvi-compute-genome-similarity" text="program" %} to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url 2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
 
 We can compute average nucleotide identity among our genomes, and add them to the pan database the following way:
 
@@ -1354,7 +1354,7 @@ Please take a look at [this study](https://doi.org/10.1038/s41467-019-08973-w) a
 
 One of the things we often are interested in is this question: which functions are associated with a particular organization of genomes due to their phylogenomic or pangenomic characteristics.
 
-For instance, genomes in this pangenome are organized into two distinct groups based on differential distribution of gene clusters. That is of course not surprising, since these genomes are classified into two distinct 'species' within the genus Enterococcus. So you can certainly imagine more appropriate or interesting examples where you may be wondering about functional enrichment across groups of genomes that do not have such clear distinctions at the level of taxonomy. The actual tutorial to make sense of functions in pangenomes is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome). Here we will make a quick pass to demonstrate its relevance.
+For instance, genomes in this pangenome are organized into two distinct groups based on differential distribution of gene clusters. That is of course not surprising, since these genomes are classified into two distinct 'species' within the genus Enterococcus. So you can certainly imagine more appropriate or interesting examples where you may be wondering about functional enrichment across groups of genomes that do not have such clear distinctions at the level of taxonomy. The actual tutorial to make sense of functions in pangenomes is [here]({% post_url 2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome). Here we will make a quick pass to demonstrate its relevance.
 
 First, you need to define how you would like to group your genomes in the pangenome so anvi'o can find out which functions are characteristic of each group. Here is our TAB-delimited file to divide these genomes into two groups:
 
@@ -1786,14 +1786,14 @@ We get from this a file called `Enterococcus_enriched_modules.txt`, in which the
 
 Well, it seems like there are only a few modules that could be enriched in either group, considering that the p-value and adjusted q-value jump to high, non-significant values (ie, q < 0.01) starting with the Thiamine salvage pathway. But of the 6-7 modules with high enrichment scores and low p/q-values, it seems that the *E. faecium* genomes are enriched with a couple of sugar degradation pathways while the *E. faecalis* genomes are enriched with several biosynthesis pathways - including the Menaquinone and Molybdenum cofactor biosynthesis pathways that we found earlier when looking at the heatmap. In fact, if you look back at the zoomed heatmap you can find a few more of these enriched modules and visualize the difference in completeness score between the two clades. The enrichment script is a good way to quantify these differences and assign a significance value to them.  
 
-If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
+If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url 2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
 
 ## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
 
 {:.notice}
-This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
+This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url 2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
@@ -1926,7 +1926,7 @@ See, it *really* is abundant (every dot here is the coverage of a nucleotide pos
 
 OK. Clearly, we have no way of knowing the extent of variation within this bin through this perspective. But `anvi-gen-variability-profile` is exactly for that purpose, and that's what we will do here using two different methods to visualize its report (using R, and using anvi'o).
 
-Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url anvio/2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
+Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url 2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
 
 ``` bash
 anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
@@ -1941,7 +1941,7 @@ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
                              -o E-faecalis-SNVs.txt
 ```
 
-This command simply requests `anvi-gen-variability-profile` to select all *E. faecalis* **nucleotide positions** that were identified as 'variable' in at least one sample, and (1) covered by more than 20X in **all** 8 samples of interest (2) and display a minimum scattering power of 3 (minimum scattering power is a very simple attribute of a nucleotide position, and described [here]({% post_url anvio/2015-07-20-analyzing-variability %}#parameters-to-filter-the-output){:target="_blank"}). Instead of `--min-scatter 3` you could use `--min-occurrence 3`, however, in that case the program would have returned every SNV position that was reported in more than 3 samples, which would have included nucleotide positions that were variable in every sample. Finally we also used the `--samples-of-interest` parameter with the following file:
+This command simply requests `anvi-gen-variability-profile` to select all *E. faecalis* **nucleotide positions** that were identified as 'variable' in at least one sample, and (1) covered by more than 20X in **all** 8 samples of interest (2) and display a minimum scattering power of 3 (minimum scattering power is a very simple attribute of a nucleotide position, and described [here]({% post_url 2015-07-20-analyzing-variability %}#parameters-to-filter-the-output){:target="_blank"}). Instead of `--min-scatter 3` you could use `--min-occurrence 3`, however, in that case the program would have returned every SNV position that was reported in more than 3 samples, which would have included nucleotide positions that were variable in every sample. Finally we also used the `--samples-of-interest` parameter with the following file:
 
 ``` bash
 cat additional-files/samples.txt
@@ -2111,7 +2111,7 @@ Good, everything checks out. Now since we know the split names and positions in 
 
 [![E. faecalis SNVs](images/e-faecalis-SNV-context.gif)](images/e-faecalis-SNV-context.gif){:.center-img .width-50}
 
-There are many directions you can go once you have the gene caller IDs associated with a question you have. Just take a look at this post and see some of the hidden talents of anvi'o: [Musings over a *Nitrospira* genome that can do complete nitrification]({% post_url anvio/2015-12-09-musings-over-commamox %}){:target="_blank"}.
+There are many directions you can go once you have the gene caller IDs associated with a question you have. Just take a look at this post and see some of the hidden talents of anvi'o: [Musings over a *Nitrospira* genome that can do complete nitrification]({% post_url 2015-12-09-musings-over-commamox %}){:target="_blank"}.
 
 Here I will stop, but still we have a lot to talk about!
 

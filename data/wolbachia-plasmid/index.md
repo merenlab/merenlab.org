@@ -23,10 +23,10 @@ Here you will find program names and exact parameters we used throughout every s
 
 * Applying a long-read sequencing and analysis strategy to very low-biomass samples for hypothesis testing,
 
-* Employing [anvi'o snakemake workflows]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}) to study complex datasets with many steps of analyses in a reproducible manner.
+* Employing [anvi'o snakemake workflows]({% post_url 2018-07-09-anvio-snakemake-workflows %}) to study complex datasets with many steps of analyses in a reproducible manner.
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url 2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 <div class="extra-info" markdown="1">
 
@@ -103,7 +103,7 @@ Once your downloads are finished, you must have the following files in your work
 
 ### Running the anvi'o metagenomic workflow
 
-While we extensively listed our command lines and parameters in our previous reproducible workflows (an [example](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/), and [another one](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)), anvi'o `v5` comes with a snakemake-based workflow management program, which makes our workflows significantly simpler (here is [an extensive tutorial]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}) that describes its functions). Starting from raw metagenomic reads, this workflow will run everything necessary.
+While we extensively listed our command lines and parameters in our previous reproducible workflows (an [example](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/), and [another one](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)), anvi'o `v5` comes with a snakemake-based workflow management program, which makes our workflows significantly simpler (here is [an extensive tutorial]({% post_url 2018-07-09-anvio-snakemake-workflows %}) that describes its functions). Starting from raw metagenomic reads, this workflow will run everything necessary.
 
 One of the key input files to start the run is the `samples.txt`, and you can downlaod the version used in our study into your work directory this way:
 
@@ -225,7 +225,7 @@ And it basically instructs the workflow manager to,
 - Profile and merge resulting files using **anvi'o**.
 
 {:.notice}
-The parameter `all_against_all: true` will result in individual assemblies of each sample, but reads will be recruited from every metagenome to each assembly. Please refer to [the anvi'o snakemake tutorial]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}) for the details of the available modes of assembly and mapping.
+The parameter `all_against_all: true` will result in individual assemblies of each sample, but reads will be recruited from every metagenome to each assembly. Please refer to [the anvi'o snakemake tutorial]({% post_url 2018-07-09-anvio-snakemake-workflows %}) for the details of the available modes of assembly and mapping.
 
 Just to make sure things look alright, we run the following command to generate a visual summary of the workflow:
 

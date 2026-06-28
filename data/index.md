@@ -594,9 +594,9 @@ This is what you should see after entering the last command in your terminal:
 
 ### A blog post on data reproducibility
 
-A blog post on how (and why) to reproduce these data: [*Bacteroides* Genome Variants, and a reproducible science exercise with anvi'o]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}).
+A blog post on how (and why) to reproduce these data: [*Bacteroides* Genome Variants, and a reproducible science exercise with anvi'o]({% post_url 2016-11-21-bacteroides-genome-variants %}).
 
-For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
+For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url 2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
 
 
 ## Tardigrade Assembly Re-analysis
@@ -619,7 +619,7 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
 
 ### Raw and/or reproducible data items
 
-* [This link](https://api.figshare.com/v2/file/download/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) is available).
+* [This link](https://api.figshare.com/v2/file/download/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url 2015-08-22-docker-image-for-anvio %}) is available).
 * Visit [this adress](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/) to view the anvi'o summary for genomic selections in Figure 1. Alternatively, you can use [this address](https://api.figshare.com/v2/file/download/3677703) to download this static HTML output to view on your own computer.
 * Following links give access to the individual genome files:
 
