@@ -293,9 +293,10 @@ details {
 .icon-menu { position: relative; top: 3px; line-height: 0; }
 
 .no-js .nav ul { max-height: 30em; overflow: hidden; }
-.js .nav ul { max-height: 0; overflow: hidden; }
-@media (min-width: 37.5em) { .js .nav ul { max-height: 30em; } }
-.js .nav .active + ul { max-height: 30em; overflow: hidden; transition: max-height .4s; }
+@media (max-width: 37.4375em) {
+  .nav ul { max-height: 0; overflow: hidden; }
+  .nav .active + ul { max-height: 30em; overflow: hidden; transition: max-height .4s; }
+}
 
 /* Fancy dropdown menu */
 .fancy-hList-div { height: 25px; width: 100%; }
@@ -456,7 +457,7 @@ details {
 #main {
   counter-reset: captions;
   width: 100%;
-  padding-left: 20px;
+  padding: 0 20px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
