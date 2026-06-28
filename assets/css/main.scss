@@ -280,17 +280,14 @@ details {
 
 /* Mobile nav toggle */
 .nav .navtoogle {
-  font-size: 1.125rem;
-  font-weight: normal;
+  font-size: 1.25rem;
   background-color: var(--color-black);
   color: var(--color-white);
   border: none;
+  padding: 6px 10px;
   cursor: pointer;
   @media (min-width: 37.5em) { display: none; }
 }
-.nav button { border: none; background: none; }
-.navtoogle i { z-index: -1; }
-.icon-menu { position: relative; top: 3px; line-height: 0; }
 
 .no-js .nav ul { max-height: 30em; overflow: hidden; }
 @media (max-width: 37.4375em) {
@@ -496,12 +493,6 @@ article.page,
   box-sizing: border-box;
   margin-bottom: 1em;
 
-  @media (min-width: 37.5em) and (max-width: 999px) {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
   @media (min-width: 1000px) {
     flex: 0 0 50%;
     min-width: 0;
@@ -515,12 +506,6 @@ article.page,
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 2em;
-
-  @media (min-width: 37.5em) and (max-width: 999px) {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
 
   @media (min-width: 1000px) {
     flex: 0 0 55%;
