@@ -11,7 +11,7 @@ noleftpanel: false
 notoc: false
 thumbnail: /images/thumbnails/2026-06-28-HIPP-on-human-progress.jpg
 image:
-  feature: http://merenlab.org/images/HIPP-on-human-progress/merens-sink.png
+  feature: https://merenlab.org/images/HIPP-on-human-progress/merens-sink.png
   display: false
 ---
 
