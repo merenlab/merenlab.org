@@ -144,7 +144,7 @@ The five projects in this call are,
 * Science Narratives
 
 {:.warning}
-**Application deadline is August 2026**.
+**Application deadline is July 20<sup>th</sup>, 2026**.
 
 **Please spread the word by sharing the link above** :)
 </div>
