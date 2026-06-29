@@ -4,18 +4,18 @@ authors: [meren]
 title: "Five Postdocs, Five Questions: An Experiment in Transdisciplinary Thinking at HIFMB"
 excerpt: "Some personal notes on what we are trying to achieve, and how we are planning to achieve that"
 modified: 2026-06-28
-tags: [hipp, hifmb, social science]
+tags: [hipp, hifmb, humanities, social science]
 categories: [miscellaneous]
 comments: true
 noleftpanel: false
 notoc: false
 thumbnail: /images/thumbnails/2026-06-28-HIPP-on-human-progress.jpg
 image:
-  feature: http://localhost:4000/images/HIPP-on-human-progress/merens-sink.png
+  feature: http://merenlab.org/images/HIPP-on-human-progress/merens-sink.png
   display: false
 ---
 
-The purpose of this blog post is to reach out to **social science and basic science researchers who are interested in marine systems in general** to tell them about an experiment we are conducting at the [HIFMB](https://hifmb.de).
+The purpose of this blog post is to reach out to **researchers in the humanities, social sciences, and basic sciences who are interested in marine systems in general** to tell them about an experiment we are conducting at the [HIFMB](https://hifmb.de).
 
 I envision this blog post as a living record of this experiment: now I will tell you what we are trying to achieve and how we are planning to achieve that, and later I will update this post to tell you what those who joined this effort have achieved (fingers crossed). 
 
@@ -47,7 +47,7 @@ While I was going through these realizations, and carrying the increasingly heav
 
 For the next call for the HIFMB Integrative Postdoc Pool (HIPP), Thilo Gross came up with a kind of proposal that appeared to fill the void in my intellectual sphere like Kurt Vonnegut fills a lonely blank page with the absurd truth of being alive, or with drawings that can *easily* compete with my sink above.
 
-Thilo's proposal was to define the next HIPP call in a way that would bring together social science and basic science researchers from the beginning of the project so they can come up with questions that were of interest to all groups equally. I immediately recognized that this was an opportunity to test whether the bridge I had been imagining could actually be built and whether I could be a part of it.
+Thilo's proposal was to define the next HIPP call in a way that would bring together researchers from the humanities, the social sciences, and the basic sciences from the beginning of the project so they can come up with questions that were of interest to all groups equally. I immediately recognized that this was an opportunity to test whether the bridge I had been imagining could actually be built and whether I could be a part of it.
 
 I already had some good experiences around this call. I had many inspiring conversations with Kristian Berg, a colleague at the University of Oldenburg who studies linguistics, and together with Kim Peters and Thilo, we came up with a project to study the power of words. *A linguist, a microbial ecologist, a mathematician, and a geographer walk into a bar ... with their towels, to dive altogether, into unfamiliar waters, for science*. 
 
@@ -131,7 +131,7 @@ As I promised at the beginning, I intend to document the outcome of each project
 
 <span class="extra-info-header">TL;DR:</span>
 
-We have advertised **five post-doc positions** at the **social science / basic science** interface, please tell people about them, and/or consider applying:
+We have advertised **five post-doc positions** at the **humanities / social science / basic science** interface, please tell people about them, and/or consider applying:
 
 [https://hifmb.de/institute/hipp/human-progress/](https://hifmb.de/institute/hipp/human-progress/)
 
