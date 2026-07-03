@@ -42,6 +42,37 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
 
 [https://merenlab.org/data/sar11-phylogenomics/](/data/sar11-phylogenomics) gives access to a **reproducible bioinformatics workflow** to regenerate or extend the SAR11 phylogenomic tree, FASTA files for all genomes, and anvi'o reproducible artifacts.
 
+## Hawaiʻi Diel Sampling (HaDS) survey
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1038/s41597-025-06166-3"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41597-025-06166-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/s41597-025-06166-3" target="_new">A high-resolution diel survey of surface ocean metagenomes, metatranscriptomes, and transfer RNA transcripts</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Tucker SJ<sup>☯</sup></span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Füssel J<sup>☯</sup></span>, Freel KC<sup>☯</sup>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Kiefl E</span>, Freel EB, Ramfelt O, Sullivan CES, Gajigan AP, Mochimaru H, Souza MRd, Quinn M, Ratum C, Tran LL, Sobczyk M, <span class="pub-member-author" title="An official member of the lab at the time of publication">Miller SE</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Trigodet F</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Lolans K</span>, Morrison HG, Fallon B, Huettel B, Pan T, Rappé MS<sup>‡</sup>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors; <sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/tucker_fussel_freel_et_al_2025.png"><img src="/images/pubs/tucker_fussel_freel_et_al_2025.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Introduces the Hawaiʻi Diel Sampling (HaDS) survey, a high-resolution multi-omics dataset of surface ocean microbial communities sampled every 1.5 hours for 48 hours across two physically connected yet environmentally distinct habitats (a coastal station (HP1) in Kāneʻohe Bay and an adjacent offshore station (STO1) off Oʻahu, Hawaiʻi) to characterize microbial responses to diel changes.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Altogether HaDS generated 202 intralinked sequencing products (6.62 billion paired-end short reads and 27.63 million single-end long reads): <b>59 metatranscriptomes</b>, <b>65 short-read metagenomes</b>, <b>8 long-read metagenomes</b>, and <b>66 transfer RNA (tRNA) transcripts</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Provides ready-to-use data products to reduce the computational burden of reanalysis, including station-specific short- and long-read co-assemblies and 160 metagenome-assembled genomes (MAGs) from the short-read data (63 high-quality and 97 medium-quality), plus 14 high-quality and 16 medium-quality MAGs from the long-read co-assemblies.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow along with links to all raw and processed data products (NCBI BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA1201851" target="_blank">PRJNA1201851</a>, contigs databases, MAGs, and EcoPhylo output on FigShare) is available <a href="https://merenlab.org/data/hads/" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Scientific Data</b>, 12:1913 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=A+high-resolution+diel+survey+of+surface+ocean+metagenomes,+metatranscriptomes,+and+transfer+RNA+transcripts" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41597-025-06166-3" target="_blank">doi:10.1038/s41597-025-06166-3</a></span>
+</div>
+
+### Raw and/or reproducible data items
+
+* NCBI Project ID [PRJNA1201851](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA1201851) offers access to [NCBI Project ID PRJNA1201851 offers access to all raw data for short-read and long-read metagenomes, as well as metatranscriptomes and tRNA transcript libraries](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA1201851).
+* doi:(pending URL from BCO-DMO) provides access to all biogeochemical data that covers the sampling period.
+* doi:[10.6084/m9.figshare.28784717](https://doi.org/10.6084/m9.figshare.28784717) serves anvi'o {% include ARTIFACT name="contigs-db" %} files for the individual co-assemblies of short-read (SR) as well as long-read (LR) sequencing of metagenomes. Please note that an anvi'o {% include ARTIFACT name="contigs-db" %} includes gene calls, functional annotations, HMM hits, and other information about each contig, and you can always use the program {% include PROGRAM name="anvi-export-contigs" %} to get a FASTA file for sequences.
+* doi:[10.6084/m9.figshare.28784762](https://doi.org/10.6084/m9.figshare.28784762) serves FASTA files for metagenome-assembled genomes (MAGs) we have reconstructed from short-read and long-read sequencing of the metagenomes. They are the outputs of quite a preliminary effort, thus secondary attempts to recover genomes from the co-assemblies are most welcome (and very much encouraged). Please see the Supplementary Table for taxonomic annotation and completion / redundancy estimates of the MAGs.
+* doi:[10.6084/m9.figshare.28784765](https://doi.org/10.6084/m9.figshare.28784765). The [EcoPhylo](https://anvio.org/help/main/workflows/ecophylo/) output that describes the phylogeography of ribosomal protein L14.
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/hads/](/data/hads) gives access to **reproducible bioinformatics analyses** of the raw data files.
+
 
 ## Phylogeography of ribosomal proteins with EcoPhylo
 

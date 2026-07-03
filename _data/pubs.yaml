@@ -67,7 +67,6 @@ people:
     full_name: Florian Trigodet
   Füssel J:
     full_name: Jessika Füssel
-    collaborator: True
   Reveillaud J:
     full_name: Julie Reveillaud
     collaborator: True
@@ -255,6 +254,30 @@ publications:
         - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.
       featured_image:
         /images/pubs/tucker_et_al_SAR11_2024.png
+
+  - doi:
+      10.1038/s41597-025-06166-3
+    title:
+      "A high-resolution diel survey of surface ocean metagenomes, metatranscriptomes, and transfer RNA transcripts"
+    authors:
+      Sarah J. Tucker*, Jessika Füssel*, Kelle C. Freel*, Evan Kiefl, Evan B. Freel, Oscar Ramfelt, Clarisse E. S. Sullivan, Andrian P. Gajigan, Hanako Mochimaru, Mariana Rocha de Souza, Mariko Quinn, Ciara Ratum, Leon L. Tran, Marek Sobczyk, Samuel E. Miller, Florian Trigodet, Karen Lolans, Hilary G. Morrison, Bailey Fallon, Bruno Huettel, Tao Pan, Michael S. Rappé+, A. Murat Eren+
+    journal:
+      Scientific Data
+    year:
+      2025
+    volume:
+      12
+    number:
+    pages:
+      1913
+    additional_info:
+      highlights:
+        - Introduces the Hawaiʻi Diel Sampling (HaDS) survey, a high-resolution multi-omics dataset of surface ocean microbial communities sampled every 1.5 hours for 48 hours across two physically connected yet environmentally distinct habitats (a coastal station (HP1) in Kāneʻohe Bay and an adjacent offshore station (STO1) off Oʻahu, Hawaiʻi) to characterize microbial responses to diel changes.
+        - Altogether HaDS generated 202 intralinked sequencing products (6.62 billion paired-end short reads and 27.63 million single-end long reads): <b>59 metatranscriptomes</b>, <b>65 short-read metagenomes</b>, <b>8 long-read metagenomes</b>, and <b>66 transfer RNA (tRNA) transcripts</b>.
+        - Provides ready-to-use data products to reduce the computational burden of reanalysis, including station-specific short- and long-read co-assemblies and 160 metagenome-assembled genomes (MAGs) from the short-read data (63 high-quality and 97 medium-quality), plus 14 high-quality and 16 medium-quality MAGs from the long-read co-assemblies.
+        - A reproducible bioinformatics workflow along with links to all raw and processed data products (NCBI BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA1201851" target="_blank">PRJNA1201851</a>, contigs databases, MAGs, and EcoPhylo output on FigShare) is available <a href="https://merenlab.org/data/hads/" target="_blank">here</a>.
+      featured_image:
+        /images/pubs/tucker_fussel_freel_et_al_2025.png
 
 
   - doi:
