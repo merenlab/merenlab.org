@@ -33,9 +33,9 @@ As a part of this design, we ended up killing the 'anvi'o samples database'. If 
 
 ## Purpose and terminology
 
-If you are not familiar with anvi'o terminology for display items (i.e., if you don't know what is a layer, view, or item), please [read this first](/software/anvio/help/main/artifacts/interactive/) to familiarize yourself with various parts of standard anvio' intearctive displays:
+If you are not familiar with anvi'o terminology for display items (i.e., if you don't know what is a layer, view, or item), please [read this first](https://anvio.org/help/main/artifacts/interactive/) to familiarize yourself with various parts of standard anvio' intearctive displays:
 
-[![image]({{images}}/anvio-display.png)](/software/anvio/help/main/artifacts/interactive/){:.center-img .width-50}
+[![image]({{images}}/anvio-display.png)](https://anvio.org/help/main/artifacts/interactive/){:.center-img .width-50}
 
 The purpose of this post is to show you how to annotate a display with additional data for items, layers, and layer orders. For all these tasks, we will use the same three programs, **anvi-import-misc-data**, **anvi-export-misc-data**, and **anvi-delete-misc-data** with different target tables (such as `items` to decorate items, `layers` to make **(4)** appear, or `layer_orders` make data for **(3)** available for our pan or profile databases.
 

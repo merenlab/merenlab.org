@@ -10,7 +10,7 @@ comments: true
 redirect_from:
   - /2019/10/07/getting-help/
   - /2015/10/14/anvio-discussion-group/
-  - /software/anvio/getting-help
+  - https://anvio.org/getting-help
 thumbnail: /images/thumbnails/2019-10-07-getting-help.png
 ---
 
@@ -35,7 +35,7 @@ The purpose of this section is to introduce you to resources from which you can 
 
 ## Browse anvi'o programs and artifacts online
 
-Please visit [this page](/software/anvio/help/) for online help for anvi'o programs and artifacts.
+Please visit [this page](https://anvio.org/help/) for online help for anvi'o programs and artifacts.
 
 ## Query anvi'o programs offline
 
@@ -79,15 +79,15 @@ And perhaps learn some things that you didn't think you needed before:
 
 ## See all anvi'o programs online
 
-The <a href="http://merenlab.org/software/anvio/vignette/">vignette</a> is the place to go for a comprehensive list of information on all programs in the latest stable release of anvi'o. It shows much of the same information that `anvi-help` shows and individual program help pages (`-h`) would give you, sometimes with extra tidbits of explanation. Googling an anvi'o program usually directs you to the vignette page. But if you are one of those adventurous folks who is using the development version of anvi'o (good for you!), some of the newer programs may not be on this page yet.
+The <a href="https://anvio.org/vignette/">vignette</a> is the place to go for a comprehensive list of information on all programs in the latest stable release of anvi'o. It shows much of the same information that `anvi-help` shows and individual program help pages (`-h`) would give you, sometimes with extra tidbits of explanation. Googling an anvi'o program usually directs you to the vignette page. But if you are one of those adventurous folks who is using the development version of anvi'o (good for you!), some of the newer programs may not be on this page yet.
 
 ## Explore anvi'o concepts online
 
-Anvi'o is a web of interconnected concepts, data, and programs. The program `anvi-help` traverses what anvi'o programs know about themselves to help you find your way starting with a keyword. An alternative way to do it is to browse interactively how everything in anvi'o is connected as a network. We have a nice <a href="http://merenlab.org/software/anvio/vignette/">visualization of this network</a> that is useful for exploring what anvi'o can do and what it needs from you to do it.
+Anvi'o is a web of interconnected concepts, data, and programs. The program `anvi-help` traverses what anvi'o programs know about themselves to help you find your way starting with a keyword. An alternative way to do it is to browse interactively how everything in anvi'o is connected as a network. We have a nice <a href="https://anvio.org/vignette/">visualization of this network</a> that is useful for exploring what anvi'o can do and what it needs from you to do it.
 
 At first glance, the network may look complicated:
 
-[![programs]({{images}}/anvio-network.png)](/software/anvio/network/){:.center-img .width-90}
+[![programs]({{images}}/anvio-network.png)](https://anvio.org/network/){:.center-img .width-90}
 
 But you can click on any one icon to learn more about how it fits into the rest of the anvi'o universe. This helps you to quckly learn more about what you can do with a contigs database, for instance. For that, you would click on the contigs-db icon in the network above, and peruse the vast web of anvi'o programs that use or generate these databases.
 

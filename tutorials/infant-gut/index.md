@@ -2135,7 +2135,7 @@ Networks. Everyone likes networks.
 
 ### Measuring distances between metagenomes with F<sub>ST</sub>
 
-The [fixation index](https://en.wikipedia.org/wiki/Fixation_index), F<sub>ST</sub>, is a measure of differentiation revealed by SNVs between two populations, and is a variation of the most widely used approach to describe population structures, [*F*-statistic](https://en.wikipedia.org/wiki/F-statistics). Anvi'o includes a program, [anvi-gen-fixation-index-matrix](/software/anvio/vignette/#anvi-gen-fixation-index-matrix), which implements F<sub>ST</sub> in accordance with [Schloissnig et al.'s 2013 work](https://doi.org/10.1038/nature11711) to permit multi-allelic variant positions.
+The [fixation index](https://en.wikipedia.org/wiki/Fixation_index), F<sub>ST</sub>, is a measure of differentiation revealed by SNVs between two populations, and is a variation of the most widely used approach to describe population structures, [*F*-statistic](https://en.wikipedia.org/wiki/F-statistics). Anvi'o includes a program, [anvi-gen-fixation-index-matrix](https://anvio.org/help/main/programs/anvi-gen-fixation-index-matrix/), which implements F<sub>ST</sub> in accordance with [Schloissnig et al.'s 2013 work](https://doi.org/10.1038/nature11711) to permit multi-allelic variant positions.
 
 As an alternative to previous strategies, we can use F<sub>ST</sub> to estimate distances between metagenomes using the SNV data following the footsteps of [Tom Delmont and Evan Kiefl et al's previous work](https://elifesciences.org/articles/46497) by providing this program with the variability profile anvi'o generates:
 
@@ -2330,7 +2330,7 @@ section and then come back.
 
 This section briefly showcases 2 separate, yet integrated features. The first is binding site
 prediction prediction with [InteracDome](https://interacdome.princeton.edu/), and the second is
-protein structure visualization with [anvi'o structure]({{ site.url }}/software/anvio-structure). This is a
+protein structure visualization with [anvi'o structure](https://anvio.org-structure). This is a
 **showcase** of these features, not an in-depth tutorial on either topic. For more comprehensive
 material on InteracDome, check out [this blog]({{ site.url }}/2020/07/22/interacdome/). For more
 detailed info and in depth tutorial on anvi'o structure and what it can do for you, please refer to [this post]({{ site.url
@@ -2533,7 +2533,7 @@ with these concepts, or want to learn more, [click me]({{ site.url
 }}/2015/07/20/analyzing-variability/#single-nucleotide-variants). Point is, we will be working with
 SAAVs and SCVs moving forward.
 
-In this section we will introduce [anvi'o structure]({{ site.url }}/software/anvio-structure), an integrated
+In this section we will introduce [anvi'o structure](https://anvio.org-structure), an integrated
 component of anvi'o that enables one to predict protein structures for genes in your
 contigs database and visualize them in an interactive interface. The motivation was seeded by
 wanting more direct insight into the potential effect that sequence variants had on fitness, by

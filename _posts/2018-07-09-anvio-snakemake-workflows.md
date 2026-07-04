@@ -45,7 +45,7 @@ Anvi'o workflows rely on [snakemake](https://snakemake.readthedocs.io/en/stable/
 {:.notice}
 If you don't wish to dig into the documentation of snakemake right now, that's fine. The only essential piece of information you may want to keep in mind is that each *step* of the analysis (for example, running `anvi-gen-contigs-database`) corresponds to a "rule" in the snakemake workflow.
 
-Anvi'o allows you to use its workflows through the program `anvi-run-workflow` (see the help menu [here]({{site.url}}/software/anvio/vignette/#anvi-run-workflow)). For a given workflow this program helps you prepare a **config file**, about which we will promptly learn in the next chapter, and then run it.
+Anvi'o allows you to use its workflows through the program `anvi-run-workflow` (see the help menu [here](https://anvio.org/help/main/programs/anvi-run-workflow/)). For a given workflow this program helps you prepare a **config file**, about which we will promptly learn in the next chapter, and then run it.
 
 You can ask the program to see what workflows it knows about:
 
@@ -144,7 +144,7 @@ To see how this file is used, you can take a look at the metagenomics workflow i
 Notice that one of the files above has a `.gz` suffix. The files could either be compressed or not, and the workflow will deal with that for you, so that you could keep your FASTA files compressed and hence take less storage room on your machine.
 
 
-The `fasta.txt` file format also allows users to optionally specify [external gene calls](/software/anvio/help/main/artifacts/external-gene-calls/) as well as [external functions](/software/anvio/help/main/artifacts/functions-txt/) for each FASTA file in the `fasta.txt`. Here is an example file with these additional columns:
+The `fasta.txt` file format also allows users to optionally specify [external gene calls](https://anvio.org/help/main/artifacts/external-gene-calls/) as well as [external functions](https://anvio.org/help/main/artifacts/functions-txt/) for each FASTA file in the `fasta.txt`. Here is an example file with these additional columns:
 
 |name|path|external_gene_calls|gene_functional_annotation|
 |:--|:--|:--|:--|
@@ -628,7 +628,7 @@ anvi-run-workflow -w metagenomics \
 
 ### Running binning algorithms
 
-If you wish to utilize automatic binning algorithms, you can use [anvi-cluster-contigs](http://merenlab.org/software/anvio/vignette/#anvi-cluster-contigs) as part of your metagenomics workflow. You can run one or more binning algorithms, and resulting collections would be automatically imported into your merged profile database/s.
+If you wish to utilize automatic binning algorithms, you can use [anvi-cluster-contigs](https://anvio.org/help/main/programs/anvi-cluster-contigs/) as part of your metagenomics workflow. You can run one or more binning algorithms, and resulting collections would be automatically imported into your merged profile database/s.
 
 The configuration parameters for the `anvi_cluster_contigs` rule look like this by default:
 

@@ -102,7 +102,7 @@ Our [proof-of-concept study](https://www.nature.com/articles/s41467-018-07675-z)
 
 ## Advanced open-source software for high-resolution microbial 'omics
 
-Studying microbial life by integrating multiple 'omics strategies required us to develop advanced software solutions such as [anvi'o](/software/anvio/). We have implemented anvi'o as an open-source community resource. 
+Studying microbial life by integrating multiple 'omics strategies required us to develop advanced software solutions such as [anvi'o](https://anvio.org/). We have implemented anvi'o as an open-source community resource. 
 
 <div class="imgclipholder">
 <div class="imgclip">

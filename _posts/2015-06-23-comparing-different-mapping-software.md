@@ -18,7 +18,7 @@ During our discussions to identify which mapping software should we use to map s
 
 However, comparing the efficiency of mapping software is not an easy task if you want to do it with "real world" data. We used eight mapping software to map short reads back to a metagenomic assembly, and profiled mapping results using anvi'o. Here you will find a brief overview of our findings. However, I would like to remind you early on that this by no means is an exhaustive comparison of these software, and our results are only meaningful within the narrow parameter space we explored. To avoid a biased comparison, we chose parameters from author-suggested defaults.
 
-But beyond our preliminary findings on the performance of these mapping software, this little project gives a good idea about how versatile [anvi'o]({{site_url}}/software/anvio/) is as a platform, and its potential use as a benchmaraking environment.
+But beyond our preliminary findings on the performance of these mapping software, this little project gives a good idea about how versatile [anvi'o](https://anvio.org/) is as a platform, and its potential use as a benchmaraking environment.
 
 
 # Preparation

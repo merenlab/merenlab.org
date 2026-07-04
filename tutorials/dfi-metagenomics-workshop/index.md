@@ -22,7 +22,7 @@ Matt Schechter and Iva Veseli taught this workshop with the help of the fearless
 
 ## The Microbiome Center Metagenomics Workshop
 
-In this workshop, you will be learning how to perform a variety of genomic and metagenomic analyses using the software platform [anvi'o](https://merenlab.org/software/anvio/). As you follow along with the workshop, you can use this document to reference some of the key commands we use. Also, you can look back at this file afterwards to remember what we worked on and how we did each step.
+In this workshop, you will be learning how to perform a variety of genomic and metagenomic analyses using the software platform [anvi'o](https://anvio.org/). As you follow along with the workshop, you can use this document to reference some of the key commands we use. Also, you can look back at this file afterwards to remember what we worked on and how we did each step.
 
 ### Background on the data
 
@@ -182,7 +182,7 @@ $ grep -c '>' FMT_HIG_FITNESS_KC_MAG_00120.fasta
 303
 ```
 
-We will convert this file into an anvi'o [contigs-db](https://anvio.org/help/7.1/artifacts/contigs-db/) so that we can work with anvi'o programs downstream. To do this, we use the program [anvi-gen-contigs-database](https://merenlab.org/software/anvio/help/7/programs/anvi-gen-contigs-database/).
+We will convert this file into an anvi'o [contigs-db](https://anvio.org/help/7.1/artifacts/contigs-db/) so that we can work with anvi'o programs downstream. To do this, we use the program [anvi-gen-contigs-database](https://anvio.org/help/7/programs/anvi-gen-contigs-database/).
 
 With any anvi'o program, you can use the `-h` flag to see the help page, with a brief description of input parameters, as in:
 
@@ -203,7 +203,7 @@ anvi-gen-contigs-database -f FMT_HIG_FITNESS_KC_MAG_00120.fasta \
                           -o FMT_HIG_FITNESS_KC_MAG_00120.db
 ```
 
-Please note that setting the name of the database to be `KC_MAG_00120` (with the `-n` parameter) will be important in matching information between files later, so please use this name (even though you are technically free to name the database however you like). Also, check out all the output [anvi-gen-contigs-database](https://merenlab.org/software/anvio/help/7/programs/anvi-gen-contigs-database/) put on your terminal. Anvi'o is very vocal and its programs will try to print anything that happens when you run a program so that you know what's going on behind the scenes.
+Please note that setting the name of the database to be `KC_MAG_00120` (with the `-n` parameter) will be important in matching information between files later, so please use this name (even though you are technically free to name the database however you like). Also, check out all the output [anvi-gen-contigs-database](https://anvio.org/help/7/programs/anvi-gen-contigs-database/) put on your terminal. Anvi'o is very vocal and its programs will try to print anything that happens when you run a program so that you know what's going on behind the scenes.
 
 Once that is finished running, you can inspect the new database to see basic information about its contents:
 
@@ -217,7 +217,7 @@ However, these genes are not annotated yet. That will be our next step.
 
 ### Annotating SCGs in the MAG (4 min.)
 
-A typical first annotation step in anvi'o is to find single-copy core genes, or SCGs. SCGs are a set of genes that are present in the majority of genomes and occur in one copy (most of which are ribosomal proteins). Since SCGs are phylogenetically conserved and tend to occur once per genome, they are good candidates for taxonomic markers and can be used for [genome completeness estimation](https://merenlab.org/2020/07/27/history-of-metagenomics/#:~:text=The%20effort%20to,the%20fer1%20genome%E2%80%9D.), as you will see later. The anvi'o program for finding single-copy core genes is called [anvi-run-hmms](https://merenlab.org/software/anvio/help/7/programs/anvi-run-hmms/):
+A typical first annotation step in anvi'o is to find single-copy core genes, or SCGs. SCGs are a set of genes that are present in the majority of genomes and occur in one copy (most of which are ribosomal proteins). Since SCGs are phylogenetically conserved and tend to occur once per genome, they are good candidates for taxonomic markers and can be used for [genome completeness estimation](https://merenlab.org/2020/07/27/history-of-metagenomics/#:~:text=The%20effort%20to,the%20fer1%20genome%E2%80%9D.), as you will see later. The anvi'o program for finding single-copy core genes is called [anvi-run-hmms](https://anvio.org/help/7/programs/anvi-run-hmms/):
 
 ```bash
 anvi-run-hmms -c FMT_HIG_FITNESS_KC_MAG_00120.db \
@@ -458,7 +458,7 @@ Which MAGs represent populations that colonized this recipient after FMT?
 
 
 ## Part III: Investigating metabolism in MAGs (15 min)
-In this section of the workshop, we'll be estimating the metabolic capacity of the bacterial populations living in one FMT donor. As discussed in the lecture, we have 20 MAGs to compare - 10 that are considered 'high-fitness' colonizers and 10 that are considered 'low-fitness' non-colonizers. The datapack contains [contigs databases](https://merenlab.org/software/anvio/help/7/artifacts/contigs-db/) for 19 of these MAGs, and a FASTA file for the last one, `KC_MAG_00120`, which you earlier converted into its own contigs database.
+In this section of the workshop, we'll be estimating the metabolic capacity of the bacterial populations living in one FMT donor. As discussed in the lecture, we have 20 MAGs to compare - 10 that are considered 'high-fitness' colonizers and 10 that are considered 'low-fitness' non-colonizers. The datapack contains [contigs databases](https://anvio.org/help/7/artifacts/contigs-db/) for 19 of these MAGs, and a FASTA file for the last one, `KC_MAG_00120`, which you earlier converted into its own contigs database.
 
 {:.notice}
 If you didn't go through Part I, or if you didn't download the KEGG database onto your computer by running `anvi-setup-kegg-kofams`, you can find a pre-annotated contigs database for `KC_MAG_00120` in the `backup_data/` folder of the datapack. In this case, we suggest copying it to your current directory by running `cp backup_data/FMT_HIG_FITNESS_KC_MAG_00120.db .` (you must include the final `.` in that command).
@@ -503,7 +503,7 @@ Take a look at the resulting file with
 head KC_MAG_00120_modules.txt     
 ```
 
-You can also import this file into Excel if you prefer. We'll discuss what the output means during the workshop (but you can also check the documentation [here](https://merenlab.org/software/anvio/help/7/artifacts/kegg-metabolism/)).
+You can also import this file into Excel if you prefer. We'll discuss what the output means during the workshop (but you can also check the documentation [here](https://anvio.org/help/7/artifacts/kegg-metabolism/)).
 
 Our goal is to compare the metabolic capacities of all of these MAGs. The other databases have already been annotated properly, so they are ready for estimation. We can use the same input file we used before to run estimation on all of the MAGs:
 
@@ -565,7 +565,7 @@ In the next section, we're going to learn how to mathematically find these pathw
 
 ### Computing enrichment of metabolic pathways in groups of genomes (~2 min)
 
-You might recall that our MAGs belong to two different groups - 10 are 'high-fitness' and 10 are 'low-fitness'. To compare the metabolic capacities of the two groups, we can do statistical tests to figure out which metabolic pathways are over-represented in one group or another. The program that does this enrichment analysis is called [anvi-compute-metabolic-enrichment](https://merenlab.org/software/anvio/help/7.1/programs/anvi-compute-metabolic-enrichment/).
+You might recall that our MAGs belong to two different groups - 10 are 'high-fitness' and 10 are 'low-fitness'. To compare the metabolic capacities of the two groups, we can do statistical tests to figure out which metabolic pathways are over-represented in one group or another. The program that does this enrichment analysis is called [anvi-compute-metabolic-enrichment](https://anvio.org/help/7.1/programs/anvi-compute-metabolic-enrichment/).
 
 In order to run the enrichment analysis, we need to specify which group each MAG belongs to. Luckily, this information is already in the metadata file:
 

@@ -16,7 +16,7 @@ redirect_from: /read-recruitment/
 
 * Familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM,
 * Learn the basic steps of read recruitment through [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/) and [samtools](http://www.htslib.org/),
-* Learn how to profile read recruitment results using [anvi'o](https://merenlab.org/software/anvio/),
+* Learn how to profile read recruitment results using [anvi'o](https://anvio.org/),
 * Familiarize yourself with downstream steps of the analysis of recruited reads.
 
 {:.notice}

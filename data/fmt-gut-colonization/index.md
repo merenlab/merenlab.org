@@ -187,7 +187,7 @@ Where you can right-click on any split and inspect nucleotide-level coverage val
 
 ---
 
-In addition to the examples shown above, these data packs can be used for additional investigations thanks to their versatility. `CONTIGS.db` is an {% include ARTIFACT name="contigs-db" text="anvi'o contigs database" %}, and any anvi'o program [that runs on contigs databases](/software/anvio/help/main/artifacts/contigs-db/) will run on this file. Similarly, `PROFILE.db` is an {% include ARTIFACT name="profile-db" text="anvi'o profile database" %}, and you can find [here](/software/anvio/help/main/artifacts/profile-db/) a list of programs in the anvi'o ecosystem that will work with this artifact.
+In addition to the examples shown above, these data packs can be used for additional investigations thanks to their versatility. `CONTIGS.db` is an {% include ARTIFACT name="contigs-db" text="anvi'o contigs database" %}, and any anvi'o program [that runs on contigs databases](https://anvio.org/help/main/artifacts/contigs-db/) will run on this file. Similarly, `PROFILE.db` is an {% include ARTIFACT name="profile-db" text="anvi'o profile database" %}, and you can find [here](https://anvio.org/help/main/artifacts/profile-db/) a list of programs in the anvi'o ecosystem that will work with this artifact.
 
 ## Estimating the global prevalence of donor genomes
 

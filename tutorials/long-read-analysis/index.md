@@ -57,7 +57,7 @@ At this point, if you type `ls` in your terminal, this is what you should be see
 ANVIO_DATABASES  FILES  GENOMES
 ```
 
-These are the directories that include databases for anvio pangeomes (i.e., [anvi'o artifacts](/software/anvio/help/main/#anvio-artifacts) called {% include ARTIFACT name="pan-db" %} and {% include ARTIFACT name="genomes-storage-db" %}), config files, as well as FASTA files for genomes.
+These are the directories that include databases for anvio pangeomes (i.e., [anvi'o artifacts](https://anvio.org/help/main/#anvio-artifacts) called {% include ARTIFACT name="pan-db" %} and {% include ARTIFACT name="genomes-storage-db" %}), config files, as well as FASTA files for genomes.
 
 Let's first create an environmental variable to be able to access the working directory path rapidly:
 

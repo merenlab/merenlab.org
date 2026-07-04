@@ -272,7 +272,7 @@ In addition, you can search gene clusters also based on functions:
 Similarly, you can add these gene clusters into collections with whatever name you like, and summarize those collections later.
 
 {:.warning}
-Advanced access to gene clusters is also possible through the command line through the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](http://merenlab.org/software/anvio/vignette/#anvi-get-sequences-for-gene-clusters).
+Advanced access to gene clusters is also possible through the command line through the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](https://anvio.org/help/main/programs/anvi-get-sequences-for-gene-clusters/).
 
 
 ## Inferring the homogeneity of gene clusters

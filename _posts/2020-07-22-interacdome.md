@@ -65,7 +65,7 @@ ecological markers.
 To bridge a gap between metagenomic sequence variants and the structural biology of gene products
 that underpin function and fitness is no easy task, but I think its critical if we want empower
 our findings with biochemical information. (As a small step in this direction, Özcan, Meren, and I developed
-[anvi'o structure]({{ site.url }}/software/anvio-structure), a way to visualize metagenomic sequence variants
+[anvi'o structure](https://anvio.org-structure), a way to visualize metagenomic sequence variants
 directly on predicted protein structures).
 
 Related to this concept, one of the most transformative talks I have ever attended was given by Dr.
@@ -85,7 +85,7 @@ server](https://interacdome.princeton.edu/) where you can give an amino acid seq
 server will run an HMM of your sequence against the InteracDome database and attribute estimated
 binding scores for each residue in your sequence. That is basically exactly what I wanted to do,
 except I wanted to extend this to the potentially massive number of genes that can typically found in [anvi'o contigs databases]({{
-site.url }}/software/anvio/help/artifacts/contigs-db/). Furthermore, I wanted to store all the
+site.url }}https://anvio.org/help/artifacts/contigs-db/). Furthermore, I wanted to store all the
 information in the contigs database for further data analysis and visualization, as is the anvi'o
 way.
 
@@ -157,9 +157,9 @@ what we use too.
 
 Acquiring the InteracDome's tab-separated files and the IPfam HMM profiles are just one-time setups,
 and therefore I created a program called [`anvi-setup-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-setup-interacdome/) to handle these tasks. So to make these
+}}https://anvio.org/help/programs/anvi-setup-interacdome/) to handle these tasks. So to make these
 inputs available, the user must run [`anvi-setup-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-setup-interacdome/) which initiates a class called
+}}https://anvio.org/help/programs/anvi-setup-interacdome/) which initiates a class called
 `InteracDomeSetup`. Here is the class:
 
 {:.notice}
@@ -316,25 +316,25 @@ explanation with my limited understanding, I defer to this [wonderful
 paper](https://www.sciencedirect.com/science/article/pii/S1672022904020145).
 
 With both the required inputs being gathered and setup with [`anvi-setup-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-setup-interacdome/), the next thing I focused on was actually
+}}https://anvio.org/help/programs/anvi-setup-interacdome/), the next thing I focused on was actually
 running an HMM on user genes. This as well as the remainder of steps will be carried out by the
-program [`anvi-run-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-run-interacdome/).
+program [`anvi-run-interacdome`](https://anvio.org/help/programs/anvi-run-interacdome/).
 
 The program that goes hand-in-hand with Pfam HMM profiles is
 [HMMER](http://eddylab.org/software/hmmer/Userguide.pdf), and in fact, anvi'o already has a driver
 to run HMMER on a set of user genes which was written for [`anvi-run-pfams`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-pfams/). Further in fact(?), [`anvi-run-pfams`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-pfams/) in some ways does exactly what I want: it takes
+}}https://anvio.org/help/programs/anvi-run-pfams/). Further in fact(?), [`anvi-run-pfams`]({{ site.url
+}}https://anvio.org/help/programs/anvi-run-pfams/) in some ways does exactly what I want: it takes
 genes from the contigs database, runs an HMM of the user genes against the Pfam HMM profiles,
 and annotates genes with the best Pfam hit. The primary difference between
-[`anvi-run-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-run-interacdome/) and
-[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/), is that rather than
+[`anvi-run-interacdome`](https://anvio.org/help/programs/anvi-run-interacdome/) and
+[`anvi-run-pfams`](https://anvio.org/help/programs/anvi-run-pfams/), is that rather than
 simply attribute to each gene the Pfam ID of the best hit, we instead must keep track of
 residue-level information associated to each hit, so that we can associate the binding
 frequencies from the InteracDome dataset. In this sense, things are much more complicated, as I will
 need to write an in-depth parser of HMMER's output to keep track of these things.
 
-Currently, [`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) can be
+Currently, [`anvi-run-pfams`](https://anvio.org/help/programs/anvi-run-pfams/) can be
 run with either of the HMMER programs, `hmmscan` or `hmmsearch`. However, for [good
 reason](https://cryptogenomicon.org/2011/05/27/hmmscan-vs-hmmsearch-speed-the-numerology/),
 `hmmsearch` in practice runs much faster for querying user genes against a HMM profile database with
@@ -343,10 +343,10 @@ wanted to avoid creating 2 output parsers (one for `hmmscan` and one for `hmmsea
 `anvi-run-interacdome` is by design only compatible with `hmmsearch`.
 
 All in all, [`anvi-run-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-interacdome/) runs `hmmsearch` almost exactly like
-[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) does. In fact,
+}}https://anvio.org/help/programs/anvi-run-interacdome/) runs `hmmsearch` almost exactly like
+[`anvi-run-pfams`](https://anvio.org/help/programs/anvi-run-pfams/) does. In fact,
 the responsible class for [`anvi-run-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracDomeSuper`,
+}}https://anvio.org/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracDomeSuper`,
 inherits `anvio.pfam.Pfam` to manage a lot of the boiler-plate code.
 
 {:.notice}

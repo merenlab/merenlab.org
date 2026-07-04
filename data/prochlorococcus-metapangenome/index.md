@@ -12,7 +12,7 @@ redirect_from:
 
 {% capture images %}{{site.url}}/data/prochlorococcus-metapangenome/images{% endcapture %}
 
-This reproducible bioinformatics workflow  describes program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio) in the following study:
+This reproducible bioinformatics workflow  describes program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](https://anvio.org) in the following study:
 
 <div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>

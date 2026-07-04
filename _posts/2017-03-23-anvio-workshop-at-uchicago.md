@@ -68,7 +68,7 @@ If we do this again, we probably will try to do it in a bigger room, run it for 
 
 ## The first anvi'o workshop at the UChicago
 
-During the last year we traveled to [many places]({% post_url 2016-08-18-events %}) to talk about [anvi'o](http://merenlab.org/software/anvio), and now we are inviting you to come to us.
+During the last year we traveled to [many places]({% post_url 2016-08-18-events %}) to talk about [anvi'o](https://anvio.org), and now we are inviting you to come to us.
 
 This was possible thanks to the [Department of Medicine](http://medicine.uchicago.edu/), [Section of Gastroenterology, Hepatology, and Nutrition](http://medicine.uchicago.edu/gast/index.html), as well as [the Digestive Diseases Research Core Center (DDRCC)](http://www.uchicagoddrcc.org/) at the [University of Chicago](http://www.uchicago.edu). We are thankful for their support.
 

@@ -17,7 +17,7 @@ This is petty old now, and we will not add new OS X installers. Please do not us
 {% include _project-anvio-version.html %}
 
 
-One of our highest priorities with [anvi'o]({{ site.url }}/software/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url 2016-06-26-installation-v2 %}) is not terribly hard, however, there is still room for improvement.
+One of our highest priorities with [anvi'o](https://anvio.org) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url 2016-06-26-installation-v2 %}) is not terribly hard, however, there is still room for improvement.
 
 We now have a new installer, and if you are using Mac OS X (version 10.9+, i.e., Maverick or Yosemite), you are pretty much covered!
 

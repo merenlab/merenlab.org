@@ -133,7 +133,7 @@ OK. Now we have all the FASTA files, and we are good to go.
 
 ## FASTA files to Contigs DBs
 
-For a pangenomic analysis of these genomes we will use [anvi'o](https://merenlab.org/software/anvio/), an open-source software platform for microbial 'omics. And anvi'o requires some additional steps for us to be able to work with FASTA files :/
+For a pangenomic analysis of these genomes we will use [anvi'o](https://anvio.org/), an open-source software platform for microbial 'omics. And anvi'o requires some additional steps for us to be able to work with FASTA files :/
 
 Most analyses in anvi'o start after the conversion of FASTA files into a special anvi'o database called {% include ARTIFACT name="contigs-db" text="contigs database" %}. So the first order of business is to turn each of these FASTA files into a contigs database.
 
@@ -296,7 +296,7 @@ So it is clear that we don't want to include those contaminating genes in our an
 
 ### Splitting a genome
 
-Getting out the clean sequences from this will be much easier than you probably think, but it requires some introduction to some of the anvi'o lingo for which we don't have time or space. That said, here is a very brief blurb: we have stored our {% include ARTIFACT name="bin" text="bins" %} into a {% include ARTIFACT name="collection" %} called `default` using the *store bin collection* button in the previous screenshot (the collection name doesn't really matter, we could call it anything). Having a {% include ARTIFACT name="collection" %} in an anvi'o {% include ARTIFACT name="profile-db" text="profile database" %} (which is stored in our *blank* profile database in this case), enables us to access sequences in those bins in different ways. If you would like to have an idea, you can [take a look at all the anvi'o programs that can work with a *collection* artifact](/software/anvio/help/main/artifacts/collection/).
+Getting out the clean sequences from this will be much easier than you probably think, but it requires some introduction to some of the anvi'o lingo for which we don't have time or space. That said, here is a very brief blurb: we have stored our {% include ARTIFACT name="bin" text="bins" %} into a {% include ARTIFACT name="collection" %} called `default` using the *store bin collection* button in the previous screenshot (the collection name doesn't really matter, we could call it anything). Having a {% include ARTIFACT name="collection" %} in an anvi'o {% include ARTIFACT name="profile-db" text="profile database" %} (which is stored in our *blank* profile database in this case), enables us to access sequences in those bins in different ways. If you would like to have an idea, you can [take a look at all the anvi'o programs that can work with a *collection* artifact](https://anvio.org/help/main/artifacts/collection/).
 
 One of those programs that can use a collection is the program {% include PROGRAM name="anvi-split" %}, which does something we really need: _splits_ a contigs database into smaller ones each of which individually represent a single bin in a collection. So we can run it on our poor _Vibrio jascida #52_:
 

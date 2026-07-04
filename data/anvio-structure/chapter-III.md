@@ -2244,7 +2244,7 @@ In summary, this program runs an HMM search of the genes in your {% include ARTI
 <div class="blockquote-author">
   <b>anvi-run-interacome help docs</b>
   |
-  <a href="https://merenlab.org/software/anvio/help/7/programs/anvi-run-interacdome/">merenlab.org</a>
+  <a href="https://anvio.org/help/7/programs/anvi-run-interacdome/">merenlab.org</a>
 </div>
 </blockquote>
 

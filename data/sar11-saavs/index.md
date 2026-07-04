@@ -13,7 +13,7 @@ redirect_from:
 
 {% capture images %}{{site.url}}/data/sar11-saavs/images{% endcapture %}
 
-This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
+This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](https://anvio.org) (Eren et al., 2015).
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>

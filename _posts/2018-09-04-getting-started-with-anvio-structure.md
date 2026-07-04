@@ -15,7 +15,7 @@ image:
 thumbnail: /images/thumbnails/2018-09-04-getting-started-with-anvio-structure.png
 ---
 
-{% capture anviostructure %}{{site.url}}/software/anvio-structure{% endcapture %}
+{% capture anviostructure %}https://anvio.org-structure{% endcapture %}
 {% capture images %}{{site.url}}/images/anvio-structure/2018-09-04-getting-started-with-anvio-structure{% endcapture %}
 
 

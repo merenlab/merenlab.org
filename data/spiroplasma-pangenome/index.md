@@ -39,7 +39,7 @@ The *Spiroplasma* genome had a GC% content of 24.56%, 754 open reading frames, c
 To put this genome into the context of other *Spiroplasma* genomes we used genomes available through the NCBI and included recently published genomes from the Ixodetes clade of mollicutes by [Sapountzis et al](https://elifesciences.org/articles/39209) (named *EntAcro1* and *EntAcro10*).
 
 {:.notice}
-We tested this workflow on [anvi'o](http://merenlab.org/software/anvio/) `v5.5` and it should work with anvi'o releases `v5` or later. To see the installation instructions of anvi'o please visit [here](http://merenlab.org/2016/06/26/installation-v2/).
+We tested this workflow on [anvi'o](https://anvio.org/) `v5.5` and it should work with anvi'o releases `v5` or later. To see the installation instructions of anvi'o please visit [here](http://merenlab.org/2016/06/26/installation-v2/).
 
 ## Metagenome assembled genomes
 

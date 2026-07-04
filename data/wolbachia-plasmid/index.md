@@ -13,7 +13,7 @@ This document describes the reproducible bioinformatics workflow for our study t
 {:.notice}
 The [doi:10.1038/s41467-019-08973-w](https://doi.org/10.1038/s41467-019-08973-w){:target="_blank"} serves the open-access peer-reviewed study described in this document.
 
-Here you will find program names and exact parameters we used throughout every step of the analysis of metagenomes we generated from the ovaries of four *C. pipiens* individual mosquitoes. Our computational investigations predominantly relied on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio), and utilized the following strategis in general:
+Here you will find program names and exact parameters we used throughout every step of the analysis of metagenomes we generated from the ovaries of four *C. pipiens* individual mosquitoes. Our computational investigations predominantly relied on the open-source analysis platform [anvi’o](https://anvio.org), and utilized the following strategis in general:
 
 * Reconstructing high-quality microbial genomes from metagenomes (i.e., *metagenome-assembled genomes*, or *MAGs*),
 

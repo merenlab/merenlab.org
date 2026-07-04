@@ -22,7 +22,7 @@ The purpose of this tutorial is to describe a flexible workflow to download geno
 
 {% include _join-anvio-discord.html %}
 
-The tutorial will primarily walk you through the steps of downloading genomes of interest from the NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) by [Kai Blin](https://twitter.com/kaiblin)), processing NCBI GenBank files (using [anvi-script-process-genbank-metadata](http://merenlab.org/software/anvio/vignette/#anvi-script-process-genbank-metadata)) to get anvi'o compatible files, and running anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using [anvi-run-workflow](http://merenlab.org/software/anvio/vignette/#anvi-run-workflow)).
+The tutorial will primarily walk you through the steps of downloading genomes of interest from the NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) by [Kai Blin](https://twitter.com/kaiblin)), processing NCBI GenBank files (using [anvi-script-process-genbank-metadata](https://anvio.org/help/main/programs/anvi-script-process-genbank-metadata/)) to get anvi'o compatible files, and running anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using [anvi-run-workflow](https://anvio.org/help/main/programs/anvi-run-workflow/)).
 
 {:.notice}
 You can run `pip install ncbi-genome-download` in your anvi'o environment to install the program that will be essentials for the next steps.
@@ -35,7 +35,7 @@ If you have GenBank files from other sources than the NCBI, you may want to take
 
 ## A simple example
 
-Let's start with a simple example and assume that you wish to download all complete genomes in the genus *Bifidobacterium* from the NCBI and turn them into anvi'o contigs databases. An anvi'o contigs database can be used in many ways and in many different workflows since it is quite a central piece of [all things anvi'o](http://merenlab.org/software/anvio/network/):
+Let's start with a simple example and assume that you wish to download all complete genomes in the genus *Bifidobacterium* from the NCBI and turn them into anvi'o contigs databases. An anvi'o contigs database can be used in many ways and in many different workflows since it is quite a central piece of [all things anvi'o](https://anvio.org/network/):
 
 [![contigs-db-in-network](/images/contigs-db-in-network.png)](/images/contigs-db-in-network.png){:.center-img .width-60}
 
@@ -214,8 +214,8 @@ anvi-script-process-genbank-metadata -m NCBI-METADATA.txt \
 Running this script will create the `fasta.txt` file, and populate the contents of the output directory `NCBI-GENOMES` with the following files for each genome:
 
 1. A FASTA file of contigs
-2. An [external gene calls](/software/anvio/help/main/artifacts/external-gene-calls/) file (so that the [PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) gene calls can be imported into an anvi'o contigs database).
-3. An [external functions](/software/anvio/help/main/artifacts/functions-txt/) file (so that the functions assigned to these genes can be imported into an anvi'o contigs database).
+2. An [external gene calls](https://anvio.org/help/main/artifacts/external-gene-calls/) file (so that the [PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) gene calls can be imported into an anvi'o contigs database).
+3. An [external functions](https://anvio.org/help/main/artifacts/functions-txt/) file (so that the functions assigned to these genes can be imported into an anvi'o contigs database).
 
 {:.warning}
 **Some genomes may be missing external gene calls and functions** depending on their state on the NCBI. Take a look at your `fasta.txt` and make sure each genome is associated with all three files.

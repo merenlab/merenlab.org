@@ -11,7 +11,7 @@ image:
 
 This page serves **public (and often reproducible) data items that underlie key findings in our publications**.
 
-If you would like to interactively explore any of the data items, you may need to install [anvi'o](https://merenlab.org/software/anvio/) or use it via our [Docker containers](https://hub.docker.com/r/meren/anvio/tags?page=1&ordering=last_updated) without installation. See [anvi'o programs and artifacts](/software/anvio/help/main/) that can be used to further explore reproducible data items below.
+If you would like to interactively explore any of the data items, you may need to install [anvi'o](https://anvio.org/) or use it via our [Docker containers](https://hub.docker.com/r/meren/anvio/tags?page=1&ordering=last_updated) without installation. See [anvi'o programs and artifacts](https://anvio.org/help/main/) that can be used to further explore reproducible data items below.
 
 Please do not hesitate to get in touch if something is missing. You can send [us](/people/) an e-mail, or find us on Discord:
 
@@ -683,7 +683,7 @@ Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.20
     <a href="http://i.imgur.com/d1c7bUY.png"><img src="http://i.imgur.com/d1c7bUY.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- The methods paper for <a href="http://merenlab.org/software/anvio/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Binning, and single-nucleotide variant analysis of a human gut time series metagenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- The methods paper for <a href="https://anvio.org/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Binning, and single-nucleotide variant analysis of a human gut time series metagenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>

@@ -24,7 +24,7 @@ This tutorial is for `v6` and later versions of anvi'o. You can identify which v
 
 Some genetic analyses call for the comparison of specific genetic loci between genomes. For example, one may be interested in investigating evidence for adaptive evolution of the lac operon between different _E. coli_ strains, and the first step to this analysis would be to extract the various lac operon from a collection of _E. coli_ genomes. 
 
-To address this example and other genomic loci analyses alike, we present [anvi-export-locus](/software/anvio/vignette/#anvi-export-locus), an anvi'o program that enables you to target regions of interest across genomes and/or metagenomic assemblies, and report sequences and/or anvi'o contigs databases for cut loci for downstream analyses.
+To address this example and other genomic loci analyses alike, we present [anvi-export-locus](https://anvio.org/help/main/programs/anvi-export-locus/), an anvi'o program that enables you to target regions of interest across genomes and/or metagenomic assemblies, and report sequences and/or anvi'o contigs databases for cut loci for downstream analyses.
 
 Briefly, `anvi-export-locus` cuts out loci using two approaches: `default-mode` or what we call `flank-mode`. In the `default-mode`, the tool locates a designated anchor gene, then cuts upstream and downstream based on user-defined input. Notice that what is "upstream" and what is "downstream" is determined according to the direction of the anchor gene, i.e., if the anchor gene is in the reverse direction, then "upstream" would mean genes that have higher gene callers ids, and vice versa. On the other hand, `flank-mode` finds designated genes that define the left and right boundaries of the target locus, then cuts in between them. Genes to locate locus anchors or flanking genes are defined through their specific ids in anvi'o or through `search-terms` that query functional annotations or HMM hits stored in your contigs database.
 
@@ -159,7 +159,7 @@ Here is a visual representation of how `flank-mode` cuts out a locus using flank
 
 ## Conclusion
 
-[anvi-export-locus](/software/anvio/vignette/#anvi-export-locus) is a flexible tool that allows you to extract genomic loci from genomes and metagenomes. In this tutorial, we looked at the classic lac operon in _E. coli_ genomes, but this tool can also be unleashed on any loci in genomes or metagenomic assemblies.
+[anvi-export-locus](https://anvio.org/help/main/programs/anvi-export-locus/) is a flexible tool that allows you to extract genomic loci from genomes and metagenomes. In this tutorial, we looked at the classic lac operon in _E. coli_ genomes, but this tool can also be unleashed on any loci in genomes or metagenomic assemblies.
 
 We hope you find amazing applications for this tool. If you have a suggestion or question please do not hesitate to contact us. Also, please report any bugs as an issue on the anvi'o [Github repository](https://github.com/merenlab/anvio).
 

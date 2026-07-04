@@ -35,7 +35,7 @@ The URL [http://merenlab.org/data/#genomes-from-tara-oceans-metagenomes](http://
 {:.notice}
 The URL [http://merenlab.org/data/tara-oceans-mags/](http://merenlab.org/data/tara-oceans-mags/) serves the most up-to-date version of this document.
 
-The document contains final and intermediate data products, as well as program names and exact parameters used throughout every step of the analysis of the TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform, [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
+The document contains final and intermediate data products, as well as program names and exact parameters used throughout every step of the analysis of the TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform, [anvi’o](https://anvio.org) (Eren et al., 2015).
 
 <div class="extra-info" markdown="1">
 
@@ -1141,7 +1141,7 @@ This should give you an interactive interface in your browser that shows the cov
 
 ![TARA](images/TARA_ANW_MAG_00006.png){:.center-img .width-70}
 
-Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/vignette/) on these self-contained merged profile and contigs database.
+Now you can use [any of the anvi'o programs](https://anvio.org/vignette/) on these self-contained merged profile and contigs database.
 
 </div>
 

@@ -66,7 +66,7 @@ Feel free to skip these, if you just want to focus on the general discussion of 
 ## Taking a first look at your MAG
 
 {:.notice}
-At this point in the tutorial, we assume that you have an anvi'o profile database and a contigs database for each MAG you wish to analyze. These are standard file formats anvi'o use to store and read data after processing your FASTA files and your read recruitment results. Generating these files are fairly straightforward and they immediately lend themselves to a [myriad of other types of analyses](/software/anvio/network/) beyond refining your MAGs. You can refer to the instructions at the bottom of this post if you wish to get to this point with FASTA files for your own MAGs and metagenomes from which you recovered them.
+At this point in the tutorial, we assume that you have an anvi'o profile database and a contigs database for each MAG you wish to analyze. These are standard file formats anvi'o use to store and read data after processing your FASTA files and your read recruitment results. Generating these files are fairly straightforward and they immediately lend themselves to a [myriad of other types of analyses](https://anvio.org/network/) beyond refining your MAGs. You can refer to the instructions at the bottom of this post if you wish to get to this point with FASTA files for your own MAGs and metagenomes from which you recovered them.
 
 The first step is to take a look at the MAG in the interactive interface using the anvi'o profile and contigs databases. Here we used anvi'o *split profiles* to manually refine each MAG (generation of which is explained at the end of this post). Here is an example way to initiate the interactive interface for one of those:
 

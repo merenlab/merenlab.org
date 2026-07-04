@@ -127,7 +127,7 @@ Unfortunately, KEGG does not have a module for mucin degradation, so we won't se
 
 There is a way to get around this limitation, and that is to look at individual KOfam hits for KOs which do not belong to a particular metabolic module, but may be representative of a metabolism of interest. In the case of mucin degradation, the enzymes that break up mucin (by destroying the gylcosidic bonds between the mucin molecules) are called Glycoside hydrolases (GHs). The GH family includes many different types of proteins, including sialidases ([Tailford 2015](https://www.frontiersin.org/articles/10.3389/fgene.2015.00081/full)). There is a KO family for sialidases - [K01186](https://www.genome.jp/dbget-bin/www_bget?ko+K01186) - which means that we can look for genes annotated with this KO as evidence of this microbe's mucin degrading capabilities.
 
-This requires us to obtain a different output type from `anvi-estimate-metabolism`: ["kofam_hits"](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#kofam-hits-mode) mode output files have an entry for each gene annotated with a KO in the contigs database, regardless of whether that KO belongs to a metabolic module or not.
+This requires us to obtain a different output type from `anvi-estimate-metabolism`: ["kofam_hits"](https://anvio.org/help/main/artifacts/kegg-metabolism/#kofam-hits-mode) mode output files have an entry for each gene annotated with a KO in the contigs database, regardless of whether that KO belongs to a metabolic module or not.
 
 This is how you get that file:
 
@@ -207,7 +207,7 @@ anvi-estimate-metabolism -e external-genomes.txt \
                          -O FMT_MAG_metabolism
 ```
 
-This will give you one [modules mode](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#modules-mode) output file called `FMT_MAG_metabolism_modules.txt`, which describes the completeness of each KEGG Module in each MAG.
+This will give you one [modules mode](https://anvio.org/help/main/artifacts/kegg-metabolism/#modules-mode) output file called `FMT_MAG_metabolism_modules.txt`, which describes the completeness of each KEGG Module in each MAG.
 
 You could look through this file manually to see what metabolisms are encoded in these genomes, but it will be difficult to tell which pathways best distinguish between our two groups of MAGs. For that task, we need the help of a statistical test.
 
