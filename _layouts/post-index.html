@@ -11,6 +11,45 @@
 
 {% include _imagewrap.html %}
 
+<section id="tag-sidebar">
+  <header><h3><i class="fa fa-tags"></i> Table of Tags</h3></header>
+  <ul>
+    <li><a class="sidebar-tag-link" href="/blog/" data-tag="">all posts</a></li>
+    {% assign sidebar_tags = "" | split: "," %}
+    {% for post in site.posts %}
+      {% if post.authors and post.authors != "" and post.authors != empty %}
+        {% for tag in post.tags %}
+          {% assign sidebar_tags = sidebar_tags | push: tag %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% assign unique_sidebar_tags = sidebar_tags | uniq %}
+    {% assign sortable_tags = "" | split: "," %}
+    {% for tag in unique_sidebar_tags %}
+      {% assign tag_count = 0 %}
+      {% for t in sidebar_tags %}
+        {% if t == tag %}{% assign tag_count = tag_count | plus: 1 %}{% endif %}
+      {% endfor %}
+      {% if tag_count >= 100 %}
+        {% assign padded = tag_count | append: "" %}
+      {% elsif tag_count >= 10 %}
+        {% assign padded = "0" | append: tag_count %}
+      {% else %}
+        {% assign padded = "00" | append: tag_count %}
+      {% endif %}
+      {% assign sortable_entry = padded | append: "|" | append: tag %}
+      {% assign sortable_tags = sortable_tags | push: sortable_entry %}
+    {% endfor %}
+    {% assign sortable_tags = sortable_tags | sort | reverse %}
+    {% for entry in sortable_tags %}
+      {% assign parts = entry | split: "|" %}
+      {% assign tag_name = parts[1] %}
+      {% assign tag_count = parts[0] | plus: 0 %}
+      <li><a class="sidebar-tag-link" href="/blog/#tag:{{ tag_name }}" data-tag="{{ tag_name }}">{{ tag_name }} <span class="sidebar-tag-count">({{ tag_count }})</span></a></li>
+    {% endfor %}
+  </ul>
+</section>
+
 <div id="main" role="main">
   <div class="left-panel">
     {% include _left-panel.html %}
@@ -84,20 +123,26 @@
       article.style.display = tags.indexOf(tag.toLowerCase()) !== -1 ? '' : 'none';
     });
 
-    var links = document.querySelectorAll('.tag-lbl');
-    links.forEach(function (link) {
+    document.querySelectorAll('.tag-lbl').forEach(function (link) {
       var linkTag = link.getAttribute('data-tag');
       link.style.outline = (tag && linkTag && linkTag.toLowerCase() === tag.toLowerCase()) ? '2px solid #888' : '';
+    });
+
+    document.querySelectorAll('.sidebar-tag-link').forEach(function (link) {
+      var linkTag = link.getAttribute('data-tag');
+      var isActive = !tag ? !linkTag : (linkTag && linkTag.toLowerCase() === tag.toLowerCase());
+      link.classList.toggle('active', !!isActive);
     });
   }
 
   document.addEventListener('click', function (e) {
-    var link = e.target.closest('.tag-lbl');
+    var link = e.target.closest('.tag-lbl, .sidebar-tag-link');
     if (!link) return;
     e.preventDefault();
-    var tag = link.getAttribute('data-tag');
+    var tag = link.getAttribute('data-tag') || '';
     var current = getActiveTag();
-    if (current && current.toLowerCase() === tag.toLowerCase()) {
+
+    if (!tag || (current && current.toLowerCase() === tag.toLowerCase())) {
       history.pushState(null, '', '/blog/');
       applyFilter(null);
     } else {
