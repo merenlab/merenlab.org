@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2026-07-03
+modified: 2026-07-04
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2026
+
+<a id="10.64898/2026.07.03.736256">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.64898/2026.07.03.736256"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.64898/2026.07.03.736256" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.64898/2026.07.03.736256" target="_new">Synteny-aware microbial pangenome graphs reveal blueprints of genomic variation</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Henoch A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Sever M</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Tucker SJ</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Chang T, McInerney JO, Söylev A, Freel KC, Rappé MS, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/henoch_et_al_pangenome_graphs.png"><img src="/images/pubs/henoch_et_al_pangenome_graphs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Brings gene synteny into pangenomics through a novel network-pruning and graph-layout algorithm implemented in the new anvi'o programs <a href='https://anvio.org/help/main/programs/anvi-pan-genome-graph/' target='_blank'>anvi-pan-genome-graph</a> and <a href='https://anvio.org/help/main/programs/anvi-display-pan-graph/' target='_blank'>anvi-display-pan-graph</a>, enabling interactive, synteny-aware visualization and quantification of backgone and variable regions in a pangenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Analyzes 29 <i>Undatipelagibacter</i> (formerly SAR11 subclade Ia.3.VI) genomes, and reveals that genomic variability forms not a few hypervariable islands against a static backbone but a structured continuum, whose variable regions differ in scale, topology, function, and evolutionary character.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Displays epistatic co-selection in all its glory, revaling that some evolutionary processes act on entire functional subsystems, which is a notion that have significant implications on theoretical models on genome evolution.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A step-by-step user <a href="https://merenlab.org/pangraph-tutorial/" target="_blank">tutorial</a> demonstrates how to build and explore synteny-aware pangenome graphs, and a reproducible bioinformatics workflow for our study, along with raw and intermediate data products, is available <a href="https://merenlab.org/data/undatipelagibacter-pangenome-graph" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Synteny-aware+microbial+pangenome+graphs+reveal+blueprints+of+genomic+variation" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.64898/2026.07.03.736256" target="_blank">doi:10.64898/2026.07.03.736256</a></span>
+</div>
 
 <a id="10.1038/s41587-025-02971-8">&nbsp;</a>
 <div class="pub">

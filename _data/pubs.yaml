@@ -26,6 +26,8 @@ people:
     full_name: Matthew Lawrence Klein
   Sever M:
     full_name: Metehan Sever
+  Henoch A:
+    full_name: Alexander Henoch
   Yu MK:
     full_name: Mike Yu
     collaborator: True
@@ -73,6 +75,29 @@ people:
 
 
 publications:
+  - doi:
+      10.64898/2026.07.03.736256
+    title:
+      "Synteny-aware microbial pangenome graphs reveal blueprints of genomic variation"
+    authors:
+      Alexander Henoch, Metehan Sever, Sarah J. Tucker, Florian Trigodet, Iva Veseli, Tianyi Chang, James O. McInerney, Arda Söylev, Kelle C. Freel, Michael S. Rappé, A. Murat Eren
+    journal:
+      bioRxiv
+    year:
+      2026
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - "Brings gene synteny into pangenomics through a novel network-pruning and graph-layout algorithm implemented in the new anvi'o programs <a href='https://anvio.org/help/main/programs/anvi-pan-genome-graph/' target='_blank'>anvi-pan-genome-graph</a> and <a href='https://anvio.org/help/main/programs/anvi-display-pan-graph/' target='_blank'>anvi-display-pan-graph</a>, enabling interactive, synteny-aware visualization and quantification of backgone and variable regions in a pangenome."
+        - Analyzes 29 <i>Undatipelagibacter</i> (formerly SAR11 subclade Ia.3.VI) genomes, and reveals that genomic variability forms not a few hypervariable islands against a static backbone but a structured continuum, whose variable regions differ in scale, topology, function, and evolutionary character.
+        - Displays epistatic co-selection in all its glory, revaling that some evolutionary processes act on entire functional subsystems, which is a notion that have significant implications on theoretical models on genome evolution.
+        - A step-by-step user <a href="https://merenlab.org/pangraph-tutorial/" target="_blank">tutorial</a> demonstrates how to build and explore synteny-aware pangenome graphs, and a reproducible bioinformatics workflow for our study, along with raw and intermediate data products, is available <a href="https://merenlab.org/data/undatipelagibacter-pangenome-graph" target="_blank">here</a>.
+      featured_image:
+        /images/pubs/henoch_et_al_pangenome_graphs.png
+
+
   - doi:
       10.1038/s41587-025-02971-8
     title:
