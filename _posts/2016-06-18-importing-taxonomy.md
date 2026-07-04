@@ -3,6 +3,7 @@ redirect_from:
   - /2016/06/18/importing-taxonomy/
 layout: post
 title: "Importing taxonomy into contigs database"
+tags: [tutorial, annotation]
 excerpt: "Various ways to add the taxonomic annotations into anvi'o"
 modified: 2016-06-18
 categories: [anvio]

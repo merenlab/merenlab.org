@@ -5,7 +5,7 @@ layout: post
 title: "An anvi'o workflow for microbial pangenomics (old version)"
 excerpt: "The user-friendly interface anvi'o provides to work with pangenomes."
 modified: 2015-10-14
-tags: []
+tags: [tutorial, pangenomics]
 categories: [anvio]
 comments: true
 authors: [meren, tom]

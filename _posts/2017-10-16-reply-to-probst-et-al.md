@@ -3,6 +3,7 @@ redirect_from:
   - /2017/10/16/reply-to-probst-et-al/
 layout: post
 title: <i>Ca.</i> Bermanella macondoprimitus is not a strain variant of the oil plume (Reply to Probst et al.)
+tags: [reanalysis, metagenomics, ocean]
 modified: 2017-10-16
 excerpt: "Continuing to investigate how good that simulation was to simulate the oil spill. With a killer poem."
 comments: true

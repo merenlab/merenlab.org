@@ -3,6 +3,7 @@ redirect_from:
   - /2017/11/25/DWH-O-desum-v2/
 layout: post
 title: DWH O. desum v2&#58; Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume
+tags: [population-genetics, metagenomics, ocean]
 modified: 2017-11-25
 excerpt: "Dotting i's and crossing t's with this Deepwater Horizon oil plume drama."
 comments: true

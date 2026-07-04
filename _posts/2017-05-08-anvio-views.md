@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Anvi'o 'views' demystified"
+tags: [tutorial, visualization]
 excerpt: "Mike Lee heroically demystifies the view options"
 modified: 2017-05-06
 categories: [anvio]

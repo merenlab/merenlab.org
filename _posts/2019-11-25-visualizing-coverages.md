@@ -3,6 +3,7 @@ redirect_from:
   - /2019/11/25/visualizing-coverages/
 layout: post
 title: "Visualizing contig coverages to better understand microbial population structures"
+tags: [tutorial, visualization, metagenomics]
 excerpt: "Ways to visualize mapping results in anvi'o to make informed statements about environmental populations and to generate high-quality figures)"
 modified: 2019-11-25
 categories: [anvio]

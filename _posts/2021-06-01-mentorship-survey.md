@@ -4,7 +4,7 @@ authors: [meren]
 title: "Mentorship in life sciences: voices of mentees"
 excerpt: "An attempt to learn from the experiences of ECRs with their mentors"
 modified: 2021-06-01
-tags: []
+tags: [social, ecr]
 categories: [miscellaneous]
 comments: true
 redirect_from:

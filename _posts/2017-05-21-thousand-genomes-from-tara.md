@@ -6,7 +6,7 @@ authors: [tom]
 title: "A thousand microbial genomes from the TARA Oceans metagenomes"
 excerpt: "On a journey characterizing a thousand population genomes from the surface of oceans and seas"
 modified: 2017-05-21
-tags: [tara, binning]
+tags: [metagenomics, binning, ocean]
 categories: [miscellaneous]
 comments: true
 image:

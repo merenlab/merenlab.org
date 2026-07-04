@@ -6,7 +6,7 @@ authors: [meren]
 title: Oligotyping Pipeline Explained
 excerpt: "How to install, and how to start using the oligotyping pipeline"
 modified: 2015-01-11
-tags: [tutorial]
+tags: [tutorial, oligotyping]
 categories: [oligotyping]
 comments: true
 thumbnail: /images/thumbnails/2012-05-11-oligotyping-pipeline-explained.png

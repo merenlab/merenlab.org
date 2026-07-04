@@ -5,7 +5,7 @@ layout: post
 title: "Assessing completion and contamination of metagenome-assembled genomes"
 excerpt: "A tale from 4,000+ gold standard bacterial genomes to justify 'max 10% redundancy'"
 modified: 2016-06-09
-tags: [reanalysis]
+tags: [reanalysis, genome-quality]
 authors: [meren]
 categories: [miscellaneous]
 comments: true

@@ -3,7 +3,7 @@ layout: post
 title: "Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers"
 excerpt: "A small checklist for reviewers to follow to make public data sources public and forever"
 modified: 2019-02-24
-tags: []
+tags: [opinion]
 authors: [meren]
 categories: [miscellaneous]
 comments: true

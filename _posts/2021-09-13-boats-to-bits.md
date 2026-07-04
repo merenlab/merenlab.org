@@ -4,7 +4,7 @@ authors: [meren]
 title: "From Boats to Bits: Evolution of a study on marine microbes"
 excerpt: "Or, Meren's personal notes from a 48 hours, high-resolution, diel sampling effort in Hawai'i."
 modified: 2021-09-13
-tags: [hawaii, sampling]
+tags: [field-work, metagenomics, ocean]
 categories: [miscellaneous]
 comments: true
 redirect_from:

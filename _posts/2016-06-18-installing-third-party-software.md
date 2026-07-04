@@ -3,6 +3,7 @@ redirect_from:
   - /2016/06/18/installing-third-party-software/
 layout: post
 title: "Installing third-party software"
+tags: [tutorial]
 excerpt: "Recipes to install various software tools anvi'o uses"
 modified: 2016-06-18
 categories: [anvio]

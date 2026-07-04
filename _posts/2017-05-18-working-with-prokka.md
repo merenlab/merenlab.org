@@ -5,7 +5,7 @@ layout: post
 title: "Importing Prokka annotations into anvi'o"
 excerpt: "If Prokka doesn't come to you, you go to Prokka"
 modified: 2017-05-18
-tags: [tutorial, prokka]
+tags: [tutorial, annotation]
 categories: [anvio]
 comments: true
 authors: [antti]

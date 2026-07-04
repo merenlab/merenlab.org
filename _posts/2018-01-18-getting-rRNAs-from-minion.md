@@ -5,7 +5,7 @@ layout: post
 title: "Getting ribosomal RNA gene sequences from a MinION run"
 excerpt: "We just started playing with this, we have no idea what we are doing. Kthxbye."
 modified: 2018-01-18
-tags: [minion]
+tags: [tutorial, metagenomics]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

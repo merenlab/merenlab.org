@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Assessing the completion of eukaryotic bins with anvi'o"
+tags: [tutorial, genome-quality]
 excerpt: "A preliminary set of 83 HMMs from BUSCO. -Lol is anvi'o doing picoeuks now fam? -Why yes, yes it does."
 modified: 2018-05-05
 categories: [anvio]

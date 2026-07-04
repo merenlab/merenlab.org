@@ -3,7 +3,7 @@ layout: post
 title: "Docker image for anvi'o"
 excerpt: "Fresh anvi'o builds for the lazy."
 modified: 2015-08-22
-tags: []
+tags: [tutorial]
 categories: [anvio]
 comments: true
 redirect_from:

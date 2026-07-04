@@ -4,7 +4,7 @@ authors: [matt]
 title: "The history of metagenomics: An incomplete summary"
 excerpt: "A personal and directed look at the past of an exciting discipline."
 modified: 2020-07-20
-tags: []
+tags: [opinion, metagenomics]
 categories: [miscellaneous]
 comments: true
 redirect_from:

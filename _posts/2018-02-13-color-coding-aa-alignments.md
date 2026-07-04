@@ -5,7 +5,7 @@ layout: post
 title: "Amino acid color coding by conservation in anvi'o gene clusters"
 excerpt: "Details of a beautiful algorithm."
 modified: 2018-02-13
-tags: [pangenomics]
+tags: [tutorial, pangenomics, visualization]
 categories: [anvio]
 comments: true
 authors: [mahmoud]

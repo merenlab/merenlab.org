@@ -5,7 +5,7 @@ layout: post
 title: "Importing GhostKOALA/KEGG annotations into anvi'o"
 excerpt: "KEGG modules, meet anvi'o. Anvi'o, meet KEGG modules."
 modified: 2018-01-17
-tags: [tutorial, GhostKoala]
+tags: [tutorial, annotation]
 categories: [anvio]
 comments: true
 authors: [elaina]

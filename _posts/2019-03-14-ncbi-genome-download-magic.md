@@ -3,6 +3,7 @@ redirect_from:
   - /2019/03/14/ncbi-genome-download-magic/
 layout: post
 title: "Accessing and including NCBI genomes in 'omics analyses in anvi'o"
+tags: [tutorial, metagenomics]
 excerpt: "How to download, process, and combine genomes from NCBI in your phylogenomic, pangenomic, and/or other 'omics analyses"
 modified: 2019-03-14
 categories: [anvio]

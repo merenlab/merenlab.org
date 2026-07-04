@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Working with anvi'o additional data tables
+tags: [tutorial]
 modified: 2017-12-11
 excerpt: "Getting additional data in an out of pan and profile databases like a pro."
 comments: true

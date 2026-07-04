@@ -5,7 +5,7 @@ layout: post
 title: "OS X installer for anvi'o"
 excerpt: "Do you want to try anvi'o? Do you have a MAC computer? We got you covered."
 modified: 2015-08-20
-tags: []
+tags: [tutorial]
 categories: [anvio]
 comments: true
 authors: [meren]

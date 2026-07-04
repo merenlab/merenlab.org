@@ -4,7 +4,7 @@ authors: [meren]
 title: "We do not choose our families but we can choose people who push us"
 excerpt: "A thought in structures that helps us become who we want to become"
 modified: 2025-07-16
-tags: [rants]
+tags: [social, personal, ecr]
 categories: [miscellaneous]
 comments: true
 redirect_from:

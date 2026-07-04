@@ -3,6 +3,7 @@ redirect_from:
   - /2018/09/09/microbial-omics-workshop/
 layout: post
 title: Microbial 'Omics Workshop
+tags: [workshop]
 modified: 2018-09-09
 excerpt: "A light introduction to questions of microbial ecology and microbial omics through the story of crassphage"
 comments: true

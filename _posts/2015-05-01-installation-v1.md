@@ -5,7 +5,7 @@ layout: post
 title: "Installing anvi'o (v1)"
 excerpt: "Instructions to install the v1 brach of the platform."
 modified: 2015-05-01 
-tags: []
+tags: [tutorial]
 categories: [anvio]
 comments: true
 ---

@@ -5,7 +5,7 @@ layout: post
 title: "Gender Gap at an International Conference on Bioinformatics"
 excerpt: "And a realization of my own unintentional conformism that is part of a bigger problem"
 modified: 2017-09-14
-tags: []
+tags: [social]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

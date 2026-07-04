@@ -4,7 +4,7 @@ authors: [meren]
 title: "Genome / metagenome / MAG taxonomy with anvi'o"
 excerpt: "An attempt at alchemy combining the magic of GTDB and single-copy core genes in anvi'o."
 modified: 2019-10-08
-tags: []
+tags: [tutorial, annotation]
 categories: [anvio]
 comments: true
 redirect_from:

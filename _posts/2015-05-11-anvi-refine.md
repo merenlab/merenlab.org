@@ -6,7 +6,7 @@ authors: [meren]
 title: "Refining a bin using anvi'o"
 excerpt: "Dealing with heavily contaminated bins identified in an unsupervised manner."
 modified: 2015-05-11
-tags: []
+tags: [tutorial, metagenomics]
 categories: [anvio]
 comments: true
 ---

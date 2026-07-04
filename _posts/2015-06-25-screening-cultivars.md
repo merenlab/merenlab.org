@@ -6,7 +6,7 @@ authors: [tom]
 title: "Removing contaminants from cultivars with anvi'o"
 excerpt: "Anvi'o provides an interface to screen for possible contaminants and curate individual genomes"
 modified: 2015-05-11
-tags: []
+tags: [tutorial, metagenomics]
 categories: [anvio]
 comments: true
 ---

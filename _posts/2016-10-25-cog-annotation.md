@@ -3,6 +3,7 @@ redirect_from:
   - /2016/10/25/cog-annotation/
 layout: post
 title: "Annotating an anvi'o contigs database with COGs"
+tags: [tutorial, annotation]
 excerpt: "Yes. Good ol' COGs. Into your contigs db. Just like that. 60% of the time, every time."
 modified: 2016-10-25
 categories: [anvio]

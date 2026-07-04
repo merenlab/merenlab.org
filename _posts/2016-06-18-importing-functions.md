@@ -3,6 +3,7 @@ redirect_from:
   - /2016/06/18/importing-functions/
 layout: post
 title: "Importing functions into contigs database"
+tags: [tutorial, annotation]
 excerpt: "Making those functions in the summary output bloom with stuff!"
 modified: 2016-06-18
 categories: [anvio]

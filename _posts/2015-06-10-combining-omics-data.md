@@ -5,7 +5,7 @@ layout: post
 title: "Combining metagenomics with metatranscriptomics"
 excerpt: "Tricks for people who like to go deeper."
 modified: 2015-06-10
-tags: []
+tags: [tutorial, metagenomics]
 categories: [anvio]
 comments: true
 authors: [meren]

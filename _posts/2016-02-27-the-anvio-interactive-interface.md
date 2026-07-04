@@ -5,7 +5,7 @@ layout: post
 title: "The anvi'o interactive interface"
 excerpt: "Data types, usage tips, and other stuff about the interface"
 modified: 2016-02-27
-tags: [interactive]
+tags: [tutorial, visualization]
 categories: [anvio]
 comments: true
 authors: [meren, ozcan]

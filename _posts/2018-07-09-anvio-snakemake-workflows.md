@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Anvi'o snakemake workflows
+tags: [tutorial, metagenomics, technical]
 modified: 2018-07-09
 excerpt: "Bringing the magic of anvi'o together with the wonders of snakemake."
 comments: true

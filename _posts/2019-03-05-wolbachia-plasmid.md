@@ -5,7 +5,7 @@ layout: post
 title: "An interdisciplinary Wolbachia story through connections across the Atlantic: Metagenomics, long-read sequencing, and other things"
 excerpt: "After 24 months of work, our study describing the discovery of a plasmid for Wolbachia appeared in Nature Communications. I thought that this would be a good moment to take a break and think through everything that led to this proud moment and learn from it."
 modified: 2019-03-05
-tags: []
+tags: [metagenomics]
 authors: [julie]
 categories: [miscellaneous]
 comments: true

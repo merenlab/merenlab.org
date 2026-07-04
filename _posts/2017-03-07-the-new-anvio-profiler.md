@@ -5,7 +5,7 @@ layout: post
 title: "The new anvi'o BAM profiler"
 excerpt: "Has decades of suffering of thousands of anvi'o users come to an end?"
 modified: 2017-03-07
-tags: []
+tags: [tutorial, metagenomics, technical]
 categories: [anvio]
 comments: true
 authors: [meren]

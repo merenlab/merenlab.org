@@ -6,7 +6,7 @@ authors: [meren]
 title: "High-Resolution Microbiome Informatics Meeting, 2015"
 excerpt: "A small-scale meeting to make a statement about high-resolution."
 modified: 2015-03-14 
-tags: [high-resolution]
+tags: [workshop, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

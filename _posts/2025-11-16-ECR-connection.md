@@ -4,7 +4,7 @@ authors: [meren]
 title: "ECR connection: Meet Meren when you need to"
 excerpt: "A means for ECRs to get advice from a senior scientist outside of their support network"
 modified: 2025-11-16
-tags: [ECR, support]
+tags: [social, ecr]
 categories: [miscellaneous]
 comments: true
 redirect_from:

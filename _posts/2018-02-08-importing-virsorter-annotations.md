@@ -5,7 +5,7 @@ layout: post
 title: "Importing VirSorter annotations into anvi'o to study phages"
 excerpt: "Anvi'o projects meet the underappreciated owners of this planet."
 modified: 2018-02-08
-tags: [tutorial, Virsorter]
+tags: [tutorial, annotation]
 categories: [anvio]
 comments: true
 authors: [bryan]

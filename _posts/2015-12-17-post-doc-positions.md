@@ -3,6 +3,7 @@ redirect_from:
   - /2015/12/17/post-doc-positions/
 layout: post
 title: "Post-doc positions available"
+tags: [job-opportunity, ecr]
 excerpt: "At the Department of Medicine, University of Chicago"
 modified: 2015-12-17
 categories: [miscellaneous]

@@ -4,6 +4,7 @@ redirect_from:
 layout: post
 authors: [meren]
 title: "Post-doc opportunity in France at LM2E"
+tags: [job-opportunity, ecr]
 excerpt: "Life at the extremes: microbial EcoGenomics of deep-sea extremophiles"
 modified: 2015-05-22 
 categories: [miscellaneous]

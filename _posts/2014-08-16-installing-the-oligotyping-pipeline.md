@@ -6,7 +6,7 @@ authors: [meren]
 title: "Installing the oligotyping pipeline"
 excerpt: "Installing the pipeline shall not be a PITA."
 modified: 2014-08-16
-tags: [pip]
+tags: [tutorial, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

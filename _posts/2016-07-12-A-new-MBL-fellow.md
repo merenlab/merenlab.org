@@ -5,7 +5,7 @@ layout: post
 title: "I dub thee MBL Fellow"
 excerpt: "Marine Biological Laboratory and I."
 modified: 2016-07-12
-tags: []
+tags: [personal]
 authors: [meren]
 categories: [miscellaneous]
 comments: false

@@ -4,7 +4,7 @@ authors: [meren,alon,mahmoud,ozcan]
 title: "An anvi'o workflow for microbial pangenomics"
 excerpt: "The user-friendly interface anvi'o provides to work with pangenomes."
 modified: 2016-11-08
-tags: []
+tags: [tutorial, pangenomics]
 categories: [anvio]
 comments: true
 redirect_from:

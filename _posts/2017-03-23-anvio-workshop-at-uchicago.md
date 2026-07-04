@@ -5,7 +5,7 @@ layout: post
 title: "An anvi'o workshop at the University of Chicago"
 excerpt: "Just for <i>you</i>. Well, also for others. And totally free! Except you pay for your travel. But then it may be a lot of fun. MAYBE."
 modified: 2017-03-23
-tags: []
+tags: [workshop]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

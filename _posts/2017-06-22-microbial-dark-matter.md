@@ -5,7 +5,7 @@ layout: post
 title: "Microbial Dark Matter: The mullet of microbial ecology"
 excerpt: "It may sound cool today, but it will likely be a bit embarrassing to look back and see it in our history in about two decades from now."
 modified: 2020-07-14
-tags: [rant]
+tags: [opinion, metagenomics, technical]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

@@ -3,6 +3,7 @@ redirect_from:
   - /2018/09/04/getting-started-with-anvio-structure/
 layout: post
 title: "Integrating sequence variants and predicted protein structures"
+tags: [tutorial, population-genetics, technical]
 modified: 2018-09-04
 excerpt: "A discussion on the practical and theoretical aspects of using anvi'o structure"
 comments: true

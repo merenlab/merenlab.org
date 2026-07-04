@@ -6,7 +6,7 @@ authors: [evan]
 title: "Estimating per-residue binding frequencies with InteracDome"
 excerpt: "A blog post detailing InteracDome's integration into anvi'o"
 modified: 2020-07-22
-tags: []
+tags: [tutorial, population-genetics, technical]
 categories: [anvio]
 comments: true
 image:

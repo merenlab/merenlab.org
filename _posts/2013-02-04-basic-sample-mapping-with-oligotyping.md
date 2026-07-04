@@ -6,7 +6,7 @@ authors: [meren]
 title: "Basic sample mapping with oligotyping"
 excerpt: "If you have a categorical mapping file, the oligotyping pipeline can deliver more"
 modified: 2013-02-04
-tags: [mapping, pipeline]
+tags: [tutorial, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

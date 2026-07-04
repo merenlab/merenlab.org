@@ -3,7 +3,7 @@ layout: post
 title: "Online seminar series on Microbial 'Omics for beginners"
 excerpt: "Socially isolated community discussions on key concepts and stuff."
 modified: 2020-06-27
-tags: []
+tags: [workshop]
 authors: [meren]
 categories: [miscellaneous]
 comments: true

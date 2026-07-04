@@ -4,7 +4,7 @@ authors: [meren]
 title: "Five Postdocs, Five Questions: An Experiment in Transdisciplinary Thinking at HIFMB"
 excerpt: "Some personal notes on what we are trying to achieve, and how we are planning to achieve that"
 modified: 2026-06-28
-tags: [hipp, hifmb, humanities, social science]
+tags: [social, science]
 categories: [miscellaneous]
 comments: true
 noleftpanel: false

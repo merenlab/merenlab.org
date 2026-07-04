@@ -5,7 +5,7 @@ layout: post
 title: "Running remote anvi'o interactive interfaces on your local computer"
 excerpt: "A hacker's guide to anvi'o networking. Are you scared? You should be!"
 modified: 2018-03-07
-tags: [tutorial, interactive]
+tags: [tutorial]
 categories: [anvio]
 comments: true
 authors: [ozcan]

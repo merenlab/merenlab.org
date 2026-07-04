@@ -4,7 +4,7 @@ authors: [matt]
 title: "Research week at BIOS: Getting my hands wet with data"
 excerpt: "Matt's first time sampling water from a CTD"
 modified: 2023-04-08
-tags: [Bermuda, sampling]
+tags: [field-work, ocean]
 categories: [miscellaneous]
 comments: true
 redirect_from:

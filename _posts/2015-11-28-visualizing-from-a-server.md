@@ -5,7 +5,7 @@ layout: post
 title: "Running the interactive interface through an SSH tunnel"
 excerpt: "For people who does not have time to download stuff."
 modified: 2015-11-28
-tags: []
+tags: [tutorial]
 categories: [anvio]
 comments: true
 authors: [meren]

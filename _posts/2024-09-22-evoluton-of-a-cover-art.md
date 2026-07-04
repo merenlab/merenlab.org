@@ -4,7 +4,7 @@ authors: [meren]
 title: "Evolution of a cover"
 excerpt: "From a vague idea to a piece of art"
 modified: 2024-09-22
-tags: [publication]
+tags: [publication, personal]
 categories: [miscellaneous]
 comments: true
 redirect_from:

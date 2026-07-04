@@ -5,7 +5,7 @@ layout: post
 title: "Wavy coverage patterns in mapping results"
 excerpt: "Coverage, why you do dis?"
 modified: 2016-12-14
-tags: []
+tags: [metagenomics, visualization, technical]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

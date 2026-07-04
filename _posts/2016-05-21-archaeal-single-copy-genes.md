@@ -3,6 +3,7 @@ redirect_from:
   - /2016/05/21/archaeal-single-copy-genes/
 layout: post
 title: "Making anvi'o use your own HMM collection"
+tags: [tutorial, genome-quality]
 excerpt: "Mike Lee demonstrates how to use a custom HMM single-copy gene profile for archaeal genomes"
 modified: 2016-05-21
 categories: [anvio]

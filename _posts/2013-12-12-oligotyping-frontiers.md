@@ -6,7 +6,7 @@ authors: [meren]
 title: "Frontiers in Microbiology Special Topic"
 excerpt: "A special topic for oligotyping"
 modified: 2013-12-12
-tags: [frontiers, pubs]
+tags: [publication, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

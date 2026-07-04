@@ -5,7 +5,7 @@ layout: post
 title: "Candidate Phyla Radiation in Human Blood?"
 excerpt: "Astonishing if its true. Astonishing if its false. Astonishments all over."
 modified: 2017-08-23
-tags: [cpr]
+tags: [reanalysis, metagenomics]
 categories: [miscellaneous]
 comments: true
 authors: [meren]

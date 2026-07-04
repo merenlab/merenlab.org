@@ -4,7 +4,7 @@ authors: [matt, evan, alon]
 title: "Extract loci from genomes and metagenomes with anvi'o"
 excerpt: "A flexible and scalable approach to locate and extract target genetic loci from larger genetic contexts."
 modified: 2019-10-08
-tags: []
+tags: [tutorial, metagenomics]
 categories: [anvio]
 comments: true
 redirect_from:

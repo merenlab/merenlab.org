@@ -3,6 +3,7 @@ redirect_from:
   - /2018/12/01/combining-annotation-sources-for-pan/
 layout: post
 title: "Combining reference genome annotations with your own in pangenomes"
+tags: [tutorial, pangenomics, annotation]
 excerpt: "Mike Lee heroically combines reference annotations with new annotations"
 modified: 2018-12-01
 categories: [anvio]

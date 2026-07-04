@@ -6,7 +6,7 @@ authors: [meren]
 title: "From QIIME to Oligotyping"
 excerpt: "A solution by James Meadow"
 modified: 2014-10-16
-tags: [qiime]
+tags: [tutorial, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

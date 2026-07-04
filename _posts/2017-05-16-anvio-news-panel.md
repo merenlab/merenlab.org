@@ -5,7 +5,7 @@ layout: post
 title: "The new anvi'o 'news' tab"
 excerpt: "Is the big brother watching you? If he does, what does he see?"
 modified: 2017-05-16
-tags: [privacy, interface]
+tags: [tutorial]
 categories: [anvio]
 comments: true
 authors: [meren]

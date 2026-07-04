@@ -3,6 +3,7 @@ redirect_from:
   - /2016/06/06/working-with-contigs-only/
 layout: post
 title: "Binning without mapping"
+tags: [tutorial, metagenomics]
 excerpt: "So you have an assembly, or a draft genome, or a MAG, but no metagenomic short reads? That's OK."
 modified: 2016-06-06
 categories: [anvio]

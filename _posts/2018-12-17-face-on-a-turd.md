@@ -5,7 +5,7 @@ layout: post
 title: "My unpopular two cents on the 'Face on a Turd'"
 excerpt: "One of those 'I can not believe you are even considering reading this' posts"
 modified: 2018-12-17
-tags: []
+tags: [opinion, social]
 authors: [meren]
 categories: [miscellaneous]
 comments: true

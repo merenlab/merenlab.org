@@ -5,7 +5,7 @@ layout: post
 title: "Predicting CPR genomes in metagenomic bins"
 excerpt: "A second look at the genomes published by Brown CT. et al"
 modified: 2016-04-17
-tags: [reanalysis]
+tags: [reanalysis, metagenomics]
 authors: [meren, tom]
 categories: [miscellaneous]
 comments: true

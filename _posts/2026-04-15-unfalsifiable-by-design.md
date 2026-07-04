@@ -6,7 +6,7 @@ authors: [meren, iva]
 title: "Unfalsifiable by Design: A Year of Trying and Failing to Reproduce a Human Microbiome and Autism Study"
 excerpt: "The myth of open data, reproducibility, responsibility, and accountability in science, and your role in it"
 modified: 2026-04-15
-tags: [science, philosophy]
+tags: [opinion, science, human-microbiome]
 categories: [miscellaneous]
 comments: true
 noleftpanel: true

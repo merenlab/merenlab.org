@@ -3,7 +3,7 @@ layout: post
 title: "An 800-years-old <i>Salmonella</i> genome, and a lovely anvi'o figure"
 excerpt: "From the paper 'Millennia of genomic stability within the invasive Para C Lineage of <i>Salmonella enterica</i>'"
 modified: 2017-02-05
-tags: []
+tags: [reanalysis, visualization]
 categories: [miscellaneous]
 comments: true
 redirect_from:

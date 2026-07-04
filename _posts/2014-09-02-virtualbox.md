@@ -6,7 +6,7 @@ authors: [meren]
 title: "A Docker image for oligotyping"
 excerpt: "For people who does not want to install the pipeline"
 modified: 2017-08-15
-tags: [virtual, installation]
+tags: [tutorial, oligotyping]
 categories: [oligotyping]
 comments: true
 ---

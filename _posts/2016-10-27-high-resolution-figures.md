@@ -5,7 +5,7 @@ layout: post
 title: "Working with SVG files anvi'o generate"
 excerpt: "In other words, not putting screenshots in papers"
 modified: 2016-10-27
-tags: []
+tags: [tutorial, visualization]
 categories: [anvio]
 comments: true
 authors: [meren]

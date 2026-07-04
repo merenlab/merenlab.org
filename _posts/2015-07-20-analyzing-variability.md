@@ -4,7 +4,7 @@ authors: [meren,tom,evan]
 title: "Studying microbial population genetics with anvi'o"
 excerpt: "Exploring micro-diversity patterns using for deeper insights into ecology"
 modified: 2024-05-10
-tags: []
+tags: [tutorial, population-genetics]
 categories: [anvio]
 comments: true
 redirect_from:

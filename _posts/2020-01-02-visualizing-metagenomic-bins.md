@@ -5,7 +5,7 @@ layout: post
 title: "Visualizing the fate of contigs across metagenomic binning algorithms"
 excerpt: "Don't click. Run away. Don't see what you don't want to see."
 modified: 2020-01-02
-tags: []
+tags: [reanalysis, binning, visualization]
 authors: [meren, jarrod_s]
 categories: [miscellaneous]
 comments: true

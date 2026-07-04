@@ -6,7 +6,7 @@ authors: [andrea]
 title: "A reading list for scientists to recognize and confront anti-Black racism"
 excerpt: ""
 modified: 2020-10-05
-tags: []
+tags: [social]
 categories: [miscellaneous]
 comments: true
 image:

@@ -3,7 +3,7 @@ layout: post
 title: "Anvi'o User Tutorial for Metagenomic Workflow"
 excerpt: "Sweets for people who managed to install the platform and want to do genome-resolved metagenomics."
 modified: 2016-06-22
-tags: []
+tags: [tutorial, metagenomics]
 categories: [anvio]
 redirect_from:
   - /2015/05/01/anvio-tutorial/

@@ -6,7 +6,7 @@ authors: [meren]
 title: "A Success Story: Gardnerella Vaginalis Profiles Among Sexual Partners"
 excerpt: "The first story we recovered using oligotyping"
 modified: 2012-05-02
-tags: [pubs, gardnerella]
+tags: [publication, human-microbiome, oligotyping]
 categories: [oligotyping]
 comments: true
 thumbnail: /images/thumbnails/2012-05-02-a-success-story.png

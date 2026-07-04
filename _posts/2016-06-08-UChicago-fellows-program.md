@@ -5,7 +5,7 @@ layout: post
 title: "Chicago Fellows Program"
 excerpt: "A prestigious post-doc opportunity at a great university environment"
 modified: 2016-06-08
-tags: [reanalysis]
+tags: [reanalysis, metagenomics]
 authors: [meren]
 categories: [miscellaneous]
 comments: true

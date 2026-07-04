@@ -5,7 +5,7 @@ layout: post
 title: "To dereplicate or not to dereplicate?"
 excerpt: "Inflating the number of near-identical genomes versus losing potentially key genetic information in genome-resolved metagenomics studies."
 modified: 2019-12-12
-tags: []
+tags: [opinion, metagenomics, technical]
 authors: [jacob_e, vincent_d]
 categories: [miscellaneous]
 comments: true

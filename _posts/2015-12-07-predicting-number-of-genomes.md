@@ -5,7 +5,7 @@ layout: post
 title: "How many bacterial genomes do you have in that assembly?"
 excerpt: "A quick way to get an insight into the number of genomes your contigs represent."
 modified: 2015-12-07
-tags: []
+tags: [tutorial, metagenomics, technical]
 categories: [anvio]
 comments: true
 authors: [meren]
