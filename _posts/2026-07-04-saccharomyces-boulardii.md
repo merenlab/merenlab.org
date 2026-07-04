@@ -43,7 +43,7 @@ To test that, they reconstruct over 600 high-quality genomes from mouse gut meta
 
 The authors reason that the increase in LMI populations is likely due to the provisioning of amino acids by *S. boulardii* (which they [demonstrated previously](https://doi.org/10.1093/ismejo/wrae212): *S. boulardii* indeed donates amino acids to its environment, at least in co-cultures). As the members of the microbial community no longer need to be able to make their own amino acids to survive, those who can't make them start to appear.
 
-## Some arrows of directionality (to speculate)
+## Some arrows of directionality (just to speculate)
 
 As I praised at the beginning of this post, the authors do not go too far from here as they are extremely careful. They literally write "*the multi-omics integration identifies coordinated cross-compartment responses but does not establish directionality or mechanistic hierarchy*". They explicitly mention that all options for hierarchy and *what affects what* and *in what order* are all on the table. But there is nothing wrong with speculating after going this far, so when I try very hard to see how the authors would have speculated, I find their most *directional* sentence, which points toward the following model as they write "*transient microbiome reshaping can initiate systemic immunometabolic changes that influence tumor progression*":
 
@@ -56,19 +56,15 @@ In this caricaturish view (for which I apologize), *S. boulardii* reshapes the c
 
 The first one is an ecological statement that makes sense, and the follow up is a logical extension of it if we agree that microbiome in homeostasis can affect tumor progression. But I think there has to be more to this.
 
-Why?
+And here is where my intuition diverges from theirs: in my opinion, the relative depletion of LMI populations from the cancer environment is extremely unlikely to be only due to the lack of amino acids. As in, the depletion of populations that are unable to synthesise their own stuff in a host system is unlikely to be primarily driven by the depletion of the stuff they are unable to synthesise in the environment. Because if a collapsed public-goods pool were the sole cause of their demise, then simply topping up amino acids would have helped the LMI populations expand in unhealthy hosts. Right? So we can perhaps ask the following, and try to answer them with what is already available:
 
-Let me try to explain: in my opinion, the relative depletion of LMI populations from the cancer environment is extremely unlikely to be only due to the lack of amino acids. As in, the depletion of populations that are unable to synthesise their own stuff in a host system is unlikely to be primarily driven by the depletion of the stuff they are unable to synthesise in the environment. Because if a collapsed public-goods pool were the sole cause of their demise, then simply topping up amino acids would have helped the LMI populations expand in unhealthy hosts. Right? So we can perhaps ask the following, and try to answer them with what is already available:
+* Would replacing *S. boulardii* with amino acid supplements recapitulate the same effects on the microbiome? I don't think so. If amino acid scarcity were the only barrier, LMI populations should not have been almost 70% of the untreated gut. There is a reason for the modest increase, and it is important to think about, in my opinion. 
 
-* Would replacing *S. boulardii* with amino acid supplements recapitulate the same effects on the microbiome? I don't think so -- because if amino-acid scarcity were the only barrier, LMI populations shouldn't already be the majority (68%) in the untreated gut. There is a reason for the modest increase, and it is important to think about, in my opinion. 
+* Would extending LMI populations in these animals from 68% to 77% on average without *S. boulardii* recapitulate the same effects on the tumors? I really don't think so. If we were talking about 0% to 9%, it would have been a much more interesting change to contend with comapred to a modest shift from 68% to 77%. 9% change makes it unlikely that this particular axis is what drives the changes on the host side.
 
-* Would extending LMI populations in these animals from 68% to 77% on average without *S. boulardii* recapitulate the same effects on the tumors? I really don't think so. If we were talking about 0% to 9%, I may have agreed. But a modest shift from 68% to 77% makes it unlikely that this particular axis -- the fraction of LMI populations -- is what drives the changes on the host side (even if the community is reshaped in other ways, too).
+There is no need to ignore the likely impact of *S. boulardii* on the microbial community through its amino acid provision, but I think these data assigns a larger role for *S. boulardii* on the system than that, likely through the regulation of immunomodulatory activities, which likely exerts a larger influence on the gut microbiome than the amino acid provision, and likely contributes more to the expansion of LMI populations. This dual effect is also seen in the plasma metabolome and circulating cytokines data, in my opinion.
 
-Two caveats are worth stating plainly here. First, this study has no healthy, tumor-free control -- both groups carry tumors -- so the 'depletion' of LMI populations in the cancer state is something I am importing from our earlier work rather than something these data show directly. Second, the tumor here sits under the skin rather than in the gut, so the gut is not the diseased tissue, which if anything makes the host -> microbiome direction *more* plausible than a gut-local tumor loop.
-
-There is no need to ignore the likely impact of *S. boulardii* on the microbial community through its amino acid provision, but I think these data assigns a larger role for *S. boulardii* on the system, likely through the regulation of immunomodulatory activities, which also influence the gut microbiome. And that larger impact of *S. boulardii* through its influence on host likely contributes much more to the expansion of LMI populations. This dual effect is also seen in the plasma metabolome and circulating cytokines data, in my opinion.
-
-## Arrows I would draw (to speculate further)
+## Arrows I would draw (to speculate even further)
 
 So instead of this linear relationship as a speculation,
 
@@ -90,15 +86,15 @@ S. boulardii          `-> microbiome <-.
                `----> environment ----`
 ```
 
-Probably we all would name these arrows similarly regardless of how much we can explain the mechanisms. The first arrow, (1), is perhaps immunomodulation, which affects both tumors and microbiome. The second named arrow, (2), is likely amino acids, which changes another dimension of the environment, which in return affects the same microbiome. The microbiome in this model is primarily (re)shaped by (1), and the effect is sped up by (2).
+Probably we all would name these arrows similarly regardless of how much we can explain the mechanisms. The first arrow, (1), is perhaps immunomodulation, which affects both tumors and microbiome ('how' is another question which we don't know). The second named arrow, (2), is likely amino acids, which changes another dimension of the environment, which in return affects the same microbiome. The microbiome in this model is primarily (re)shaped by (1), and the effect is sped up by (2).
 
 Careful readers will likely see that there are no more arrows that connect gut microbes and the tumor in my argument here, which is clearly more of a thought experiment based on my intuition of the role and relevance of the microbiome to cancer than anything else.
 
 ## Final words
 
-Of course, as the authors put it, how *transitionary* any of these effects are is the most critical question here. I was much more strict when I was younger, but now I know transitionary is not necessarily bad, and a lack of mechanistic insights shouldn't stop practical applications as long as all the science is transparent, and we are not walked around by specific interest groups that seem to work against society and science itself.
+Of course, as the authors mention it in their work, how *transitionary* any of these effects are is a critical question here. I was much more strict when I was younger, but now I know that transitionary is not necessarily bad, and a lack of mechanistic insights should not be a reason to stop practical applications as long as all the science is transparent, and we are not walked around by specific interest groups that seem to work against the priorities of the society and science itself.
 
-Troels Holger Vaaben and colleagues put together a comprehensive evaluation of the entire system, used bacteria as a marker of a larger shift in it, with a careful consideration of the implications of the yeast that certainly contributes to the all.
+Troels Holger Vaaben and colleagues put together a comprehensive evaluation of the entire system (with some limitations of course, such as the lack of tumor-free controls for starters). They used bacteria as a marker of a larger shift in their system, and carefully considered the implications of the yeast that certainly is not a *non-player character* here.
 
 What makes this study much more interesting than a gazillion others I see in the human microbiome field is the fact that it has enough dimensionality and care that inspires deeper thought than just a nod or shrug. When authors after generating ton of data and invest hours and hours and hours of work tell their readers "we can't say more, or one way or the other", it is the most genuine of invitations for everyone to think more. It creates space to think more. Makes room for more narratives. Allows additional ideas to join in the fight, rather than going against.
 
