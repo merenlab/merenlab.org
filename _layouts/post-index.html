@@ -20,7 +20,7 @@
 
 {% for post in site.posts %}
       {% if post.authors and post.authors != "" and post.authors != empty %}
-      <article>
+      <article data-tags="{{ post.tags | join: ',' }}">
             <div class="post-index-entry">
               <div class="post-thumbnail">
                 {% if post.thumbnail %}
@@ -43,6 +43,9 @@
                         {% endif %}
                     {% endfor %}
                     <span class="lbl" style="background-color: #d99d9d;">{{ post.date | date: "%a, %b %d, %Y" }}</span>
+                    {% if post.tags and post.tags != empty %}
+                    <br>{% for tag in post.tags %}<a class="tag-lbl" href="/blog/#tag:{{ tag | downcase | replace: ' ', '-' }}" data-tag="{{ tag }}">{{ tag }}</a> {% endfor %}
+                    {% endif %}
                 </p>
                 {% if post.authors %}
                     {% include _author_mini_for_post_index.html %}
@@ -61,6 +64,55 @@
     {% include _footer.html %}
   </footer>
 </div><!-- /.footer-wrap -->
+
+<script>
+(function () {
+  function getActiveTag() {
+    var hash = window.location.hash;
+    if (hash && hash.indexOf('#tag:') === 0) return hash.slice(5);
+    return null;
+  }
+
+  function applyFilter(tag) {
+    var articles = document.querySelectorAll('#index article');
+    articles.forEach(function (article) {
+      if (!tag) {
+        article.style.display = '';
+        return;
+      }
+      var tags = (article.getAttribute('data-tags') || '').split(',').map(function (t) { return t.trim().toLowerCase(); });
+      article.style.display = tags.indexOf(tag.toLowerCase()) !== -1 ? '' : 'none';
+    });
+
+    var links = document.querySelectorAll('.tag-lbl');
+    links.forEach(function (link) {
+      var linkTag = link.getAttribute('data-tag');
+      link.style.outline = (tag && linkTag && linkTag.toLowerCase() === tag.toLowerCase()) ? '2px solid #888' : '';
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('.tag-lbl');
+    if (!link) return;
+    e.preventDefault();
+    var tag = link.getAttribute('data-tag');
+    var current = getActiveTag();
+    if (current && current.toLowerCase() === tag.toLowerCase()) {
+      history.pushState(null, '', '/blog/');
+      applyFilter(null);
+    } else {
+      history.pushState(null, '', link.getAttribute('href'));
+      applyFilter(tag);
+    }
+  });
+
+  window.addEventListener('popstate', function () {
+    applyFilter(getActiveTag());
+  });
+
+  applyFilter(getActiveTag());
+}());
+</script>
 
 {% include _scripts.html %}
 

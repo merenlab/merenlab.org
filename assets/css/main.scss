@@ -1064,6 +1064,29 @@ img[src*="img.shields.io"] { border: none !important; box-shadow: none !importan
   box-sizing: inherit;
 }
 
+.tag-lbl {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #555;
+  background-color: #e8e8e8;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: bottom;
+  border-radius: .25rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tag-lbl:hover {
+  background-color: #d0d0d0;
+  color: #333;
+}
+
 .tags {
   border: 1px solid #d7d7d7;
   padding: 0 3px;
