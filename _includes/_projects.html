@@ -30,7 +30,7 @@
         <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
     </div>
 
-    <p style="margin-bottom: 14px; color: #444;">{{ project.description }}</p>
+    <div style="margin-bottom: 14px; color: #444;">{{ project.description | markdownify }}</div>
 
     <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
         {% for mentor_alias in project.mentors %}
@@ -83,7 +83,7 @@
         <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
     </div>
 
-    <p style="margin-bottom: 14px; color: #444;">{{ project.description }}</p>
+    <div style="margin-bottom: 14px; color: #444;">{{ project.description | markdownify }}</div>
 
     <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
         {% for mentor_alias in project.mentors %}
