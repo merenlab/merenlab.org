@@ -27,7 +27,7 @@
 <div style="border-left: 4px solid #9e6ebd; background: #fff; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
 
     <div style="margin-bottom: 10px;">
-        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
+        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title | markdownify | replace: "<p>", "" | replace: "</p>", "" }}</span>
     </div>
 
     <div style="margin-bottom: 14px; color: #444;">{{ project.description | markdownify }}</div>
@@ -80,7 +80,7 @@
 <div style="border-left: 4px solid #3288bd; background: #fff; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
 
     <div style="margin-bottom: 10px;">
-        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title }}</span>
+        <span style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.3em; font-weight: 700;">{{ project.title | markdownify | replace: "<p>", "" | replace: "</p>", "" }}</span>
     </div>
 
     <div style="margin-bottom: 14px; color: #444;">{{ project.description | markdownify }}</div>
