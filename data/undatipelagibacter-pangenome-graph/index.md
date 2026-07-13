@@ -49,7 +49,7 @@ The sections below produce the analyses behind,
 * __Figure 4__, which visualizes the graph-derived metrics and Composite Variability Score, is produced in the [metrics](#metrics-of-the-pangenome-graph) section, and
 * __Figure 5__, which visualizes position-wise sequence similarity patterns, is produced in the [position-wise comparisons](#position-wise-sequence-comparisons) section.
 * __Figure 6__, which visualizes Skp vs SurA co-evolution along with position-wise sequence similarity patterns, is reproduced in the section called [Connecting two divergence valleys: do Skp and SurA co-evolve beyond the genome?](#connecting-two-divergence-valleys-do-skp-and-sura-co-evolve-beyond-the-genome).
-* This document also includes scripts and commands that will reproduce __Supplementary Figures 6, 7, 8, and 9__.
+* This document also includes scripts and commands that will reproduce __Supplementary Figures 6, 7, 8, 9, and 10__.
 
 
 ## Setting up the stage
@@ -1304,6 +1304,111 @@ OBSERVATIONS TO REMEMBER
 and create the following figure that summarize the results here:
 
 {% include IMAGE path="images/skp_operon_coselection.png" width="70" caption="Selection and co-divergence across the Skp locus and genome-wide. Operon-internal analyses (a-d) use the per-gene codon alignments of all locus genes with amino-acid substitutions mapped onto each branch of the genome tree by Fitch parsimony, and the genome-wide analyses (e-f) apply the same test to all single-copy core genes. Throughout, 'co-divergence with Skp' indicates the partial Spearman correlation between the per-branch substitutions of a given gene and Skp, while controlling for genome-wide branch length. In a-d the operon is shaded and Skp is marked. (a) Mean pairwise dN/dS (Nei-Gojobori) at each locus gene. (b) Each gene's rate-controlled co-divergence with Skp. (c) Pairwise co-divergence among all locus genes. (d) dN/dS versus co-divergence with Skp, one point per gene. (e) Genome-wide partial co-divergence with Skp for envelope-biogenesis genes (COG category M; n = 66) versus all other single-copy core genes (n = 858), with Skp's outer-membrane clients LptD and BamA overlaid. (f) Each envelope gene's percentile rank for co-divergence with Skp among the non-envelope genes closest to it in substitution count. (Supplementary Figure 9 in the manuscript)." %}
+
+### Ruling out co-import: is the within-operon co-divergence a recombination artifact?
+
+The co-selection test above shows that the operon genes co-diverge with Skp far more than the flanking genes do, which we read as a *local* co-selection signal centered on Skp. But in theory, there is also a mechanical alternative, and anyone who is well-versed in recombination will wonder about "**what if** a single homologous-recombination tract simply carried several neighboring operon genes into the same lineages *at once*?". While it is unlikey for anyone who is aware of the extent of diversity stuck in the environmental populations of Pelagibacteriales, it is a meaningful consideration given that the previous section already shows that this locus recombines pervasively.
+
+The conventional population genetics wisdom tells us that genes that are *co-imported* on the same *tract* would co-vary on exactly the same branches of the genome tree for a purely physical reason (i.e., 'shared transfer') rather than reasons we claim (i.e., 'shared selection'). Therefore, it is a good idea to investigate this possibility to justify any claim that suggests the likelihood of proximity-based co-selection.
+
+This is quite a difficult task though for other reasons. This control needs a per-genome, per-branch call of whether each gene is *native* or *imported*, assigned to the specific branch on which the import happened, together with the contiguous tracts that carried it. Such a summary is not available to us so far, and it would be lazy to manufacture a hand-picked identity cutoff to cut that corner. Our recombination analyses so far produced a continuous consensus-identity matrix and a four-gamete/PHI landscape, but neither is a *per-allele* call. So we first needed to generate the missing data for any co-import control. Luckily there is [ClonalFrameML](https://doi.org/10.1371/journal.pcbi.1004041) to save the day, an established recombination-mosaic caller. ClonalFrameML could reconstruct the imported DNA segments, identifying both the evolutionary branch where each import occurred, *and* the contiguous tract that was transferred in theory. This also means that imported regions are defined by the model's own reconstruction, which is much safer compared to us choosing an arbitrary identity cutoff to define what should be considered what is transferred and what is not.
+
+ClonalFrameML caused some serious installation headaches, so we decided to put it in its own conda environment, which you can create once with:
+
+```bash
+conda create -y -n henoch_selection -c conda-forge -c bioconda clonalframeml
+```
+
+The analysis itself is a single Python script ([skp_operon_coimport_control.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_operon_coimport_control.py); also available to you in your `00_SCRIPTS` directory) which calls `ClonalFrameML` thorught its conda environment (without you leaving your current `henoch_et_al_2026` conda environment). It reuses the exact co-divergence machinery from the co-selection script (Fitch parsimony onto the genome tree, then the rate-controlled partial Spearman), but then runs `ClonalFrameML` on the cached whole-locus nucleotide alignment using the genome tree as the clonal genealogy, maps the reconstructed import tracts back onto the branches of the genome tree by matching bipartitions, and then recomputes its co-divergence with Skp *after removing the branches on which that gene and Skp were co-imported* (i.e., the "clonal residual"). And it does this for each operon gene.
+
+The logic here is that if the operon co-divergence was merely a co-import artifact, it should be identical to its flanks once shared-import branches are removed. As position-independent positive controls, the script also measures LptD and SurA (which is 195K away from Skp in the genome). Since both genes are encoded far outside the locus, they cannot be carried by the same recombination event and are therefore unaffected by this control by definition. If either control were to change, it would suggest that the branch assignments are incorrect.
+
+This is how we ran the script:
+
+```bash
+python 00_SCRIPTS/skp_operon_coimport_control.py
+```
+
+And it produced the following output in the terminal:
+
+```no-copy
+IS WITHIN-OPERON CO-DIVERGENCE A CO-IMPORT ARTIFACT?
+===============================================
+ClonalFrameML ................................: running on the whole-locus alignment ...
+Genome tree ..................................: 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHASCGs.newick
+Co-divergence source .........................: reused from skp_operon_coselection (Fitch + partial Spearman)
+Import tracts (ClonalFrameML) ................: 02_RESULTS/UNDATIPELAGIBACTER_SKP_COIMPORT_TRACTS.txt (57 reconstructed tracts)
+CFML R/theta, 1/delta, nu ....................: 0.006144, 0.0001931, 0.03386
+
+* Locus-scale (~19 kb) ClonalFrameML parameter estimates are noisy; treat R/theta,
+  delta and nu as indicative, not precise. fastGEAR is the locus-appropriate
+  alternative if these look unstable.
+
+Skp imported on ..............................: 19 genome-tree branch(es)
+Null iterations / seed .......................: 999 / 1
+
+OPERON GENES vs CO-IMPORT CONTROL (co-divergence with Skp)
+===============================================
+* gene observed clonal-residual drop co-imp br emp_p verdict
+* LpxB +0.339 +0.618 -0.279 4 1.000 survives (shared selection)
+* LpxI +0.175 +0.392 -0.216 6 0.997 survives (shared selection)
+* LpxA +0.359 +0.592 -0.234 7 0.999 survives (shared selection)
+* LpxD +0.524 +0.749 -0.224 11 0.999 survives (shared selection)
+* FabA +0.627 +0.872 -0.245 16 1.000 survives (shared selection)
+* BamA +0.744 +0.774 -0.030 19 0.712 survives (shared selection) <- headline (adjacent to Skp)
+* Dxr +0.744 +0.768 -0.024 19 0.529 survives (shared selection)
+* CdsA +0.644 +0.796 -0.152 19 0.985 survives (shared selection) <- headline (adjacent to Skp)
+* UppS +0.684 +0.781 -0.097 17 0.936 survives (shared selection)
+Operon block co-divergence, observed vs clonal : +0.538 vs +0.705 (flanks +0.216)
+Fraction of operon co-divergence attributable to co-import : -31%
+
+DISPERSED PARTNERS (co-import-IMMUNE positive control)
+===============================================
+* SurA (~195 kb): observed +0.819 clonal +0.819 (immune, as expected)
+* LptD : observed +0.678 clonal +0.678 (immune, as expected)
+* These lie outside every locus tract, so no reconstructed import can cover them;
+  their co-divergence with Skp is unchanged by construction. If they moved, the
+  null would be mis-specified.
+
+FIGURES
+===============================================
+PDF ..........................................: 02_RESULTS/skp_operon_coimport_control.pdf
+PNG ..........................................: 02_RESULTS/skp_operon_coimport_control.png
+Cached tracts ................................: 02_RESULTS/UNDATIPELAGIBACTER_SKP_COIMPORT_TRACTS.txt
+
+OBSERVATIONS TO REMEMBER
+===============================================
+* (a) Operon co-divergence, observed vs clonal residual. Across the operon, co-
+  divergence with Skp is +0.54 observed and +0.70 after removing the branches on
+  which each gene was co-imported with Skp (flank mean +0.22). The operon signal
+  largely survives the co-import removal -- it is not merely shared physical
+  transfer.
+* (b) The adjacency-at-risk genes. BamA (our 87th-percentile headline) shows
+  observed co-divergence +0.74 and clonal residual +0.77 (co-imported with Skp
+  on 19 branch(es), emp_p = 0.712). BamA sits immediately next to Skp and can
+  ride the same tract, so it is treated as at-risk, not a control.
+* (c) The decisive asymmetry. SurA (~195 kb away) and LptD lie outside every locus
+  tract, so their co-divergence with Skp (SurA +0.82, LptD +0.68) is immune to
+  the co-import control by construction and is unchanged. The position-
+  independent signal therefore cannot be a by-product of shared physical import.
+* (d) Mechanism. ClonalFrameML reconstructs 57 imported tracts across the lineages
+  (R/theta = 0.00614, nu = 0.0339); these per-lineage tracts, not an invented
+  identity cutoff, define co-import. 9 of 9 operon genes retain co-divergence
+  above the co-import null.
+```
+
+and creates the following figure that summarizes the result:
+
+{% include IMAGE path="images/skp_operon_coimport_control.png" width="70" caption="Ruling out co-import as the source of the within-operon co-divergence with Skp. (a) The observed co-divergence of each operon gene with Skp (partial Spearman, controlling for genome-wide branch length) versus the clonal residual computed after removing the branches on which that gene and Skp were co-imported, with the flank mean drawn as a dotted line. (b) The fraction of each gene's Skp co-divergence attributable to co-import (observed minus clonal, as a percentage of observed); the Skp-adjacent genes BamA and CdsA are highlighted in red. Negative values mean the co-divergence is if anything higher once co-imported branches are removed. (c) The two dispersed partners SurA (~195 kb from Skp) and LptD, both encoded outside the locus, whose clonal residual equals their observed co-divergence, i.e. they are immune to the control by construction. (d) The per-lineage map of ClonalFrameML-reconstructed imported tracts, with genomes ordered by the genome phylogeny and the operon (light) and Skp (dark) columns shaded, so the mechanism is legible. (Supplementary Figure 10 in the manuscript)." %}
+
+Here is what we learn from this: removing the branches on which each operon gene was co-imported with Skp does *not* weaken the co-divergence signal within the operon. Instead, it makes the signal even stronger as the average operon–Skp co-divergence increases from 0.54 to 0.71 in the clonal residual, while the flanking genes remain low at 0.22 as expected. This means that the sequence divergence in none of the operon genes can be explained simply as artifacts of being imported together with Skp, including BamA and CdsA, the two genes immediately adjacent to Skp that were the most likely to have shared the same recombination tract. Co-divergence scores for BamA goes from 0.74 to 0.77, and for CdsA goes from 0.64 to 0.80 with Skp after removing the shared co-import branches. The two external functional partners, SurA and LptD, serve as controls because they lie outside the locus and therefore cannot be co-imported on the same DNA segment. As expected, neither changes after the control is applied.
+
+Together, these results show that shared recombination tracts cannot explain the observed co-divergence. Instead, the pattern is consistent with the operon genes co-diverging because they are evolving under shared functional selection rather than simply being carried together during recombination.
+
+{:.notice}
+As with the other permutation-based analyses on this page, rerunning the upstream IQ-TREE step to reconstruct the gene/genome phylogenies can produce small changes in final trees and slightly alter the reported values without affecting this conclusion.
+
+While what can be explained by recombination is an endless pit thanks to decades of research, this concludes our journey with it for now.
 
 ### Connecting two divergence valleys: do Skp and SurA co-evolve beyond the genome?
 
