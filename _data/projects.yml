@@ -51,21 +51,28 @@
 #
 # =============================================================================
 
-- title: "Example master thesis project"
+- title: "Biogeography of marine _Vibrio_ species"
   type: master
   status: available
   mentors:
+    - iva
     - meren
-    - florian
   description: >
-    This is a placeholder project. Replace this entry with a real master thesis
-    project. A good description explains the scientific question, the approach,
-    and what makes the project exciting.
+    _Vibrio_ species are highly scrutinized as occasionally-pathogenic, often host-associated bacteria. 
+    They also naturally occur in marine environments (as free-living or plankton-associated cells),
+    yet their biogeographic distribution across the global oceans has not been systematically
+    evaluated in the context of their functional capacity. In this project, you will leverage 
+    large-scale (meta)genomic datasets and several 'omics analysis techniques to study the biogeography 
+    of marine _Vibrio_ species and connect their distribution patterns to the ecology and niche 
+    partitioning of these important microbes. For a good blueprint of how this study may go, 
+    please see the _Prochlorococcus_ metapangenome paper ([Delmont and Eren 2018](https://doi.org/10.7717/peerj.4320)).
   skills_required:
-    - "Python or R programming"
+    - "BASH/Command line"
     - "Basic knowledge of microbiology"
   skills_developed:
-    - "Metagenomic analysis"
+    - "Phylogenomics"
+    - "Metagenomic read recruitment"
+    - "Pangenomics"
     - "Scientific writing"
 
 - title: "Example rotation project"
