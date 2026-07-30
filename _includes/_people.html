@@ -8,8 +8,8 @@
 
 <div class="category-box" style="margin-top:50px">
     <a href="#current"><span class="category-item">Members ({{ current }})</span></a>
-    <a href="#alumni"><span class="category-item">Alumni ({{ alumni }})</span></a>
     <a href="#visitors"><span class="category-item">Visitors ({{ visitor }})</span></a>
+    <a href="#alumni"><span class="category-item">Alumni ({{ alumni }})</span></a>
 </div>
 
 <div class="people-notice-grid">
@@ -58,6 +58,16 @@
     {% include _person.html current=true %}
 {% endfor %}
 
+<div class="visitors">
+<h2 id="visitors" class="persons-title" style="margin-top: 0px;">Visitors</h2>
+
+<p class="notice">Those who visited our laboratory for a period of a week or longer.
+
+{% for person in site.data.people.visitors %}
+    <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
+    {% if person.pers_link %}<a href="{{ person.pers_link }}" id="aff-link" target="_blank">{{ person.nick_name }}</a>{% else %}{{ person.nick_name }}{% endif %}, who was a {{ person.title }} at {% if person.department %}<a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}, arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}
+{% endfor %}
+</div>
 
 <div class="alumni">
 <h2 id="alumni" class="persons-title" style="margin-top: 0px;">Alumni (sorted by date)</h2>
@@ -69,13 +79,4 @@
 {% endfor %}
 </div>
 
-<div class="visitors">
-<h2 id="visitors" class="persons-title" style="margin-top: 0px;">Visitors</h2>
 
-<p class="notice">Those who visited our laboratory for a period of a week or longer.
-
-{% for person in site.data.people.visitors %}
-    <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
-    {% if person.pers_link %}<a href="{{ person.pers_link }}" id="aff-link" target="_blank">{{ person.nick_name }}</a>{% else %}{{ person.nick_name }}{% endif %}, who was a {{ person.title }} at {% if person.department %}<a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}, arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}
-{% endfor %}
-</div>
