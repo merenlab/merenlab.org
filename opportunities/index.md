@@ -15,13 +15,13 @@ We are a diverse group of scientists with backgrounds in computer science, micro
 
 ## Visiting Scientists
 
-We often welcome visiting scientists for short- or long-term research stays, and HIFMB offers a great environment to learn from a wide range of scientists with distinct backgrounds who focus on marine systems.
+We often welcome visiting scientists for short- or long-term research stays. HIFMB offers a great environment to learn from a wide range of scientists with distinct backgrounds who focus on marine systems.
 
-You can find a list of past visitors of our group [at the end of this page](/people/#visitors)). If you are interested in spending time in our group for art or science collaborations, please get in touch with any of the [members](/people/) of our group to start the conversation.
+You can find a list of past visitors of our group [here](/people/#visitors), and if you are interested in spending time with us for art or science collaborations, please get in touch with any of the [members](/people/) of our group to start the conversation.
 
 ## Post-doctoral Researchers
 
-We are always interested in hearing from motivated post-doctoral researchers who wish to join our group. We would love to hear from you if our [research interests](/research/) resonate with yours. Germany offers several excellent funding mechanisms for post-doctoral researchers:
+We are always interested in hearing from motivated post-doctoral researchers who wish to work with us. We would love to hear from you if our [interests](/publications/) or general [philosophy](https://merenlab.org/research/) in science resonate with yours. Germany offers several excellent funding mechanisms for post-doctoral researchers:
 
 - **[Alexander von Humboldt Research Fellowship](https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship)** — for international researchers of all disciplines to carry out long-term research in Germany.
 - **[Marie Sk&#322;odowska-Curie Individual Fellowships](https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships)** — EU-funded fellowships for researchers moving to a new country, including Germany.
@@ -35,11 +35,11 @@ If you are interested, please send an e-mail to [Meren](/people/#a-murat-eren-me
 
 Our group supervises doctoral students through multiple graduate programs, including those at the [University of Oldenburg](https://uol.de), the [POLMAR graduate school](https://www.awi.de/en/work-study/out-of-university/graduate-school-polmar.html) at AWI, and the [International Max Planck Research School for Marine Microbiology](https://marmic.mpg.de/) (MarMic). Funded positions are advertised when available, but we also welcome inquiries from students who wish to bring their own funding or apply for scholarships with our group.
 
-If you are interested in pursuing a Ph.D. with us, please send an e-mail to Meren with a brief description of your research interests and your CV. Meren responds to every single email as long as they are not copy-pasta from LLMs with zero relevance to our group or its current priorities.
+If you are interested in pursuing a Ph.D. with us, please send an e-mail to Meren with a brief description of your research interests and your CV. Meren carefully reads every single email and responds to every single one of them as long as they are not SPAM (including but not limited to copy-pasta from LLMs with zero relevance to our group expertise and/or current priorities).
 
 ## M.Sc. Students
 
-Our group regularly offers projects for M.Sc. thesis students (~6 months) and M.Sc. rotation students (~6 weeks) at the ICBM and MPI-MM. Typically these projects provide hands-on research experience in computational microbiology, microbial ecology, or both.
+Our group regularly offers projects for M.Sc. thesis students (~6 months) and M.Sc. rotation students (~6 weeks) at the ICBM and MPI for Marine Microbiology. Typically these projects provide hands-on research experience in computational microbiology, microbial ecology, or both.
 
 <div class="notice" style="margin-bottom: 20px;">
 <b>Lab members:</b> To add or edit student projects, update the <a href="https://github.com/merenlab/merenlab.org/blob/master/_data/projects.yml" style="color: #0969da;">projects.yml</a> file. The file contains a copy-paste template and instructions for each field.

@@ -51,21 +51,20 @@
 #
 # =============================================================================
 
-- title: "Biogeography of marine _Vibrio_ species"
+- title: "Biogeography of marine _Vibrio_"
   type: master
   status: available
   mentors:
     - iva
     - meren
   description: >
-    _Vibrio_ species are highly scrutinized as occasionally-pathogenic, often host-associated bacteria. 
-    They also naturally occur in marine environments (as free-living or plankton-associated cells),
-    yet their biogeographic distribution across the global oceans has not been systematically
+    _Vibrio_ are highly scrutinized as they are often host-associated bacteira that are occasionally pathogenic.
+    They naturally occur in marine environments (as free-living or plankton-associated cells),
+    yet the biogeography of _Vibrio_ subclades across the global ocean has not been systematically
     evaluated in the context of their functional capacity. In this project, you will leverage 
-    large-scale (meta)genomic datasets and several 'omics analysis techniques to study the biogeography 
-    of marine _Vibrio_ species and connect their distribution patterns to the ecology and niche 
-    partitioning of these important microbes. For a good blueprint of how this study may go, 
-    please see the _Prochlorococcus_ metapangenome paper ([Delmont and Eren 2018](https://doi.org/10.7717/peerj.4320)).
+    large-scale (meta)genomic datasets and several 'omics analysis techniques to determine _Vibrio_ subclades,
+    quantify their biogeograhpical patterns, and survey links between their ecological and metabolic preferences.
+    For a good blueprint of how this study may go, please see [this paper](https://doi.org/10.7717/peerj.4320).
   skills_required:
     - "BASH/Command line"
     - "Basic knowledge of microbiology"
@@ -74,17 +73,3 @@
     - "Metagenomic read recruitment"
     - "Pangenomics"
     - "Scientific writing"
-
-- title: "Example rotation project"
-  type: rotation
-  status: available
-  mentors:
-    - florian
-  description: >
-    This is a placeholder project. Replace this entry with a real rotation
-    project. Rotation projects are shorter (~6 weeks) and are a great way
-    to explore a topic before committing to a full thesis.
-  skills_required:
-    - "Interest in bioinformatics"
-  skills_developed:
-    - "Command-line data analysis"
