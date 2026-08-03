@@ -4,7 +4,7 @@ authors: [meren]
 title: "A probiotic yeast, colorectal cancer, and the gut microbiome"
 excerpt: "A rare correlative microbiome study careful enough to think with, and an arrow or two I would redraw."
 modified: 2026-07-04
-tags: [publication, human-microbiome]
+tags: [publication, human-microbiome, metabolic-independence]
 categories: [miscellaneous]
 comments: true
 noleftpanel: false

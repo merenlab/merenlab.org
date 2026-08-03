@@ -4,7 +4,7 @@ authors: [meren]
 title: "From coral reefs to human guts: stress is stress"
 excerpt: "Reefs and colons share no taxa, no host, no timescale, but they report stress the same way, which tells us where NOT to look for solutions."
 modified: 2026-08-03
-tags: [publication, human-microbiome, science, metabolic-independence]
+tags: [publication, human-microbiome, science, metabolic-independence, marine-governance]
 categories: [miscellaneous]
 comments: true
 noleftpanel: false
@@ -34,13 +34,13 @@ What they find is that the microbes in protected waters have smaller genomes, lo
 I was particularly excited to read this work as *the most general observation* in it is almost identical to what we reported from the human gut years ago in [Watson, Füssel, and Veseli et al](https://doi.org/10.1186/s13059-023-02924-x), in which we showed that healthy human guts were characterized by a larger number of microbes that cannot synthesize their own nucleotides, amino acids, and vitamins, and instead rely on ecosystem services associated with homeostasis. In contrast, the microbes that came to dominate individuals with Inflammatory Bowel Disease were those with larger genomes that could make everything they needed by themselves (we later scaled up these observations to thousands of metagenomes in another [study by Veseli et al](https://elifesciences.org/articles/89862)).
 
 {:.notice}
-I know we are lucky in marine microbiology .. we have the streamlining theory to explain why genomes shrink when resources are limited but stable, and we have the Black Queen Hypothesis to explain why it is evolutionarily safe to lose functions products of which are leaked into the environment by others. Look. I am not ready to take on this challenge, but I would like to make it known here that these hypotheses do not explain why we also see the dramatic enrichment of small genomes in the human gut, which is arguably the least oligotrophic and most nutrient-replete environment imaginable on our planet (sewage aside, of course). In my opinion this suggests that it is less related to how much carbon is around, and more related to whether an ecosystem is stable enough to be able to support those who need ecosystem services. I will leave this note here, and maybe come back to it in the future when I am wiser. Now, please forget you read this paragraph, and move on :p
+I know we are lucky in marine microbiology .. we have the streamlining theory to explain why genomes shrink when resources are limited but stable, and we have the Black Queen Hypothesis to explain why it is evolutionarily safe to lose functions products of which are leaked into the environment by others. Look. I am not ready to take on this challenge head on at this point, but I would like to make it known here that the streamlining theory does not explain why we also see the dramatic enrichment of small genomes in the human gut, which is arguably the least oligotrophic and most nutrient-replete environment imaginable on our planet (sewage aside, of course), and the Black Queen Hypothesis requires dependable suppliers in a working ecosystem at its core, so dilution of resources is not a factor. In my opinion this suggests that the link between biodiversity and the overall metabolic independence within communities is less related to how much carbon is around, and more related to whether an ecosystem is stable enough to be able to support those who need ecosystem services. I will leave this note here, and maybe come back to it in the future when I am wiser. Now, please forget you read this paragraph, and move on :p
 
 If you think about it, a coral reef and a human colon could not be any farther away from one another in many ways. But they are both complex ecosystems that are governed by the same rules of ecology and evolution with processes that have similar implications on biodiversity, and most importantly, stress is stress in both.
 
 I think what Terzin et al see and what we saw is pointing out towards the same grander fact: degrade an ecosystem, and you will break the metabolic partnerships that only work in stable, well-cycled conditions. And in fact this is not something one can only see through genomes or metagenomes: another very interesting [study by Marcelino et al](https://www.nature.com/articles/s41467-023-42112-w) showed the thinning out of the metabolic interaction networks in the human gut as a result of the loss of cross-feeding partnerships in disease. Whether one looks at what microbes can or cannot do, or at who depends on whom, the same partnerships are the first thing to go. What remains are the self-sufficient generalists who are rare in conditions of homeostasis but bloom to dominance in the absence of it. Not because they are necessarily responsible for anything, but because they were the ones who *could*.
 
-Which brings me to the problem I have with the promissory narrative in the microbiome field that I can summarize as "restoring the microbiome".
+Which brings me to the problem I have with the popular promissory narrative in the microbiome field that I can summarize as "restoring the microbiome".
 
 If a community composition is the output of an environmental filter, then additive strategies to (re)introduce microbes found in healthy environments to unhealthy environments are doomed to fail against that filter. Probiotics for a degrading reef, probiotics for a non-communicable human chronic disease of complex etiology: this is like noticing that houses which aren't on fire are full of chairs, and responding by carrying chairs into a fire without addressing the real (and somewhat obvious) cause of the fire in the first place.
 
@@ -48,19 +48,21 @@ What I see in Terzin et al, and what I see in Watson, Füssel, and Veseli et al 
 
 What we need to address is overfishing. Carbon emissions. Ultra-processed food. Concrete cities that can't support life. Food production. Antibiotics. AND the aggressive profit-driven economics that make every one of these the cheapest available option. Of course, trying to fix those requires us to go out of our safe spaces and engage in games of power, politics, and other uncool activities, so we do what we can from our domain of influence, but that does not change the grand truth that we probably all feel in our guts but don't even know from where to start: we have to fix ecosystems by modifying our own behavior.
 
-I know I digress, but actually not that much because the framework I keep circling around here is, I think, quite simple:
- 
-Metabolic independence is not a property of taxa, it is a readout of ecosystem stability. In an ecosystem in homeostasis, the community fills up with organisms that cannot survive alone. Take the homeostasis away, and the same filter that used to reward dependency starts punishing it. This captures the ecosystem state independent of a host, immune system, or fish directly. And this is a much broader framework to think about the implications of 'stress' on microbial ecosystems, what the readouts are, and why and how such ecological readouts could be useful to understand how we should (or shouldn't) react to changes in biodiversity.
+And at that juncture, the work by Terzin et al shines even brighter, in my opinion, as they treat the microbial signal as what it is best for: a relatively unbiased, very much scalable, and quite sensitive readout of reef state. They even mention that such a signal can be used to monitor whether no-take zones are being respected in the first place (which I would love to see extend into "whether MPAs are any useful" surveys/discussions). And the intervention the study credits is the removal of the stressor itself, which in this case is the fishing pressure, rather than short-circuiting the solution by resorting to a "restore the microbiome" narrative. Respek!
+
+I know I digress, but actually we are not too far from the central theme here:
+
+Metabolic independence is a taxa- and habitat-independent microbial readout of ecosystem stability. In homeostasis, microbial community fills up with organisms that cannot survive alone. When homeostasis is tarnished, and the same ecological filter that rewards dependency starts punishing it. This captures the ecosystem state independent of a host, immune system, or fish directly. And this is a much broader framework to think about the implications of 'stress' on microbial ecosystems, what the readouts mean, and why and how they could be useful to understand how we should (or shouldn't) react to changes in biodiversity.
 
 
 ---
 
 I thank Terzin et al for putting together this great work. If this broader topic is of interest to you, and if you have some procrastination time this week, please consider reading all these studies in this order:
 
-- Watson, Füssel, and Veseli et al, https://doi.org/10.1186/s13059-023-02924-x (metabolic independence to explain changes in biodiversity under stress).
-- Marcelino et al, https://www.nature.com/articles/s41467-023-42112-w (disease-specific loss of microbial cross-feeding interactions in the gut)
-- Veseli et al, https://elifesciences.org/articles/89862 (metabolic independence scaled across thousands of gut metagenomes)
-- Terzin et al, https://www.biorxiv.org/content/10.64898/2026.07.23.740257v1 (coral reefs)
+- Watson, Füssel, and Veseli et al, [Metabolic independence drives gut microbial colonization and resilience in health and disease](https://doi.org/10.1186/s13059-023-02924-x) (explains changes in biodiversity under stress).
+- Marcelino et al, [Disease-specific loss of microbial cross-feeding interactions in the human gut](https://www.nature.com/articles/s41467-023-42112-w) (links changes in biodiversity to loss of cross-feeding interactions).
+- Veseli et al, [Microbes with higher metabolic independence are enriched in human gut microbiomes under stress](https://elifesciences.org/articles/89862) (scales up metabolic independence hypothesis across thousands of gut metagenomes).
+- Terzin et al, [No-take marine reserves promote oligotrophic reef bacterioplankton communities across the Great Barrier Reef](https://www.biorxiv.org/content/10.64898/2026.07.23.740257v1) (links perturbations in reefs to increased representation of microbes with high metabolic independence).
 
 Apart from that, I wish you a great week, and see you next time.
 
