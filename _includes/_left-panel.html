@@ -1,29 +1,82 @@
 <div class="left-panel-content">
 
+  {% comment %}
+    Callers can drop a section that would just echo the page it sits on:
+      {% include _left-panel.html hide_posts=true %}   <- the blog index
+      {% include _left-panel.html hide_papers=true %}  <- the publications page
+  {% endcomment %}
+
+  {% unless include.hide_posts %}
+  {% assign rail_posts = site.posts | where_exp: "p", "p.authors.size > 0" %}
+
   <div class="left-panel-section">
     <span class="left-panel-label">Recent posts</span>
     <ul class="left-panel-list">
-      {% for post in site.posts limit:4 %}
-      <li>
-        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-        <span class="left-panel-meta">{{ post.date | date: "%Y" }}</span>
+      {% for post in rail_posts limit:6 %}
+      {% if forloop.first %}
+      <li class="lp-lead">
+        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+          {% if post.thumbnail %}
+          <span class="lp-thumb"><img src="{{ site.url }}{{ post.thumbnail }}" alt="" loading="lazy" /></span>
+          {% else %}
+          <span class="lp-thumb lp-thumb-empty"></span>
+          {% endif %}
+          <span class="lp-title">{{ post.title }}</span>
+          <span class="left-panel-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </a>
       </li>
+      {% else %}
+      <li class="lp-row">
+        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+          {% if post.thumbnail %}
+          <span class="lp-thumb"><img src="{{ site.url }}{{ post.thumbnail }}" alt="" loading="lazy" /></span>
+          {% else %}
+          <span class="lp-thumb lp-thumb-empty"></span>
+          {% endif %}
+          <span class="lp-title">{{ post.title }}</span>
+        </a>
+      </li>
+      {% endif %}
       {% endfor %}
     </ul>
     <a href="{{ site.url }}/blog/" class="left-panel-more">all posts →</a>
   </div>
+  {% endunless %}
 
+  {% unless include.hide_papers %}
   <div class="left-panel-section">
     <span class="left-panel-label">Recent papers</span>
     <ul class="left-panel-list">
-      {% for pub in site.data.pubs.publications limit:4 %}
-      <li>
-        <a href="{{ site.url }}/publications/#{{ pub.doi }}">{{ pub.title }}</a>
-        <span class="left-panel-meta">{{ pub.year }}</span>
+      {% for pub in site.data.pubs.publications limit:6 %}
+      {% assign pub_image = pub.additional_info.featured_image %}
+      {% if forloop.first %}
+      <li class="lp-lead">
+        <a href="{{ site.url }}/publications/#{{ pub.doi }}" title="{{ pub.title }}">
+          {% if pub_image %}
+          <span class="lp-thumb"><img src="{{ site.url }}{{ pub_image | strip }}" alt="" loading="lazy" /></span>
+          {% else %}
+          <span class="lp-thumb lp-thumb-empty"></span>
+          {% endif %}
+          <span class="lp-title">{{ pub.title }}</span>
+          <span class="lp-venue">{{ pub.journal | strip }} · {{ pub.year }}</span>
+        </a>
       </li>
+      {% else %}
+      <li class="lp-row">
+        <a href="{{ site.url }}/publications/#{{ pub.doi }}" title="{{ pub.title }}">
+          {% if pub_image %}
+          <span class="lp-thumb"><img src="{{ site.url }}{{ pub_image | strip }}" alt="" loading="lazy" /></span>
+          {% else %}
+          <span class="lp-thumb lp-thumb-empty"></span>
+          {% endif %}
+          <span class="lp-title">{{ pub.title }}</span>
+        </a>
+      </li>
+      {% endif %}
       {% endfor %}
     </ul>
     <a href="{{ site.url }}/publications/" class="left-panel-more">all papers →</a>
   </div>
+  {% endunless %}
 
 </div>

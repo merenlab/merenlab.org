@@ -25,6 +25,12 @@ img, video { max-width: 100%; height: auto; vertical-align: middle; }
   --color-link-visited: #4d4d4d;
   --color-black: #111;
   --color-white: #fff;
+
+  /* Widest the page shell is allowed to get. Past this the window keeps
+     growing but the content does not, so lines stay a readable length on
+     very large monitors. The feature photo and the navigation bar are
+     deliberately left full-bleed. */
+  --page-max: 2200px;
 }
 
 /* ========================================================================
@@ -428,6 +434,21 @@ details {
 
   img { width: 100%; height: auto; border-bottom: 1px solid #dedede; }
 
+  /* The group logo sitting on top of the feature photo. The photo itself keeps
+     scaling with the viewport, but the logo stops growing once it reaches the
+     size it has on a 1600px-wide window: beyond that its lettering starts to
+     dwarf the body type and the page reads badly. */
+  #group-name-big {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50%;
+    max-width: 800px; /* == 50% of a 1600px viewport */
+
+    /* Overrides the border-bottom that .image-wrap img puts on the photo */
+    img { border: none; }
+  }
+
   .headline-wrap {
     position: absolute;
     bottom: 25px;
@@ -454,6 +475,9 @@ details {
 #main {
   counter-reset: captions;
   width: 100%;
+  max-width: var(--page-max);
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 20px;
   box-sizing: border-box;
   display: flex;
@@ -471,9 +495,12 @@ details {
   @media (min-width: 1000px) {
     display: inline;
     float: left;
-    width: 8.3333333333%;
+    /* 13% + 3.6666666667% == the old 8.3333333333% + 8.3333333333%, so the
+       article column stays exactly where it was while the rail gets room
+       enough for thumbnails to read. */
+    width: 13%;
     margin-left: 2.0833333333%;
-    margin-right: 8.3333333333%;
+    margin-right: 3.6666666667%;
   }
 }
 
@@ -524,49 +551,112 @@ article.page,
    ======================================================================== */
 
 .left-panel-content { padding-top: 1em; }
-.left-panel-section { margin-bottom: 1.5em; }
+.left-panel-section { margin-bottom: 1.6em; }
 
 .left-panel-label {
   display: block;
   font-variant: all-small-caps;
   font-size: 0.8em;
   color: #999;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 3px;
 }
 
 .left-panel-list {
   list-style: none;
-  margin: 0 0 6px 0;
+  margin: 0 0 7px 0;
   padding: 0;
 
-  li { margin-bottom: 8px; }
+  a { text-decoration: none; }
+}
 
-  a {
+/* Thumbnails: post thumbnails and paper featured images are all square or
+   near-square, so every crop below stays square or close to it. */
+.lp-thumb {
+  display: block;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #f2f1ee;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  img {
     display: block;
-    font-size: 0.75em;
-    line-height: 1.4;
-    text-decoration: none;
-    opacity: 0.85;
-    &:hover { opacity: 1; }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s ease;
+  }
+}
+
+/* Shown when a post has no thumbnail, or a paper no featured_image */
+.lp-thumb-empty { background: linear-gradient(135deg, #f4f3f0 0%, #e6e4df 100%); }
+
+a:hover .lp-thumb img { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-thumb img { transition: none; }
+  a:hover .lp-thumb img { transform: none; }
+}
+
+/* The lead item of each section carries a real image */
+.lp-lead {
+  margin-bottom: 13px;
+
+  .lp-thumb { width: 100%; aspect-ratio: 16 / 10; }
+
+  .lp-title {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.885em;
+    font-weight: bold;
+    line-height: 1.3;
+    color: var(--color-text);
   }
 
-  li:nth-child(1) a { color: #d53e4f; }
-  li:nth-child(2) a { color: #c9a53c; }
-  li:nth-child(3) a { color: #99d594; }
-  li:nth-child(4) a { color: #3288bd; }
+  a:hover .lp-title { color: #3288bd; }
+}
+
+/* The five that follow ride as thin rows */
+.lp-row {
+  margin-bottom: 10px;
+
+  > a { display: flex; gap: 8px; align-items: flex-start; }
+
+  .lp-thumb { flex: 0 0 30px; width: 30px; height: 30px; }
+
+  .lp-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-width: 0;
+    font-size: 0.775em;
+    line-height: 1.3;
+    color: #5c5a54;
+  }
+
+  a:hover .lp-title { color: #3288bd; }
 }
 
 .left-panel-meta {
   display: block;
-  font-size: 0.7em;
+  font-size: 0.76em;
   color: #bbb;
-  margin-top: 1px;
+  margin-top: 2px;
+}
+
+.lp-venue {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.78em;
+  color: #999;
+  margin-top: 2px;
 }
 
 .left-panel-more {
-  font-size: 0.72em;
+  font-size: 0.79em;
   color: #0969da;
   text-decoration: none;
   &:hover { text-decoration: underline; }
@@ -624,9 +714,12 @@ article.page,
 
   @media (min-width: 62em) {
     width: 16%;
+    max-width: calc(var(--page-max) * 0.16);
     position: fixed;
     top: 2em;
-    right: 2em;
+    /* Fixed elements sit against the viewport, so once the shell stops growing
+       this has to track the shell's right edge or it drifts off on its own. */
+    right: max(2em, calc(50% - var(--page-max) / 2 + 2em));
   }
 
   header { background: #234C71; padding: 5px; }
@@ -679,9 +772,11 @@ article.page,
 
   @media (min-width: 62em) {
     width: 16%;
+    max-width: calc(var(--page-max) * 0.16);
     position: fixed;
     top: 2em;
-    right: 2em;
+    /* Tracks the shell's right edge — see the note on .toc above */
+    right: max(2em, calc(50% - var(--page-max) / 2 + 2em));
     max-height: calc(100% - 4em);
     overflow-y: auto;
   }
@@ -1189,6 +1284,9 @@ pre:hover .copy-code-btn { opacity: 1; }
 
 .footer-wrap {
   width: 100%;
+  max-width: var(--page-max);
+  margin-left: auto;
+  margin-right: auto;
   clear: both;
   padding-bottom: 3em;
 

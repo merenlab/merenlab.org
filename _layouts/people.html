@@ -12,7 +12,9 @@
 
 <div id="main" role="main">
   <div class="left-panel">
+    {% unless page.noleftpanel == true %}
     {% include _left-panel.html %}
+    {% endunless %}
   </div>
 
   {% capture people_content %}
