@@ -13,7 +13,7 @@ authors: [alex, meren]
 
 The purpose of this reproducible bioinformatics workflow is to give access to ad-hoc analyses and Python code that underpin our findings in the study, "**Synteny-aware microbial pangenomes reveal blueprints of genomic variation**" by Henoch et al:
 
-[PAPER WILL BE HERE ONCE THE BIORXIV PRE-PRINT IS OUT]
+[PRE-PRINT](https://www.biorxiv.org/content/10.64898/2026.07.03.736256v1)
 
 Here is a list of links for quick access to the raw and intermediate data used in our manuscript:
 
@@ -58,6 +58,13 @@ Reproduce our study requires a few simple steps to set things up, which will not
 
 This reproducible workflow assumes that you have access to a conda enviornment for the development version of anvi'o (`anvio-dev`), which you can install via [https://anvio.org/install/](https://anvio.org/install/#development-version).
 
+To make sure you always get identical results please go back to the anvi'o version that was used to create this workflow
+
+```bash
+/[some path to]/anvio
+git checkout c13a9e83f9041dc083724448f733afad8958f530
+```
+
 In addition to `anvio-dev`, the reproducible workflow requires a *second conda environment*, since some of the tools used below (such as `holoviews`) are not native to the anvio environment. To keep the two environments separate (so that the anvi'o stack stays intact and isolated from the analysis stack that is only used for downstream plotting and statistics), please run the following commands to generate a second conda enviornment. Running these commands will not take more than a minute on a laptop computer:
 
 ```bash
@@ -67,7 +74,7 @@ conda deactivate
 # create a new environment for the reproducible workflow
 conda create -y -n henoch_et_al_2026 -c conda-forge -c bioconda \
         python=3.10 \
-        holoviews matplotlib seaborn pandas numpy scipy biopython scikit-learn tqdm
+        holoviews matplotlib seaborn pandas numpy scipy biopython scikit-learn tqdm ruptures diptest
 ```
 
 At this stage, when you run `conda env list` on your terminal, you should see an output that includes at least the following two items:
@@ -208,7 +215,7 @@ which will give you an interactive display for that shows you the 'pangenome' pa
 
 {% include IMAGE path="images/undatipelagibacter_pangenome.png" width="70" caption="The Undatipelagibacter pangenome" %}
 
-And you can run teh following command to visalize the {% include ARTIFACT name='pan-graph-db' %} in your `01_DATA` directory,
+And you can run the following command to visalize the {% include ARTIFACT name='pan-graph-db' %} in your `01_DATA` directory,
 
 ```
 anvi-display-pan-graph -g 01_DATA/UNDATIPELAGIBACTER-GENOMES.db \
@@ -407,6 +414,58 @@ R-squared = 0.461
 The script will print the upper part of the paper's __Figure 4__. The lower part was generated from the visualized pangenome graph (and it will take a relatively long time to run, so beware).
 
 {% include IMAGE path="images/metrics_clustering.png" width="70" %}
+
+The continuity and unimodality analysis of the CVS curve mentioned in the same chapter was performed with the following command. It does three things, a Hartigan's dip test for unimodality a PELT changepoint analysis and a distribution fitting.
+
+```bash
+ python3 00_SCRIPTS/cvs_continuity_analysis.py \
+        --input 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt \
+        --output 02_RESULTS/cvs_continuity.png
+```
+
+```bash
+  Input table : 01_DATA/UNDATIPELAGIBACTER-PAN-GRAPH-SUMMARY/REGIONS.txt
+  CVS column  : composite_variability_score
+  Rows read   : 341
+  variable regions: 170
+    CVS >  0  : 92  (analysed)
+    CVS <= 0  : 78  (excluded)
+
+======================================================================
+  CVS CONTINUITY ANALYSIS
+======================================================================
+
+  Input: 92 variable regions with CVS > 0
+  Range: 0.066 – 0.994
+  Mean:  0.250  |  Median: 0.193
+
+----------------------------------------------------------------------
+  1. Hartigan's dip test for unimodality
+----------------------------------------------------------------------
+  Dip statistic : 0.0280
+  P-value       : 0.9120
+  Result        : No evidence for multimodality (unimodal)
+
+----------------------------------------------------------------------
+  2. PELT changepoint analysis (BIC penalty)
+----------------------------------------------------------------------
+  Penalty (BIC) : 4.52
+  Changepoints  : 0
+  Result        : No significant inflection point detected
+
+----------------------------------------------------------------------
+  3. Distribution fitting (log-normal vs. Gaussian mixtures)
+----------------------------------------------------------------------
+  Log-normal        : AIC = -137.81  |  BIC = -130.25
+  GMM (1-component)  : AIC = -63.14  |  BIC = -58.10
+  GMM (2-component)  : AIC = -125.23  |  BIC = -112.63
+  GMM (3-component)  : AIC = -125.64  |  BIC = -105.47
+
+  ΔAIC (2-component GMM − log-normal) : 12.58
+  Result : Log-normal (single distribution) fits better
+
+======================================================================
+```
 
 ### Complexity, expansion, weight, and diversity
 
@@ -688,7 +747,7 @@ trimal -in  02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS/UNDATIPELAGIBACTER-ALPHA
 And ran IQTREE to calculate the final tree for genomes:
 
 {:.warning}
-While working on our manuscript, we re-ran the reproducible workflow you are reading many many times. And it became clear to us that in some cases the phylogenomics analysis of the *Undatipelagibacter* genomes will yiled ever slightly different trees (most likely as a by product of the maximum likelihood calculations -- when the starting trees chance, the final output after so many iterations also change in tiny amounts). Slight changes in the initial genome trees will give you slightly different numbers after thousands of permutations in downstream analyses on this page, especially Skp co-selection tests below. Please note that none of the trees we came up with changed any of our conclusions or significance scores since the differences were quite minmal. Why this note, then? Well, this note is here in case you want to have *byte-perfect* reproduction of our results. If that is the case, please skip to the [next section](#recovery-and-phylogenetics-of-skp-genes) without running the IQ-TREE analysis below. You already have the genome tree that gave us the outputs you have on this page and in our manuscript in your git clone. If you continue with the IQ-TREE analysis here nothing will change. The following commands will simply overwrite the tree file, and the rest will use your copy rather than the original file. 
+While working on our manuscript, we re-ran the reproducible workflow you are reading many many times. And it became clear to us that in some cases the phylogenomics analysis of the *Undatipelagibacter* genomes will yield ever slightly different trees (most likely as a by product of the maximum likelihood calculations -- when the starting trees chance, the final output after so many iterations also change in tiny amounts). Slight changes in the initial genome trees will give you slightly different numbers after thousands of permutations in downstream analyses on this page, especially Skp co-selection tests below. Please note that none of the trees we came up with changed any of our conclusions or significance scores since the differences were quite minmal. Why this note, then? Well, this note is here in case you want to have *byte-perfect* reproduction of our results. If that is the case, please skip to the [next section](#recovery-and-phylogenetics-of-skp-genes) without running the IQ-TREE analysis below. You already have the genome tree that gave us the outputs you have on this page and in our manuscript in your git clone. If you continue with the IQ-TREE analysis here nothing will change. The following commands will simply overwrite the tree file, and the rest will use your copy rather than the original file. 
 
 ```bash
 iqtree -s 02_RESULTS/UNDATIPELAGIBACTER-PHYLOGENOMICS//UNDATIPELAGIBACTER-ALPHASCGs-AA.fa \
