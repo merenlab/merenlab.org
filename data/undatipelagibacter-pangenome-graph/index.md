@@ -58,11 +58,18 @@ Reproduce our study requires a few simple steps to set things up, which will not
 
 This reproducible workflow assumes that you have access to a conda enviornment for the development version of anvi'o (`anvio-dev`), which you can install via [https://anvio.org/install/](https://anvio.org/install/#development-version).
 
-To make sure you always get identical results please go back to the anvi'o version that was used to create this workflow
+To make sure you always get identical results please go back to the anvi'o version that was used to create this workflow. 
 
 ```bash
 /[some path to]/anvio
 git checkout c13a9e83f9041dc083724448f733afad8958f530
+```
+
+We also need one package not included during the standard installation of anvi'o
+
+```bash
+conda activate anvio-dev
+conda install bioconda::dendropy
 ```
 
 In addition to `anvio-dev`, the reproducible workflow requires a *second conda environment*, since some of the tools used below (such as `holoviews`) are not native to the anvio environment. To keep the two environments separate (so that the anvi'o stack stays intact and isolated from the analysis stack that is only used for downstream plotting and statistics), please run the following commands to generate a second conda enviornment. Running these commands will not take more than a minute on a laptop computer:
