@@ -20,6 +20,37 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Synteny-aware pangenome graphs
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.64898/2026.07.03.736256"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.64898/2026.07.03.736256" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.64898/2026.07.03.736256" target="_new">Synteny-aware microbial pangenome graphs reveal blueprints of genomic variation</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Henoch A</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Sever M</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Tucker SJ</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Trigodet F</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Veseli I</span>, Chang T, McInerney JO, Söylev A, Freel KC, Rappé MS, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/henoch_et_al_pangenome_graphs.png"><img src="/images/pubs/henoch_et_al_pangenome_graphs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Brings gene synteny into pangenomics through a novel network-pruning and graph-layout algorithm implemented in the new anvi'o programs <a href="https://anvio.org/help/main/programs/anvi-pan-genome-graph/" target="_blank">anvi-pan-genome-graph</a> and <a href="https://anvio.org/help/main/programs/anvi-display-pan-graph/" target="_blank">anvi-display-pan-graph</a>, enabling interactive, synteny-aware visualization and quantification of backgone and variable regions in a pangenome.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Analyzes 29 <i>Undatipelagibacter</i> (formerly SAR11 subclade Ia.3.VI) genomes, and reveals that genomic variability forms not a few hypervariable islands against a static backbone but a structured continuum, whose variable regions differ in scale, topology, function, and evolutionary character.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Displays epistatic co-selection in all its glory, revaling that some evolutionary processes act on entire functional subsystems, which is a notion that have significant implications on theoretical models on genome evolution.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- A step-by-step user <a href="https://merenlab.org/pangraph-tutorial/" target="_blank">tutorial</a> demonstrates how to build and explore synteny-aware pangenome graphs, and a reproducible bioinformatics workflow for our study, along with raw and intermediate data products, is available <a href="https://merenlab.org/data/undatipelagibacter-pangenome-graph" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Synteny-aware+microbial+pangenome+graphs+reveal+blueprints+of+genomic+variation" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.64898/2026.07.03.736256" target="_blank">doi:10.64898/2026.07.03.736256</a></span>
+</div>
+
+### Raw and/or reproducible data items
+
+* [FASTA files](https://cloud.uol.de/public.php/dav/files/jSFTXG3cSQMBjYX) for the 29 *Undatipelagibacter* (formerly SAR11 subclade Ia.3.VI) genomes the study analyzes.
+* [Anvi'o contigs databases](https://cloud.uol.de/public.php/dav/files/7bRpYznDNBedSRk) for the same 29 genomes, as annotated [digital microbe](https://doi.org/10.1038/s41597-024-03778-z) files. Please note that an anvi'o {% include ARTIFACT name="contigs-db" %} includes gene calls, functional annotations, HMM hits, and other information about each contig, and you can always use the program {% include PROGRAM name="anvi-export-contigs" %} to get a FASTA file for sequences.
+* The *Undatipelagibacter* pangenome as an anvi'o {% include ARTIFACT name="genomes-storage-db" %} ([here](https://cloud.uol.de/public.php/dav/files/TN2bxBCbAS5DRDJ)) and an anvi'o {% include ARTIFACT name="pan-db" %} ([here](https://cloud.uol.de/public.php/dav/files/ctRp8xRWwaPSnp5)).
+* The *Undatipelagibacter* pangenome graph as an anvi'o {% include ARTIFACT name="pan-graph-db" %} ([here](https://cloud.uol.de/public.php/dav/files/8eZZYqNrAdXF4TA)), which you can visualize on your computer with the program {% include PROGRAM name="anvi-display-pan-graph" %}, along with its [summary output](https://cloud.uol.de/public.php/dav/files/8snz92oDqJeARDK) that describes gene clusters, backbone and variable regions in flat text files.
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/undatipelagibacter-pangenome-graph/](/data/undatipelagibacter-pangenome-graph) gives access to a **reproducible bioinformatics workflow** that regenerates the analyses and figures of the study from the data items above.
+
+[https://merenlab.org/tutorials/undatipelagibacter-pangenome-graph/](/tutorials/undatipelagibacter-pangenome-graph/) is a **step-by-step tutorial** that explains how the *Undatipelagibacter* pangenome graph is computed from FASTA files, and can be used as a template to build synteny-aware pangenome graphs from any set of genomes.
+
 ## Pelagibacterales (SAR11) phylogenomics
 
 <div class="pub_float">
