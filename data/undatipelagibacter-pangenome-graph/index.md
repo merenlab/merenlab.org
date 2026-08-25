@@ -1696,6 +1696,187 @@ Which produced the following output:
 That's why in the figure we reported the distance between Skp- and SurA-coding regions to be over 195 kbp (even though it can be up to closer to 250 kbp in some genomes).
 
 
+## How diverse is Skp in the environment?
+
+This part is not in our manuscript, but it is a natural question to ask after all the analyses we have done so far. Is the divergence profile we observe is a by-product of working with a small set of isolates, or is it representative of what is out there in the environment?
+
+Of course, it is notoriously difficult to address this quesion given very well-understood limitations of metagenomic assembly. The scenario around Skp is a nightmare for an assembler: conserved flanks with a highly divergent gene in the middle. This will undoubtedly lead to misassemblies, and only a fraction of Skp genes will be recovered from a metagenome with their flanking region in long-enough contigs.
+
+Here we took advantage of four long-read metagenomic assemblies our group has generated from surface ocean samples from Hawai'i and the northwestern Sargasso Sea, and implemented an extremely stringent analysis of everything we could fish out of these assemblies.
+
+Two of the first two long-read metagenomes come from the **Hawaiʻi Diel Sampling (HaDS)** project we described [here](https://merenlab.org/data/hads/). We are still working on this dataset, but we made the datasets publicly available and you can download the two station-specific long-read (LR) co-assemblies as anvi'o {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} files from [here](https://doi.org/10.6084/m9.figshare.28784717). The other two are from the **Bermuda Atlantic Time-series Study (BATS)** site. One of them is sampled in March and the other in September, both from 15 m depth. These are MUCH deeply sequenced long-read co-assemblies, and unfortunately they are not publicly available at the time of writing. But we will add a permanent link to them here as soon as they are released, so that this section can be reproduced end to end.
+
+We described all four in a two-column file, `01_DATA/LR-COASSEMBLIES.txt`, using the same format as {% include ARTIFACT name="external-genomes" %} (so if you downloaded the two HaDS assemblies, you can only include those in the file below and reproduce everything else that follows):
+
+|**name**|**contigs_db_path**|
+|:--|:--|
+|HIMB_STO1|01_DATA/STO1-LR-COASSEMBLY-CONTIGS.db|
+|HIMB_xHP1|01_DATA/xHP1-LR-COASSEMBLY-CONTIGS.db|
+|BATS_SEPT|01_DATA/BATS_SEP_015m_61_10.db|
+|BATS_MARC|01_DATA/BATS_MAR_015m_52_09.db|
+
+Together they bring together a massive search space dominated by the BATS assemblies:
+
+|**assembly**|**contigs**|**assembly size**|**coding gene calls**|**COG release**|
+|:--|--:|--:|--:|:--|
+|HIMB_STO1|170,280|3.92 Gbp|4,463,064|COG20|
+|HIMB_xHP1|171,698|3.91 Gbp|4,016,669|COG20|
+|BATS_SEPT|467,030|13.24 Gbp|14,611,120|COG24|
+|BATS_MARC|359,745|12.14 Gbp|13,330,967|COG24|
+|**total**|**1,168,753**|**33.21 Gbp**|**36,421,820**||
+
+Note the last column. The two projects were annotated at different times and therefore carry **different COG releases**. But it matters not, as we didn't search for Skp annotations to pull out loci that we may be interested given that an annotation-driven search was going to be biased towards the conserved end of the distribution we are trying to measure.
+
+So we inverted the problem: instead of searching for the Skp gene, we searched for **the neighborhood Skp lives in**, and then took whatever gene sat in the Skp slot regardless of whether anything had annotated it. The locus layout we anchored on is the one from `01_DATA/SKP_LOCUS_MAP.txt`, in genomic coordinate order:
+
+|**LpxI**|**LpxA**|**LpxD**|**FabA**|**[Skp]**|**BamA**|**Dxr**|**CdsA**|**UppS**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|COG3494|COG1043|COG1044|COG0764|**?**|COG4775|COG0743|COG0575|COG0020|
+
+Every flanking position is a conserved, confidently annotated gene. Only the middle one is a mystery, hopefully, Skp. But we went one step ahead to make sure those mysterious genes that sit in this neighborhood had nothing to do with Skp. We built an HMM from the 29 reference Skp proteins we know about (using the very `muscle` alignment from the [phylogenetics section](#recovery-and-phylogenetics-of-skp-genes) above), and discareded those that did not match. This way both **synteny** and **sequence** had to agree before we accepted a locus for downsteram analyses.
+
+{:.notice}
+As a sanity check, running the same search strategy against the 29 isolate {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} did recover **29 of 29** Skp genes, one per genome, with no false positives, and the gene caller ids it reports match the Skp gene clusters in the pangenome exactly. As expected, the HMM also recovered all 29 reference proteins.
+
+The HMM insurance may appear as a gatekeeper for diverse Skp sequences, but the 29 reference proteins we used to build id have roughly 25% amino acid identity among themselves, so `hmmbuild` derives a deliberately broad, high-entropy profile that encodes the variability of Skp. Indeed, when we searched against 36.4 million gene calls in our dataset, the Skp genes we ended up accepting scored at a **median E-value of 6e-38**. The very weakest of them at 2e-18, even though the median is only 39% identical to the nearest cultured Skp. We interpret this as "HMM is doing its job, and it is not the limiting factor in this search".
+
+Of the **1,431** loci in long-read assmblies that satisfied our stringent synteny criteria, **1,424** also cleared the HMM. All these steps are neatly encapculated in a Python script, [skp_environmental_survey.py](https://github.com/merenlab/Henoch_et_al_2026_pangenome_graphs/blob/main/00_SCRIPTS/skp_environmental_survey.py),  which makes use of the anvio' API and it exports each surviving locus as an individual {% include ARTIFACT name="contigs-db" %} from the long-read assemblies (an immense power that is brough to you by, anvi'o).
+
+This script can take any number of assemblies, so the same command works whether you have two co-assemblies or twenty as long as your assemblies are listed in `01_DATA/LR-COASSEMBLIES.txt`:
+
+```bash
+python 00_SCRIPTS/skp_environmental_survey.py -e 01_DATA/LR-COASSEMBLIES.txt \
+                                              -o 02_RESULTS/SKP-ENVIRONMENTAL-LOCI \
+                                              -T 12
+```
+
+Here are some additional details about how the script works and what it outputs:
+
+* **Every locus is written in the same orientation**. A contig may carry the locus either way around, so the script scores the flanking gene order in both readings and reverse-complements the sequence when the reversed reading wins. Of the loci we recovered, **688 of 1,424** had to be flipped (almost half, which is reassuring). We made sure that the orientation is decided by gene synteny rather than by the strand of any single gene since we didn't know whether the orientation of Skp or any other gene could indicate the locus direction.
+* **Every locus starts and ends with the same gene**. Each exported locus is trimmed to run from LpxA (COG1043) to Dxr (COG0743). Both are single-COG backbone genes present in essentially every locus, which gives the pangenome graph one entry node and one exit node.
+* **COG annotations are given a release-neutral copy**. {% include PROGRAM name="anvi-gen-genomes-storage" %} keeps only the annotation sources it finds common to every genome, so pooling COG20-annotated and COG24-annotated loci silently discards whichever release is in the minority (which would have left 1,311 of the 1,424 loci with no functional annotation at all in our case). So the script sneaks into the contigs-db an additional copy of every COG entry under `COG_FUNCTION` (and `COG_CATEGORY`, `COG_PATHWAY`) so the pooled pangenome is still functionally annotated.
+* The script names each locus as `<assembly_name>_<gene_callers_id>`, where the gene caller id is that of the Skp gene in the *original* co-assembly, so every exported locus can be traced back to exactly where it came from.
+
+Here is the most informative part of the output of the script:
+
+```no-copy
+ALL ASSEMBLIES: FROM Skp-LIKE PROTEINS TO ACCEPTED LOCI
+=======================================================
+Skp-like proteins (HMM, E < 1e-05) ...........: 7,756
+  ...Bracketed by FabA and BamA ..............: 2,654 (-5,102)
+  ...Flank concordance >= 6/8 ................: 1,935 (-719)
+  ...Skp gene >= 140 aa ......................: 1,848 (-87)
+  ...Both boundary anchors present (LpxA, Dxr) : 1,808 (-40)
+  ...No split gene calls .....................: 1,424 (-384)
+
+ACCEPTED LOCI ................................: 1,424
+```
+
+The last one (no split gene calls) costs us a great deal of loci :/ But given that the long-read assemblies carry a lot of indel errors, and an indel inside a gene risks a lot of what we are interested downstream, we couldn't afford to have any split gene calls, so we stayed on the safe side. Th same goes for the `--min-skp-length 140`, which drops any locus that encodes a Skp that is much shorter than the expected lenght of ~170 amino acids. Together these two filters removed **471** candidates, but it was most probably worth it, even though they were almost CERTAINLY real Skp loci as they have the right synteny, and they have a Skp gene the HMM recognizes, but we cut our losses and move on:
+
+```no-copy
+WHAT THE STRINGENCY COST
+===============================================
+471 candidates had the right synteny and a real Skp gene, and were dropped only
+because their Skp gene call was truncated or a neighbouring gene was split by an
+assembly indel. Those are very probably genuine Skp loci. Whatever number of
+loci this run accepts is therefore a floor on the Skp diversity out there, not
+an estimate of it.
+```
+
+At the end, we kept 89 loci from `HIMB_STO1`, 24 from `HIMB_xHP1`, 534 from `BATS_SEPT` and 777 from `BATS_MARC`, where each one of these loci are as reliable as possible with a median Skp gene lenght of 170 (which ranges between 166 and 173 in the isolates).
+
+The 1,424 loci are _close to non-redundant_. **1,209** of them are unique amino acid sequences. Clustered by amino acid identity, and set against the 29 Skp genes from culture:
+
+|**amino acid identity**|**environmental Skp variants**|**isolate Skp variants**|**ratio**|
+|:--|--:|--:|--:|
+|100% (identical)|1,209|19|63.6x|
+|>= 95%|916|19|48.2x|
+|>= 90%|777|19|40.9x|
+|>= 80%|518|18|28.8x|
+|>= 70%|350|18|19.4x|
+
+So four long-read metagenomes, filtered as harshly as we knew how, yielded somewhere between **19 and 64 times** as many distinct Skp variants as our 29 isolates did depending on where you draw the clustering threshold. At the most conservative threshold in that table, 350 distinct Skp variants against 18. The more striking number is how far these sequences sit from the cultured ones. The 1,424 environmental Skp proteins are between **31.5% and 83.4%** identical to the closest of the 29 isolate Skp genes, with a median of **38.9%**. Remember, the mean pairwise amino acid identity *among* the 29 isolate Skp genes was **39.7%**. In other words, a typical environmental Skp at this locus is about as distant from the cultured Skp genes as the cultured Skp genes are from one another.
+
+We moved on to see some of these results in action. We generated a {% include ARTIFACT name="genomes-storage-db" %} from the 1,424 loci, which is the first step in building a pangenome:
+
+```bash
+anvi-gen-genomes-storage -e 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI.txt \
+                         -o 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-GENOMES.db \
+                         --force-overwrite
+```
+
+```no-copy
+Number of genomes ............................: 1,424 (internal: 0, external: 1,424)
+Number of gene calls .........................: 8,557
+Number of partial gene calls .................: 56
+Number of non-coding gene calls ..............: 0
+```
+
+Then we built the pangenome itself. Anvi'o complained that 1,424 genomes is far more than its pangenomics workflow is designed for. And since in our case each 'genome' is a six-gene locus rather than an actual genome, we told anvi'o to proceed anyway:
+
+```bash
+anvi-pan-genome -g 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-GENOMES.db \
+                -n SKP-ENV-LOCI \
+                -T 12 \
+                --force-overwrite \
+                --I-know-this-is-not-a-good-idea
+```
+
+The pangneome found 132 gene clusters across six synteny positions. We continued to build a pangenome graph:
+
+```bash
+anvi-pan-genome-graph -p 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-PAN.db \
+                      -g 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-GENOMES.db \
+                      -e 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI.txt \
+                      -o 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-PAN-GRAPH.db \
+                      --force-overwrite \
+                      --min-line-pair-hits 3
+```
+
+```no-copy
+Candidate edges from gene clusters ..........................: 4,486,394
+Lines retained ..............................................: 1,424
+Orientation components ......................................: 1 (largest covers 1,424/1,424 lines)
+Odd-cycle contradictions detected ...........................: 0 (globally consistent)
+Graph nodes .................................................: 136
+Graph edges .................................................: 262
+Lines fused via pangenome graph engine ......................: 1,424 / 1,424
+Lines added as orphan chains ................................: 0
+Components ..................................................: 1 (largest = 136 nodes)
+```
+
+All 1,424 loci fused into a **single component** of 136 nodes with no orphans and no orientation contradictions, and the 132 gene clusters resolve into only 136 synteny gene clusters, essentially one node per gene cluster out of 4.5 million candidate edges :)
+
+{:.warning}
+`--min-line-pair-hits 3` is a critical and needed flag since the defaults implemented in {% include PROGRAM name="anvi-pan-genome-graph" %} considers bacterial chromosomes, and not short loci extracted from who knows where. This parameter sets the minimum number of shared edges between two contigs before the pair is given a relative orientation, and it defaults to **50**, which would have put all of them in a separate component (and which it indeed did, so we remembered the flag for a second run before writing these lines here).
+
+Once the pangenome graph was ready, we visualized it:
+
+```bash
+anvi-display-pan-graph -p 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-PAN-GRAPH.db \
+                       -g 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-GENOMES.db
+```
+
+Displaying that first graph turned out to be the a useful quality check as it revealed a small number of loci that ran odd connections through the upstream half of the backbone. We inspected these oddities by hand, and removed the lines matcing to the following eleven from `02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI.txt`:
+
+```no-copy
+BATS_SEPT_4867286     BATS_SEPT_10197987    BATS_MARC_10652962
+BATS_SEPT_13643101    BATS_SEPT_11151987    BATS_MARC_12955142
+BATS_SEPT_10452227    BATS_SEPT_2852192     BATS_MARC_2199368
+BATS_SEPT_5891458     HIMB_xHP1_768388
+```
+
+And then recalculated re-generated the genomes storage, pangenome, and pangenome graph using the same commands above, and visualized the final graph again (with [these settings](images/skp_environmental_pangenome_graph_settings.png) in case you are really interested in reproducing the exact same figure):
+
+```bash
+anvi-display-pan-graph -p 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-PAN-GRAPH.db \
+                       -g 02_RESULTS/SKP-ENVIRONMENTAL-LOCI/SKP-ENV-LOCI-GENOMES.db
+```
+{% include IMAGE path="images/skp_environmental_pangenome_graph.png" width="80" caption="The final pangenome graph, built from the 1,413 environmental Skp loci that survived manual inspection. With the eleven artefact-carrying loci removed, the LpxA-to-Dxr backbone runs clean and every parallel path through the graph is a genuine Skp variant. Find it here in SVG." %}
+
+Something fascinating, but not surprising, at all.
+
 ## Closing notes
 
 If you ran into something that did not behave as described, please open an issue on the [anvi'o GitHub repository](https://github.com/merenlab/anvio/issues) or leave a comment below; both are read regularly and bug reports help us improve the tooling for everyone.
