@@ -78,7 +78,7 @@ Since we are going to be using anvi'o to characterize the read recruitment resul
 
 ```
 anvi-gen-contigs-database -f genome.fa \
-                          -o genome.db
+                          -o genome.db
 ```
 
 The online documentation on {% include ARTIFACT name="contigs-db" text="contigs databases" %} suggest running the following optional programs on any contigs database to annotate its genes with functions, identify single-copy core genes in it, and enrich it with taxonomic information. While we are here, let's run those programs on our genome as well.
@@ -107,18 +107,17 @@ To actually perform the read recruitment analysis for a *single individual*, one
 
 ``` bash
 bowtie2 -x genome \
-        -1 metagenomes/magdalena-R1.fastq \
-        -2 metagenomes/magdalena-R2.fastq \
-        -S magdalena.sam
+        -1 metagenomes/magdalena-R1.fastq \
+        -2 metagenomes/magdalena-R2.fastq \
+        -S magdalena.sam
 ```
 
 (2) convert the SAM file into a BAM file,
 
 ``` bash
 samtools view -F 4 \
-              -bS magdalena.sam \
-              -o magdalena-RAW.bam
-
+              -bS magdalena.sam \
+              -o magdalena-RAW.bam
 ```
 
 (3) sort and index the BAM file:
@@ -134,9 +133,9 @@ Anvi'o is one of those programs that can make sense of BAM files. Using the anvi
 
 ```
 anvi-profile -i magdalena.bam \
-             -c genome.db \
-             -o magdalena-profile \
-             --cluster
+             -c genome.db \
+             -o magdalena-profile \
+             --cluster
 ```
 
 {:.notice}
@@ -147,7 +146,7 @@ The program {% include PROGRAM name="anvi-profile" %} processes the raw data sto
 
 ```
 anvi-interactive -c genome.db \
-                 -p magdalena-profile/PROFILE.db
+                 -p magdalena-profile/PROFILE.db
 ```
 
 We are done with one of the metagenomes. Four to go.
@@ -164,13 +163,13 @@ Please note that the name `magdalena` is not included below since we already hav
 ``` bash
 for person in batuhan alejandra jonas jessika
 do
-    echo "Working on ${person} ..."
-    bowtie2 -x genome -1 metagenomes/${person}-R1.fastq -2 metagenomes/${person}-R2.fastq -S ${person}.sam
-    samtools view -F 4 -bS ${person}.sam -o ${person}-RAW.bam
-    samtools sort ${person}-RAW.bam -o ${person}.bam
-    samtools index ${person}.bam
-    anvi-profile -i ${person}.bam -c genome.db -o ${person}-profile
-    rm -rf ${person}.sam ${person}-RAW.bam
+    echo "Working on ${person} ..."
+    bowtie2 -x genome -1 metagenomes/${person}-R1.fastq -2 metagenomes/${person}-R2.fastq -S ${person}.sam
+    samtools view -F 4 -bS ${person}.sam -o ${person}-RAW.bam
+    samtools sort ${person}-RAW.bam -o ${person}.bam
+    samtools index ${person}.bam
+    anvi-profile -i ${person}.bam -c genome.db -o ${person}-profile
+    rm -rf ${person}.sam ${person}-RAW.bam
 done
 ```
 
@@ -184,15 +183,15 @@ A successful completion of the these steps should result in five single profiles
 
 ``` bash
 ls */PROFILE.db
-alejandra-profile/PROFILE.db  batuhan-profile/PROFILE.db  jessika-profile/PROFILE.db  jonas-profile/PROFILE.db  magdalena-profile/PROFILE.db
+alejandra-profile/PROFILE.db  batuhan-profile/PROFILE.db  jessika-profile/PROFILE.db  jonas-profile/PROFILE.db  magdalena-profile/PROFILE.db
 ```
 
 Now we could use another anvi'o program, {% include PROGRAM name="anvi-merge" %}, to merge these individual profiles into a final merged profile database:
 
 ``` bash
 anvi-merge *-profile/PROFILE.db \
-           -c genome.db \
-           -o merged-profiles
+           -c genome.db \
+           -o merged-profiles
 ```
 
 Now we are ready to investigate things a bit deeper.
@@ -207,7 +206,7 @@ To investigate the occurrence of this genome in metagenomes from the individuals
 
 ```
 anvi-interactive -p merged-profiles/PROFILE.db \
-                 -c genome.db
+                 -c genome.db
 ```
 
 Which should give you the following display:
@@ -234,10 +233,10 @@ Now we can ask anvi'o to visualize coverage values of each gene in the {% includ
 
 ``` bash
 anvi-interactive -p merged-profiles/PROFILE.db \
-                 -c genome.db \
-                 -C DEFAULT \
-                 -b EVERYTHING \
-                 --gene-mode
+                 -c genome.db \
+                 -C DEFAULT \
+                 -b EVERYTHING \
+                 --gene-mode
 ```
 
 This should give you the gene-level coverages:

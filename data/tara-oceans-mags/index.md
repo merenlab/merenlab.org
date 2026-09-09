@@ -265,7 +265,7 @@ do
     # skip the Southern Ocean set
     if [ "$SET" == "SOC" ]; then continue; fi
 
-    anvi-script-reformat-fasta $SET-RAW.fa –-min-len 2500 --simplify-names -o $SET.fa
+    anvi-script-reformat-fasta $SET-RAW.fa --min-len 2500 --simplify-names -o $SET.fa
     anvi-gen-contigs-database -f $SET.fa -o $SET-CONTIGS.db
 done
 ```
@@ -273,7 +273,7 @@ done
 An exception to the `>2.5 kbp` selection was the Southern Ocean metagenomic set (SOC), for which we generated a file containing scaffolds `>5 kbp` to increase the accuracy of tetra-nucleotide frequency signal to recover from the smaller contribution of differential coverage due to the limited number of samples collected from this region:
 
 ``` bash
-anvi-script-reformat-fasta SOC-RAW.fa –-min-len 5000 --simplify-names -o SOC.fa
+anvi-script-reformat-fasta SOC-RAW.fa --min-len 5000 --simplify-names -o SOC.fa
 anvi-gen-contigs-database -f SOC.fa -o SOC-CONTIGS.db
 ```
 
@@ -1183,7 +1183,7 @@ For each metagenomic co-assembly, we used the program `anvi-gen-contigs-database
 ``` bash
 for SET in `cat sets.txt`
 do
-    anvi-script-reformat-fasta $SET-RAW.fa –-min-len 1000 --simplify-names -o $SET-1000nt.fa
+    anvi-script-reformat-fasta $SET-RAW.fa --min-len 1000 --simplify-names -o $SET-1000nt.fa
     anvi-gen-contigs-database -f $SET-1000nt.fa -o $SET-CONTIGS.db
     anvi-get-aa-sequences-for-gene-calls -c $SET-CONTIGS.db -o $SET-AA_sequences.fa
 done
