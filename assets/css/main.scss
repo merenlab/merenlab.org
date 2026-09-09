@@ -1258,7 +1258,12 @@ img[src*="img.shields.io"] { border: none !important; box-shadow: none !importan
    16. Copy-code button
    ======================================================================== */
 
-pre .copy-code-btn {
+/* wraps every <pre> so the copy button can be positioned against a box that does
+   not scroll horizontally. no margins of its own: the <pre> keeps its own bottom
+   margin, which collapses through this wrapper. */
+.code-block-wrap { position: relative; }
+
+.code-block-wrap .copy-code-btn {
   position: absolute;
   top: 6px;
   right: 6px;
@@ -1276,7 +1281,7 @@ pre .copy-code-btn {
   &:hover { color: #333; border-color: #555; background: rgba(255,255,255,0.6); }
   i.fa-check { color: #4caf50; }
 }
-pre:hover .copy-code-btn { opacity: 1; }
+.code-block-wrap:hover .copy-code-btn { opacity: 1; }
 
 /* ========================================================================
    17. Footer
