@@ -29,6 +29,88 @@ TBD.
 
 TBD.
 
+## Obtaining publicly-available ocean metagenomes
+
+Our group works a lot with publicly-available marine metagenomes in various projects, so it was a natural choice to reuse some of these datasets for developing and testing the discov metric. Since we would need to subsample some metagenomes to mimic lower sequencing depths and we would test the application of discov for studying biogeography, our criteria for selecting which datasets to use was as follows:
+- they had to include at least some deeply sequenced samples to allow confident assessment of genome presence-absence and subsampling
+- they had to collectively span multiple ocean regions (temperate & polar, open ocean & coastal), depths and size fractions
+- they had to include accurate and complete metadata for sample location (latitude, longitude), depth, and size fraction
+- they had to include paired-end samples for consistent read-mapping behavior across all samples
+
+We settled on the following set of sequencing datasets from various ocean sampling efforts:
+
+|**`Project`**|**`Name`**|**`Num Samples (paired-end)`**|**`References`**|
+|:--|:--|:--|:--|
+|PRJEB1787|Tara Oceans (prokaryotic size fraction)| 136 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)
+|PRJEB9740|Tara Arctic (prokaryotic size fraction)| 41 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)
+|PRJEB4352|Tara Oceans (protist size fraction)| 828 | [Carradec et al 2018](https://www.nature.com/articles/s41467-017-02342-1)
+|PRJEB1788|Tara Oceans (prokaryotes and large DNA viruses size fraction)| 63 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)??
+|PRJEB4419|Tara Oceans (viral size fraction)| 90 | [Brum et al 2015](https://doi.org/10.1126/science.1261498), [Roux et al 2016](https://doi.org/10.1038/nature19366), [Gregory et al 2019](https://doi.org/10.1016/j.cell.2019.03.040)
+|PRJEB9742|Tara Arctic (viral size fraction)| 41 | [Brum et al 2015](https://doi.org/10.1126/science.1261498), [Roux et al 2016](https://doi.org/10.1038/nature19366), [Gregory et al 2019](https://doi.org/10.1016/j.cell.2019.03.040)
+|PRJEB8682|Ocean Sampling Day (OSD) 2014| 150 | [Kopf et al 2015](https://doi.org/10.1186/s13742-015-0066-5), https://doi.org/10.1594/PANGAEA.854419
+|PRJEB40760|OSD 2018| 52 | https://marineinfo.org/en/doc/dataset/7916
+|PRJEB40764|OSD 2019| 45 | https://marineinfo.org/en/doc/dataset/7917
+|Malaspina_Acinas (various BioProjects)|Malaspina| 58 | [Acinas et al 2021](https://www.nature.com/articles/s42003-021-02112-2), [Duarte et al 2015](https://doi.org/10.1002/lob.10008)
+|Malaspina_Sanchez (PRJEB52452) |Malaspina MProfile| 76 | [Sanchéz and Coutinho et al 2024](https://www.nature.com/articles/s41597-024-02974-1)
+|PRJEB83083|Antarctic Circumnavigation Expedition (ACE)| 218 | [Faure et al 2026](https://doi.org/10.1038/s41467-026-69584-w)
+| TOTAL | | **1,798** | |
+
+### Download & QC 
+We used a standardized procedure to download and process each dataset (individually) on our high-performance computing cluster. Here it is:
+
+1. Obtain a list of NCBI SRA run accessions (WGS samples only) associated with the BioProject, as well as a table mapping BioSamples to their component runs (you can usually get this information directly from SRA metadata files for the BioProject)
+2. Use the sra-download workflow in anvi'o to download raw FASTQ files for each run accession
+3. Use the metagenomics workflow in anvi'o to combine all runs belonging to the same BioSample and perform quality control with the Illumina utils program `iu-filter-quality-minoche`
+
+<details markdown="1"><summary>Show/Hide  Workflow commands and configuration files </summary>
+
+Here are the minimal workflow commands (without the specific flags needed for running them on our HPC):
+```bash
+# step 2
+anvi-run-workflow -w sra_download -c download_config.json  -A --rerun-incomplete --keep-going
+anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs --rerun-incomplete --keep-going
+```
+TBD Example config files for the workflows are available in the datapack at TBD.
+</details>
+
+With this, we obtained a folder of QC'ed, paired-end FASTQ files (one per BioSample) for each BioProject. We then put the absolute paths to all FASTQ files into a [samples-txt table](https://anvio.org/help/main/artifacts/samples-txt/) that we could use for easy access to the samples from anywhere on our cluster.
+
+### Metadata
+
+For most of the datasets, we were able to obtain the metadata we needed directly from the NCBI SRA Run Selector, where we downloaded the per-sequencing-run metadata for all runs in a given BioProject. For OSD 2014, we combined its SRA metadata with metadata from Pangaea (https://doi.pangaea.de/10.1594/PANGAEA.854419), and for the two Malaspina cruises, we got the metadata from supplementary tables of the corresponding papers (Supp. Table 1 from [Acinas et al 2021](https://www.nature.com/articles/s42003-021-02112-2) and Supp. Table 2 from [Sanchéz and Coutinho et al 2024](https://www.nature.com/articles/s41597-024-02974-1)).
+
+We then standardized and combined a subset of the metadata columns across all projects into one tab-delimited table (Supp. Table TBD of our paper), which is available in the datapack at TBD. Using `pandas`, we specifically extracted size fraction (upper and lower thresholds), depth, and location information (using 'Latitude_Start' and 'Longitude_Start' values in SRA tables when both starting and ending coordinates were available). We converted missing entries of various forms ('NA', 'not provided', etc) to blanks, standardized the column names, and dropped duplicate rows (which occurred for BioSamples with more than one sequencing run). As each initial metadata table was formatted slightly differently, the metadata processing code was correspondingly different across projects, but here is a representative example for BioProject PRJEB40760 (OSD 2018):
+
+```python
+import pandas as pd
+df = pd.read_csv("OSD_2018_SRA_metadata.txt", sep="\t")
+cols_of_interest=['BioSample', 'BioProject', 'Latitude_Start', 'longitude_start', 'Depth', 'sample_size-fraction_lower-threshold', 'sample_size-fraction_upper-threshold']
+sub = df[cols_of_interest]
+# convert to NA when applicable
+sub.replace('not provided', '', inplace=True)
+sub.replace('no prefiltration', '', inplace=True)
+sub.replace('no size limit', '', inplace=True)
+sub.replace('No prefiltration', '', inplace=True)
+rename_cols = {'Latitude_Start':'latitude', 'longitude_start':'longitude', 'Depth':'depth', 'sample_size-fraction_lower-threshold':'size_fraction_lower_threshold', 'sample_size-fraction_upper-threshold':'size_fraction_upper_threshold'}
+sub.rename(columns=rename_cols, inplace=True)
+sub.to_csv("PRJEB40760_SRA_metadata.txt", sep="\t", index=False)
+```
+
+Once each project's metadata file had the same columns and format, we combined them into one with a simple BASH loop:
+```bash
+head -n 1 PRJEB9742_SRA_metadata.txt > sample_metadata.txt; 
+for f in *metadata*.txt; do tail -n+2 $f >> sample_metadata.txt; done
+```
+
+### Sequencing Depth
+
+We used the number of paired sequencing reads to quantify the sequencing depth of each BioSample. Counting the number of reads in a FASTQ file can take a while, but some bioinformatics tools report the number of reads as part of their output -- we luckily had `bowtie2` logs available from previous read recruitment analyses with many of these samples. When possible, we extracted the number of reads from the `bowtie2` logs, and for samples we hadn't mapped yet, we ran `seqfu count` on the R1 FASTQ files to get a table of counts (R1 and R2 counts were the same because the earlier QC step removed any unpaired reads).
+
+The datapack includes a script to extract the count information at TBD. You can modify the variables at the top of the script to give it access to 1) a folder of `bowtie2` logs and 2) the output of `seqfu count`, then run it like this:
+```bash
+TBD
+```
+
 ## Generating a test dataset of manually-verified present/absent genomes
 
 TBD.
