@@ -4,7 +4,7 @@ title: A reproducible workflow for Füssel et al. 2026
 modified: 2026-05-20
 excerpt: "A bioinformatics workflow for genomically guided compound prediction in cultures and co-cultures"
 comments: true
-authors: [sam]
+authors: [sam, meren]
 redirect_from:
   - /dom-molecular-comp
 ---
@@ -15,7 +15,7 @@ redirect_from:
 
 **The purpose of this page** is to provide access to our bioinformatics workflow that predicted compound identifications of molecular features in our study titled "**Bacterial interactions shape the molecular composition of dissolved organic matter**" by Füssel et al.
 
-In addition to providing transparency in our methods, this workflow can be used as the basis for genomically guided compound prediction in other metabolomics experiments, which will also help refine and validate the approach.
+In addition to providing transparency in our methods and explaining what would have happened [if we were not as stringent in our annotations as we were](#upper-limits-of-formula-annotation-what-if-we-were-less-stringent), this workflow serves **a roadmap for genomically guided compound prediction in other metabolomics experiments through the anvi'o reaction network** implemented in {% include PROGRAM name="anvi-reaction-network" %}.
 
 </div>
 
@@ -742,6 +742,47 @@ Here are the numbers of formulas of different charges that match reaction networ
 - 4181 formulas with a charge of -2 were searched against reaction networks
   - 15 match refined network compounds
   - 15 match KEGG network compounds
+
+### Upper limits of formula annotation (what if we were less stringent?)
+
+The criteria we have used for our annotations has been deliberately stringent to minimize noise as much as possible. But the cost of that confidence (which we wish to preserve for our study) is the very large number of formula going unannotated. Which inspires a geniune question which was raised by our reviewers while this work was being evaluated: how many of the 4522 molecular formulas *could* have been associated with a known metabolite if we had been AS PERMISSIVE as data allowed us?
+
+Answer to this qeustion depends entirely on which requirements one is willing to abandon, so we investigated how the 'upper limit' of the number of formula we could annotate as a function of changing list of requirements by evaluating the impact of each filter explictily, and summarized it in the table below:
+
+|**Requirement retained**|**Formula/charge combinations**|**Distinct neutral formulas**|
+|:--|:--|:--|
+|None; all formulas searched|4522 + 4414 + 4181|4522|
+|The formula matches some compound in the ModelSEED Biochemistry database|667 + 243 + 73 = 983|&le; **983** (the absolute upper limit)|
+|... require ModelSEED compounds aliasing KEGG compounds|554 + 189 + 50 = 793|&le; 793|
+|... ... require KEGG compounds participating in KEGG reactions|280 + 130 + 40 = 450|&le; 450|
+|The matching compound is in the refined reaction network of the culture|71 + 29 + 15 = 115|&le; **115** (a reasonable upper limit)|
+|... using the KEGG networks rather than the refined networks|53 + 20 + 15 = 88|&le; 88|
+|The compound match occurs in **all** cultures containing the formula|96|**90** (stringent upper limit)|
+
+The number 90, which a stringent upper limit, further drops to 53 our subsequent filters. But what we are seeing so far means that,
+
+* If we **drop all five of the interpretive filters** (which are evaluated in the next section), but keep the genomic evidence intact, the number of annotated formulas cannot exceed **90**. These are the formulas of the [evaluation table](#evaluation-table) where every one of which matched at least one compound encoded in the reaction network of every culture in which the formula was observed.
+
+* If we **also abandon the requirement that a compound match be consistent across cultures**, then the ceiling rises to **115** formula/charge combinations, or somewhat fewer distinct neutral formulas, since a formula matching at both charge 0 and -1 is counted twice in that total.
+
+* If we **also abandon the genomic evidence altogether**, and only ask wehther a formula corresponds to *some* known metabolites in the database, the ceiling increases to **983** formula/charge combinations, or under 900 neutral formulas.
+
+Very important note here is that the last number (983) is a property of the formula assigments and the reference database for metabolites alone, and does not have anything to do with our ability to annotate functions or the functional potential represented in the genomes that we generated these measuerements from. Basically, this is the number we would have had if we simply matched all formulas in a compound database without any organismal context blindly. If we don't go as far and as blindly, then the only reasonable upper limit emerges as 115.
+
+Another question worth visualizing is how our 'interpretive' filters brought that reasonable 90 to a much less impressive 53 at the end. Within the [evaluation table](#evaluation-table) itself, the filters were applied from left to right with evaluation stopping at the first failure, and here is the the cumulative survivors, and how many formula survived a filter if at least one of its compound matches did:
+
+|**Filters applied through**|**Compound matches**|**Ionized formulas**|**Neutral formulas**|
+|:--|:--|:--|:--|
+|(no filters / all rows of the table)|161|96|90|
+|Database isomer specificity|144|93|87|
+|Annotation specificity|101|68|66|
+|Metabolic integration|88|60|58|
+|Ionizability|87|59|57|
+|Metabolic similarity|75|57|53|
+
+Annotation specificity is by far the most consequential filter that ends up removing a quarter of the remaining formulas by discarding compounds that entered the networks through enzyme annotations that are simply too braod (such as EC 1.1.1.1). The three filters that follow it barely change the formula count and it is reassuring: by the time a compound is supported by a specific enzyme annotation, it is also well-integrated into the network and chemically plausible for our extraction and ionization conditions. The loss is therefore concentrated in a single, well-motivated step rather than accumulating through a long chain of judgment calls, and truly signifies the importance of being stringent when working with annotations.
+
+This means that even if we reduced our stringency to 'this formula appears to correspond to some known metabolite', over 75% of the formula in our dataset would still lack an annotation. Which shows that the vast majority of microbial interactions in our experiments were mediated primarily by compounds that we cannot yet assign to specific metabolic roles.
 
 ## Evaluate compound matches
 
