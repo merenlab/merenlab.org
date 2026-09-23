@@ -43,17 +43,17 @@ We settled on the following set of sequencing datasets from various ocean sampli
 |:--|:--|:--|:--|
 |PRJEB1787|Tara Oceans (prokaryotic size fraction)| 136 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)
 |PRJEB9740|Tara Arctic (prokaryotic size fraction)| 41 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)
-|PRJEB4352|Tara Oceans (protist size fraction)| 828 | [Carradec et al 2018](https://www.nature.com/articles/s41467-017-02342-1)
+|PRJEB4352|Tara Oceans (protist size fraction)| 805 | [Carradec et al 2018](https://www.nature.com/articles/s41467-017-02342-1)
 |PRJEB1788|Tara Oceans (prokaryotes and large DNA viruses size fraction)| 63 | [Sunagawa et al 2015](https://www.science.org/doi/10.1126/science.1261359)??
 |PRJEB4419|Tara Oceans (viral size fraction)| 90 | [Brum et al 2015](https://doi.org/10.1126/science.1261498), [Roux et al 2016](https://doi.org/10.1038/nature19366), [Gregory et al 2019](https://doi.org/10.1016/j.cell.2019.03.040)
 |PRJEB9742|Tara Arctic (viral size fraction)| 41 | [Brum et al 2015](https://doi.org/10.1126/science.1261498), [Roux et al 2016](https://doi.org/10.1038/nature19366), [Gregory et al 2019](https://doi.org/10.1016/j.cell.2019.03.040)
 |PRJEB8682|Ocean Sampling Day (OSD) 2014| 150 | [Kopf et al 2015](https://doi.org/10.1186/s13742-015-0066-5), https://doi.org/10.1594/PANGAEA.854419
 |PRJEB40760|OSD 2018| 52 | https://marineinfo.org/en/doc/dataset/7916
 |PRJEB40764|OSD 2019| 45 | https://marineinfo.org/en/doc/dataset/7917
-|Malaspina_Acinas (various BioProjects)|Malaspina| 58 | [Acinas et al 2021](https://www.nature.com/articles/s42003-021-02112-2), [Duarte et al 2015](https://doi.org/10.1002/lob.10008)
-|Malaspina_Sanchez (PRJEB52452) |Malaspina MProfile| 76 | [Sanchéz and Coutinho et al 2024](https://www.nature.com/articles/s41597-024-02974-1)
+|Malaspina_Acinas_et_al (various BioProjects)|Malaspina| 58 | [Acinas et al 2021](https://www.nature.com/articles/s42003-021-02112-2), [Duarte et al 2015](https://doi.org/10.1002/lob.10008)
+|PRJEB52452|Malaspina MProfile| 76 | [Sanchéz and Coutinho et al 2024](https://www.nature.com/articles/s41597-024-02974-1)
 |PRJEB83083|Antarctic Circumnavigation Expedition (ACE)| 218 | [Faure et al 2026](https://doi.org/10.1038/s41467-026-69584-w)
-| TOTAL | | **1,798** | |
+| TOTAL | | **1,775** | |
 
 ### Download & QC 
 We used a standardized procedure to download and process each dataset (individually) on our high-performance computing cluster. Here it is:
@@ -100,6 +100,46 @@ Once each project's metadata file had the same columns and format, we combined t
 ```bash
 head -n 1 PRJEB9742_SRA_metadata.txt > sample_metadata.txt; 
 for f in *metadata*.txt; do tail -n+2 $f >> sample_metadata.txt; done
+```
+
+We later added a column indicating the human-readable name of the sequencing effort:
+
+```python
+import pandas as pd
+
+METADATA_FILE="00_DATA/sample_metadata.txt"
+df = pd.read_csv(METADATA_FILE, sep="\t", index_col=0)
+
+# any BioProject not in this list is associated with the original Malaspina cruise
+bioproject_to_effort_mapping = {
+"PRJEB1787": "Tara Oceans",
+"PRJEB9740": "Tara Arctic",
+"PRJEB4352": "Tara Oceans",
+"PRJEB1788": "Tara Oceans",
+"PRJEB4419": "Tara Oceans",
+"PRJEB9742": "Tara Arctic",
+"PRJEB8682": "OSD 2014",
+"PRJEB40760": "OSD 2018",
+"PRJEB40764": "OSD 2019",
+"PRJEB52452": "Malaspina MProfile",
+"PRJEB83083": "ACE",
+}
+
+df['sampling_effort'] = df['BioProject'].map(bioproject_to_effort_mapping).fillna('Malaspina')
+df.to_csv(METADATA_FILE, sep="\t")
+```
+
+And we dropped any samples that were missing latitude/longitude metadata. This affected ~23 samples from the Tara Oceans project PRJEB4352 (protist size fraction), which in fact were missing _all_ core metadata fields and not just the coordinates. There were originally 828 samples from this project, but removing the 23 with missing metadata brought the number down to 805.
+
+```python
+import pandas as pd
+
+METADATA_FILE="00_DATA/sample_metadata.txt"
+df = pd.read_csv(METADATA_FILE, sep="\t", index_col=0)
+
+na_samples = df[df.latitude.isna()].index.to_list()
+df.drop(labels=na_samples, inplace=True)
+df.to_csv(METADATA_FILE, sep="\t")
 ```
 
 ### Sequencing Depth
