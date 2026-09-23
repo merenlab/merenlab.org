@@ -68,6 +68,7 @@ Here are the minimal workflow commands (without the specific flags needed for ru
 ```bash
 # step 2
 anvi-run-workflow -w sra_download -c download_config.json  -A --rerun-incomplete --keep-going
+# step 3
 anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs --rerun-incomplete --keep-going
 ```
 TBD Example config files for the workflows are available in the datapack at TBD.
@@ -148,8 +149,25 @@ We used the number of paired sequencing reads to quantify the sequencing depth o
 
 The datapack includes a script to extract the count information at TBD. You can modify the variables at the top of the script to give it access to 1) a folder of `bowtie2` logs and 2) the output of `seqfu count`, then run it like this:
 ```bash
-TBD
+bash 01_SCRIPTS/get_read_counts.sh
 ```
+
+We later added these read count data into the metadata file:
+```python
+import pandas as pd
+
+METADATA_FILE="00_DATA/sample_metadata.txt"
+READS_FILE="00_DATA/sample_read_counts.txt"
+df = pd.read_csv(METADATA_FILE, sep="\t", index_col=0)
+reads = pd.read_csv(READS_FILE, sep="\t", index_col=0)
+
+df = df.join(reads)
+df.to_csv(METADATA_FILE, sep="\t")
+```
+
+## Obtaining OMDB v2 species cluster reference genomes
+
+TBD.
 
 ## Generating a test dataset of manually-verified present/absent genomes
 
