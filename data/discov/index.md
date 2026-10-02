@@ -67,9 +67,9 @@ We used a standardized procedure to download and process each dataset (individua
 Here are the minimal workflow commands (without the specific flags needed for running them on our HPC):
 ```bash
 # step 2
-anvi-run-workflow -w sra_download -c download_config.json  -A --rerun-incomplete --keep-going
+anvi-run-workflow -w sra_download -c download_config.json -A --keep-going
 # step 3
-anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs --rerun-incomplete --keep-going
+anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs --keep-going
 ```
 TBD Example config files for the workflows are available in the datapack at TBD.
 </details>
