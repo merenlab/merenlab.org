@@ -30,10 +30,8 @@ $(function() {
 // focus mode: hides the left panel and the TOC and lets the article fill the
 // page, so tutorials can be zoomed in and projected for a room.
 $(function() {
-  var $exit = $('<button type="button" class="focus-mode-exit" title="Exit focus mode (Esc)"><i class="fa fa-compress"></i></button>').appendTo('body');
   function setFocus(on) { $('body').toggleClass('focus-mode', on); }
   $('.focus-mode-btn').on('click', function() { setFocus(true); });
-  $exit.on('click', function() { setFocus(false); });
   $(document).on('keydown', function(e) { if (e.key === 'Escape') setFocus(false); });
 });
 </script>

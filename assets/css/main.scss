@@ -1300,8 +1300,6 @@ img[src*="img.shields.io"] { border: none !important; box-shadow: none !importan
   .fa { margin-right: 3px; }
 }
 
-.focus-mode-exit { display: none; }
-
 body.focus-mode {
   .left-panel,
   .toc { display: none !important; }
@@ -1312,23 +1310,6 @@ body.focus-mode {
     flex: 0 0 90%;
     width: 90%;
     max-width: none;
-  }
-
-  .focus-mode-exit {
-    display: block;
-    position: fixed;
-    bottom: 12px;
-    left: 12px;
-    z-index: 100;
-    background: transparent;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 4px 7px;
-    color: #bbb;
-    cursor: pointer;
-    opacity: 0.4;
-    transition: opacity 0.2s ease;
-    &:hover { opacity: 1; color: #333; }
   }
 }
 
