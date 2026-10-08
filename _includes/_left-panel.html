@@ -79,4 +79,10 @@
   </div>
   {% endunless %}
 
+  {% if page.layout == 'post' or page.layout == 'page' %}
+  <div class="left-panel-section">
+    <button type="button" class="focus-mode-btn" title="Hide the side panels and widen the article (Esc to exit)"><i class="fa fa-expand"></i> focus mode</button>
+  </div>
+  {% endif %}
+
 </div>
