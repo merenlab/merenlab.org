@@ -1,0 +1,45 @@
+diff --git a/anvio/interactive.py b/anvio/interactive.py
+index f0c3dee..de182fb 100644
+--- a/anvio/interactive.py
++++ b/anvio/interactive.py
+@@ -3399,6 +3399,7 @@ class ContigsInteractive():
+         self.progress.update('Basic stats ...')
+         basic_stats.append(['Total Length'] + [c['total_length'] for c in self.contigs_stats.values()])
+         basic_stats.append(['Num Contigs'] + [c['num_contigs'] for c in self.contigs_stats.values()])
++        basic_stats.append(['GC Content (%)'] + [f"{c['gc_content'] * 100:.2f}" for c in self.contigs_stats.values()])
+ 
+         self.progress.update('Number of contigs ...')
+         contig_lengths_for_all = [c['contig_lengths'] for c in self.contigs_stats.values()]
+diff --git a/anvio/summarizer.py b/anvio/summarizer.py
+index 6e6737d..454f2f5 100644
+--- a/anvio/summarizer.py
++++ b/anvio/summarizer.py
+@@ -1796,7 +1796,8 @@ class ContigSummarizer(SummarizerSuperClass):
+ 
+             # get contig lenghts without reading the entire contigs table
+             self.progress.update(f'Getting {project_name} contig lengths ...')
+-            contig_lengths = [row[1] for row in contigs_db.db.get_some_columns_from_table(t.contigs_info_table_name, 'contig,length')]
++            contig_lengths_and_gc = contigs_db.db.get_some_columns_from_table(t.contigs_info_table_name, 'length,gc_content')
++            contig_lengths = [row[0] for row in contig_lengths_and_gc]
+         except Exception as e:
+             raise ConfigError(f"Something went wrong when anvi'o was trying to access {project_name} tables sneakily :/ Here "
+                               f"is the error we got from the database engine: '{e}'. If you are seeing this message, please let "
+@@ -1809,6 +1810,10 @@ class ContigSummarizer(SummarizerSuperClass):
+ 
+         contig_lengths = sorted(contig_lengths, reverse=True)
+         total_length = sum(contig_lengths)
++
++        # GC content of the entire assembly. this is weighted by contig length, since a simple mean
++        # of per-contig GC values would give a 100 nt contig the same say as a 1,000,000 nt one.
++        gc_content = sum(length * gc for length, gc in contig_lengths_and_gc) / total_length if total_length else 0
+         num_contigs = len(contig_lengths)
+         contig_length_trimmed_mean = self.get_trimmed_mean(contig_lengths, fraction=0.1)
+ 
+@@ -1828,6 +1833,7 @@ class ContigSummarizer(SummarizerSuperClass):
+         summary = {}
+         summary['project_name'] = project_name
+         summary['total_length'] = total_length
++        summary['gc_content'] = gc_content
+         summary['num_genes'] = num_genes
+         summary['avg_gene_length'] = avg_gene_length
+         summary['avg_gene_length_trimmed_10pct'] = trimmed_mean_gene_length
