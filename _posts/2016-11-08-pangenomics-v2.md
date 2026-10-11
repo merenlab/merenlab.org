@@ -100,20 +100,51 @@ For the sake of reproducibility, the rest of the tutorial will follow a real exa
 
 We will simply create a pangenome of 31 [Prochlorococcus isolate genomes that we used in this study](https://peerj.com/articles/4320/).
 
-If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains anvi'o contigs databases for these isolate genomes on your computer:
+If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains anvi'o {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %} files for these isolate genomes on your computer. If you copy-paste the commands below, you will get all the contigs-db files:
 
 ``` bash
-curl -L https://api.figshare.com/v2/file/download/28834476 -o Prochlorococcus_31_genomes.tar.gz
-tar -zxvf Prochlorococcus_31_genomes.tar.gz
-cd Prochlorococcus_31_genomes
-anvi-migrate *.db --migrate-dbs-safely
+# create a work directory in your home called, and go into it
+mkdir -p ~/prochlorococcus-pangenome && cd ~/prochlorococcus-pangenome
+
+# create a temporary direcotry
+tmp_dir=$(mktemp -d /tmp/prochlorococcus.XXXXXX)
+
+# download the data pack
+curl -L https://api.figshare.com/v2/file/download/28834476 -o "$tmp_dir/Prochlorococcus_31_genomes.tar.gz"
+
+# unpack the data pack
+tar -zxf "$tmp_dir/Prochlorococcus_31_genomes.tar.gz" -C "$tmp_dir"
+
+# create a new directory to keep the contigs-db files
+mkdir -p CONTIGS-DBs
+
+# move all the contigs-db files from the data pack into this
+# directory
+mv $tmp_dir/Prochlorococcus_31_genomes/*db CONTIGS-DBs/
+
+# ALSO copy the additional data file from the data pack into
+# the clean work directory
+mv $tmp_dir/Prochlorococcus_31_genomes/layer-additional-data.txt ./genomes-data.txt
+
+# remove the temp directory so we forget all about this
+rm -rf "$tmp_dir" &&
+
+# migrate all the contigs-dbs for Prochlorococcus genomes
+anvi-migrate CONTIGS-DBs/*.db --migrate-quickly
 ```
 
-The directory contains anvi'o contigs databases, an external genomes file, and a TAB-delimited data file that contains additional information for each genome (which is optional, but you will see later why it is very useful). You can generate a genomes storage as described in this section the following way:
+Now you can generate an {% include ARTIFACT name="external-genomes" %} file for these contigs-db files:
+
+``` bash
+anvi-script-gen-genomes-file --input-dir CONTIGS-DBs/ \
+                             -o external-genomes.txt
+```
+
+And finally, you can generate a genomes storage as described in this section the following way:
 
 ``` bash
 anvi-gen-genomes-storage -e external-genomes.txt \
-                         -o PROCHLORO-GENOMES.db
+                         -o Prochlorococcus-GENOMES.db
 ```
 
 </div>
@@ -123,7 +154,7 @@ anvi-gen-genomes-storage -e external-genomes.txt \
 Once you have your genomes storage ready, you can use the program {% include PROGRAM name="anvi-pan-genome" %} to run the actual pangenomic analysis. This is the simplest form of this command:
 
 ``` bash
-$ anvi-pan-genome -g MY-GENOMES.db -n PROJECT_NAME
+anvi-pan-genome -g MY-GENOMES.db -n PROJECT_NAME
 ```
 
 <div class="extra-info" markdown="1">
@@ -133,22 +164,16 @@ $ anvi-pan-genome -g MY-GENOMES.db -n PROJECT_NAME
 Let's run the pangenome using the genomes storage we created using the 31 Prochlorococcus isolates:
 
 ``` bash
-anvi-pan-genome -g PROCHLORO-GENOMES.db \
-                --project-name "Prochlorococcus_Pan" \
-                --output-dir PROCHLORO \
-                --num-threads 6 \
-                --minbit 0.5 \
-                --mcl-inflation 10 \
-                --use-ncbi-blast
+anvi-pan-genome -g Prochlorococcus-GENOMES.db \
+                --project-name "Prochlorococcus" \
+                --num-threads 6
 ```
-
-Each parameter after the `--project-name` is optional (yet aligns to the way we run the pangenome for our publication).
 
 The directory you have downloaded also contains a file called "layer-additional-data.txt", which summarizes the clade to which each genome belongs. Once the pangenome is computed, we can add it into the pan database using the anvi'o program {% include PROGRAM name="anvi-import-misc-data" %}:
 
 ``` bash
-anvi-import-misc-data layer-additional-data.txt \
-                      -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+anvi-import-misc-data genomes-data.txt \
+                      -p Prochlorococcus-PAN.db \
                       --target-data-table layers
 
 New layers additional data...
@@ -171,7 +196,7 @@ When you run {% include PROGRAM name="anvi-pan-genome" %}, the program will,
 
 * Use [DIAMOND](http://ab.inf.uni-tuebingen.de/software/diamond/) ([Buchnfink et al., 2015](http://www.nature.com/nmeth/journal/v12/n1/abs/nmeth.3176.html)) in 'fast' mode by default (or you can ask DIAMOND to be 'sensitive' by using the flag `--sensitive`) to calculate the similarity of each amino acid sequence in every genome against every other amino acid sequence across all genomes (which clearly requires you to have DIAMOND installed). Alternatively you could use the flag `--use-ncbi-blast` to use NCBI's `blastp` for amino acid sequence similarity search.
 
-* Use every gene call, whether they are complete or not. Although this is not a big concern for complete genomes, metagenome-assembled genomes (MAGs) will have many incomplete gene calls at the end and at the beginning of contigs. Our experiments so far suggest that they do not cause major issues, but if you want to exclude them, you can use the `--exclude-partial-gene-calls` flag.
+* Use every gene call, whether they are complete or not. Although this is not a big concern for complete genomes, metagenome-assembled genomes (MAGs) will have many incomplete gene calls at the end and at the beginning of contigs. We believe they do not cause major issues, but if you want to exclude them, you can use the `--exclude-partial-gene-calls` flag.
 
 * Use the *minbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two amino acid sequences. You see, the pangenomic workflow first identifies amino acid sequences that are somewhat similar by doing similarity searches, and then resolves gene clusters based on those similarities. In this scenario, weak similarities can connect gene clusters that should not be connected. Although the network partitioning algorithm can recover from these weak connections, it is always better to eliminate as much noise as possible at every step. So the minbit heuristic provides a mean to set a to eliminate weak matches between two amino acid sequences. We learned it from ITEP (Benedict MN et al, doi:10.1186/1471-2164-15-8), which is another comprehensive analysis workflow for pangenomes, and decided to use it because it makes a lot of sense. Briefly, If you have two amino acid sequences, `A` and `B`, the minbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. So the minbit score between two sequences goes to `1.0` if they are very similar over the entire length of the 'shorter' amino acid sequence, and goes to `0.0` if (1) they match over a very short stretch compared even to the length of the shorter amino acid sequence or (2) the match between sequence identity is low. The default minbit is `0.5`, but you can change it using the parameter `--minbit`.
 
@@ -179,33 +204,31 @@ When you run {% include PROGRAM name="anvi-pan-genome" %}, the program will,
 
 * Utilize every gene cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the question you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
 
+* Perform multiple sequence alignment for sequences in each gene cluster separately (where number of threads changes a lot) to calculate homogeneity indices, and to prepare them for downstream visaulization tasks.
+
 * Use `euclidean` distance and `ward` linkage to organize gene clusters and genomes. You can change those using `--distance` and `--linkage` parameters.
 
-* Try to utilize previous search results if there is already a directory. This way you can play with the `--minbit`, `--mcl-inflation`, or `--min-occurrence` parameters without having to re-do the amino acid sequence search to gain time. If you are having hard time making anvi'o use the existing output files, please see the explanation in [this issue](https://github.com/merenlab/anvio/issues/1865). If you are not interested in using the previous search results, you can remove the output directory, or use the `--overwrite-output-destinations` flag to redo the search from scratch.
-
-{:.notice}
-You need another parameter? Well, of course you do! Let us know, and let's have a discussion. We love parameters.
-
-Once you are done, a new directory with your analysis results will appear. You can add or remove additional data items into your pan profile database using anvi'o [additional data tables subsystem]({% post_url 2017-12-11-additional-data-tables %}).
+When {% include PROGRAM name="anvi-pan-genome" %} is done, a new anvi'o {% include ARTIFACT name="pan-db" %} will appear in your work directory. You can add or remove additional data items into your pan profile database using anvi'o [additional data tables subsystem]({% post_url 2017-12-11-additional-data-tables %}).
 
 ## Displaying the pan genome
 
-Once your analysis is done, you will use the program {% include PROGRAM name="anvi-display-pan" %} to display your results.
+Once your analysis is done, you will use the program {% include PROGRAM name="anvi-display-pan" %} to display your results. If you simply run it in your work directory,
 
-This is the simplest form of this command:
-
-``` bash
-$ anvi-display-pan -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.db
+```
+anvi-display-pan
 ```
 
-The program {% include PROGRAM name="anvi-display-pan" %} is very similar to the program {% include PROGRAM name="anvi-interactive" %}, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url 2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course {% include PROGRAM name="anvi-display-pan" %} will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
-
-Here is the pangenome for the 31 *Prochlorococcus* isolate genomes we have created in the previous sections of this tutorial:
+it should find all the relevant files to display your pangeonme. If not, you can be explicit:
 
 ``` bash
-anvi-display-pan -g PROCHLORO-GENOMES.db \
-                 -p PROCHLORO/Prochlorococcus_Pan-PAN.db
+anvi-display-pan -g Prochlorococcus-GENOMES.db \
+                 -p Prochlorococcus-PAN.db
 ```
+
+{:.notice}
+The program {% include PROGRAM name="anvi-display-pan" %} is very similar to the program {% include PROGRAM name="anvi-interactive" %}, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url 2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Similar to {% include PROGRAM name="anvi-interactive" %}, {% include PROGRAM name="anvi-display-pan" %} will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more.
+
+Here is what you should expect to see when 
 
 [![31 Prochlorococcus raw]({{images}}/prochlorococcus-pangenomics-raw.png)]({{images}}/prochlorococcus-pangenomics-raw.png){:.center-img .width-60}
 
@@ -219,22 +242,14 @@ This is what happens when you draw it again (note the tree that appears on the r
 
 Looks more meaningful .. but still ugly.
 
-Well, this is exactly where you need to start using the interface more efficiently. For instance, this is the same pangenome after some changes using the additional settings items in the settings panel of the interactive interface:
+Well, this is exactly where you need to start using the interface more efficiently. For instance, this is the same pangenome after some tweaking through the interactive interface options:
 
 [![31 Prochlorococcus final]({{images}}/prochlorococcus-pangenomics-final.png)]({{images}}/prochlorococcus-pangenomics-final.png){:.center-img .width-60}
 
-If you downloaded the Prochlorococcus data pack, you will also find an anvi'o {% include ARTIFACT name="state" %} file that you can import into your pan database using the program {% include PROGRAM name="anvi-import-state" %}:
-
-``` bash
-anvi-import-state -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                  --state pan-state.json \
-                  --name default
-```
-
-No excuses for bad looking pangenomes.
+No excuses for bad looking pangenomes. Take a moment to practice these options.
 
 {:.notice}
-For an example, step-by-step instructions on how to improve a pangenome, see the polishing the pangenome section in [this reproducible workflow](https://merenlab.org/data/spiroplasma-pangenome/).
+For a step-by-step instructions on how to improve a pangenome, see the polishing the pangenome section in [this reproducible workflow](https://merenlab.org/data/spiroplasma-pangenome/). But since the interface changes much more rapidly compared to these tutorials over time, nothing beats some exploration alone.
 
 ## Inspecting gene clusters
 
@@ -376,8 +391,8 @@ And perform a quick-and dirty analysis on-the-fly to see how they would organize
 Or you could get the FASTA file with aligned and concatenated amino acid sequences for these gene clusters to do a more appropriate phylogenomic analysis:
 
 ``` bash
-anvi-get-sequences-for-gene-clusters -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                                     -g PROCHLORO-GENOMES.db \
+anvi-get-sequences-for-gene-clusters -p Prochlorococcus-PAN.db \
+                                     -g Prochlorococcus-GENOMES.db \
                                      -C default -b Better_core \
                                      --concatenate-gene-clusters \
                                      -o better_core.fa
@@ -530,8 +545,8 @@ Let's use the *Prochlorococcus* example to learn what we can do with this.
 First we will compare the low-light vs. the high-light genomes in order to see if there are any functions that are unique to either group using the 'light' categorical additional layer data (if this doesn't make sense to you please go back to one of the pangenome figures above and see the layer additional data 'light'):
 
 ```bash
-anvi-compute-functional-enrichment-in-pan -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                                          -g PROCHLORO-GENOMES.db \
+anvi-compute-functional-enrichment-in-pan -p Prochlorococcus-PAN.db \
+                                          -g Prochlorococcus-GENOMES.db \
                                           --category light \
                                           --annotation-source COG14_FUNCTION \
                                           -o enriched-functions.txt
@@ -614,14 +629,14 @@ anvi-compute-genome-similarity --external-genomes external-genomes.txt \
                                --program pyANI \
                                --output-dir ANI \
                                --num-threads 6 \
-                               --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
+                               --pan-db Prochlorococcus-PAN.db
 ```
 
 Once it is complete, we can visualize the pan genome using {% include PROGRAM name="anvi-display-pan" %} again to see what is new:
 
 ``` bash
-anvi-display-pan -g PROCHLORO-GENOMES.db \
-                 -p PROCHLORO/Prochlorococcus_Pan-PAN.db
+anvi-display-pan -g Prochlorococcus-GENOMES.db \
+                 -p Prochlorococcus-PAN.db
 ```
 
 When you first look at it you will not see anything out of ordinary. But if you go to the 'Layers' tab, you will see the following addition:
