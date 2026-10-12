@@ -254,11 +254,46 @@ And here is the scale for _evenness_:
 We combined all the evidence to manually confirm whether each candidate genome was 'present' or 'absent' in the sample. We stopped once we had manually verified 5 'present' genomes and 5 'absent' genomes per sample.
 
 {:.warning}
-The candidate genomes were not randomly selected from the [anvi-profile-blitz](https://anvio.org/help/main/programs/anvi-profile-blitz/) output -- we simply took the first 10 that fit our threshold criteria. That led to some overlap in the candidates across different samples, especially for the absent genomes (since it is much more likely for a given genome to be absent than present in a sample). 'Absent' candidates often exhibited the same read recruitment patterns across different samples, which makes sense given that sequences prone to recruiting non-specific reads will tend to recruit similar reads from all samples. This led to some redundant examples in our test set.
+The candidate genomes were not randomly selected from the [anvi-profile-blitz](https://anvio.org/help/main/programs/anvi-profile-blitz/) output -- we simply took the first 10 that fit our threshold criteria. That led to some overlap in the candidates across different samples, especially for the absent genomes (since it is much more likely for a given genome to be absent than present in a sample). 'Absent' candidates often exhibited similar read recruitment patterns across different samples, which makes sense given that sequences prone to recruiting non-specific reads will tend to recruit similar reads from all samples. This led to some redundant examples in our test set.
 
 For 'present' candidates, the read recruitment distribution often followed similar patterns and clearly indicated presence of the genome. Our initial high detection threshold for selecting candidates ensured that the reads were usually spread across most contigs in the genome (most had spread assessed at 4, some at 3), though coverage depth could sometimes vary substantially (evenness of 2-4). For these candidates, we started from one end of the genome and inspected each sequential split until an overall pattern was identified, and then we spot-checked other random regions of the genome to ensure the read recruitment patterns remained consistent. We also spot-checked splits with distinct- or unusual-looking mean coverage values in the main interface page. We paid attention to genes with missing coverage and genes with unusual coverage depth (compared to the rest of the genome) to ensure that these could generally be attributed to potential biological variation between the reference genome and an environmental population, such as differential functional content and mobile genetic elements, or to non-specific read recruitment. All 'present' candidates we validated were truly present in the metagenome. In one case (`TARA_SAMEA4398432_MAG_00000068` in sample `SAMEA4398432`), the candidate genome appeared to contain sequences from two distinct microbial populations, both of which were present in the metagenome sample at different abundance levels (there were two different 'modes' of coverage depth) -- however, since all sequences within this potentially-contaminated genome were clearly present in the sample, we kept it in our validated set.
 
 For 'absent' candidates, there was much more variation in the read recruitment patterns and these needed to be scrutinized more carefully. Many contigs in these genomes had no coverage at all; we did not visually inspect most of these but we paid attention to the contig lengths to get a sense of how long the uncovered regions were. We then inspected many contigs with nonzero mean coverage to identify the overall mapping pattern, paying attention to how many peaks of coverage there were, how deep the coverage was at each peak, how long the gaps were between regions with coverage, and how the peaks were distributed within a contig and relative to the locations of genes. If there was a relatively consistent mapping pattern across many contigs of the genome, we didn't exhaustively inspect each contig but rather spot-checked contigs in other regions of the genome to ensure they had the same pattern. Several of the candidate genomes were not clearly absent -- if a genome had reads mapping somewhat regularly with small but mostly even coverage depth and this pattern was consistent across many contigs, we threw out that candidate. For genomes that were verifiably absent, we tried to prioritize including genomes with different 'archetypes' of read recruitment patterns in our test set -- that is, including some absent genomes with higher spread and some absent genomes with higher evenness so the test set was representative of these different patterns. Ultimately, most verified absent genomes had a spread of 1-2 and evenness of 1-2, though evenness was sometimes quite high (3-4) in genomes where very few reads mapped without many clear peaks of non-specific read recruitment.
+
+Once we had our final set of 248 validated genome-metagenome pairs, we combined these into one file, `00_DATA/all_validated_genomes.txt`. This file contains key information from the initial `anvi-profile-blitz` output, as well as the genome label and the manually-assessed spread and evenness scores.
+
+We then extracted the reads mapping to the validated present/absent genomes in each of the 25 test samples. First, we ran the following script to subset each sample's BAM file. The script also generates a [contigs database](https://anvio.org/help/main/artifacts/contigs-db/) containing the contig sequences of all test genomes associated with the sample and a corresponding [collection-txt file](https://anvio.org/help/main/artifacts/collection-txt/):
+
+```bash
+bash 01_SCRIPTS/extract_validated_genomes.sh
+```
+It follows the same strategy as the previous script (`01_SCRIPTS/extract_candidate_genomes.sh`), but for the smaller set of validated genomes per sample.
+
+We used the subsetted BAM files to obtain the IDs of each sequencing read that mapped to the validated genomes, and we used the Illumina Utils program `iu-remove-ids-from-fastq` to subset these reads from the original FASTQ files for each metagenome. The script at `01_SCRIPTS/test_metagenome_subset_FASTQ.sh` handles these steps for one sample at a time, so we ran it on all samples using a loop:
+
+```bash
+# input paths to samples
+SAMPLES_TXT="00_DATA/test_samples.txt"
+
+while read s r1 r2
+do
+  01_SCRIPTS/test_metagenome_subset_FASTQ.sh $s
+done < <(tail -n+2 $SAMPLES_TXT)
+```
+
+The subset FASTQ files were our baseline samples for testing -- they were smaller (and therefore faster to work with) than the original metagenomes while still containing all of the reads that mapped to our test genomes in the large read recruitment analysis we did earlier to all of the OMDB v2 species representatives. From these baseline samples, we simulated the effect of lower sequencing depth by randomly subsampling reads:
+
+```bash
+# input paths to samples
+SAMPLES_TXT="00_DATA/test_samples.txt"
+
+while read s r1 r2
+do
+  01_SCRIPTS/test_metagenome_subsample_FASTQ.sh $s
+done < <(tail -n+2 $SAMPLES_TXT)
+```
+
+We subsampled at the following levels, where the number indicates the percentage of reads from the metagenome's subset FASTQ that were kept in the output subsample FASTQ files: 90%, 80%, 70%, 60%, 50%, 40%, 30%, 20%, 10%, 5%, 2%, 1%, 0.9%, 0.8%, 0.7%, 0.6%, 0.5%, 0.4%, 0.3%, 0.2%, and 0.1%. In each case, the subset FASTQ represents 100% of the reads (that is, 100% of the reads that are relevant to the validated genomes). Hence, for each of the 25 test metagenomes, we ultimately had 22 total pairs of FASTQ files that could be mapped back to the validated genomes to produce BAM files for testing various potential implementations of discov as part of `anvi-profile-blitz`.
 
 ## Identifying mathematical ways to quantify coverage 'spread' and 'evenness'
 
