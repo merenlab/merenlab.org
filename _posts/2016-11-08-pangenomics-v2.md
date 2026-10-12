@@ -24,7 +24,7 @@ thumbnail: /images/thumbnails/2016-11-08-pangenomics-v2.png
 
 With the anvi'o pangenomics workflow you can,
 
-* **Identify gene clusters** across your genomes, by providing anvi'o with two or more FASTA files (and/or {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %}.
+* **Identify gene clusters** across your genomes, by providing anvi'o with two or more FASTA files (and/or {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %}),
 * **Interactively visualize** your pangenomes,
 * **Estimate relationships** between your genomes based on gene clusters,
 * Visualize **rarefaction curves** and calculate **Heaps' Law** fit for your pangenomes,
@@ -34,7 +34,7 @@ With the anvi'o pangenomics workflow you can,
 * Extend your pangenome with **contextual information** about your genomes or gene clusters,
 * Quantify within-gene cluster statistics with **geometric and biochemical homogeneity** indices,
 * Perform **functional enrichment analyses** on groups of genomes in your pangenome,
-* Compute and visualize **average nucleotide identity** scores between you genomes, and more.
+* Compute and visualize **average nucleotide identity** scores between your genomes, and more.
 
 {:.notice}
 You can use anvi'o for pangenomic workflow even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
@@ -51,21 +51,21 @@ The anvi'o pangenomic workflow described here will walk you through the followin
 
 You can then use the interactive interface to {% include ARTIFACT name="bin" %} your gene clusters into {% include ARTIFACT name="collection" text="collections" %}, or use the program {% include PROGRAM name="anvi-import-collection" %} to import bins for your gene clusters, and finally you can use the program {% include PROGRAM name="anvi-summarize" %} to create a static HTML {% include ARTIFACT name="summary" %} of your pangenome. Easy peasy!
 
-The following sections will detail each step, and culminating in an example run will follow, but let's first make sure you have all the required dependencies installed and your installation is good to go.
+The following sections will detail each step and culminate in an example run, but let's first make sure you have all the required dependencies installed and your installation is good to go.
 
 ### Dependencies
 
-If your system is properly setup, this {% include PROGRAM name="anvi-self-test" %} command should run without any errors:
+If your system is properly set up, this {% include PROGRAM name="anvi-self-test" %} command should run without any errors:
 
 ``` bash
-$ anvi-self-test --suite pangenomics
+anvi-self-test --suite pangenomics
 ```
 
 ## Generating an anvi'o genomes storage
 
 A {% include ARTIFACT name="genomes-storage-db" text="genomes storage" %} is a special anvi'o database that stores information about genomes. A genomes storage can be generated only from {% include ARTIFACT name="external-genomes" %}, only from {% include ARTIFACT name="internal-genomes" %}, or a combination of both. Before we go any further, here are some definitions to clarify things:
 
-* **An external genome** is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way). Which means, you will need to convert each of your FASTA file into an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} first using the program {% include PROGRAM name="anvi-gen-contigs-database" %}. Please read the {% include ARTIFACT name="contigs-db" %} artifact to make sure you populate your contigs database with most useful information (such as annotating your genes with functions, and so on).
+* **An external genome** is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way). Which means, you will need to convert each of your FASTA files into an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} first using the program {% include PROGRAM name="anvi-gen-contigs-database" %}. Please read the {% include ARTIFACT name="contigs-db" %} artifact to make sure you populate your contigs database with most useful information (such as annotating your genes with functions, and so on).
 
 * **An internal genome** is any *genome bin* you stored in an anvi'o {% include ARTIFACT name="collection" %} (after binning and/or refining genomes from metagenomes in anvi'o). Working with *internal* genomes is quite straightforward since you already have an anvi'o contigs and an anvi'o profile database for them, but don't worry if you are reading this tutorial and this does not yet make sense to you.
 
@@ -90,7 +90,7 @@ and this is an example file for `--internal-genomes`:
 {:.notice}
 For names in the first column please use only letters, digits, and the underscore character.
 
-**Thanks to these two files, genomes described in anvi'o collections and genomes obtained via other sources can be combined and analyzed together seamlessly**. The most essential need for the coherence within the genomes storage is to make sure each internal and external genome is generated identically with respect to how genes were called, how functions were assigned, etc. Anvi'o will check for most things, but it can't stop you from doing mistakes. For instance, if the gene caller that identified open reading frames is not identical across all contigs databases, the genes described in genomes storage will not necessarily be comparable. If you are not sure about something, send us an e-mail, and we will be happy to try to clarify.
+**Thanks to these two files, genomes described in anvi'o collections and genomes obtained via other sources can be combined and analyzed together seamlessly**. The most essential need for the coherence within the genomes storage is to make sure each internal and external genome is generated identically with respect to how genes were called, how functions were assigned, etc. Anvi'o will check for most things, but it can't stop you from making mistakes. For instance, if the gene caller that identified open reading frames is not identical across all contigs databases, the genes described in genomes storage will not necessarily be comparable. If you are not sure about something, send us an e-mail, and we will be happy to try to clarify.
 
 <div class="extra-info" markdown="1">
 
@@ -100,13 +100,13 @@ For the sake of reproducibility, the rest of the tutorial will follow a real exa
 
 We will simply create a pangenome of 31 [Prochlorococcus isolate genomes that we used in this study](https://peerj.com/articles/4320/).
 
-If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains anvi'o {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %} files for these isolate genomes on your computer. If you copy-paste the commands below, you will get all the contigs-db files:
+If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %} for these isolate genomes. If you copy-paste the commands below, you will get all the contigs-db files:
 
 ``` bash
-# create a work directory in your home called, and go into it
+# create a work directory in your home called 'prochlorococcus-pangenome', and go into it
 mkdir -p ~/prochlorococcus-pangenome && cd ~/prochlorococcus-pangenome
 
-# create a temporary direcotry
+# create a temporary directory
 tmp_dir=$(mktemp -d /tmp/prochlorococcus.XXXXXX)
 
 # download the data pack
@@ -122,12 +122,12 @@ mkdir -p CONTIGS-DBs
 # directory
 mv $tmp_dir/Prochlorococcus_31_genomes/*db CONTIGS-DBs/
 
-# ALSO copy the additional data file from the data pack into
-# the clean work directory
+# ALSO move the additional data file from the data pack into
+# the clean work directory (and rename it)
 mv $tmp_dir/Prochlorococcus_31_genomes/layer-additional-data.txt ./genomes-data.txt
 
 # remove the temp directory so we forget all about this
-rm -rf "$tmp_dir" &&
+rm -rf "$tmp_dir"
 
 # migrate all the contigs-dbs for Prochlorococcus genomes
 anvi-migrate CONTIGS-DBs/*.db --migrate-quickly
@@ -169,7 +169,7 @@ anvi-pan-genome -g Prochlorococcus-GENOMES.db \
                 --num-threads 6
 ```
 
-The directory you have downloaded also contains a file called "layer-additional-data.txt", which summarizes the clade to which each genome belongs. Once the pangenome is computed, we can add it into the pan database using the anvi'o program {% include PROGRAM name="anvi-import-misc-data" %}:
+Your work directory also contains a file called "genomes-data.txt" (which came from the data pack), which summarizes the clade to which each genome belongs. Once the pangenome is computed, we can add it into the pan database using the anvi'o program {% include PROGRAM name="anvi-import-misc-data" %}:
 
 ``` bash
 anvi-import-misc-data genomes-data.txt \
@@ -194,17 +194,17 @@ When you run {% include PROGRAM name="anvi-pan-genome" %}, the program will,
 
 * Use only a single core by default. Depending on the number of genomes you are analyzing, this process can be very time consuming, hence you should consider increasing the number of threads to be used via the parameter `--num-threads`.
 
-* Use [DIAMOND](http://ab.inf.uni-tuebingen.de/software/diamond/) ([Buchnfink et al., 2015](http://www.nature.com/nmeth/journal/v12/n1/abs/nmeth.3176.html)) in 'fast' mode by default (or you can ask DIAMOND to be 'sensitive' by using the flag `--sensitive`) to calculate the similarity of each amino acid sequence in every genome against every other amino acid sequence across all genomes (which clearly requires you to have DIAMOND installed). Alternatively you could use the flag `--use-ncbi-blast` to use NCBI's `blastp` for amino acid sequence similarity search.
+* Use [DIAMOND](http://ab.inf.uni-tuebingen.de/software/diamond/) ([Buchfink et al., 2015](http://www.nature.com/nmeth/journal/v12/n1/abs/nmeth.3176.html)) in 'fast' mode by default (or you can ask DIAMOND to be 'sensitive' by using the flag `--sensitive`) to calculate the similarity of each amino acid sequence in every genome against every other amino acid sequence across all genomes (which clearly requires you to have DIAMOND installed). Alternatively you could use the flag `--use-ncbi-blast` to use NCBI's `blastp` for amino acid sequence similarity search.
 
 * Use every gene call, whether they are complete or not. Although this is not a big concern for complete genomes, metagenome-assembled genomes (MAGs) will have many incomplete gene calls at the end and at the beginning of contigs. We believe they do not cause major issues, but if you want to exclude them, you can use the `--exclude-partial-gene-calls` flag.
 
-* Use the *minbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two amino acid sequences. You see, the pangenomic workflow first identifies amino acid sequences that are somewhat similar by doing similarity searches, and then resolves gene clusters based on those similarities. In this scenario, weak similarities can connect gene clusters that should not be connected. Although the network partitioning algorithm can recover from these weak connections, it is always better to eliminate as much noise as possible at every step. So the minbit heuristic provides a mean to set a to eliminate weak matches between two amino acid sequences. We learned it from ITEP (Benedict MN et al, doi:10.1186/1471-2164-15-8), which is another comprehensive analysis workflow for pangenomes, and decided to use it because it makes a lot of sense. Briefly, If you have two amino acid sequences, `A` and `B`, the minbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. So the minbit score between two sequences goes to `1.0` if they are very similar over the entire length of the 'shorter' amino acid sequence, and goes to `0.0` if (1) they match over a very short stretch compared even to the length of the shorter amino acid sequence or (2) the match between sequence identity is low. The default minbit is `0.5`, but you can change it using the parameter `--minbit`.
+* Use the *minbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two amino acid sequences. You see, the pangenomic workflow first identifies amino acid sequences that are somewhat similar by doing similarity searches, and then resolves gene clusters based on those similarities. In this scenario, weak similarities can connect gene clusters that should not be connected. Although the network partitioning algorithm can recover from these weak connections, it is always better to eliminate as much noise as possible at every step. So the minbit heuristic provides a means to eliminate weak matches between two amino acid sequences. We learned it from ITEP, which is another comprehensive analysis workflow for pangenomes, and decided to use it because it makes a lot of sense. Briefly, if you have two amino acid sequences, `A` and `B`, the minbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. So the minbit score between two sequences goes to `1.0` if they are very similar over the entire length of the 'shorter' amino acid sequence, and goes to `0.0` if (1) they match over a very short stretch compared even to the length of the shorter amino acid sequence or (2) the match between sequence identity is low. The default minbit is `0.5`, but you can change it using the parameter `--minbit`.
 
-* Use the [MCL](http://micans.org/mcl/) algorithm ([van Dongen and Abreu-Goodger, 2012](http://www.ncbi.nlm.nih.gov/pubmed/22144159)) to identify clusters in amino acid sequence similarity search results. We use `2` as the *MCL inflation parameter* by default. This parameter defines the sensitivity of the algorithm during the identification of the gene clusters. More sensitivity means more clusters, but of course more clusters does not mean better inference of evolutionary relationships. More information on this parameter and it's effect on cluster granularity is here [http://micans.org/mcl/man/mclfaq.html#faq7.2](http://micans.org/mcl/man/mclfaq.html#faq7.2), but clearly, we, the metagenomics people will need to talk much more about this. So far in the Meren Lab we have been using `2` if we are comparing many distantly related genomes (i.e., genomes classify into different families or farther), and `10` if we are comparing very closely related genomes (i.e., 'strains' of the same 'species' (based whatever definition of these terms you fancy)). You can change it using the parameter `--mcl-inflation`. Please experiment yourself, and consider reporting!
+* Use the [MCL](http://micans.org/mcl/) algorithm ([van Dongen and Abreu-Goodger, 2012](http://www.ncbi.nlm.nih.gov/pubmed/22144159)) to identify clusters in amino acid sequence similarity search results. We use `2` as the *MCL inflation parameter* by default. This parameter defines the sensitivity of the algorithm during the identification of the gene clusters. More sensitivity means more clusters, but of course more clusters does not mean better inference of evolutionary relationships. More information on this parameter and its effect on cluster granularity is here [http://micans.org/mcl/man/mclfaq.html#faq7.2](http://micans.org/mcl/man/mclfaq.html#faq7.2), but clearly, we, the metagenomics people will need to talk much more about this. So far in the Meren Lab we have been using `2` if we are comparing many distantly related genomes (i.e., genomes that classify into different families or farther), and `10` if we are comparing very closely related genomes (i.e., 'strains' of the same 'species' (based on whatever definition of these terms you fancy)). You can change it using the parameter `--mcl-inflation`. Please experiment yourself, and consider reporting!
 
 * Utilize every gene cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the question you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
 
-* Perform multiple sequence alignment for sequences in each gene cluster separately (where number of threads changes a lot) to calculate homogeneity indices, and to prepare them for downstream visaulization tasks.
+* Perform multiple sequence alignment for sequences in each gene cluster separately (this is where increasing `--num-threads` helps a lot) to calculate homogeneity indices, and to prepare them for downstream visualization tasks.
 
 * Use `euclidean` distance and `ward` linkage to organize gene clusters and genomes. You can change those using `--distance` and `--linkage` parameters.
 
@@ -214,11 +214,11 @@ When {% include PROGRAM name="anvi-pan-genome" %} is done, a new anvi'o {% inclu
 
 Once your analysis is done, you will use the program {% include PROGRAM name="anvi-display-pan" %} to display your results. If you simply run it in your work directory,
 
-```
+``` bash
 anvi-display-pan
 ```
 
-it should find all the relevant files to display your pangeonme. If not, you can be explicit:
+it should find all the relevant files to display your pangenome. If not, you can be explicit:
 
 ``` bash
 anvi-display-pan -g Prochlorococcus-GENOMES.db \
@@ -228,7 +228,7 @@ anvi-display-pan -g Prochlorococcus-GENOMES.db \
 {:.notice}
 The program {% include PROGRAM name="anvi-display-pan" %} is very similar to the program {% include PROGRAM name="anvi-interactive" %}, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url 2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Similar to {% include PROGRAM name="anvi-interactive" %}, {% include PROGRAM name="anvi-display-pan" %} will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more.
 
-Here is what you should expect to see when 
+Here is what you should expect to see when you first open the pangenome:
 
 [![31 Prochlorococcus raw]({{images}}/prochlorococcus-pangenomics-raw.png)]({{images}}/prochlorococcus-pangenomics-raw.png){:.center-img .width-60}
 
@@ -249,11 +249,11 @@ Well, this is exactly where you need to start using the interface more efficient
 No excuses for bad looking pangenomes. Take a moment to practice these options.
 
 {:.notice}
-For a step-by-step instructions on how to improve a pangenome, see the polishing the pangenome section in [this reproducible workflow](https://merenlab.org/data/spiroplasma-pangenome/). But since the interface changes much more rapidly compared to these tutorials over time, nothing beats some exploration alone.
+For step-by-step instructions on how to improve a pangenome, see the "Polishing the pangenome" section in [this reproducible workflow](https://merenlab.org/data/spiroplasma-pangenome/). But since the interface changes much more rapidly compared to these tutorials over time, nothing beats exploring on your own.
 
 ## Inspecting gene clusters
 
-Every gene cluster in your analysis will contain one or more amino acid sequence that originate from one or more genomes. While there will likely be a 'core' section, in which all gene cluster will appear in every genome, it is also common to find gene clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same gene cluster). Sooner or later you will start getting curious about some of the gene clusters, and want to learn more about them. Luckily you can right-click on to any gene cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
+Every gene cluster in your analysis will contain one or more amino acid sequences that originate from one or more genomes. While there will likely be a 'core' section, in which all gene clusters will appear in every genome, it is also common to find gene clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same gene cluster). Sooner or later you will start getting curious about some of the gene clusters, and want to learn more about them. Luckily you can right-click on any gene cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
 
 [![31 Prochlorococcus final]({{images}}/pc-right-click.png)]({{images}}/pc-right-click.png){:.center-img .width-80}
 
@@ -287,27 +287,26 @@ In addition, you can search gene clusters also based on functions:
 Similarly, you can add these gene clusters into collections with whatever name you like, and summarize those collections later.
 
 {:.warning}
-Advanced access to gene clusters is also possible through the command line through the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](https://anvio.org/help/main/programs/anvi-get-sequences-for-gene-clusters/).
-
+Advanced access to gene clusters is also possible through the command line through the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}.
 
 ## Inferring the homogeneity of gene clusters
 
 {:.notice}
 This functionality is available since anvi'o `v5.2` thanks to the efforts of Mahmoud Yousef.
 
-Gene clusters are good, but not all gene clusters are created equal. By simply inspecting the alignments within just a few of gene clusters, you can witness differing levels of disagreements between amino acid sequences across different genomes.
+Gene clusters are good, but not all gene clusters are created equal. By simply inspecting the alignments within just a few gene clusters, you can witness differing levels of disagreements between amino acid sequences across different genomes.
 
 ### Concept of homogeneity
 
 A gene cluster may contain amino acid sequences from different genomes that are almost identical, which would be a highly homogeneous gene cluster. Another gene cluster may contain highly divergent amino acid sequences from different genomes, which would then be a highly non-homogeneous one, and so on.
 
-One could infer the nature of sequence homogeneity within a gene cluster by focusing on two primary attributes of sequence alignments: functional homogeneity (i.e., how conserved aligned amino acid residues across genes), and geometric homogeneity (i.e., how does the gap / residue distribution look like within a gene cluster regardless of the identity of amino acids). While it is rather straightforward to have an idea about the homogeneity of gene clusters through the manual inspection of the aligned sequences within them, it has not been possible to quantify this information automatically. But anvi'o now has you covered.
+One could infer the nature of sequence homogeneity within a gene cluster by focusing on two primary attributes of sequence alignments: functional homogeneity (i.e., how conserved aligned amino acid residues are across genes), and geometric homogeneity (i.e., what the gap/residue distribution looks like within a gene cluster regardless of the identity of amino acids). While it is rather straightforward to have an idea about the homogeneity of gene clusters through the manual inspection of the aligned sequences within them, it has not been possible to quantify this information automatically. But anvi'o now has you covered.
 
 Indeed, understanding the within gene cluster homogeneity could yield detailed ecological or evolutionary insights regarding the forces that shape the genomic context across closely related taxa, or help scrutinize gene clusters further for downstream analyses manually or programmatically. The purpose of this section is to show you how we solved this problem in anvi'o and to demonstrate its efficacy.
 
 ### Functional and geometric homogeneity estimates in anvi'o
 
-Anvi'o pangenomes contains two layers that summarize homogeneity indices for each gene cluster (and an additional one that combines the two).
+Anvi'o pangenomes contain two layers that summarize homogeneity indices for each gene cluster (and an additional one that combines the two).
 
 Here is an example in the context of our *Prochlorococcus* pangenome (see the outermost two additional layers):
 
@@ -318,13 +317,13 @@ Homogeneity indices are calculated based on the alignment. If the alignment for 
 
 #### Geometric homogeneity index
 
-The **geometric homogeneity index** indicates the degree of geometric configuration between the genes of a gene cluster. Specifically, we look for the gap/residue patterns of the gene cluster that have been determined by the alignment. The alignment process by definition aligns similar sections of genes to each other, and denotes missing residues (or different structural configurations of gene contexts) through gap characters. If gap/residue distribution patterns are mostly uniform throughout the gene cluster, then this gene cluster will have a high geometric homogeneity, and the maximum value of 1.0 indicates that are no gaps in the alignment.
+The **geometric homogeneity index** indicates the degree of geometric configuration between the genes of a gene cluster. Specifically, we look for the gap/residue patterns of the gene cluster that have been determined by the alignment. The alignment process by definition aligns similar sections of genes to each other, and denotes missing residues (or different structural configurations of gene contexts) through gap characters. If gap/residue distribution patterns are mostly uniform throughout the gene cluster, then this gene cluster will have a high geometric homogeneity, and the maximum value of 1.0 indicates that there are no gaps in the alignment.
 
-Anvi'o computes the geometric homogeneity index by combining analysis of the gene cluster content in two levels: the site-level analyses (i.e., vertically aligned positions) and the gene-level analyses (i.e., horizontally aligned positions because they are in the same gene). We convert the information in a gene cluster into a binary matrix, where gaps and residues are simply represented by 1s and 0s, and we utilize the logical operator `xor` to identify and enumerate all comparisons that have a different pattern. In site-level homogeneity checks, the algorithm sweeps from left to right and identifies these differences across aligned columns. In gene-level homogeneity checks, the algorithm sweeps from one gene to the next and identifies all differences in a gene where the pattern is not the same, effectively checking for the spread of gaps across the gene cluster. It is possible to skip the gene-level geometric homogeneity caluclations with the flag `--quick-homogeneity`. While this will not be as accurate or as comprehensive as the default approach, it may save you some time, depending on the number of genomes with which you are working.
+Anvi'o computes the geometric homogeneity index by combining analysis of the gene cluster content in two levels: the site-level analyses (i.e., vertically aligned positions) and the gene-level analyses (i.e., horizontally aligned positions because they are in the same gene). We convert the information in a gene cluster into a binary matrix, where gaps and residues are simply represented by 1s and 0s, and we utilize the logical operator `xor` to identify and enumerate all comparisons that have a different pattern. In site-level homogeneity checks, the algorithm sweeps from left to right and identifies these differences across aligned columns. In gene-level homogeneity checks, the algorithm sweeps from one gene to the next and identifies all differences in a gene where the pattern is not the same, effectively checking for the spread of gaps across the gene cluster. It is possible to skip the gene-level geometric homogeneity calculations with the flag `--quick-homogeneity`. While this will not be as accurate or as comprehensive as the default approach, it may save you some time, depending on the number of genomes with which you are working.
 
 #### Functional homogeneity index
 
-In contrast, the **functional homogeneity index** considers aligned residues (by ignoring gaps), and attempts to quantify differences across residues in a site by considering the biochemical properties of differing residues (which could affect the functional conservation of genes at the protein-level). To do this, we divided amino acids into seven different "conserved groups" based on their biochemical properties. These groups are: nonpolar, aromatic, polar uncharged, both polar and nonpolar characteristics (these amino acids also lie in groups besides this one), acidic, basic, and mostly nonpolar (but contain some polar characteristics) (for more information please see [this article]({% post_url 2018-02-13-color-coding-aa-alignments %})). Then, the algorithm goes through the entire gene cluster and assigns a similarity score between `0` and `3` to every pair of amino acids at the same position across genes based on how close the biochemical properties of the amino acid residues are to each other. The sum of all assigned similarity scores is indicative of the functional homogeneity index of the gene cluster, and will reach to its maximum value of 1.0 if all residues are identical.
+In contrast, the **functional homogeneity index** considers aligned residues (by ignoring gaps), and attempts to quantify differences across residues in a site by considering the biochemical properties of differing residues (which could affect the functional conservation of genes at the protein-level). To do this, we divided amino acids into seven different "conserved groups" based on their biochemical properties. These groups are: nonpolar, aromatic, polar uncharged, both polar and nonpolar characteristics (these amino acids also lie in groups besides this one), acidic, basic, and mostly nonpolar (but contain some polar characteristics) (for more information please see [this article]({% post_url 2018-02-13-color-coding-aa-alignments %})). Then, the algorithm goes through the entire gene cluster and assigns a similarity score between `0` and `3` to every pair of amino acids at the same position across genes based on how close the biochemical properties of the amino acid residues are to each other. The sum of all assigned similarity scores is indicative of the functional homogeneity index of the gene cluster, and will reach its maximum value of 1.0 if all residues are identical.
 
 Both indices are on a scale of 0 to 1, where 1 is completely homogeneous and 0 is completely heterogeneous. If the algorithm is interrupted by a runtime error (due to unexpected issues such as not all genes being the same length for whatever reason, etc.), it will default to error values of -1 for the indices. So **if you see a -1 in your summary outputs**, it means we failed to make sense of the alignments in that gene cluster for some reason :/
 
@@ -335,7 +334,7 @@ In reality, the complex processes that influence protein folding and the intrica
 
 Given all of that, let’s look at our pangenome again. What are they good for? Well, there is a lot one could do with these homogeneity indices, and it would be unfair to expect this tutorial to cover all of them. Nevertheless, here is an attempt to highlight some aspects of it.
 
-To get a quick idea about some of the least homogeneous gene clusters, one could order gene clusetrs based on increasing or decreasing homogeneity. Let's say we want to order it by increasing functional homogeneity (as you likely know already, this can be done through the "Items order" combo box in the main settings panel): 
+To get a quick idea about some of the least homogeneous gene clusters, one could order gene clusters based on increasing or decreasing homogeneity. Let's say we want to order it by increasing functional homogeneity (as you likely know already, this can be done through the "Items order" combo box in the main settings panel): 
 
 [![Prochlorococcus pan]({{images}}/hi-order-01.png)]({{images}}/hi-order-01.png){:.center-img .width-70}
 
@@ -367,7 +366,7 @@ One could see that there is tremendous amount of functional variability among al
 
 [![Prochlorococcus pan]({{images}}/hi-search-pane-03-inspect.png)]({{images}}/hi-search-pane-03-inspect.png){:.center-img .width-70}
 
-Those of you who read [our study on the topic](https://peerj.com/articles/4320/), would perhaps not be surprised to learn that the COG functional annotation of this particular gene cluster resolves to an [enzyme](https://en.wikipedia.org/wiki/N-acetylmuramoyl-L-alanine_amidase) that is related to cell wall/membrane/envelop biogenesis. It is always good when things check out.
+Those of you who read [our study on the topic](https://peerj.com/articles/4320/), would perhaps not be surprised to learn that the COG functional annotation of this particular gene cluster resolves to an [enzyme](https://en.wikipedia.org/wiki/N-acetylmuramoyl-L-alanine_amidase) that is related to cell wall/membrane/envelope biogenesis. It is always good when things check out.
 
 #### Scrutinizing phylogenomics
 
@@ -384,7 +383,7 @@ You could easily append those that match to these criteria to a separate bin:
 
 [![Prochlorococcus pan]({{images}}/hi-core-03.png)]({{images}}/hi-core-03.png){:.center-img .width-70}
 
-And perform a quick-and dirty analysis on-the-fly to see how they would organize your genomes directly on the interface:
+And perform a quick-and-dirty analysis on-the-fly to see how they would organize your genomes directly on the interface:
 
 [![Prochlorococcus pan]({{images}}/hi-core-04.png)]({{images}}/hi-core-04.png){:.center-img .width-70}
 
@@ -416,19 +415,29 @@ Fitting [Heaps' Law](https://en.wikipedia.org/wiki/Heaps'_law) to the rarefactio
 Running {% include PROGRAM name="anvi-compute-rarefaction-curves" %} on our Prochlorococcus pangenome the following way,
 
 ``` bash
-anvi-compute-rarefaction-curves -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+anvi-compute-rarefaction-curves -p Prochlorococcus-PAN.db \
                                 --iterations 100 \
-                                -o rarefaction.svg
+                                -O Prochlorococcus
 ```
 
 will result in the following output,
 
 
 ```
-Number of genomes found ......................: 31
-Number of iterations to run ..................: 100
-Output file ..................................: rarefaction.svg
-Heap's Law parameters estimated ..............: K=2061.7563, alpha=0.3762
+Output file prefix ...........................: Prochlorococcus
+Input database type ..........................: pan
+Num genomes found ............................: 31
+Num GCs found ................................: 6,929
+Num iterations to run ........................: 100
+Heaps' Law parameters estimated ..............: K=1950.9284, alpha=0.3725
+
+OUTPUT FILES
+===============================================
+Rarefaction curves ...........................: Prochlorococcus-rarefaction-curves.svg
+GC gain per genome for core (averages) .......: Prochlorococcus-rarefaction-core-averages.txt
+GC gain per genome for core (each iteration) .: Prochlorococcus-rarefaction-core-iterations.txt
+GC gain per genome for all (averages) ........: Prochlorococcus-rarefaction-pangenome-averages.txt
+GC gain per genome for all (each iteration) ..: Prochlorococcus-rarefaction-pangenome-iterations.txt
 ```
 
 from which we will learn that our pangenome is relatively 'open', and obtain this figure to include in our reporting of this pangenome:
@@ -436,11 +445,11 @@ from which we will learn that our pangenome is relatively 'open', and obtain thi
 [![rarefaction curves]({{images}}/rarefaction.png)]({{images}}/rarefaction.png){:.center-img .width-80}
 
 {:.notice}
-Always generate SVG or PDF outputs to be able to later edit in program such as Inkscape and fit these results into your final figures nicely.
+Always generate SVG or PDF outputs to be able to later edit in programs such as Inkscape and fit these results into your final figures nicely.
 
 ## Splitting the pangenome
 
-In some cases one might want to split a given pangenome into multiple independent pangenomes, such as one that contains only core gene clusters, or one that contains only singletons, etc. This advanced functionality is most useful when one wishes to do very high-resolution phylogenomic analyses by scrutinizing core genes in the pangenome with an orchestrated use of functional and geometric homogeneity indices (which can also be done without splitting the pangenome, but we find that it sometimes it makes things easier).
+In some cases one might want to split a given pangenome into multiple independent pangenomes, such as one that contains only core gene clusters, or one that contains only singletons, etc. This advanced functionality is most useful when one wishes to do very high-resolution phylogenomic analyses by scrutinizing core genes in the pangenome with an orchestrated use of functional and geometric homogeneity indices (which can also be done without splitting the pangenome, but we find that it sometimes makes things easier).
 
 For this we have {% include PROGRAM name="anvi-split" %}, a multi-talented program to split things, which also works with collections and bins in pan databases. Using this program you can focus on any group of gene clusters that are defined in a bin in a given pangenome, and split them into an independent and stand-alone pangenome.
 
@@ -460,7 +469,7 @@ anvi-split -p Prochlorococcus-PAN.db \
 The resulting directory would contain the following files:
 
 ```
-$ ls -lR SPLIT_PANs
+ls -lR SPLIT_PANs
 total 0
 drwxr-xr-x  3 meren  staff  96 Apr 26 16:37 Core
 drwxr-xr-x  3 meren  staff  96 Apr 26 16:37 Hl_Core
@@ -486,18 +495,18 @@ anvi-display-pan -p SPLIT_PANs/Core/PAN.db \
                  -g Prochlorococcus-GENOMES.db
 ```
 
-Would give you this display:
+would give you this display:
 
 [![split pan]({{images}}/splitting-pan-02.png)]({{images}}/splitting-pan-02.png){:.center-img .width-80}
 
-Or runnig this one instead,
+Or running this one instead,
 
 ```
 anvi-display-pan -p SPLIT_PANs/Singletons/PAN.db \
                  -g Prochlorococcus-GENOMES.db
 ```
 
-Would give you this one:
+would give you this one:
 
 [![split pan]({{images}}/splitting-pan-03.png)]({{images}}/splitting-pan-03.png){:.center-img .width-80}
 
@@ -505,11 +514,11 @@ And that's that.
 
 ## Quantifying functional enrichment in a pangenome
 
-Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters, especially those that are accessory to subsets of genomes in our pangenome. Anvi'o can help you identify functions that are enriched for some of the clades or sub clades that are included in your pangenome via the program This is done with our new and improved program {% include PROGRAM name="anvi-compute-functional-enrichment-in-pan" %}.
+Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters, especially those that are accessory to subsets of genomes in our pangenome. Anvi'o can help you identify functions that are enriched for some of the clades or sub clades that are included in your pangenome via the program {% include PROGRAM name="anvi-compute-functional-enrichment-in-pan" %}.
 
-This program utilizes information you provide by splitting your genoems into multiple grups, and finds functions that are characteristic to any of those groups, i.e. **functions that are enriched in genomes that belong to one group, but predominantly absent in genomes outside of it**.
+This program utilizes information you provide by splitting your genomes into multiple groups, and finds functions that are characteristic to any of those groups, i.e. **functions that are enriched in genomes that belong to one group, but predominantly absent in genomes outside of it**.
 
-To use this feature you must have at least one categorical additional layer information (which can easily be done via {% include PROGRAM name="anvi-import-misc-data" %}), and at least one functional annotation source for your genomes storage (which will automatically be the case if every contigs database that were used when you run {% include PROGRAM name="anvi-gen-genomes-storage" %} was annotated with the same functional source). If you are unsure whether there are any functions available to you in your genomes storage, you can run {% include PROGRAM name="anvi-db-info" %} on it and thake a look at the output.
+To use this feature you must have at least one categorical additional layer information (which can easily be done via {% include PROGRAM name="anvi-import-misc-data" %}), and at least one functional annotation source for your genomes storage (which will automatically be the case if every contigs database that was used when you ran {% include PROGRAM name="anvi-gen-genomes-storage" %} was annotated with the same functional source). If you are unsure whether there are any functions available to you in your genomes storage, you can run {% include PROGRAM name="anvi-db-info" %} on it and take a look at the output.
 
 <div class="extra-info" markdown="1">
 
@@ -525,9 +534,9 @@ Naturally, when we associate each gene cluster with a single function, we could 
 
 The careful readers will notice that we distinguish between 'functional annotation' and 'functional association' in the following text. When we mention 'functional annotation', we refer to the annotation of a single gene with a function by the functional annotation source (i.e. COGs, EggNOG, etc.), whereas 'functional association' of a gene cluster is the association of gene clusters with a single function as described above.
 
-Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Detection Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
+Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Discovery Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
 
-In addition to the enrichment test, we use a simple heuristic to find the groups that associate with each function. **This association is only meaningful for functions that are truly enriched, and should otherwise be ignored**. We simply determine that for every function, the associated groups are the ones in which the occurrence of the function of genomes is greater than the expected occurrence under a uniformal distribution (i.e. if the function was equally probable to occur in genomes from all groups). Mathematically speaking (if you are into that kind of stuff), if we denote $$E_{ij}$$ as the expected number of genomes in group $$i$$ with the function $$j$$ under the null distribution, where we consider the null distribution to be a uniform distribution. Hence:
+In addition to the enrichment test, we use a simple heuristic to find the groups that associate with each function. **This association is only meaningful for functions that are truly enriched, and should otherwise be ignored**. We simply determine that for every function, the associated groups are the ones in which the occurrence of the function of genomes is greater than the expected occurrence under a uniform distribution (i.e. if the function was equally probable to occur in genomes from all groups). Mathematically speaking (if you are into that kind of stuff), if we denote $$E_{ij}$$ as the expected number of genomes in group $$i$$ with the function $$j$$ under the null distribution, where we consider the null distribution to be a uniform distribution. Hence:
 
 $$
 \begin{equation}\label{eq:expected_occurrence}
@@ -571,19 +580,19 @@ The following describes each column in this output:
 
 * **COG14_FUNCTION** this column has the name of the specific function for which enrichment was calculated. In this example we chose to use `COG14_FUNCTION` for functional annotation, and hence the column title is `COG14_FUNCTION`. You can specify whichever functional annotation source you have in your PAN database using the `--annotation-source`, and then the analysis would be done according to that annotation source. Even if you have multiple functional annotation sources in your genome storage, only one source could be used for a single run of this program. If you wish, you could run it multiple times and each time use a different annotation source. If you don't remember which annotation sources are available in your genomes storage, you can use the flag `--list-annotation-sources`.
 
-* **enrichment_score** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. This score was developed by [Amy Willis](https://github.com/adw96). For more details about how we generate this score, see the note from Amy below.
+* **enrichment_score** is a score to measure how unique this function is to the genomes that belong to a specific group vs. all other genomes in your pangenome. This score was developed by [Amy Willis](https://github.com/adw96). For more details about how we generate this score, see the note from Amy below.
 
 * **unadjusted_p_value** is the p-value for the enrichment test (unadjusted for multiple tests).
 
-* **adjusted_q_value** is the adjusted q-value to control for False Detection Rate (FDR) due to multiple tests (this is necessary since we are running the enrichment test each function separately).
+* **adjusted_q_value** is the adjusted q-value to control for False Discovery Rate (FDR) due to multiple tests (this is necessary since we are running the enrichment test for each function separately).
 
 * **associated_groups** is the list of groups (or labels) in your categorical data that are associated with the function. Notice that if the enrichment score is low, then this is meaningless (if the function is not enriched, then it is not really associated with any specific group/s). See Alon's explanation above to understand how these are computed.
 
-* **function_accession** is the function accession number.
+* **accession** is the function accession number.
 
 * **gene_clusters_ids** are the gene clusters that were associated with this function. Notice that each gene cluster would be associated with a single function, but a function could be associated with multiple gene clusters.
 
-* **p_LL, p_HL** for each group (in the case of this example there are two groups: `LL` and `LH`) there will be a column with the portion of the group members in which we detected the funtion.
+* **p_LL, p_HL** for each group (in the case of this example there are two groups: `LL` and `HL`) there will be a column with the portion of the group members in which we detected the function.
 
 * **N_LL, N_HL** for each group these columns specify the total number of genomes in the group.
 
@@ -673,11 +682,11 @@ There you have it.
 
 If you are working with isolate genomes, maybe you should consider ordering them based on gene cluster frequencies since you *would* expect a proper organization of genomes based on gene clusters should often match with their overall similarity. Here are some small notes:
 
-* In this case it is easy to see that organization by gene cluster presence/absence data is doing a poor jobby mixing up high-light group II (purple) and high-light group I (poopcolor) genomes. We can identify the problem clealry because we know the clades to which these genomes belong, in cases where you have no idea about these relationships, it seems gene cluster frequencies can organize your genomes more accurately.
+* In this case it is easy to see that organization by gene cluster presence/absence data is doing a poor job by mixing up high-light group II (purple) and high-light group I (poopcolor) genomes. We can identify the problem clearly because we know the clades to which these genomes belong, in cases where you have no idea about these relationships, it seems gene cluster frequencies can organize your genomes more accurately.
 
-* It is sad to know that MAGs will often lack multi-copy genes, and they will have less paralogs (since assembly of short reads create very complex de Bruijn graphs which obliterate all redundancy in a given genome), hence their proper organization will not truly benefit from gene cluster frequency data, at least not as much as isolate genomes, and the errors we see with gene cluster presence/absence data-based organization will have a larger impact on our pangenomes.
+* It is sad to know that MAGs will often lack multi-copy genes, and they will have fewer paralogs (since assembly of short reads creates very complex de Bruijn graphs which obliterate all redundancy in a given genome), hence their proper organization will not truly benefit from gene cluster frequency data, at least not as much as isolate genomes, and the errors we see with gene cluster presence/absence data-based organization will have a larger impact on our pangenomes.
 
-* See the emergence of those sub-clades in high-light group II? If you are interested, please take a look at [our paper on *Prochlorococcus* metapangenome](https://peerj.com/articles/4320/) (especially the section "**The metapangenome reveals closely related isolates with different levels of fitness**"), in which we divided HL-II into multiple subclades and showed that despite small differences between these genomes, those sub-clades displayed remarkably different environmental distribution patterns. The sub-clades that we could define in that study based on gene cluster frequencies and environmental distribution patterns match quite well to the groups ANI reveals. This goes back to some of the most fundamental questions in microbiology regarding how to define ecologically relevant units of microbial life. I don't know if we are any close to making any definition, but I can tell you that those 'phylogenetic markers' we are using ... I am not sure if they are really working that well (smiley).
+* See the emergence of those sub-clades in high-light group II? If you are interested, please take a look at [our paper on *Prochlorococcus* metapangenome](https://peerj.com/articles/4320/) (especially the section "**The metapangenome reveals closely related isolates with different levels of fitness**"), in which we divided HL-II into multiple subclades and showed that despite small differences between these genomes, those sub-clades displayed remarkably different environmental distribution patterns. The sub-clades that we could define in that study based on gene cluster frequencies and environmental distribution patterns match quite well to the groups ANI reveals. This goes back to some of the most fundamental questions in microbiology regarding how to define ecologically relevant units of microbial life. I don't know if we are anywhere close to making any definition, but I can tell you that those 'phylogenetic markers' we are using ... I am not sure if they are really working that well (smiley).
 
 </div>
 
@@ -694,10 +703,10 @@ The summary step gives you two important things: a static HTML web page you can 
 You can summarize a collection using the program {% include PROGRAM name="anvi-summarize" %}, and a generic form of this command looks like this:
 
 ``` bash
-$ anvi-summarize -p PROJECT-PAN.db \
-                 -g PROJECT-PAN-GENOMES.db \
-                 -C COLLECTION_NAME \
-                 -o PROJECT-SUMMARY
+anvi-summarize -p PROJECT-PAN.db \
+               -g PROJECT-PAN-GENOMES.db \
+               -C COLLECTION_NAME \
+               -o PROJECT-SUMMARY
 ```
 
 If you open the `index.html` file in the summary directory, you will see an output with some essential information about the analysis:
@@ -730,4 +739,4 @@ This file will link each gene from each genome with every selection you've made 
 
 ## Creating a pangenome with functions
 
-It is also possible to define gene clusters based on gene functions rather than gene sequences. This may be a useful way to compare genomes that are too distant for high-resolution analyses with pangenomics. For such applications, please see the program {% include PROGRAM name="anvi-display-functions" %}
+It is also possible to define gene clusters based on gene functions rather than gene sequences. This may be a useful way to compare genomes that are too distant for high-resolution analyses with pangenomics. For such applications, please see the program {% include PROGRAM name="anvi-display-functions" %}.
