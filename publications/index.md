@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2026-07-04
+modified: 2026-10-29
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2026
+
+<a id="10.5281/zenodo.22957431">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.5281/zenodo.22957431"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.5281/zenodo.22957431" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.5281/zenodo.22957431" target="_new">Marine microbial observatories for the future: From samples and data to scientific and societal value</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Meyer R</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Tucker SJ</span>, Bolaños LM, Bowler C, Fuhrman JA, Gold Z, Goodwin KD, Jeppesen TS, Junger PC, Larkin AA, Leinen M, Maignien L, Mallin F, Marbouty M, Martiny AC, McAllister SM, McNichol J, Montes E, Needham DM, Nunoura T, Pavloudi C, Pitz KJ, Prieto-Davo A, Raes E, Rappé MS, Robidart JC, Saito MA, Santi I, Setta SP, Signori CN, Tapilatu YH, Thompson LR, Kamp Jvd, Heyden Svd, Wietz M, Wood-Charlson EM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/meyer_tucker_et_al_mmoff_perspective.jpg"><img src="/images/pubs/meyer_tucker_et_al_mmoff_perspective.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Perspective born out of our <a href="https://merenlab.org/workshops/MMOFF/" target="_blank">Marine Microbial Observatories for the Future (MMOFF)</a> workshop, which argues that most biodiversity assessments and climate projections that guide ocean policy are missing microbes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Suggests that the problem is not technical but structural, and proposes a globally coordinated, federated observatory for the ocean microbiome, where nations keep their own samplers, vessels, and time series, and contribute standardized data products to a pool that is accessible as global commons.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Proposes a road map to 2075 with 37 priority tasks under eight goals, and four action items for coordination, coverage, data accessibility, infrastructure funding, as well as archival of samples for future scientists to analyze with newer technologies of their time.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a web resource, <a href="https://microbial-observatories.org" target="_blank">microbial-observatories.org</a>, which serves as a living catalogue of the programs that generate molecular data on marine microbes, such as long-running stations, large-scale expeditions, and time-series observatories.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Zenodo</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Marine+microbial+observatories+for+the+future:+From+samples+and+data+to+scientific+and+societal+value" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.5281/zenodo.22957431" target="_blank">doi:10.5281/zenodo.22957431</a></span>
+</div>
 
 <a id="10.64898/2026.07.03.736256">&nbsp;</a>
 <div class="pub">

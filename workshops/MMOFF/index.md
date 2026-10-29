@@ -16,10 +16,14 @@ image:
   nologo: true
 ---
 
-## About the Workshop
-How can we maximize current and future opportunities in marine microbial observation? The microbial world, though invisible to the naked eye, is central to human sustenance and the health of our planet, underpinning critical ecosystem services and contributing to climate stability. As we look to the future, omics-powered marine microbial observatories are poised to further increase in importance for understanding the complex dynamics of ocean ecosystems, offering insights that can, inter alia, help track ocean health and biodiversity loss, detect early signals of ecosystem tipping points, support biotechnical innovation, inform sustainable environmental management, and guide marine policy and conservation. However, to fully realize this potential, key aspects of the current observing system must strategically evolve. 
+{:.notice}
+**Update (October 2026)**: A *Perspective*, "**Marine microbial observatories for the future: From samples and data to scientific and societal value**" that emerged from this workshop is now available at ([doi:10.5281/zenodo.22957431](https://doi.org/10.5281/zenodo.22957431)). It covers many of the ideas from workshop as well as additional input we later have received from our broader community. It also comes with a web resource, [microbial-observatories.org](https://microbial-observatories.org), a living catalogue of the programs that generate molecular data on marine microbes. The rest of the text on this page is kept for historical purposes and to provide context for the Perspective.
 
-_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean. 
+## About the Workshop
+
+How can we maximize current and future opportunities in marine microbial observation? The microbial world, though invisible to the naked eye, is central to human sustenance and the health of our planet, underpinning critical ecosystem services and contributing to climate stability. As we look to the future, omics-powered marine microbial observatories are poised to further increase in importance for understanding the complex dynamics of ocean ecosystems, offering insights that can, inter alia, help track ocean health and biodiversity loss, detect early signals of ecosystem tipping points, support biotechnical innovation, inform sustainable environmental management, and guide marine policy and conservation. However, to fully realize this potential, key aspects of the current observing system must strategically evolve.
+
+_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
 
 **This workshop has been endorsed as an official Activity under the [UN Decade of Ocean Science for Sustainable Development (2021-2030)](https://oceandecade.org).**
 
@@ -45,7 +49,7 @@ An expected outcome of the workshop is a synthesis paper that distills these dis
 
 ## Logistics
 ##### Workshop
-Tue, 30 Sept - Wed, 01 Oct 2025 
+Tue, 30 Sept - Wed, 01 Oct 2025
 
 ##### Symposium
 Thu, 02 Oct 2025
@@ -55,8 +59,8 @@ This workshop will be followed by a [one-day symposium](https://hifmb.de/news/ev
 
 
 ##### Location
-Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
-Im Technologiepark 5, 26129 Oldenburg, Germany 
+Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB)
+Im Technologiepark 5, 26129 Oldenburg, Germany
 [https://hifmb.de](https://hifmb.de)
 
 Here is a map for you:
@@ -65,21 +69,21 @@ Here is a map for you:
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2392.8755266399307!2d8.172422278515025!3d53.15406087223417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6dfcd31a139a3%3A0xe17f26e2f76ff2c8!2sHelmholtz%20Institute%20for%20Functional%20Marine%20Biodiversity%20at%20the%20University%20of%20Oldenburg!5e0!3m2!1sen!2sde!4v1734100072289!5m2!1sen!2sde" width="600" height="450" style="border:0" allowfullscreen=""></iframe>
 </center></p>
 
-## Programme 
+## Programme
 #### Tuesday, 30 Sept 2025
 
 8:30 | Registration | Morning coffee
 09:00 | **Welcome and opening remarks** | Conference overview and objectives
 09:30 | **Participant introductions** | Brief introductions and expertise sharing
 10:00 | Coffee break
-10:30 | **Building sample legacy** | What do we need to do to build a legacy of samples for now and for the future? | 
-12:00 | Lunch at Bar Celona 
+10:30 | **Building sample legacy** | What do we need to do to build a legacy of samples for now and for the future? |
+12:00 | Lunch at Bar Celona
 13:00 | **Standardisation & reproducibility** | How can we improve standardisation and reproducibility to build trust and actionable insights?
 14:30 | Walking break
 15:00 | **Data** | What do we need to do to build a legacy of data for now and for the future?
 16:30 | **Day 1 synthesis** | Key insights, emerging themes & outstanding questions for further discussion
 17:00 | Afternoon break
-18:30 | **Dinner discussion** | Continued conversation in the city centre 
+18:30 | **Dinner discussion** | Continued conversation in the city centre
 
 #### Wednesday, 01 Oct 2025
 
@@ -87,9 +91,9 @@ Here is a map for you:
 09:00 | **Identifying major challenges** | What are the most pressing obstacles faced in marine 'omics observing?
 10:30 | Coffee break
 11:00 | **Sustainable funding strategies** | How can we secure long-term financial support for marine 'omics research infrastructure?
-12:00 | Lunch at Bar Celona  
+12:00 | Lunch at Bar Celona
 13:00 | **Policy** | How can we build a unified voice to effectively inform policy decisions and environmental management?
-14:00 | Walking break 
+14:00 | Walking break
 15:00 | **Future opportunities** | Given our discussions, what promising opportunities should we pursue collectively?
 16:30 | **Day 2 synthesis** | Key insights, emerging themes & outstanding questions for further discussion
 17:00 | **Closing remarks & next steps** | Workshop wrap-up
@@ -97,7 +101,7 @@ Here is a map for you:
 
 #### Thursday, 02. Oct 2025 ([Symposium](https://hifmb.de/news/events/mmoff-symposium/))
 
-09:00	|	Registration & welcome coffee	
+09:00	|	Registration & welcome coffee
 09:30	|	**Opening remarks and introductions**
 10:00	|	**Adam Martiny**,  UC Irvine \| _**Bio-GO-SHIP - observing the high seas**_
 10:30	|	Coffee break
@@ -159,7 +163,7 @@ Alejandra Prieto-Davó is a Professor at the National Autonomous University of M
 Amelia Hine is a critical resource geographer in the Marine Governance group at the Helmholtz Institute for Functional Marine Biodiversity (HIFMB), in Oldenburg, Germany. Amelia is interested in the interplay of power and storytelling in resource and energy futures, with a focus on nonhuman and nonliving agencies and materialities, volumetric geographies, and particulate and chemical knowability. Her current project interrogates how the principle of the common heritage of mankind is practiced in relation to the seabed in international waters. We invited Amelia because of her work on the intersection of power, policy, and marine resource governance, bringing essential social science perspectives to discussions about the long-term sustainability and equitable access of marine observing efforts.
 
 ### A. Murat Eren (Meren)
-🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/) 
+🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/)
 
 <p>
   <img src="/images/bio-meren.jpg" alt="A. Murat Eren"
@@ -291,8 +295,8 @@ Jodie van de Kamp is a Group Leader at CSIRO in Australia. Her research focuses 
 
 Kathleen (Katie) Pitz is a Senior Research Technician at MBARI in the US. Katie is interested in combining molecular and acoustic techniques to study marine ecosystems, with a focus on characterizing microbial and biological diversity in relation to oceanographic processes. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Kathleen-Pitz-2166886137) that spans biological oceanography and environmental genomics, you may know Katie from her leadership of the Better Biomolecular Ocean Practices ([BeBOP](https://bebop-obon.github.io)) project and her involvement in [OBON](https://obon-ocean.org). We invited Katie because of her expertise in molecular ecology, her leadership in the BeBOP project, and her contributions to coordinating molecular approaches within the broader ocean observing community.
 
-### Luke Thompson 
-🇺🇸 _Northern Gulf Institute (NGI), Mississippi State University_ \| [learn more](https://www.aoml.noaa.gov/luke-thompson/) 
+### Luke Thompson
+🇺🇸 _Northern Gulf Institute (NGI), Mississippi State University_ \| [learn more](https://www.aoml.noaa.gov/luke-thompson/)
 
 <p>
   <img src="/images/mmoff-2025/luke.jpeg" alt="Luke Thompson"
@@ -304,7 +308,7 @@ Luke Thompson is a Research Professor at the Northern Gulf Instutite, a NOAA Coo
 
 
 ### Matthias Wietz
-🇩🇪 _Alfred Wegener Institute for Polar and Marine Research_ \| [learn more](https://www.researchgate.net/profile/Matthias-Wietz) 
+🇩🇪 _Alfred Wegener Institute for Polar and Marine Research_ \| [learn more](https://www.researchgate.net/profile/Matthias-Wietz)
 
 <p>
   <img src="/images/mmoff-2025/matthias.jpeg" alt="Matthias Wietz"
@@ -313,11 +317,11 @@ Luke Thompson is a Research Professor at the Northern Gulf Instutite, a NOAA Coo
 </p>
 
 
-Matthias Wietz is a scientist at Alfred Wegener Institute for Polar and Marine Research in Germany. Matthias is interested in the ecology and interactions of microbes in polar oceans and sea ice, particularly the seasonal dynamics and drivers of the biological carbon pump. Besides his [diverse publications](https://scholar.google.de/citations?user=pDhsWwMAAAAJ&hl=en) spanning microbial ecology to biological oceanography, you may know him from his contributions to autonomous time-series in the [FRAM Observatory](https://www.awi.de/en/science/research-infrastructure/observatories/ocean-fram.html) as well as science communication, like the [first live concert on the North Pole](https://www.facebook.com/reel/3665040980438847). 
+Matthias Wietz is a scientist at Alfred Wegener Institute for Polar and Marine Research in Germany. Matthias is interested in the ecology and interactions of microbes in polar oceans and sea ice, particularly the seasonal dynamics and drivers of the biological carbon pump. Besides his [diverse publications](https://scholar.google.de/citations?user=pDhsWwMAAAAJ&hl=en) spanning microbial ecology to biological oceanography, you may know him from his contributions to autonomous time-series in the [FRAM Observatory](https://www.awi.de/en/science/research-infrastructure/observatories/ocean-fram.html) as well as science communication, like the [first live concert on the North Pole](https://www.facebook.com/reel/3665040980438847).
 
 
 ### Michael (Mike) S. Rappé
-🇺🇸 _Hawai’i Institute of Marine Biology_ \| [learn more](https://rappelab.wordpress.com/people/) 
+🇺🇸 _Hawai’i Institute of Marine Biology_ \| [learn more](https://rappelab.wordpress.com/people/)
 
 
 <p>
@@ -344,7 +348,7 @@ Raïssa Meyer is a postdoctoral researcher at the HIFMB in Germany. Raïssa is i
 
 ### Samantha (Sam) Setta
 
-🇺🇸 _University of Washington_ \| [learn more](https://www.pmel.noaa.gov/people/dr-samantha-setta) 
+🇺🇸 _University of Washington_ \| [learn more](https://www.pmel.noaa.gov/people/dr-samantha-setta)
 
 <p>
   <img src="/images/mmoff-2025/sam.jpeg" alt="Samantha Setta"
@@ -352,11 +356,11 @@ Raïssa Meyer is a postdoctoral researcher at the HIFMB in Germany. Raïssa is i
               border-radius: 50%; border: 6px solid #eee;">
 </p>
 
-Samantha (Sam) Setta is a postdoctoral scientist at the University of Washington, working in the Ocean Molecular Ecology (OME) lab in the US. Sam is interested in microbial eukaryotes and in improving the accuracy and reliability of taxonomy assignment in environmental sequencing data. Besides her [recent work](https://scholar.google.com/citations?user=qC_OAhcAAAAJ&hl=de&oi=ao) in biological oceanography, you may know Sam for her involvement in the Pacific Marine Environmental Laboratory ([PMEL](https://www.pmel.noaa.gov)) OME group's work to standardize 'omics methods across NOAA labs. We invited Sam because of her involvement in ocean observing in PMEL. 
+Samantha (Sam) Setta is a postdoctoral scientist at the University of Washington, working in the Ocean Molecular Ecology (OME) lab in the US. Sam is interested in microbial eukaryotes and in improving the accuracy and reliability of taxonomy assignment in environmental sequencing data. Besides her [recent work](https://scholar.google.com/citations?user=qC_OAhcAAAAJ&hl=de&oi=ao) in biological oceanography, you may know Sam for her involvement in the Pacific Marine Environmental Laboratory ([PMEL](https://www.pmel.noaa.gov)) OME group's work to standardize 'omics methods across NOAA labs. We invited Sam because of her involvement in ocean observing in PMEL.
 
 ### Sarah J. Tucker
 
-🇺🇸 _Marine Biological Laboratory (MBL)_ \| [learn more](https://sarahjtucker.com/) 
+🇺🇸 _Marine Biological Laboratory (MBL)_ \| [learn more](https://sarahjtucker.com/)
 
 <p>
   <img src="/images/bio-sarah.jpeg" alt="Sarah Tucker"
@@ -378,7 +382,7 @@ Sarah J. Tucker is a postdoctoral scientist at the Marine Biological Laboratory 
 </p>
 
 
-Teodor Georgiev is the Technical Director at Pensoft Publishers in Bulgaria. Teodor is interested in developing digital infrastructure that supports the publication, sharing, and long-term accessibility of scientific research. 
+Teodor Georgiev is the Technical Director at Pensoft Publishers in Bulgaria. Teodor is interested in developing digital infrastructure that supports the publication, sharing, and long-term accessibility of scientific research.
 Besides his [extensive body of work](https://scholar.google.com/citations?user=sg_pMtYAAAAJ&hl=de&oi=ao) on scholarly infrastructure and open science, you may know Teodor from his role in building the [ARPHA Writing Tool](https://arpha.pensoft.net) and streamlining metadata-driven publishing workflows. We invited Teodor to bring the publisher’s perspective and to support efforts in making marine ‘omics data more visible, interoperable, and reusable.
 
 ### Thomas Stjernegaard-Jeppesen
@@ -420,4 +424,4 @@ For questions contact Raïssa Meyer `raissa.meyer@awi.de`.
 We gratefully acknowledge the support of the HIFMB (Helmholtz Institute for Functional Marine Biodiversity), the AWI (Alfred Wegener Institute Helmholtz-Centre for Polar and Marine Research), and the DynaCom project at the University of Oldenburg for financially supporting this workshop.
 
 This workshop is endorsed by the United Nations Decade of Ocean Science for Sustainable Development as a Decade Activity. Use of the United Nations Decade of Ocean Science for Sustainable Development logo by a non-UN entity does not imply the endorsement of the United Nations of such entity, its products or services, or of its planned activities. For more information please access: https://forum.oceandecade.org/page/disclaimer
- 
+

@@ -72,9 +72,37 @@ people:
   Reveillaud J:
     full_name: Julie Reveillaud
     collaborator: True
+  Meyer R:
+    full_name: Raïssa Meyer
+    tenure: 2025-2027
+    collaborator: True
+
 
 
 publications:
+  - doi:
+      10.5281/zenodo.22957431
+    title:
+      "Marine microbial observatories for the future: From samples and data to scientific and societal value"
+    authors:
+      Raïssa Meyer, Sarah J. Tucker, Luis M. Bolaños, Chris Bowler, Jed A. Fuhrman, Zachary Gold, Kelly D. Goodwin, Thomas S. Jeppesen, Pedro C. Junger, Alyse A. Larkin, Margaret Leinen, Loïs Maignien, Felix Mallin, Martial Marbouty, Adam C. Martiny, Sean M. McAllister, Jesse McNichol, Enrique Montes, David M. Needham, Takuro Nunoura, Christina Pavloudi, Kathleen J. Pitz, Alejandra Prieto-Davo, Eric Raes, Michael S. Rappé, Julie C. Robidart, Mak A. Saito, Ioulia Santi, Samantha P. Setta, Camila N. Signori, Yosmina H. Tapilatu, Luke R. Thompson, Jodie van de Kamp, Sophie von der Heyden, Matthias Wietz, Elisha M. Wood-Charlson, A. Murat Eren
+    journal:
+      Zenodo
+    year:
+      2026
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - A Perspective born out of our <a href="https://merenlab.org/workshops/MMOFF/" target="_blank">Marine Microbial Observatories for the Future (MMOFF)</a> workshop, which argues that most biodiversity assessments and climate projections that guide ocean policy are missing microbes.
+        - Suggests that the problem is not technical but structural, and proposes a globally coordinated, federated observatory for the ocean microbiome, where nations keep their own samplers, vessels, and time series, and contribute standardized data products to a pool that is accessible as global commons.
+        - Proposes a road map to 2075 with 37 priority tasks under eight goals, and four action items for coordination, coverage, data accessibility, infrastructure funding, as well as archival of samples for future scientists to analyze with newer technologies of their time.
+        - Comes with a web resource, <a href="https://microbial-observatories.org" target="_blank">microbial-observatories.org</a>, which serves as a living catalogue of the programs that generate molecular data on marine microbes, such as long-running stations, large-scale expeditions, and time-series observatories.
+      featured_image:
+        /images/pubs/meyer_tucker_et_al_mmoff_perspective.jpg
+
+
   - doi:
       10.64898/2026.07.03.736256
     title:
