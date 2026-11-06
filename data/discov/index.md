@@ -21,6 +21,9 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 TBD.
 
+{:.notice}
+Developing discov was a non-linear journey. We tried some things, tested them out, worked with an initial version of discov for a while (see the [first discov pull request](https://github.com/merenlab/anvio/pull/2563)), realized some things were not working, started completely from scratch with a more extensive test dataset (the one described in this reproducible workflow) and even more metrics/formula options, and ultimately created a [second version of discov](https://github.com/merenlab/anvio/pull/2872) that worked much better. For a more concise and less confusing story, we've based this reproducible workflow off of the latter set of analyses that we did which led to the version of discov that is implemented in `anvio-dev` today. That said, when insights from our initial work are relevant to this reproducible workflow, we will mention them in a little box like this one.
+
 ## Downloading the data for this reproducible workflow
 
 TBD.
