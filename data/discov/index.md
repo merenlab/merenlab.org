@@ -343,3 +343,60 @@ Much later in the study, once we determined that we would need to incorporate th
 > My question to you is, what are the mathematical options for incorporating detection into these discov formulas in an additive, inversely weighted fashion while maintaining the overall 0-1 range?
 
 A full report of our exchanges with Claude is out of the scope of this reproducible workflow, but anyone looking for more details should feel free to contact Iva about this.
+
+Ultimately, we selected several metrics that fit the following criteria:
+- they were computable from per-nucleotide coverage arrays
+- their value was not dependent on the length of the reference sequence (or if it was, it was normalizable by reference length)
+- they had to have a 0-1 range (with 0 meaning minimal spread/evenness and 1 meaning maximal spread/evenness)
+- the formula produced as few undefined or NA values as possible
+
+## Testing potential metrics and formulations of discov
+
+We came up with a list of 6 metrics for measuring coverage spread, 8 metrics for measuring evenness of coverage depth, and 1 metric that combined both. Some of the metrics had different parameters like window size or fold-range limits, so for these we added several versions using different parameters for a coarse exploration of how these parameters affect their performance. We implemented all the metrics as functions in a branch of the anvi'o Github repository called `discov_metrics_do_not_delete` (the 'do_not_delete' part of the name is an attempt to make sure that branch stays around for you to use in the long term). The metrics were implemented such that one could run `anvi-profile-blitz` on its typical input files, and in addition to the usual output would receive an `TEST_METRICS_DISCOV.txt` file containing the computed values of each metric to be tested.
+
+To replicate the testing we did, you first need to `cd` to your anvi'o repository on your computer and run `git checkout discov_metrics_do_not_delete`. Then you can `cd -` to get back to the workflow datapack, and run the following to use the altered version of `anvi-profile-blitz` on the test dataset:
+
+```bash
+bash 01_SCRIPTS/test_samples_profile_blitz.sh
+```
+
+This script has a simple loop inside it that runs `anvi-profile-blitz` on each sample, then renames each resulting `TEST_METRICS_DISCOV.txt` file to have the sample name in it (i.e., `<SAMPLE>_TEST_METRICS_DISCOV.txt`). Afterwards we combined all the per-sample files into one with this loop:
+
+```bash
+head -n 1 04_VALIDATED_DATA/SAMEA2620786/SAMEA2620786_TEST_METRICS_DISCOV.txt > 04_VALIDATED_DATA/all_TEST_METRICS_DISCOV.txt
+while read s r1 r2
+do
+  tail -n+2 04_VALIDATED_DATA/${s}/${s}_TEST_METRICS_DISCOV.txt >> 04_VALIDATED_DATA/all_TEST_METRICS_DISCOV.txt
+done < <(tail -n+2 00_DATA/test_samples.txt)
+```
+
+Once we had computed each metric for all genome-subsample pairs in the test data, we needed to evaluate how well each metric measures spread (manually scored from 1 to 4), evenness (manually scored from 1 to 4), and presence-absence (manually validated and representable as a binary 1-0 value). To do this, we decided to compute Spearman's correlation between these manually-scored features and each metric's value across all genome-subsample pairs. Positive correlations mean that the metric tends to be high when the genome is present or has high evenness/spread, across most subsampling (sequencing depth) levels. Since all metrics yielded values in a 0-1 range, we could essentially use the correlation values to select metrics whose value was closer to 1 when the genome was present (1) in a subsample, and whose value was closer to 0 when the genome was absent (0) in a subsample.
+
+We used Claude.AI to generate an R script that would correlate all metric values with the genome presence-absence labels, their spread/evenness scores, and the genome lengths. The script also computes the proportion of NA values produced by the metric (so we could choose one that produces very few NAs), correlates all metrics with each other (so we could identify when two metrics were very similar to one another), and does a few other things like correlate metrics with subsampling level / number of sequencing reads and make a bunch of figures. We ran the correlation script like this:
+
+```bash
+Rscript 01_SCRIPTS/metric_correlations.R 00_DATA/all_validated_genomes.txt 04_VALIDATED_DATA/all_TEST_METRICS_DISCOV.txt 00_DATA/subsamples_info.txt METRIC_CORRELATIONS 10
+```
+
+where `00_DATA/all_validated_genomes.txt` has the presence/absence labels, spread/evenness scores, and genome lengths for each genome-subsample pair; `04_VALIDATED_DATA/all_TEST_METRICS_DISCOV.txt` is the table of all test metric values from the previous step; `00_DATA/subsamples_info.txt` is a file describing subsampling level and number of reads for each subsample; `METRIC_CORRELATIONS` is the output file prefix; and `10` is the number of bins to divide subsamples into for the correlations with read count.
+
+The script produces a lot of tables and plots, but the main one to look at is `METRIC_CORRELATIONS_metric_vs_targets.tsv`. We used this table to identify metrics that produced no NAs, were not correlated with genome length, and that had strong positive correlations with presence, spread, and evenness. The spread and evenness scores are highly correlated with each other since both were usually high for present genomes, so metrics that correlated with one usually correlated with the other. We also checked the metric correlations with subsampling level/number of reads (separately for present or absent genomes) to predict whether they would be able to differentiate the two classes of genomes at lower sequencing depths.
+
+In the first round of correlation testing, we identified the following metrics that performed best:
+- 'Proportion of Windows Covered' (a spread metric counting the fraction of non-overlapping windows in the reference that have at least one read mapping to them). We specifically selected the version with fine-scale windows (1% of reference length) since it had the best correlation with presence.
+- a score for evenness based on variation in per-window mean coverage depths called 'Windows Depth Evenness', specifically the version using Coefficient of Variation (CV) to measure the variation.
+- a score for evenness that computes the proportion of covered bases within some fold-range of the median ('Nonzero Depth Fold-Range Detection'). This was the only other evenness metric with a strong positive correlation to presence and was also negatively correlated with sequencing depth (that is, the metric value tends to be higher in the shallower subsamples). The sequencing depth correlation was more strongly negative for present genomes than for absent genomes, suggesting that this metric is better able to differentiate the two groups at lower sequencing depth. So we decided to keep this metric for further testing.
+- 'Log-normalized Shannon Entropy' of the coverage array, the only metric that measures both spread and evenness simultaneously and therefore could in theory be used on its own. 
+
+With the help of Claude.AI, we explored various ways to combine a spread metric with an evenness metric to form a 0-1 score, ultimately settling on either a weighted linear mean (`C = αS + (1-α)E`) or a weighted geometric mean (`C = S^α * E^(1-α)`) of the two. We call this the spread-evenness score. We fixed α at 0.5 for correlation-based testing.
+
+{:.notice}
+In our first attempt at these correlation analyses, there was a bug in the calculation of the 'Windows Depth Evenness' metrics that made them perform much worse than 'Nonzero Depth Fold-Range Detection', and therefore the [first version of the discov score](https://github.com/merenlab/anvio/pull/2563) used this metric for E. Actually, in this first version of discov we used the spread-evenness score alone to quantify distribution of coverage. But a few tests with other datasets showed that genomes with rather high detection values (>0.5) could have spread-evenness scores below the threshold we were using for presence. We therefore decided to incorporate detection into the formula and started from scratch. The correlation tests below cover the tests we did after that. 
+
+From this point, we did several rounds of adding new formulas to the test roster, recomputing the metrics with the modified `anvi-profile-blitz`, and evaluating the correlations from until we could settle on the ultimate discov formulation. We used the same two scripts as above for each round. For brevity, here I'll simply describe what we changed and what we found in each round:
+- in round 2, we added several versions of the spread-evenness score using S = Proportion of Windows Covered (fine-scale) and either E = Windows Depth Evenness or E = Nonzero Depth Fold-Range. All of these S-E scores performed better than the individual metrics alone and the 'Log-normalized Shannon Entropy' metric. They had similar correlations, with the versions using E = Windows Depth Evenness (fine-scale) slightly better than the versions using other window sizes or E = Nonzero Depth Fold-Range. Within the versions using E = Nonzero Depth Fold-Range, the ones using a narrow fold-range of 0.5x-2x were slightly better than the ones using a wider fold-range.
+- in round 3, we added plots of the spread-evenness score values for each genome across subsampling levels to track separation between present and absent genomes across sequencing depth. From the plots it became clear that the E = Windows Depth Evenness (fine-scale) options were more stable and showed better separation between the groups across sequencing depth.
+- in round 4, we added 5 different formulas combining the spread-evenness score with detection, as well as a new version of the 'Proportion of Windows Covered' metric that is normalized by the expected number of windows that would be covered if the same reads mapped randomly across the reference. We found that (a) the normalized S performed better than the unnormalized version, (b) versions of the S-E score using normalized S performed better than those using unnormalized S, and (c) different variations of the overall formulas were not easily distinguishable from one another.
+- in round 5, we removed formulas using E = Nonzero Depth Fold-Range to focus only on testing E = Windows Depth Evenness and normalized vs unnormalized S = Proportion of Windows Covered. We also augmented the correlation R script to make Receiver Operating Characteristic (ROC) curves, precision-recall curves, and a table of various classification performance metrics computed at the 'best threshold' separating present and absent genomes (with the best one chosen via maximizing F1 score, minimizing error rate, or maximizing Youden's J index). We found that regardless of how the best threshold is chosen, the best-performing discov formulas are always the same with very slight differences in precision, accuracy, error rate and the like.
+
+Ultimately, we chose the formula with the best classification performance on our test dataset (highest area under the ROC, highest precision and accuracy, lowest error rate, etc), `discov = min(1, C + D^2)` where C is the spread-evenness score using normalized S = Proportion of Windows Covered and E = Windows Depth Evenness.
