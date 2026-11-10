@@ -256,6 +256,15 @@ Here are the first few lines of this table, so you can browse the individual col
 |119.0349869692270|0.0410272|120.042258476|C_4 H_8 O_4|C4H8O4|C_4 H_7 O_4|4610|4|2.000|1.000|4|8|4|0|0|0|2243271.447|1748584.976|119.0349868693|0.1931883383|42|0.00|0.00|1|0|0|0|0|0|0|1|1|0|0|0|0|0|1.69|50|FALSE|NA|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00012461|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|0.00011364|0.00012481|0.00000000|0.00000000|0.00000000|0.00000000|0.00000000|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
+### Using this workflow with your own data
+
+The code on this page can be applied to any set of genomes and metabolomics data with a few changes. You will need:
+
+* **One {% include ARTIFACT name="contigs-db" %} per genome, with a reaction network.** Starting from a FASTA file for each genome, run {% include PROGRAM name="anvi-gen-contigs-database" %} to generate a {% include ARTIFACT name="contigs-db" %}, {% include PROGRAM name="anvi-run-kegg-kofams" %} to annotate genes with KOs, and {% include PROGRAM name="anvi-reaction-network" %} to store a {% include ARTIFACT name="reaction-network" %} in it. Name each file `<GENOME>-CONTIGS.db`.
+* **A metabolomics table** in the same tab-delimited format as `roseobacteraceae-dom-datapack-data.tsv`, with one row per molecular feature. The code uses the following columns: `formula` (atoms and counts in the format `C_5 H_10 O_3`), `formula_isotopefree` (the same formula in the format `C5H10O3`), `O` and `H` (the number of oxygen and hydrogen atoms), and, for every culture, a pair of abundance columns named `<GENOMES>_Start` and `<GENOMES>_Final`, where `<GENOMES>` is the names of the genomes in the culture joined by underscores (e.g., `SH4_Start` and `SH4_Final` for a pure culture, or `SH22_SH4_Start` and `SH22_SH4_Final` for a co-culture). A formula is searched against a culture's reaction network only when its abundance differs between the start and the end of the experiment. Other columns are carried along but not used.
+
+Then replace the genome names in `all_strains` (and in `strain_names`) in the [Genomic networks](#genomic-networks) section with your own, and run the rest of the code as is. Co-culture names must follow the order in which genome names appear in `all_strains`, since this is the order the co-culture networks are named in. If any of your genomes has more than 10,000 genes, increase the `increment` argument of `make_gcids_nonoverlapping` accordingly. Finally, the manual evaluation steps described in [Criteria](#criteria) (e.g., checking KO specificity and production pathways) will need to be repeated for the matches in your data.
+
 ## Creating the reaction networks
 
 The workflow was originally implemented in a Jupyter notebook that used anvi'o libraries to process the anvi'o {% include ARTIFACT name="reaction-network" %}.
@@ -292,7 +301,7 @@ from rdkit.Chem.Draw import rdMolDraw2D
 Imports from anvi'o will fail if the anvi'o package isn't in the Python module search path, a problem that can arise in Jupyter notebooks. If you have followed the standard installation instructions on the anvi'o installation page with the suggested file path, running this command should solve that issue:
 
 ```python
-sys.path.append('~/github/anvio')
+sys.path.append(os.path.expanduser('~/github/anvio'))
 ```
 
 Then you should be able to run these two lines in the Python shell without any errors:
