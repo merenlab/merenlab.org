@@ -629,7 +629,7 @@ for feature_row in feature_table.itertuples():
     for compound_row in compounds_with_kegg_alias_table[(compounds_with_kegg_alias_table['formula'] == formula) & (compounds_with_kegg_alias_table['charge'] == charge)].itertuples():
         isomers['kegg_isomers'].append((compound_row.Index, compound_row.name))
     for compound_row in compounds_with_kegg_reaction_table[(compounds_with_kegg_reaction_table['formula'] == formula) & (compounds_with_kegg_reaction_table['charge'] == charge)].itertuples():
-        isomers['kegg_isomers_with_reaction'].append((row.Index, row.name))
+        isomers['kegg_isomers_with_reaction'].append((compound_row.Index, compound_row.name))
 ```
 
 ```python
