@@ -11,12 +11,21 @@ redirect_from:
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Summary</span>
+<span class="extra-info-header">README</span>
 
 **The purpose of this page** is to provide access to our bioinformatics workflow that predicted compound identifications of molecular features in our study titled "**Bacterial interactions shape the molecular composition of dissolved organic matter**" by Füssel et al.
 
 In addition to providing transparency in our methods and explaining what would have happened [if we were not as stringent in our annotations as we were](#upper-limits-of-formula-annotation-what-if-we-were-less-stringent), this workflow serves **a roadmap for genomically guided compound prediction in other metabolomics experiments through the anvi'o reaction network** implemented in {% include PROGRAM name="anvi-reaction-network" %}.
 
+**System requirements.** Running {% include PROGRAM name="anvi-reaction-network" %} as used in our study requires an installation of the development version of anvi'o (`9-dev`, git commit `8bca01d3218a73a6754a55805d7f51cb93565413`; any more recent versions will also work) as described on the [anvi'o installation page](https://anvio.org/install/#development-version). This workflow has been tested on macOS (version 27.2), Ubuntu Linux (version 24.04 LTS), and Windows 11 (version 25H2, through the Windows Subsystem for Linux, WSL2, running Ubuntu 24.04 LTS). Anvi'o installs all of its own dependencies (including Python 3.10, pandas, and numpy) into a conda environment, not changing any libraries in your system. The only additional dependency for this workflow is the [RDKit](https://www.rdkit.org/) Python package, which can be installed with a single command once anvi'o is installed as described [below](#creating-the-reaction-networks). The workflow also uses the ModelSEED Biochemistry database (`v1.1.1`) and the snapshots of the KEGG database, which can be set up with anvi'o programs as described [below](#genomic-networks). The workflow does not require any non-standard hardware: any machine on which anvi'o can be installed (which includes personal computers and laptops with modest hardware) will also be enough to reproduce our work.
+
+**Installation guide.** Typical installation time for anvi'o on a desktop computer or laptop is around 15 minutes. Once anvi'o is installed, everything else on this page will work without additional installation steps beyond RDKit.
+
+**Demo.** The sections below include [the data pack](#the-data-pack) used in our study (four genomes and the metabolomics table), step-by-step instructions to run the workflow on it, and the expected output of each step, which quantitatively reproduces the results of our study. The entire workflow runs within a few minutes on a standard laptop, plus the time it takes to download and set up the ModelSEED database once.
+
+**Instructions for use.** To apply this workflow to your own genomes and metabolomics data, please see the section [Using this workflow with your own data](#using-this-workflow-with-your-own-data).
+
+**License.** Anvi'o is open-source software distributed under the [GNU General Public License v3.0](https://github.com/merenlab/anvio/blob/master/LICENSE), an [OSI-approved](https://opensource.org/licenses) license, and its source code is available at [github.com/merenlab/anvio](https://github.com/merenlab/anvio) along with the code of {% include PROGRAM name="anvi-reaction-network" %}. The code on this page is also distributed under the GNU General Public License v3.0, and the source of this page is available as a version-tracked flat text file at [github.com/merenlab/merenlab.org](https://github.com/merenlab/merenlab.org/tree/master/data/DOM-molecular-composition). The data pack is distributed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 </div>
 
 {:.notice}
