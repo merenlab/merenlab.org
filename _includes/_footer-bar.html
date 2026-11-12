@@ -1,0 +1,17 @@
+{% if page.footer_bar != false %}
+{% assign license_text = nil %}
+{% if page.license != false %}
+  {% assign license_text = page.license | default: site.default_license %}
+{% endif %}
+{% assign show_reading_time = false %}
+{% if include.reading_time and page.reading_time != false %}{% assign show_reading_time = true %}{% endif %}
+{% if license_text or show_reading_time %}
+<div class="footer-bar" role="contentinfo">
+  <div class="footer-bar-progress"></div>
+  <div class="footer-bar-content">
+    {% if license_text %}<span class="footer-bar-license"><i class="fa fa-creative-commons"></i> {{ license_text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>{% endif %}
+    {% if show_reading_time %}<span class="footer-bar-reading"><i class="fa fa-clock-o"></i> {% include _reading-time.html html=content %}</span>{% endif %}
+  </div>
+</div>
+{% endif %}
+{% endif %}
