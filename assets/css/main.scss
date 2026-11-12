@@ -1246,6 +1246,14 @@ img[src*="img.shields.io"] { border: none !important; box-shadow: none !importan
   color: #333;
 }
 
+.post-reading-time {
+  margin: -0.6em 0 0.6em;
+  font-family: var(--font-heading);
+  font-size: 0.9em;
+  color: #888;
+  .fa { margin-right: 3px; }
+}
+
 .tags {
   border: 1px solid #d7d7d7;
   padding: 0 3px;
@@ -1311,6 +1319,77 @@ body.focus-mode {
     width: 90%;
     max-width: none;
   }
+}
+
+/* ========================================================================
+   16c. Footer bar (fixed to the bottom of every page: license, reading
+        time, and reading progress as its background)
+   ======================================================================== */
+
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  height: 2.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #555;
+  background: #f3f3f3;
+  border-top: 1px solid #cfcfcf;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+
+  a, a:visited { color: #333; text-decoration: underline; }
+  a:hover { color: #000; }
+  .fa { margin-right: 4px; color: #777; }
+}
+
+.footer-bar-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background: #d9e4ee;
+  border-top: 3px solid #2f5f8a;
+  margin-top: -1px;
+  transition: width 0.1s linear;
+}
+
+.footer-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
+  height: 100%;
+  padding: 0 16px;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.footer-bar-license {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.footer-bar-reading { flex-shrink: 0; }
+
+@media (max-width: 37.5em) {
+  .footer-bar { font-size: 0.8rem; }
+  .footer-bar-content { gap: 0.75em; padding: 0 10px; }
+}
+
+/* keep the bottom of the page from hiding behind the bar */
+body:has(.footer-bar) { padding-bottom: 2.5rem; }
+
+body.focus-mode {
+  .footer-bar { display: none; }
+  padding-bottom: 0;
 }
 
 /* ========================================================================

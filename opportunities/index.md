@@ -3,6 +3,7 @@ layout: page
 title: Opportunities
 modified: 2026-03-10
 comments: false
+footer_bar: false
 ---
 
 {% include _toc.html %}

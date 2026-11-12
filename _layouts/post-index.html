@@ -88,6 +88,7 @@
                     <br>{% for tag in post.tags %}<a class="tag-lbl" href="/blog/#tag:{{ tag | downcase | replace: ' ', '-' }}" data-tag="{{ tag }}">{{ tag }}</a> {% endfor %}
                     {% endif %}
                 </p>
+                <p class="post-reading-time"><i class="fa fa-clock-o"></i> {% include _reading-time.html html=post.content prefix="~" %}</p>
                 {% if post.authors %}
                     {% include _author_mini_for_post_index.html %}
                 {% endif %}
@@ -101,9 +102,6 @@
 </div><!-- /#main -->
 
 <div class="footer-wrap">
-  <footer>
-    {% include _footer.html %}
-  </footer>
 </div><!-- /.footer-wrap -->
 
 <script>

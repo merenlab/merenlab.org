@@ -35,3 +35,20 @@ $(function() {
   $(document).on('keydown', function(e) { if (e.key === 'Escape') setFocus(false); });
 });
 </script>
+<script>
+// footer bar: fill its background as a reading progress indicator.
+$(function() {
+  var $progress = $('.footer-bar-progress');
+  if (!$progress.length) return;
+  var ticking = false;
+  function update() {
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 100;
+    $progress.css('width', pct + '%');
+    ticking = false;
+  }
+  function request() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+  $(window).on('scroll resize load', request);
+  update();
+});
+</script>
