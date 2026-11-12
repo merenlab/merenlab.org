@@ -1940,6 +1940,10 @@ If you made it this far, thank you very much. When I started working on this tut
 
 Given all that, and my uncertainty about how to approach these topics going forward, I would very much appreciate your honest feedback. If something worked for you, bridged a gap, shed light on something you didn't think about before, please let me know. Please feel free to reach out to me via meren at hifmb.de with your questions, feedback, and/or suggestions.
 
+## License
+
+Like most things on these web pages, this tutorial is licensed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Please read the details of the license text if you need to, but briefly, you are free to copy, redistribute, remix, transform, and build upon this tutorial for any purpose (and a link back to this page would be more than enough to give credit to it).
+
 ## Appendix: How can you host a modest model for your lab or institution
 
 This appendix is for those of you who have access to a GPU server, and would like to *be* completely independent of commercial subscriptions (for financial or other reasons) and use a modest model for various tasks. I have to be honest with you, though. Running a near-frontier model is extremely costly, and while `Qwen3-Coder-Next` or similar models are not too bad, they can't compete with near-frontier open-weight models such as those listed [here](https://benchlm.ai/). As of late 2026, the hardware required to set these models for your lab or department would require around 500.000 Euros, with an extremely high depreciation rate, excluding the energy, storage, and cooling costs :/
