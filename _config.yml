@@ -37,5 +37,10 @@ owner:
   email: a.murat.eren@gmail.com
   disqus-shortname: merensgithub
 
+# The license statement shown in the footer bar at the bottom of every page. A page
+# can override it with its own `license:` in its front matter, or hide the bar
+# with `license: false`. See web-tips.md for details.
+default_license: 'Contents of this page are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a>; feel free to share and adapt it for any purpose.'
+
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
