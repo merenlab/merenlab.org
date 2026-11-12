@@ -177,6 +177,38 @@ To display a header image, but not the logo of the lab.
 [Here](https://merenlab.org/2022/01/03/giant-viruses/) is an example blog post where each of these parameters were used.
 
 
+# License statements
+
+Every page on the web site has a footer bar at the bottom of the screen that shows a license statement (on pages and blog posts it also shows an estimated reading time, and its background fills up as the reader scrolls towards the end of the page; the bar disappears in focus mode). By default, the license statement says that the contents of the page are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This default is defined by `default_license` in `_config.yml`.
+
+If the contents of a page, post, or tutorial are licensed differently, you can override the default by adding a `license` statement to the header of the Markdown file. Markdown links work in it. For instance, the following would mark a page as CC BY-NC-SA 4.0:
+
+```
+---
+layout: page
+title: "A tutorial with a different license"
+license: 'This tutorial is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).'
+---
+```
+
+If you are reusing someone else's material (such as figures from a published paper) and the default statement would be misleading, please make sure to override it with an accurate one. If you have a good reason to not show any license statement on a page at all, you can hide it with the following (the reading time will still be shown on pages and posts),
+
+```
+license: false
+```
+
+Similarly, if the estimated reading time does not make sense for a page (such as a page that is mostly a list of links), you can hide it with,
+
+```
+reading_time: false
+```
+
+The main index pages of the site (home, people, publications, and blog) do not show the bar at all. If you have another page that is mostly a list of links and would look better without it, you can remove the bar entirely with,
+
+```
+footer_bar: false
+```
+
 # Code file name
 
 When we show code, we usually use the standard markdown syntax and it looks like this:
