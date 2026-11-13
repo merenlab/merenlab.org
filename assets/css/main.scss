@@ -179,17 +179,38 @@ table {
   width: 100%;
   overflow: auto;
   word-break: normal;
-  font-family: monospace;
-  font-size: small;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  line-height: 1.5;
   border-collapse: collapse;
   border-spacing: 0;
+  margin-bottom: 1.5em;
 }
-table tr { background-color: #fff; border-top: 1px solid #ccc; }
-table tr:nth-child(2n) { background-color: #f8f8f8; }
+table tr { background-color: transparent; }
+table tbody tr:hover { background-color: #f6f6f6; }
 table.js-file-line-container tr { border: 0; }
 thead { display: table-header-group; vertical-align: middle; border-color: inherit; }
 tbody { display: table-row-group; vertical-align: middle; border-color: inherit; }
-th, td { padding: 6px 13px; border: 1px solid #ddd; }
+th, td { padding: 7px 14px; border: 1px solid #e3e3e3; }
+/* drop the outer frame, keep only the inner grid */
+tr > :first-child { border-left: none; }
+tr > :last-child { border-right: none; }
+table > :first-child > tr:first-child > * { border-top: none; }
+table > :last-child > tr:last-child > * { border-bottom: none; }
+thead th {
+  font-family: var(--font-heading);
+  font-size: 1.2em;
+  border-bottom: 2px solid #333;
+}
+th:not([style*="text-align"]) { text-align: left; }
+td code {
+  font-size: 1em;
+  padding: 1px 3px;
+  background-color: #efefef;
+  border: 1px solid #cecece;
+  color: #484848;
+  border-radius: 3px;
+}
 
 summary {
   background: #f4f5ea;
